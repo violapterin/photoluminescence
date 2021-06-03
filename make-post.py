@@ -4,40 +4,47 @@ import os
 import json
 
 import porphyrin.aid as AID
+import support as SUPPORT
+
+
 
 def main()
-    folder_this = os.path.dirname(__file__)
-    subfolder_post_in = "post-input"
-    subfolder_post_out = "post-output"
-    subfolder_matter = "matter"
-    subfolder_whole = "site/posts"
-    folder_in = os.path.join(folder_this, subfolder_post_in)
-    folder_out = os.path.join(folder_this, subfolder_post_out)
-    AID.make_new(folder_in, folder_out)
-    #AID.make_all(folder_in, folder_out)
+   # Set constants.
+   folder_this = os.path.dirname(__file__)
+   folder_in = os.path.join(folder_this, "post-input")
+   folder_out = os.path.join(folder_this, "post-output")
+   folder_matter = os.path.join(folder_this, "asset")
+   folder_site = os.path.join(folder_this, "site")
+   folder_site_post = os.path.join(folder_site, "post")
+   path_entries = os.path.join(folder_matter, "entries.txt")
+   entries = json.loads(path_entries)
 
-    path_header = subfolder_matter + "/header"
-    header = AID.input_file(path_header)
+   # # Convert posts into HTML.
+   # AID.make_new(folder_in, folder_out)
+   AID.make_all(folder_in, folder_out)
 
-    footer = read.matter.footer
+   # # Combine posts into the body element.
+   for entry in entries:
+      wholes = []
+      date, title = give_date_and_title(entry.name)
+      data = {
+         date = date,
+         title = title,
+         tag = entry.tag,
+         genre = entry.genre,
+      }
 
-    entries = json.loads("entries.txt")
-    entries.check_uniqueness()
-    for entry in entries:
-        wholes = []
-        wholes.extend(["<html>", "<body>"])
-        header = write_header(
-            title = entry.title,
-            date = entry.date,
-            tag = entry.tag,
-            genre = entry.genre,
-        )
-        wholes.extend([header, content, footer])
-        wholes.append(head + body)
-        wholes.extend(["</html>", "</body>"])
-        whole = '\n'.join(wholes)
-        filename = get_filename(entry.date, entry.title)
-        write(whole, filename)
+      head = write_head(**data)
+      header_site = write_header_site(**data)
+      write_header_post(**data)
+      write_footer(**data)
+      wholes.extend(["<html>", "<body>"])
+      wholes.extend([header, content, footer])
+      wholes.append(head + body)
+      wholes.extend(["</html>", "</body>"])
+      whole = '\n'.join(wholes)
+      filename = get_filename(entry.date, entry.title)
+      write(whole, filename)
 
 
     number_post_shown = 16
@@ -55,10 +62,35 @@ def main()
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-def check_uniqueness(entries):
+def write_head()
+   folder_this = os.path.dirname(__file__)
+   path_head = os.path.join(folder_this, "asset/head")
+   header = AID.input_file(path_header)
 
-def get_newest(wholes):
+def write_header_site()
 
+def write_header_post()
+
+def write_footer()
+
+
+def get_newest(entries):
+
+def give_date_and_title(name):
+   fragments = name.split('-')
+   date = ''
+   title = ''
+   if fragments[0]:
+      date = fragments[0]
+   if fragments[1]:
+      date = fragments[1]
+   return date, title
+
+def plug_value(source, values):
+   sink = source
+   for name, value in values:
+      sink = sink.replace(name, value)
+    return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
