@@ -1,11 +1,7 @@
 [
-    {
-        "title": "190515-macroscopic-microscopic-randomness",
-        "genre": "comment"
-    },
-    {
-        "title": "210404-worries-technological-unemployment",
-        "genre": "comment"
-    },
+    {"date": "190515", "genre": "comment", "tags": ["mathematics"],
+        "title": "Macroscopic and microscopic randomness"},
+    {"date": "210404", "genre": "comment", "tags": ["technology"],
+        "title": "Worries on technological unemployment"},
     null
 ]

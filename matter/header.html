@@ -1,17 +1,26 @@
 <header>
-  <p id="header-common">
-    <a class="title-site" href="/">Photoluminescence</a>
-    <span class="tagline-site">Math, Machines, and Music</span>
-  </p>
-  <!--- image --->
-  <!--- by date, genre, tag, series --->
+  <div id="header-common">
+    <p id="heading-site">
+      <a class="title-site" href="/">Photoluminescence</a>
+      <span class="tagline-site">Math, Machines, and Music</span>
+    </p>
+    <img id="formulas-cover" src="/asset-cover.png" alt="cover formulas">
+    <nav id="menu">
+      <span class="menu-button">by date</span>
+      <span class="menu-button">by genre</span>
+      <span class="menu-button">by tag</span>
+      <span class="menu-button">by series</span>
+    </nav>
+  </div>
 </header>
 
 <header>
-  <div id="post-header">
-    <h1 class="post-title">$TITLE_POST</h1>
-    <p class="post-meta">$DATE_POST</p>
-    <p class="post-meta">$GENRE_POST</p>
-    <p class="post-meta">$TAG_POST</p>
+  <div id="header-post">
+    <h1 id="title-post">$TITLE_POST</h1>
+    <p id="data-meta">
+      <span class="post-meta">$DATE_POST</span>
+      <span class="post-meta">$GENRE_POST</span>
+      <span class="post-meta">$TAG_POST</span>
+    </p>
   </div>
 </header>
