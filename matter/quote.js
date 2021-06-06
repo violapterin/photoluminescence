@@ -1,4 +1,4 @@
-var array_text= [
+var texts= [
     `We're not doomed.
     In the grand scheme of things, 
     we're just tiny specks that will one day be forgotten.
@@ -11,5 +11,5 @@ var array_text= [
     wie unrecht tut ihr mir!`
     // // // // // // // //
 ];
-var number_random = Math.floor(Math.random() * array_text.length);
-document.getElementById("footer-quote").innerHTML = array_text[number_random];
+var choice = Math.floor(Math.random() * array_text.length);
+document.getElementById("footer-quote").innerHTML = texts[choice];
