@@ -21,13 +21,24 @@ def main():
    text_entries = AID.input_file(path_entries)
    entries = json.loads(text_entries)
    entries = [entry for entry in entries if entry is not None]
-   #order = (lambda entry: entry.get("date"))
-   entries.sort(key = lambda entry: entry.get("date"), reverse = True)
+   order = lambda entry: entry.get("date")
+   entries.sort(key = order, reverse = True)
 
    # # Convert posts into HTML article.
-   AID.make_new(folder_input, folder_output)
+   AID.make_all(folder_input, folder_output) # XXX
+   #AID.make_new(folder_input, folder_output)
 
+   # # # # # # # # # # # # # # # #
    # # Combine HTML articles into HTML.
+   path_head = os.path.join(folder_matter, "head.html")
+   path_banner = os.path.join(folder_matter, "banner.html")
+   path_header = os.path.join(folder_matter, "header.html")
+   path_footer = os.path.join(folder_matter, "footer.html")
+   head = AID.input_file(path_head)
+   banner = AID.input_file(path_banner)
+   header = AID.input_file(path_header)
+   footer = AID.input_file(path_footer)
+
    for entry in entries:
       wholes = []
       date = entry.get("date")
@@ -35,30 +46,6 @@ def main():
       genres = entry.get("genres")
       tags = entry.get("tags")
       series = entry.get("series")
-      data = {
-         "date": date,
-         "title": title,
-         "genres": genres,
-         "tags": tags,
-         "series": series,
-      }
-
-      path_post = ''
-      for name in os.listdir(folder_output):
-         if name.startswith(date):
-            path_post = os.path.join(folder_output, name)
-            break
-      if not path_post:
-         continue
-      path_head = os.path.join(folder_matter, "head.html")
-      path_header = os.path.join(folder_matter, "header.html")
-      path_footer = os.path.join(folder_matter, "footer.html")
-
-      post = AID.input_file(path_post)
-      head = AID.input_file(path_head)
-      header = AID.input_file(path_header)
-      footer = AID.input_file(path_footer)
-
       data = {
          "$DATE_POST": get_text_date(date),
          "$TITLE_POST": title,
@@ -69,38 +56,63 @@ def main():
       head = plug_head(head, data)
       header = plug_header(header, data)
 
+      path_output = ''
+      path_post = ''
+      for name in os.listdir(folder_output):
+         if name.startswith(date):
+            path_output = os.path.join(folder_output, name)
+            bare = name.split('.')[0]
+            if not bare:
+               continue
+            path_post = os.path.join(folder_post, bare + ".html")
+            break
+      output = AID.input_file(path_output)
+
       wholes.append("<html>")
       wholes.append(head)
       wholes.append("<body>")
+      wholes.append(banner)
       wholes.append(header)
-      wholes.append(post)
+      wholes.append(output)
       wholes.append(footer)
       wholes.append("</body>")
       wholes.append("</html>")
-      whole = '\n'.join(wholes)
+      whole = '\n\n'.join(wholes)
       AID.output_file(path_post, whole)
 
+   # # # # # # # # # # # # # # # #
    # # Write index.
-   number_post_shown = min(16, len(entries))
+   number_post_max = 16
+   number_post_shown = min(number_post_max, len(entries))
    entries_newest = entries[:number_post_shown]
    wholes_home = []
+   wholes_home.append("<html>")
+   wholes_home.append(head)
+   wholes_home.append("<body>")
+   wholes_home.append(banner)
+
    for entry in entries_newest:
       date = entry.get("date")
       title = entry.get("title")
       name_post = ''
-      for name in os.listdir(folder_output):
+      for name in os.listdir(folder_post):
          if name.startswith(date):
-            name_post = os.path.join(folder_output, name)
+            name_post = name
             break
-      if not name_post:
-         continue
-      item_class = "class=\"item-newest\""
-      item_href = "<a  href=\"/post/{}\">".format(name_post)
-      item_format = "<a {} {}>{}</a>"
-      item = item_format.format(item_class, item_href, title)
+      #item_kind = "class=\"item-newest\""
+      #item_link = "<a href=\"/post/{}\">".format(name_post)
+      #item = "<a {} {}>{}</a>".format(item_kind, item_link, title)
+      #item_kind = "class=\"item-newest\""
+      #item_link = "<a href=\"/post/{}\">".format(name_post)
+      kind = "class=\"item-newest\""
+      link = "href=\"/post/{}\"".format(name_post)
+      item = "<div {}> <a {}>{}</a> <div>".format(kind, link, title)
       wholes_home.append(item)
-   whole_home = '\n'.join(wholes_home)
-   print("whole_home:", whole_home) # XXX
+
+   wholes_home.append(footer)
+   wholes_home.append("</body>")
+   wholes_home.append("</html>")
+   whole_home = '\n\n'.join(wholes_home)
    path_index = os.path.join(folder_site, "index.html")
    AID.output_file(path_index, whole_home)
 
@@ -131,7 +143,6 @@ def join_with_comma(items):
       item = items
    return item
 
-
 def plug_header(source, values):
    keys = {
       "$DATE_POST",
@@ -140,7 +151,7 @@ def plug_header(source, values):
       "$TAGS_POST",
       "$SERIES_POST",
    }
-   values_part = [{key: values.get(key)} for key in keys]
+   values_part = {key: values.get(key) for key in keys}
    sink = plug_value(source, values_part)
    return sink
 
@@ -148,15 +159,14 @@ def plug_head(source, values):
    keys = {
       "$TITLE_POST",
    }
-   values_part = [{key: values.get(key)} for key in keys]
+   values_part = {key: values.get(key) for key in keys}
    sink = plug_value(source, values_part)
    return sink
 
 def plug_value(source, values):
-   print(values)
    sink = source
-   for key, value in values:
-      if not key:
+   for key, value in values.items():
+      if not key or not value:
          continue
       sink = sink.replace(key, value)
    return sink
