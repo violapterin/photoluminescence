@@ -41,12 +41,7 @@ h4,
 h5,
 h6,
 p,
-blockquote,
 pre,
-ul,
-ol,
-dl,
-figure,
 .highlight {
   margin-bottom: 15px;
 }
@@ -57,93 +52,37 @@ img {
   vertical-align: middle;
 }
 
-/* * Figures * */
-figure > img {
-  display: block;
-}
-
-figcaption {
-  font-size: 14px;
-}
-
-/* * Lists * */
-ul,
-ol {
-  margin-left: 30px;
-}
-
-li > ul,
-li > ol {
-  margin-bottom: 0;
-}
 
 /* * Headings * */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto Slab", "Noto Serif", "Noto Serif CJK KR", Georgia,
-    "Times New Roman", serif;
+h1 {
+  font-size: 30px;
+  font-family: "Roboto Slab", "Noto Serif",
+    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
   font-weight: 400;
 }
 
 h1 {
-  font-size: 28px;
-}
-
-h2 {
-  font-size: 26px;
-}
-
-h3 {
-  font-size: 24px;
-}
-
-h4 {
-  font-size: 22px;
-}
-
-h5 {
-  font-size: 20px;
-}
-
-h6 {
-  font-size: 18px;
+  font-size: 30px;
 }
 
 /* * Links * */
 a {
-  color: #6090c0;
+  color: dodgerblue;
   text-decoration: none;
 }
 a:visited {
-  color: #3c6a97;
+  color: lightsteelblue;
 }
 a:hover {
-  color: #6090c0;
+  color: lightskyblue;
   text-decoration: underline;
-}
-
-/* * Blockquotes * */
-blockquote {
-  color: #828282;
-  border-left: 4px solid #e8e8e8;
-  padding-left: 15px;
-  font-size: 18px;
-  letter-spacing: -1px;
-  font-style: italic;
-}
-blockquote > :last-child {
-  margin-bottom: 0;
 }
 
 /* * Code formatting * */
 pre,
 code {
-  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", "Courier New",
-    monospace;
+  font-family: "Source Code Pro", "Noto Sans",
+    "Noto Sans CJK KR", "Courier New", monospace;
   font-weight: 400;
   font-size: 15px;
   border: 1px solid #e8e8e8;
@@ -315,63 +254,7 @@ table tr td :last-child {
   }
 }
 
-/* * Site footer * */
-.site-footer {
-  border-top: 1px solid #e8e8e8;
-  padding: 30px 0;
-}
 
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper {
-  font-size: 15px;
-  color: #828282;
-  margin-left: -15px;
-}
-
-.footer-col {
-  float: left;
-  margin-bottom: 15px;
-  padding-left: 15px;
-}
-
-.footer-col-1 {
-  width: -webkit-calc(20% - (30px / 2));
-  width: calc(20% - (30px / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(80% - (30px / 2));
-  width: calc(80% - (30px / 2));
-}
-
-@media screen and (max-width: 800px) {
-  .footer-col-1 {
-    width: -webkit-calc(35% - (30px / 2));
-    width: calc(35% - (30px / 2));
-  }
-
-  .footer-col-2 {
-    width: -webkit-calc(65% - (30px / 2));
-    width: calc(65% - (30px / 2));
-  }
-}
-@media screen and (max-width: 600px) {
-  .footer-col {
-    float: none;
-    width: -webkit-calc(100% - (30px / 2));
-    width: calc(100% - (30px / 2));
-  }
-}
 /* * Page content * */
 
 .data-meta { color: mediumpurple }
@@ -382,25 +265,33 @@ a { color: dodgerblue }
   color: indigo
 }
 
-/* * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.title-post { font-size: 36px; }
+.title-post {font-size: 36px;}
 @media screen and (max-width: 992px) {
-  .title-post { font-size: 30px; }
+  .title-post {font-size: 30px;}
 }
 @media screen and (max-width: 600px) {
   .title-post { font-size: 24px; }
 }
 
-.post { font-size: 36px; }
+.post {font-size: 36px;}
 @media screen and (max-width: 992px) {
-  .post { font-size: 30px; }
+  .post {font-size: 30px;}
 }
 @media screen and (max-width: 600px) {
-  .post { font-size: 24px; }
+  .post {font-size: 24px;}
 }
 
-/* * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#footer-left {width: calc(40% - 30px);}
+
+#footer-right {width: calc(40% - 30px);}
 
 #gmail-icon {
   background: url("/assets/icon-gmail.png") no-repeat;
@@ -423,3 +314,7 @@ a { color: dodgerblue }
   height: 36px;
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
