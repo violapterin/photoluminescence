@@ -26,7 +26,7 @@ def main():
 
    # # Convert posts into HTML article.
    AID.make_all(folder_input, folder_output) # XXX
-   #AID.make_new(folder_input, folder_output)
+   # AID.make_new(folder_input, folder_output)
 
    # # # # # # # # # # # # # # # #
    # # Combine HTML articles into HTML.

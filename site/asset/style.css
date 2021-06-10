@@ -20,101 +20,52 @@
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+body { min-width: 750px; }
+.document { font-size: 22px; }
+@media screen and (max-width: 900px) {
+  body { min-width: 600px; }
+  .document { font-size: 20px; }
+}
+@media screen and (max-width: 720px) {
+  body { min-width: 540px; }
+  .document { font-size: 18px; }
+}
+@media screen and (max-width: 600px) {
+  body { min-width: 450px; }
+  .document { font-size: 16px; }
+}
+@media screen and (max-width: 500px) {
+  body { min-width: 400px; }
+  .document { font-size: 14px; }
+}
+@media screen and (max-width: 420px) {
+  body { min-width: 360px; }
+  .document { font-size: 13px; }
+}
+@media screen and (max-width: 360px) {
+  body { min-width: 320px; }
+  .document { font-size: 12px; }
+}
 
-.document, .graph, .break
-.paragraphs, .lines, .rows
+body
 {
-  margin: 0;
-  padding: 0;
-  font-variant-ligatures: none;
+  max-width: 800px;
+  margin: auto;
 }
 
-body, h1, p, table, div, span, em, b, i,
-.title-site, .title-post,
-.serif-roman, .serif-italic, .serif-bold
+article,
+.document,
+#header-common, #header-post, #footer-whole
 {
-  font-family: "Alegreya", "Noto Serif", "Noto Serif CJK KR",
-    "Georgia", "Times New Roman", serif;
-  color: black;
+  max-width: 720px;
+  margin: auto;
 }
 
-.serif-roman, .serif-italic, .serif-bold,
-.sans-roman, .sans-bold
-{
-  font-size: 20px;
-}
-
-.sans-roman, .sans-bold
-{
-  font-family: "Alegreya Sans", "Noto Sans", "Noto Sans CJK KR", 
-    "Verdana", "Helvetica", "Arial", sans-serif;
-}
-
-b,
-.serif-bold, .sans-bold
-{ 
-  font-weight: bold;
-}
-
-.title-site
-{
-  font-weight: bolder;
-  font-size: 32px;
-}
-
-h1
-{
-  font-family: "Roboto Slab", "Noto Serif",
-    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
-  font-size: 36px;
-}
-
-.site-tagline
-{
-  font-size: 30px;
-  font-weight: lighter;
-}
-
-em,
-.serif-italic, .sans-italic, .site-tagline
-{
-  font-style: italic;
-}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .paragraphs, .lines, .rows, .break, .graph
 {
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
-img,
-.graph
-{
-  max-width: 75%;
-  vertical-align: middle;
-}
-
-a {
-  color: dodgerblue;
-  text-decoration: none;
-}
-a:visited {
-  color: steelblue;
-}
-a:hover {
-  color: lightskyblue;
-  text-decoration: underline;
-}
-
-pre,
-.mono
-{
-  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
-    "Courier New", monospace;
-  border: 1px solid;
-  border-radius: 1px;
+  margin: 0px;
 }
 
 .lines, .rows
@@ -122,6 +73,115 @@ pre,
   padding: 4px 8px;
   overflow-x: scroll;
 }
+
+.graph
+{
+  padding: 8px;
+  max-width: 80%;
+  vertical-align: middle;
+}
+
+.paragraph, .line, .row
+{
+  margin: 0px;
+  padding: 0px;
+  text-indent: 24px;
+}
+
+.phrase, .verse, .cell
+{
+  margin: 0px 4px;
+  padding: 0px;
+  display: inline;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+div, span
+{
+  font-family: "Alegreya", serif;
+}
+
+h1, p, table, em, b,
+.title-site, .title-post,
+.serif-roman, .serif-italic, .serif-bold
+{
+  font-family: "Alegreya", "Noto Serif", "Noto Serif CJK KR",
+    "Georgia", "Times New Roman", serif;
+  font-weight: 400;
+  color: black;
+  font-variant-ligatures: none;
+}
+
+h1
+{
+  font-family: "Roboto Slab", "Noto Serif",
+    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+i,
+.sans-roman, .sans-bold
+{
+  font-family: "Alegreya Sans", "Noto Sans", "Noto Sans CJK KR", 
+    "Verdana", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  color: black;
+  font-variant-ligatures: none;
+}
+
+pre,
+.mono
+{
+  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
+    "Courier New", monospace;
+}
+
+em,
+.serif-italic, .sans-italic, .tagline-site
+{
+  font-style: italic;
+}
+
+b,
+.serif-bold, .sans-bold, .title-site
+{ 
+  font-weight: 700;
+}
+
+.title-site
+{
+  font-size: 32px;
+}
+
+.site-tagline
+{
+  font-size: 24px;
+}
+
+.menu-button
+{
+  font-size: 16px;
+}
+
+a
+{
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:visited
+{
+  color: steelblue;
+}
+
+a:hover
+{
+  color: lightskyblue;
+  text-decoration: underline;
+}
+
 
 /* deprecated? */
 /* * Icons * */
@@ -136,10 +196,6 @@ pre,
 }
 
 /* https://gist.github.com/andyferra/2554919 */
-table {
-  padding: 0;
-}
-
 table tr th, table tr td
 {
   background-color: darkseagreen;
@@ -231,62 +287,183 @@ table tr td {
 
 #header-post
 {
-  padding: 6px 18px;
-}
-
-body
-{
+  padding: 3px 6px;
   margin: auto;
 }
 
-body { width: 600px; }
-@media screen and (max-width: 720px) {
-  body { width: 480px; }
+#name-site, #menu, #cover
+{
+  width: 96%;
+  height: auto;
 }
-@media screen and (max-width: 600px) {
-  body { width: 450px; }
+
+.button-menu
+{
+  padding: 18px 6px;
+  margin: auto;
 }
-@media screen and (max-width: 500px) {
-  body { width: 400px; }
+
+#data
+{
+  padding: 24px 3px;
+  margin: auto;
 }
-@media screen and (max-width: 420px) {
-  body { width: 350px; }
+
+.button-data
+{
+  padding: 6px 3px;
+  margin: auto;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#footer-signature, #footer-quote
+{
+  margin: auto;
+  padding: 12px;
+  width: 330px;
+  height: auto;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+
+#footer-left, #footer-right
+{
+  margin: auto;
+  padding: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 #footer-left
 {
-  width: calc(45% - 24px);
+  width: 128px;
+  height: auto;
 }
 
 #footer-right
 {
-  width: calc(45% - 24px);
+  width: 168px;
+  height: auto;
 }
 
-#icon-gmail
+.footer-profile, .footer-icon, .footer-author, .footer-motto
 {
-  background: url("asset/icon-gmail.png") no-repeat;
-  float: left;
-  width: 36px;
+  margin: 2px;
+  padding: 2px;
+}
+
+.footer-icon
+{
+  width: 108px;
   height: 36px;
 }
 
-#icon-twitter
+.footer-profile
 {
-  background: url("asset/icon-twitter.png") no-repeat;
-  float: left;
-  width: 36px;
-  height: 36px;
+  width: 160px;
+  height: auto;
 }
 
-#icon-github
+.icon-gmail, .icon-twitter, .icon-github
 {
-  background: url("asset/icon-github.png") no-repeat;
+  margin: 6px;
+  padding: 0px;
   float: left;
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
 }
+
+.icon-gmail
+{
+  background: url("/asset/icon-gmail.png") no-repeat;
+  background-size: 24px;
+}
+
+.icon-twitter
+{
+  background: url("/asset/icon-twitter.png") no-repeat;
+  background-size: 24px;
+}
+
+.icon-github
+{
+  background: url("/asset/icon-github.png") no-repeat;
+  background-size: 24px;
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@font-face
+{
+  font-family: "Pseudo Hiragana";
+  src: local("Noto Serif KR");
+  font-weight: 700;
+  unicode-range: U+3040-309F;
+}
+
+@font-face
+{
+  font-family: "Pseudo Katakana";
+  src: local("Noto Sans KR");
+  font-weight: 700;
+  unicode-range: U+30a0-30FF;
+}
+
+@font-face
+{
+  font-family: "Pseudo Kanji Serif";
+  src: local("Noto Serif KR");
+  font-weight: 700;
+  unicode-range: U+4E00-9FFF;
+}
+
+@font-face
+{
+  font-family: "Pseudo Kanji Sans";
+  src: local("Noto Sans KR");
+  font-weight: 700;
+  unicode-range: U+4E00-9FFF;
+}
+
+
+.pseudo-letter-italic
+{
+  font-family: "Alegreya", "Noto Serif", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.pseudo-letter-bold
+{
+  font-family: "Alegreya", "Noto Serif", serif;
+  font-weight: 700;
+}
+
+.pseudo-letter-serif-black
+{
+  font-family: "Pseudo Kanji Serif", "Alegreya", "Noto Serif", serif;
+  font-weight: 700;
+}
+
+.pseudo-letter-sans-black
+{
+  font-family: "Pseudo Kanji Sans", "Alegreya Sans", "Noto Sans", sans-serif;
+  font-weight: 700;
+}
+
+.pseudo-sign
+{
+  font-family: "Pseudo Hiragana", "Pseudo Katakana", "Noto Serif KR", serif;
+  font-weight: 700;
+}
+
+/* pseudo-letter pseudo-sign pseudo-plain */
+/* pseudo-round pseudo-square pseudo-curly */
+/* pseudo-serif pseudo-sans pseudo-mono */

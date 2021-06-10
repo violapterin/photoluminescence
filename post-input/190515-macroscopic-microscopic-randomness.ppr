@@ -3,7 +3,7 @@
 @@Random variables, it would seem, #arise in two contexts.@@ _
 @@According to quantum mechanics, the collapse of wave function $produces truly random outcomes, since Bell’s inequality $disallows any hidden variable theory.@@ _
 @@Let us call for convenience <that quantum systems are first kind random>.@@ _
-=== ===
+'
 @@But what is the nature of macroscopic random events?@@ _
 @@Let us say we roll a die.@@ _
 @@The angle by which the die rotates, the slightest perturbation of dust, the rough surface it lands on, are all random variables, and they are so random that the point of die follows the uniform distribution.@@ _
@@ -13,7 +13,7 @@
 @@Let us call them second kind random.@@ _
 @@It is then inevitable to conclude that, strangely, somehow the first kind randomness generates the second-kind-randomness.@@ _
 @@The reason might be the central limit theorem and law of large numbers.@@ _
-=== ===
+'
 @@On the other hand, the second-kind-randomness in turn simulates the first-kind-randomness.@@ _
 @@As an example, the distribution of prime numbers is deterministic, yet they resemble a normal distribution in a certain sense.@@ _
 @@In fact, this is what I think mathematics only does.@@ _
@@ -23,9 +23,10 @@
 @@We have defined everything except the most crucial one: what randomness is.@@ _
 @@Can it be that we shall never know?@@ _
 @@Are they something we see everyday, but cannot be said?@@ _
-=== ===
+'
 @@This is what urged me to learn about Bayes theory and algorithmic randomness.@@ _
 @@More on the matter to come.@@ _
-=== ===
-%%May 15, 2019%%
+===
+===
+%%On May 15, 2019.%%
 ===
