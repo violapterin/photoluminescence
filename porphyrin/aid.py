@@ -137,7 +137,7 @@ def give_labels():
       '=': "PARAGRAPHS",
       '/': "LINES",
       '\"': "ROWS",
-      '|': "IMAGE",
+      '|': "graph",
       '`': "IDENITFIER",
       '~': "BREAK",
       '<': "COMMENT_LEFT",
@@ -179,7 +179,7 @@ def be_start_bough(label):
       "PARAGRAPHS",
       "LINES",
       "ROWS",
-      "IMAGE",
+      "graph",
       "BREAK",
       "COMMENT_LEFT",
    }

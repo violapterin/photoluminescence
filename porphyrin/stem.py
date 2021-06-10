@@ -49,9 +49,9 @@ class Document(Stem):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-class Image(Stem):
+class Graph(Stem):
 
-   KIND = "image"
+   KIND = "graph"
    TAG = "img"
 
    def __init__(self, **data):

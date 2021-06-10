@@ -3,7 +3,7 @@ from pdb import set_trace
 from . import aid as AID
 
 # # Stem: Document
-# # Stem (bough): Paragraphs, Lines, Rows, Image, Break,
+# # Stem (bough): Paragraphs, Lines, Rows, Graph, Break,
 # # Stem (twig): Paragraph, Line, Row, Newline
 # # Stem (frond): Phrase, Verse, Cell, Space
 # # Leaf: Math, Pseudo,
@@ -243,8 +243,8 @@ class Stem(Organ):
          bough = STEM.Lines(**data)
       if (label == "ROWS"):
          bough = STEM.Rows(**data)
-      if (label == "IMAGE"):
-         bough = STEM.Image(**data)
+      if (label == "graph"):
+         bough = STEM.Graph(**data)
       if (label == "BREAK"):
          bough = STEM.Break(**data)
       if (label == "COMMENT_LEFT"):
@@ -292,7 +292,7 @@ class Stem(Organ):
 
       if (label == "LINK"):
          data = self.give_data(probe_left, probe_right)
-         if (self.KIND == "image"):
+         if (self.KIND == "graph"):
             self.address = self.tune_hypertext(content)
             return None, head_right
          elif (len(sinks) > 0):

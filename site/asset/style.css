@@ -1,107 +1,121 @@
-/* * To reset * */
-body,
-h1,
-p,
-pre {
+
+/* document graph break */
+/* paragraphs lines rows */
+/* paragraph line row */
+/* phrase verse cell */
+
+/* serif-roman serif-italic serif-bold */
+/* sans-roman sans-bold mono */
+/* math pseudo */
+
+/* math-letter math-sign math-plain */
+/* math-bracket-round math-bracket-square math-bracket-curly */
+/* math-bracket-angle math-bracket-line */
+/* math-pair math-triplet math-tuple */
+/* math-serif math-sans math-mono */
+
+/* pseudo-letter pseudo-sign pseudo-plain */
+/* pseudo-round pseudo-square pseudo-curly */
+/* pseudo-serif pseudo-sans pseudo-mono */
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.document, .graph, .break
+.paragraphs, .lines, .rows
+{
   margin: 0;
   padding: 0;
   font-variant-ligatures: none;
 }
 
-/* * default styling * */
-body,
-p,
-strong {
-  font-style: normal;
-  color: #383830;
-  background-color: transparent;
-  line-height: 1.6;
+body, h1, p, table, div, span, em, b, i,
+.site-title, .title-post,
+.serif-roman, .serif-italic, .serif-bold
+{
+  font-family: "Alegreya", "Noto Serif", "Noto Serif CJK KR",
+    "Georgia", "Times New Roman", serif;
+  color: black;
 }
 
-body,
-p {
-  font-family: "Open Sans", "Noto Sans", "Noto Sans CJK KR", Verdana, Helvetica,
-    Arial, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+.sans-roman, .sans-bold
+{
+  font-family: "Alegreya Sans", "Noto Sans", "Noto Sans CJK KR", 
+    "Verdana", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
 }
 
-strong {
-  font-family: "Vollkorn", "Noto Serif", "Noto Serif CJK KR", Georgia,
-    "Times New Roman", serif;
-  font-weight: 500;
-  font-size: 18px;
+b,
+.serif-bold, .sans-bold
+{ 
+  font-weight: bold;
+  font-size: 16px;
 }
 
-/* * To set `margin-bottom` to maintain vertical rhythm * */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-pre,
-.highlight {
-  margin-bottom: 15px;
+.site-title
+{
+  font-weight: bolder;
+  font-size: 32px;
 }
 
-/* * Images * */
-img {
-  max-width: 80%;
+h1
+{
+  font-family: "Roboto Slab", "Noto Serif",
+    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.site-tagline
+{
+  font-size: 24px;
+  font-weight: lighter;
+}
+
+em,
+.serif-italic, .sans-italic, .site-tagline
+{
+  font-style: italic;
+}
+
+.paragraphs, .lines, .rows, .break, .graph
+{
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+img,
+.graph
+{
+  max-width: 75%;
   vertical-align: middle;
 }
 
-
-/* * Headings * */
-h1 {
-  font-size: 30px;
-  font-family: "Roboto Slab", "Noto Serif",
-    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
-  font-weight: 400;
-}
-
-h1 {
-  font-size: 30px;
-}
-
-/* * Links * */
 a {
   color: dodgerblue;
   text-decoration: none;
 }
 a:visited {
-  color: lightsteelblue;
+  color: steelblue;
 }
 a:hover {
   color: lightskyblue;
   text-decoration: underline;
 }
 
-/* * Code formatting * */
 pre,
-code {
-  font-family: "Source Code Pro", "Noto Sans",
-    "Noto Sans CJK KR", "Courier New", monospace;
-  font-weight: 400;
-  font-size: 15px;
-  border: 1px solid #e8e8e8;
-  border-radius: 3px;
-  background-color: #eef;
+.mono
+{
+  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
+    "Courier New", monospace;
+  border: 1px solid;
+  border-radius: 1px;
 }
 
-code {
-  padding: 1px 5px;
-}
-
-pre {
+.lines {
   padding: 8px 12px;
   overflow-x: scroll;
-}
-pre > code {
-  border: 0;
-  padding-right: 0;
-  padding-left: 0;
 }
 
 /* * Wrapper * */
@@ -186,18 +200,13 @@ table tr td :last-child {
   position: relative;
 }
 
-.site-title {
-  font-family: "Roboto Slab", "Noto Serif", "Noto Serif CJK KR", Georgia,
-    "Times New Roman", serif;
+.site-title
+{
   font-weight: 400;
   font-size: 32px;
   line-height: 56px;
   margin-bottom: 0;
   float: left;
-}
-.site-title,
-.site-title:visited {
-  color: #424242;
 }
 
 .site-nav {
