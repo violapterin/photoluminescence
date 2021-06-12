@@ -8,21 +8,31 @@ import porphyrin.aid as AID
 
 
 def main():
-   # Set folders.
+   # Set constants.
    folder_this = os.path.dirname(__file__)
    folder_input = os.path.join(folder_this, "post-input")
    folder_output = os.path.join(folder_this, "post-output")
    folder_matter = os.path.join(folder_this, "matter")
    folder_site = os.path.join(folder_this, "site")
    folder_post = os.path.join(folder_site, "post")
-
-   # Set entries.
    path_entries = os.path.join(folder_matter, "entries.json")
-   text_entries = AID.input_file(path_entries)
-   entries = json.loads(text_entries)
+   entries = json.loads(AID.input_file(path_entries))
    entries = [entry for entry in entries if entry is not None]
    order = lambda entry: entry.get("stamp")
    entries.sort(key = order, reverse = True)
+
+   path_head = os.path.join(folder_matter, "head.html")
+   head = AID.input_file(path_head)
+   path_banner = os.path.join(folder_matter, "header-post.html")
+   header_banner = AID.input_file(path_banner)
+   path_header_post = os.path.join(folder_matter, "header-post.html")
+   header_post = AID.input_file(path_header_post)
+   path_header_page = os.path.join(folder_matter, "header-page.html")
+   header_page = AID.input_file(path_header_page)
+   path_footer = os.path.join(folder_matter, "footer.html")
+   footer = AID.input_file(path_footer)
+   path_item = os.path.join(folder_matter, "item.html")
+   item = AID.input_file(path_item)
 
    # # Convert posts into HTML article.
    # AID.make_all(folder_input, folder_output) # XXX
@@ -30,60 +40,27 @@ def main():
 
    # # # # # # # # # # # # # # # #
    # # Combine HTML articles into HTML.
-   path_head = os.path.join(folder_matter, "head.html")
-   path_header = os.path.join(folder_matter, "header.html")
-   path_footer = os.path.join(folder_matter, "footer.html")
-   path_item = os.path.join(folder_matter, "item.html")
-   head = AID.input_file(path_head)
-   header = AID.input_file(path_header)
-   footer = AID.input_file(path_footer)
-   item = AID.input_file(path_item)
-
    for entry in entries:
       wholes = []
-      heading = entry.get("heading")
-      stamp = entry.get("stamp")
-      genres = create_group(entry.get("genre"))
-      tags = create_group(entry.get("tag"))
-      series = entry.get("series")
-
-      items = []
-      if stamp is not None:
-         items.append(write_element_stamp(stamp))
-      if genres is not [None]:
-         elements = [write_element_genre(genre) for genre in genres]
-         items.extend(elements)
-      if tags is not [None]:
-      items.extend([write_element_tag(tag) for tag in tags])
-      if series is not None:
-         items.append(write_element_series(series))
-      item = '\n'.join(items)
-
-      element_heading = "<heading>{}</heading>".format(heading)
-      head_plugged = head.replace("$TITLE", element_heading)
-
-      month = get_month()
-
       path_output = ''
       path_post = ''
       for name in os.listdir(folder_output):
          if name.startswith(stamp):
-            path_output = os.path.join(folder_output, name)
             bare = name.split('.')[0]
             if not bare:
                continue
+            path_output = os.path.join(folder_output, name)
             path_post = os.path.join(folder_post, bare + ".html")
             break
+      if (path_output):
+         continue
       output = AID.input_file(path_output)
 
-      wholes.append("<html>")
-      wholes.append(head_plugged)
-      wholes.append("<body>")
-      wholes.append(header_plugged)
-      wholes.append(output)
-      wholes.append(footer)
-      wholes.append("</body>")
-      wholes.append("</html>")
+      head_plugged = head.replace("$TITLE", entry.title)
+      header_plugged = write_display(header, entry, None)
+      wholes.extend(["<html>", head_plugged, "<body>"]
+      wholes.extend([banner, header_plugged, output, footer])
+      wholes.extend(["</body>", "</html>"])
       whole = '\n\n'.join(wholes)
       AID.output_file(path_post, whole)
 
@@ -93,25 +70,22 @@ def main():
    number_post_shown = min(number_post_max, len(entries))
    entries_newest = entries[:number_post_shown]
    wholes_home = []
-   wholes_home.append("<html>")
-   wholes_home.append(head)
-   wholes_home.append("<body>")
-   wholes_home.append(banner)
+   heading = "Newest"
+   head_plugged = head.replace("$TITLE", heading)
+   header_plugged = header_page.replace("$HEADING", heading)
+   wholes.extend(["<html>", head_plugged, "<body>"]
+   wholes.extend([banner, header_plugged])
 
    for entry in entries_newest:
-      stamp = entry.get("stamp")
-      heading = entry.get("heading")
-      genres = entry.get("genres")
-      tags = entry.get("tags")
-      series = entry.get("series")
       name_post = ''
       for name in os.listdir(folder_post):
-         if name.startswith(stamp):
+         if name.startswith(entry.get("stamp")):
             name_post = name
             break
-
-      plug_item(item, data)
-      wholes_home.append(plug_item(item, data))
+      if not name_post:
+         continue
+      item_plugged = write_display(item, entry, name_post)
+      wholes_home.append(item)
 
    wholes_home.append(footer)
    wholes_home.append("</body>")
@@ -121,7 +95,8 @@ def main():
    AID.output_file(path_index, whole_home)
 
    # # # # # # # # # # # # # # # #
-   # # Update pages.
+   # # Write page of stamp.
+   
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -157,10 +132,16 @@ def get_date(stamp):
    return date
 
 
-def write_heading_post(heading):
+def write_element_heading(heading, link):
    if not heading:
       return None
-   sinks = "<h1 class=\"heading-post\">{}</h1>".format(heading)
+   if not link:
+      sinks = "<h1 class=\"heading-post\">{}</h1>".format(heading)
+   else:
+      sinks = (
+         "<h1 class=\"heading-post\" + ' '
+         + "href=\"/post/{}\">{}</h1>"
+      ).format(link, heading)
    return sink
 
 def write_element_stamp(stamp):
@@ -168,7 +149,7 @@ def write_element_stamp(stamp):
       return None
    sinks = (
       "<a class=\"data-stamp\"" + ' '
-      "href=\"/stamp/{}\">{}</a>"
+      + "href=\"/stamp/{}\">{}</a>"
    ).format(unify_link(get_month(stamp)), date)
    return sink
 
@@ -177,7 +158,7 @@ def write_element_genre(genre):
       return None
    sink = (
       "<a class=\"data-genre\"" + ' '
-      "href=\"/genre/{}\">{}</a>"
+      + "href=\"/genre/{}\">{}</a>"
    ).format(unify_link(genre), genre)
    return sink
 
@@ -186,7 +167,7 @@ def write_element_tag(tag):
       return None
    sink = (
       "<a class=\"data-tag\"" + ' '
-      "href=\"/tag/{}\">{}</a>"
+      + "href=\"/tag/{}\">{}</a>"
    ).format(unify_link(genre), genre)
    return sink
 
@@ -195,7 +176,7 @@ def write_element_series(series):
       return None
    sink = (
       "<a class=\"data-series\"" + ' '
-      "href=\"/series/{}\">{}</a>"
+      + "href=\"/series/{}\">{}</a>"
    ).format(unify_link(series), series)
    return sink
 
@@ -204,68 +185,43 @@ def unify_link(source):
    sink = sink.replace(' ', '-')
    return sink
 
-def create_group(item):
+def create_group(member):
    group = []
    if (isinstance(group, list)):
-      group = item
+      group = member
    else:
-      group = [item]
+      group = [member]
    return group
 
-
-'''
-def join_with_comma(items):
-   item = ''
-   if (isinstance(items, list)):
-      item = ", ".join(items)
-   else:
-      item = items
-   return item
-
-def plug_item(source, values):
-   keys = {
-      "$NAME",
-      "$STAMP",
-      "$TITLE",
-      "$GENRES",
-      "$TAGS",
-      "$SERIES",
-   }
-   values_part = {key: values.get(key) for key in keys}
-   sink = plug_value(source, values_part)
-   return sink
-
-def plug_header(source, values):
-   keys = {
-      "$STAMP",
-      "$TITLE",
-      "$GENRES",
-      "$TAGS",
-      "$SERIES",
-   }
-   values_part = {key: values.get(key) for key in keys}
-   sink = plug_value(source, values_part)
-   return sink
-
-def plug_head(source, values):
-   keys = {
-      "$TITLE",
-   }
-   values_part = {key: values.get(key) for key in keys}
-   sink = plug_value(source, values_part)
-   return sink
-
-def plug_value(source, values):
-   sink = source
-   for key, value in values.items():
-      if not key:
-         continue
-      if not value:
-         sink = sink.replace(key, '')
-      else:
-         sink = sink.replace(key, value)
-   return sink
-'''
+def write_display(source, entry, link):
+      sink = source
+      heading = entry.get("heading")
+      stamp = entry.get("stamp")
+      genres = create_group(entry.get("genre"))
+      tags = create_group(entry.get("tag"))
+      series = entry.get("series")
+      if heading is not None:
+         element = write_element_heading(heading, link)
+         sink.replace("$HEADING", element)
+      if stamp is not None:
+         element = write_element_stamp(stamp)
+         sink.replace("$STAMP", element)
+      if genres is not [None]:
+         elements = []
+         for genre in genres:
+            elements.append(write_element_genre(genre))
+         element = '\n'.join(elements)
+         sink.replace("$GENRE", element)
+      if tags is not [None]:
+         elements = []
+         for tag in tags:
+            elements.append(write_element_tag(tag))
+         element = '\n'.join(elements)
+         sink.replace("$TAG", element)
+      if series is not None:
+         element = write_element_stamp(stamp)
+         sink.replace("$SERIES", element)
+      return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
