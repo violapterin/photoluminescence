@@ -217,7 +217,7 @@ class Rows(Stem):
 class Paragraph(Stem):
 
    KIND = "paragraph"
-   TAG = "div"
+   TAG = "p"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -248,7 +248,7 @@ class Paragraph(Stem):
 class Line(Stem):
 
    KIND = "line"
-   TAG = "div"
+   TAG = "p"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -312,7 +312,7 @@ class Row(Stem):
 class Phrase(Stem):
 
    KIND = "phrase"
-   TAG = "p"
+   TAG = "span"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -345,7 +345,7 @@ class Phrase(Stem):
 class Verse(Stem):
 
    KIND = "verse"
-   TAG = "p"
+   TAG = "span"
 
    def __init__(self, **data):
       self.fill_basic(**data)

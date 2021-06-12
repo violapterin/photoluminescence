@@ -25,8 +25,8 @@ def main():
    entries.sort(key = order, reverse = True)
 
    # # Convert posts into HTML article.
-   AID.make_all(folder_input, folder_output) # XXX
-   # AID.make_new(folder_input, folder_output)
+   # AID.make_all(folder_input, folder_output) # XXX
+   AID.make_new(folder_input, folder_output)
 
    # # # # # # # # # # # # # # # #
    # # Combine HTML articles into HTML.
@@ -34,10 +34,12 @@ def main():
    path_banner = os.path.join(folder_matter, "banner.html")
    path_header = os.path.join(folder_matter, "header.html")
    path_footer = os.path.join(folder_matter, "footer.html")
+   path_item = os.path.join(folder_matter, "item.html")
    head = AID.input_file(path_head)
    banner = AID.input_file(path_banner)
    header = AID.input_file(path_header)
    footer = AID.input_file(path_footer)
+   item = AID.input_file(path_item)
 
    for entry in entries:
       wholes = []
@@ -47,14 +49,12 @@ def main():
       tags = entry.get("tags")
       series = entry.get("series")
       data = {
-         "$DATE_POST": get_text_date(date),
-         "$TITLE_POST": title,
-         "$GENRES_POST": join_with_comma(genres),
-         "$TAGS_POST": join_with_comma(tags),
-         "$SERIES_POST": join_with_comma(series),
+         "$DATE": get_text_date(date),
+         "$TITLE": title,
+         "$GENRES": join_with_comma(genres),
+         "$TAGS": join_with_comma(tags),
+         "$SERIES": join_with_comma(series),
       }
-      head = plug_head(head, data)
-      header = plug_header(header, data)
 
       path_output = ''
       path_post = ''
@@ -69,10 +69,10 @@ def main():
       output = AID.input_file(path_output)
 
       wholes.append("<html>")
-      wholes.append(head)
+      wholes.append(plug_head(head, data))
       wholes.append("<body>")
       wholes.append(banner)
-      wholes.append(header)
+      wholes.append(plug_header(header, data))
       wholes.append(output)
       wholes.append(footer)
       wholes.append("</body>")
@@ -94,20 +94,25 @@ def main():
    for entry in entries_newest:
       date = entry.get("date")
       title = entry.get("title")
+      genres = entry.get("genres")
+      tags = entry.get("tags")
+      series = entry.get("series")
       name_post = ''
       for name in os.listdir(folder_post):
          if name.startswith(date):
             name_post = name
             break
-      #item_kind = "class=\"item-newest\""
-      #item_link = "<a href=\"/post/{}\">".format(name_post)
-      #item = "<a {} {}>{}</a>".format(item_kind, item_link, title)
-      #item_kind = "class=\"item-newest\""
-      #item_link = "<a href=\"/post/{}\">".format(name_post)
-      kind = "class=\"item-newest\""
-      link = "href=\"/post/{}\"".format(name_post)
-      item = "<div {}> <a {}>{}</a> <div>".format(kind, link, title)
-      wholes_home.append(item)
+
+      data = {
+         "$NAME": name_post,
+         "$DATE": get_text_date(date),
+         "$TITLE": title,
+         "$GENRES": join_with_comma(genres),
+         "$TAGS": join_with_comma(tags),
+         "$SERIES": join_with_comma(series),
+      }
+      plug_item(item, data)
+      wholes_home.append(plug_item(item, data))
 
    wholes_home.append(footer)
    wholes_home.append("</body>")
@@ -143,13 +148,54 @@ def join_with_comma(items):
       item = items
    return item
 
+
+def plug_item(source, values):
+   keys = {
+      "$NAME",
+      "$DATE",
+      "$TITLE",
+      "$GENRES",
+      "$TAGS",
+      "$SERIES",
+   }
+   values_part = {key: values.get(key) for key in keys}
+   sink = plug_value(source, values_part)
+   return sink
+
+def write_date(method, value): # XXX
+   sink = ''
+   sink += "<span class=\"button-{}\">".format(method)
+   anchor = "<a href=\"/{}/{}-{}.html\">{}</a>"
+   sink += anchor.format(method, method, value, value)
+   sink += "</span>"
+   return sink
+
+def write_catalog(method, value):
+   sink = ''
+   sink += "<span class=\"button-{}\">".format(method)
+   anchor = "<a href=\"/{}/{}-{}.html\">{}</a>"
+   sink += anchor.format(method, method, value, value)
+   sink += "</span>"
+   return sink
+
+def write_item(data):
+   sinks = []
+   sinks.append("<h1 class=\"title-post\">{}</h1>".format(title))
+   sinks.append(write_date(data))
+   sinks.append(write_catalog(data, value))
+   sink = '\n'.join(sinks)
+   return sink
+
+def write_title(title):
+   return "<title>{}</title>".format(title)
+
 def plug_header(source, values):
    keys = {
-      "$DATE_POST",
-      "$TITLE_POST",
-      "$GENRES_POST",
-      "$TAGS_POST",
-      "$SERIES_POST",
+      "$DATE",
+      "$TITLE",
+      "$GENRES",
+      "$TAGS",
+      "$SERIES",
    }
    values_part = {key: values.get(key) for key in keys}
    sink = plug_value(source, values_part)
@@ -157,7 +203,7 @@ def plug_header(source, values):
 
 def plug_head(source, values):
    keys = {
-      "$TITLE_POST",
+      "$TITLE",
    }
    values_part = {key: values.get(key) for key in keys}
    sink = plug_value(source, values_part)
@@ -166,9 +212,12 @@ def plug_head(source, values):
 def plug_value(source, values):
    sink = source
    for key, value in values.items():
-      if not key or not value:
+      if not key:
          continue
-      sink = sink.replace(key, value)
+      if not value:
+         sink = sink.replace(key, '')
+      else:
+         sink = sink.replace(key, value)
    return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

@@ -1,7 +1,7 @@
 [
     {"date": "190515", "title": "Macroscopic and microscopic randomness",
-        "genres": "comment", "tags": "mathematics"},
+        "genre": "comment", "tags": ["mathematics"]},
     {"date": "210404", "title": "Worries on technological unemployment",
-        "genres": "comment", "tags": "technology"},
+        "genre": "comment", "tags": ["technology"]},
     null
 ]

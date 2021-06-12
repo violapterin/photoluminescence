@@ -21,37 +21,25 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 body { min-width: 750px; }
-.document { font-size: 22px; }
 @media screen and (max-width: 900px) {
   body { min-width: 600px; }
-  .document { font-size: 20px; }
 }
 @media screen and (max-width: 720px) {
   body { min-width: 540px; }
-  .document { font-size: 18px; }
 }
 @media screen and (max-width: 600px) {
   body { min-width: 450px; }
-  .document { font-size: 16px; }
 }
 @media screen and (max-width: 500px) {
   body { min-width: 400px; }
-  .document { font-size: 14px; }
 }
 @media screen and (max-width: 420px) {
   body { min-width: 360px; }
-  .document { font-size: 13px; }
 }
 @media screen and (max-width: 360px) {
   body { min-width: 320px; }
-  .document { font-size: 12px; }
 }
 
-body
-{
-  max-width: 800px;
-  margin: auto;
-}
 
 article,
 .document,
@@ -59,40 +47,39 @@ article,
 {
   max-width: 720px;
   margin: auto;
+  font-size: 22px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .paragraphs, .lines, .rows, .break, .graph
 {
-  margin: 0px;
+  margin: 12px 0px;
 }
 
 .lines, .rows
 {
-  padding: 4px 8px;
+  padding: 0px 12px;
   overflow-x: scroll;
 }
 
 .graph
 {
-  padding: 8px;
+  padding: 12px;
   max-width: 80%;
-  vertical-align: middle;
 }
 
 .paragraph, .line, .row
 {
   margin: 0px;
   padding: 0px;
-  text-indent: 24px;
+  text-indent: 30px;
 }
 
 .phrase, .verse, .cell
 {
-  margin: 0px 4px;
+  margin: 0px 6px;
   padding: 0px;
-  display: inline;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -111,14 +98,6 @@ h1, p, table, em, b,
   font-weight: 400;
   color: black;
   font-variant-ligatures: none;
-}
-
-h1
-{
-  font-family: "Roboto Slab", "Noto Serif",
-    "Noto Serif CJK KR", "Georgia", "Times New Roman", serif;
-  font-size: 36px;
-  font-weight: 700;
 }
 
 i,
@@ -150,6 +129,40 @@ b,
   font-weight: 700;
 }
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#name-site, #menu
+{
+  margin: 12px 8px;
+  padding: 0px;
+}
+
+.tagline-site
+{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.title-site
+{
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.title-post
+{
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.item-newest
+{
+  margin: 8px 4px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+
 .title-site
 {
   font-size: 32px;
@@ -160,9 +173,10 @@ b,
   font-size: 24px;
 }
 
-.menu-button
+.button-menu,
+.button-date, .button-genres, .button-tags, .button-series
 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 a
@@ -295,6 +309,11 @@ table tr td {
 {
   width: 96%;
   height: auto;
+}
+
+#cover
+{
+  border-bottom: 3px solid;
 }
 
 .button-menu
