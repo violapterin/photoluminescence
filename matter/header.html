@@ -1,19 +1,32 @@
 <header>
+  <div id="header-common">
+    <p id="name-site">
+      <a class="title-site" href="/">Photoluminescence</a>
+      <span class="tagline-site">Math, Machines, and Music</span>
+    </p>
+    <nav id="menu">
+      <span class="button-menu">by date</span>
+      <span class="button-menu">&#x2767;</span>
+      <span class="button-menu">by genre</span>
+      <span class="button-menu">&#x2767;</span>
+      <span class="button-menu">by tag</span>
+      <span class="button-menu">&#x2767;</span>
+      <span class="button-menu">by series</span>
+    </nav>
+    <img id="cover" src="/asset/banner.png" alt="banner">
+  </div>
+</header>
+
+<header>
   <div id="header-post">
-    <h1 id="title-post">$TITLE</h1>
-    <p id="data-post">
-    <span class="button-date">
-      <a href="/date-$DATE.html">$DATE</a>
-    </span>
-    <span class="button-genres">
-      <a href="/genres-$GENRES.html">$GENRES</a>
-    </span>
-    <span class="button-tags">
-      <a href="/tags-$TAGS.html">$TAGS</a>
-    </span>
-    <span class="button-series">
-      <a href="/series-$SERIES.html">$SERIES</a>
-    </span>
+    <p class="heading-post">
+      $HEADING
+    </p>
+    <p class="data-post">
+      $STAMP
+      $GENRE
+      $TAG
+      $SERIES
     </p>
   </div>
 </header>
