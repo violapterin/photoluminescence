@@ -49,6 +49,9 @@ def input_file(path):
    return source
 
 def output_file(path, sink):
+   source = input_file(path)
+   if (source == sink):
+      return
    handle = open(path, mode = 'w')
    handle.write(sink)
    handle.close()

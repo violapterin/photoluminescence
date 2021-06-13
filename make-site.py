@@ -6,24 +6,15 @@ import re
 
 import porphyrin.aid as AID
 
-
-def main():
-   # Set constants.
-   folder_this = os.path.dirname(__file__)
+def load_matters(folder_this):
    folder_input = os.path.join(folder_this, "post-input")
    folder_output = os.path.join(folder_this, "post-output")
    folder_matter = os.path.join(folder_this, "matter")
    folder_site = os.path.join(folder_this, "site")
    folder_post = os.path.join(folder_site, "post")
-   path_entries = os.path.join(folder_matter, "entries.json")
-   entries = json.loads(AID.input_file(path_entries))
-   entries = [entry for entry in entries if entry is not None]
-   order = lambda entry: entry.get("stamp")
-   entries.sort(key = order, reverse = True)
-
    path_head = os.path.join(folder_matter, "head.html")
    head = AID.input_file(path_head)
-   path_banner = os.path.join(folder_matter, "header-post.html")
+   path_banner = os.path.join(folder_matter, "header-banner.html")
    header_banner = AID.input_file(path_banner)
    path_header_post = os.path.join(folder_matter, "header-post.html")
    header_post = AID.input_file(path_header_post)
@@ -31,16 +22,39 @@ def main():
    header_page = AID.input_file(path_header_page)
    path_footer = os.path.join(folder_matter, "footer.html")
    footer = AID.input_file(path_footer)
-   path_item = os.path.join(folder_matter, "item.html")
-   item = AID.input_file(path_item)
+   path_entry = os.path.join(folder_matter, "entry.html")
+   entry = AID.input_file(path_entry)
+   matters = {
+      "head": head,
+      "header_banner": header_banner,
+      "header_post": header_post,
+      "header_page": header_page,
+      "footer": footer,
+      "entry": entry,
+   }
+   return matters
+
+def load_records(folder_this):
+   path_records = os.path.join(folder_matter, "records.json")
+   path_records = os.path.join(folder_matter, "records.json")
+   records = json.loads(AID.input_file(path_records))
+   records = [record for record in records if record is not None]
+   order = lambda record: record.get("stamp")
+   records.sort(key = order, reverse = True)
+   return records
+
+def main():
+   folder_this = os.path.dirname(__file__)
+   records = load_records(folder_this)
+   matters = load_matters(folder_this)
 
    # # Convert posts into HTML article.
-   # AID.make_all(folder_input, folder_output) # XXX
-   AID.make_new(folder_input, folder_output)
+   AID.make_all(folder_input, folder_output) # XXX
+   # AID.make_new(folder_input, folder_output)
 
    # # # # # # # # # # # # # # # #
    # # Combine HTML articles into HTML.
-   for entry in entries:
+   for record in records:
       wholes = []
       path_output = ''
       path_post = ''
@@ -52,12 +66,12 @@ def main():
             path_output = os.path.join(folder_output, name)
             path_post = os.path.join(folder_post, bare + ".html")
             break
-      if (path_output):
+      if not path_output:
          continue
       output = AID.input_file(path_output)
 
-      head_plugged = head.replace("$TITLE", entry.title)
-      header_plugged = write_display(header, entry, None)
+      head_plugged = head.replace("$TITLE", record.title)
+      header_plugged = write_display(header, record, None)
       wholes.extend(["<html>", head_plugged, "<body>"]
       wholes.extend([banner, header_plugged, output, footer])
       wholes.extend(["</body>", "</html>"])
@@ -67,8 +81,8 @@ def main():
    # # # # # # # # # # # # # # # #
    # # Write index.
    number_post_max = 16
-   number_post_shown = min(number_post_max, len(entries))
-   entries_newest = entries[:number_post_shown]
+   number_post_shown = min(number_post_max, len(records))
+   records_newest = records[:number_post_shown]
    wholes_home = []
    heading = "Newest"
    head_plugged = head.replace("$TITLE", heading)
@@ -76,16 +90,16 @@ def main():
    wholes.extend(["<html>", head_plugged, "<body>"]
    wholes.extend([banner, header_plugged])
 
-   for entry in entries_newest:
+   for record in records_newest:
       name_post = ''
       for name in os.listdir(folder_post):
-         if name.startswith(entry.get("stamp")):
+         if name.startswith(record.get("stamp")):
             name_post = name
             break
       if not name_post:
          continue
-      item_plugged = write_display(item, entry, name_post)
-      wholes_home.append(item)
+      entry_plugged = write_display(entry, record, name_post)
+      wholes_home.append(entry)
 
    wholes_home.append(footer)
    wholes_home.append("</body>")
@@ -193,13 +207,13 @@ def create_group(member):
       group = [member]
    return group
 
-def write_display(source, entry, link):
+def write_display(source, record, link):
       sink = source
-      heading = entry.get("heading")
-      stamp = entry.get("stamp")
-      genres = create_group(entry.get("genre"))
-      tags = create_group(entry.get("tag"))
-      series = entry.get("series")
+      heading = record.get("heading")
+      stamp = record.get("stamp")
+      genres = create_group(record.get("genre"))
+      tags = create_group(record.get("tag"))
+      series = record.get("series")
       if heading is not None:
          element = write_element_heading(heading, link)
          sink.replace("$HEADING", element)
