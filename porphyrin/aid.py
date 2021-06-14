@@ -16,7 +16,7 @@ def make_new(folder_in, folder_out):
 
 def make(flag, folder_in, folder_out):
    extension_in = ".ppr"
-   extension_out = ".txt"
+   extension_out = ".html"
    things_in = os.scandir(folder_in)
    for thing_in in things_in:
       name_in = thing_in.name
@@ -31,7 +31,6 @@ def make(flag, folder_in, folder_out):
          )
          continue
       name_out = name_in.replace(extension_in, extension_out)
-      name_out = name_in.replace("in", "out")
       path_out = os.path.join(folder_out, name_out)
       if not (flag == "ALL"):
          if os.path.isfile(path_out):

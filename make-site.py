@@ -28,7 +28,7 @@ def main():
       stamp = record.get("stamp")
       path_plain = search_path_plain(folder_plain, stamp)
       plain = AID.input_file(path_plain)
-      base = os.path.basename(path_plain)
+      base = os.path.basename(path_plain).split('.')[0]
       path_post = os.path.join(folder_post, base + ".html")
       whole = write_post(matter, plain, record)
       AID.output_file(path_post, whole)
@@ -175,7 +175,7 @@ def load_record(folder_this):
 
 def write_catalog(matter, catalogs, folder_post, heading):
    wholes = []
-   head = matter["head"].replace("$TITLE", heading)
+   head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
    header_page = matter["header_page"].replace("$HEADING", heading)
    footer = matter["footer"]
@@ -202,7 +202,7 @@ def write_catalog(matter, catalogs, folder_post, heading):
 
 def write_page(matter, records, folder_post, heading):
    wholes = []
-   head = matter["head"].replace("$TITLE", heading)
+   head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
    header_page = matter["header_page"].replace("$HEADING", heading)
    footer = matter["footer"]
@@ -248,13 +248,13 @@ def write_post(matter, plain, record):
 
 def write_entry(source, record, name):
       sink = source
-      heading = record.get("heading")
+      heading = record.get("title")
       stamp = record.get("stamp")
       elision = record.get("genre")
       tags = check_group(record.get("tag"))
       series = record.get("series")
       if heading is not None:
-         element = write_element_heading(heading, name)
+         element = write_element_display(heading, name)
          sink = sink.replace("$HEADING", element)
       else:
          sink = sink.replace("$HEADING", '')
@@ -306,12 +306,16 @@ def write_element_heading(heading, name):
       return None
    sink = ''
    if not name:
-      sink = "<h1 class=\"heading-post\">{}</h1>".format(heading)
+      sink = (
+         "<h1 class=\"heading-post\">"
+         + "{}</h1>".format(heading)
+      )
    else:
       sink = (
-         "<h1 class=\"heading-post\"" + ' '
-         + "href=\"/post/{}\">{}</h1>"
-      ).format(name, heading)
+         "<h1 class=\"heading-post\">" + ' '
+         + "<a href=\"/post/{}\">".format(name)
+         + "{}</a>".format(heading) + ' ' + "</h1>"
+      )
    return sink
 
 def write_element_subheading(subheading, name):
@@ -319,12 +323,30 @@ def write_element_subheading(subheading, name):
       return None
    sink = ''
    if not name:
-      sink = "<h2 class=\"subheading-post\">{}</h2>".format(subheading)
+      sink = (
+         "<h2 class=\"subheading-post\">"
+         + "{}</h2>".format(subheading)
+      )
    else:
       sink = (
-         "<h2 class=\"subheading-post\"" + ' '
-         + "href=\"/post/{}\">{}</h2>"
-      ).format(name, subheading)
+         "<h2 class=\"subheading-post\">" + ' '
+         + "<a href=\"/post/{}\">".format(name)
+         + "{}</a>".format(subheading) + ' ' + "</h2>"
+      )
+   return sink
+
+def write_element_display(display, name):
+   if not display:
+      return None
+   sink = ''
+   if not name:
+      sink = "<p class=\"display-post\"> <span>{}</span> </p>".format(display)
+   else:
+      sink = (
+         "<p class=\"display-post\">" + ' '
+         + "<a href=\"/post/{}\">".format(name)
+         + "{}</a>".format(display) + ' ' + "</p>"
+      )
    return sink
 
 def write_element_stamp(stamp):
@@ -333,7 +355,7 @@ def write_element_stamp(stamp):
    date = get_date(stamp)
    sink = (
       "<a class=\"data-stamp\"" + ' '
-      + "href=\"/stamp/{}\">{}</a>"
+      + "href=\"/page/{}\">{}</a>"
    ).format(unify_name(get_month(stamp)) + ".html", date)
    return sink
 
@@ -343,7 +365,7 @@ def write_element_genre(elision):
       return None
    sink = (
       "<a class=\"data-genre\"" + ' '
-      + "href=\"/genre/{}\">{}</a>"
+      + "href=\"/page/{}\">{}</a>"
    ).format(unify_name(elision) + ".html", genre)
    return sink
 
@@ -352,7 +374,7 @@ def write_element_series(series):
       return None
    sink = (
       "<a class=\"data-series\"" + ' '
-      + "href=\"/series/{}\">{}</a>"
+      + "href=\"/page/{}\">{}</a>"
    ).format(unify_name(series) + ".html", series)
    return sink
 
@@ -361,7 +383,7 @@ def write_element_tag(tag):
       return None
    sink = (
       "<a class=\"data-tag\"" + ' '
-      + "href=\"/tag/{}\">{}</a>"
+      + "href=\"/page/{}\">{}</a>"
    ).format(unify_name(tag) + ".html", tag)
    return sink
 
