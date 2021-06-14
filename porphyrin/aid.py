@@ -43,6 +43,8 @@ def make(flag, folder_in, folder_out):
       convert(path_in, path_out) 
 
 def input_file(path):
+   if not os.path.exists(path):
+      return None
    handle = open(path, mode = 'r')
    source = handle.read()
    handle.close()

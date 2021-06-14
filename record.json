@@ -1,9 +1,12 @@
 [
-    {"stamp": "190515", "series": null,
-        "title": "Macroscopic and microscopic randomness",
-        "genre": "comments", "tag": "mathematics"},
-    {"stamp": "210404", "series": null,
-        "title": "Worries on technological unemployment",
-        "genre": "comments", "tag": "technology"},
-    null
+{"stamp": "190515", "genre": "comments",
+    "tag": ["Mathematics", "Physics"],
+    "title": "Macroscopic and microscopic randomness"},
+{"stamp": "210404", "genre": "comments",
+    "tag": ["Technology", "Economics"],
+    "title": "Worries on technological unemployment"},
+{"stamp": "200719", "genre": "notes",
+    "tag": ["Technology"], "series": "GitHub Page report",
+    "title": "Exploring: GitHub Page report, part 1"},
+null
 ]
