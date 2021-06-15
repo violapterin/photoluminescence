@@ -42,9 +42,9 @@ def main():
       if not month:
          continue
       if month not in catalogs_stamp:
-         catalogs_stamp[unify_name(month)] = [record]
+         catalogs_stamp[month] = [record]
          continue
-      catalogs_stamp[unify_name(month)].append(record)
+      catalogs_stamp[month].append(record)
    heading = "By date"
    whole = write_catalog(matter, catalogs_stamp, folder_post, heading)
    path_stamp = os.path.join(folder_site, "stamp.html")
@@ -57,9 +57,9 @@ def main():
       if not genre:
          continue
       if genre not in catalogs_genre:
-         catalogs_genre[unify_name(elision)] = [record]
+         catalogs_genre[genre] = [record]
          continue
-      catalogs_genre[unify_name(elision)].append(record)
+      catalogs_genre[genre].append(record)
    heading = "By genre"
    whole = write_catalog(matter, catalogs_genre, folder_post, heading)
    path_genre = os.path.join(folder_site, "genre.html")
@@ -72,9 +72,9 @@ def main():
          if not tag:
             continue
          if tag not in catalogs_tag:
-            catalogs_tag[unify_name(tag)] = [record]
+            catalogs_tag[tag] = [record]
             continue
-         catalogs_tag[unify_name(tag)].append(record)
+         catalogs_tag[tag].append(record)
    heading = "By tag"
    whole = write_catalog(matter, catalogs_tag, folder_post, heading)
    path_tag = os.path.join(folder_site, "tag.html")
@@ -86,9 +86,9 @@ def main():
       if not series:
          continue
       if series not in catalogs_series:
-         catalogs_series[unify_name(series)] = [record]
+         catalogs_series[series] = [record]
          continue
-      catalogs_series[unify_name(series)].append(record)
+      catalogs_series[series].append(record)
    heading = "By series"
    whole = write_catalog(matter, catalogs_series, folder_post, heading)
    path_series = os.path.join(folder_site, "series.html")
@@ -105,7 +105,6 @@ def main():
    AID.output_file(path_index, whole)
 
    for month, catalog in catalogs_stamp.items():
-      catalog.sort()
       heading = month
       name = unify_name(month) + ".html"
       whole = write_page(matter, catalog, folder_post, heading)
@@ -113,7 +112,6 @@ def main():
       AID.output_file(path_stamp, whole)
 
    for genre, catalog in catalogs_genre.items():
-      catalog.sort()
       heading = genre
       name = unify_name(genre) + ".html"
       whole = write_page(matter, catalog, folder_post, heading)
@@ -121,7 +119,6 @@ def main():
       AID.output_file(path_genre, whole)
 
    for tag, catalog in catalogs_tag.items():
-      catalog.sort()
       heading = tag
       name = unify_name(tag) + ".html"
       whole = write_page(matter, catalog, folder_post, heading)
@@ -129,7 +126,6 @@ def main():
       AID.output_file(path_tag, whole)
 
    for series, catalog in catalogs_series.items():
-      catalog.sort()
       heading = series
       name = unify_name(series) + ".html"
       whole = write_page(matter, catalog, folder_post, heading)
@@ -312,54 +308,54 @@ def search_path_post(folder_post, stamp):
          break
    return name_post
 
-def write_element_heading(heading, name):
-   if not heading:
+def write_element_heading(title, name):
+   if not title:
       return None
    sink = ''
    if not name:
       sink = (
-         "<h2 class=\"heading-post\">"
-         + "{}</h2>".format(heading)
+         "<span class=\"heading-post\">"
+         + "{}</span>".format(title)
       )
    else:
       sink = (
-         "<h2 class=\"heading-post\">" + ' '
-         + "<a href=\"/post/{}\">".format(name)
-         + "{}</a>".format(heading) + ' ' + "</h2>"
+         "<a class=\"heading-post\"" + ' '
+         + "href=\"/post/{}\">".format(name)
+         + "{}</a>".format(title) + ' ' + "</span>"
       )
    return sink
 
-def write_element_display(display, name):
-   if not display:
+def write_element_display(title, name):
+   if not title:
       return None
    sink = ''
    if not name:
       sink = (
          "<span class=\"display-post\">"
-         + "{}</span>".format(display)
+         + "{}</span>".format(title)
       )
    else:
       sink = (
          "<a class=\"display-post\"" + ' '
          + "href=\"/post/{}\">".format(name)
-         + "{}</a>".format(display)
+         + "{}</a>".format(title)
       )
    return sink
 
-def write_element_subdisplay(subdisplay, name):
-   if not subdisplay:
+def write_element_subdisplay(title, name):
+   if not title:
       return None
    sink = ''
    if not name:
       sink = (
          "<span class=\"subdisplay-post\">"
-         + "{}</span>".format(subdisplay)
+         + "{}</span>".format(title)
       )
    else:
       sink = (
          "<a class=\"subdisplay-post\"" + ' '
-         + "href=\"/post/{}\">".format(name)
-         + "{}</a>".format(subdisplay)
+         + "href=\"/page/{}.html\">".format(name)
+         + "{}</a>".format(title)
       )
    return sink
 
@@ -369,8 +365,8 @@ def write_element_stamp(stamp):
    date = get_date(stamp)
    sink = (
       "<a class=\"data-stamp\"" + ' '
-      + "href=\"/page/{}\">{}</a>"
-   ).format(unify_name(get_month(stamp)) + ".html", date)
+      + "href=\"/page/{}.html\">{}</a>"
+   ).format(unify_name(get_month(stamp)), date)
    return sink
 
 def write_element_genre(elision):
@@ -379,8 +375,8 @@ def write_element_genre(elision):
       return None
    sink = (
       "<a class=\"data-genre\"" + ' '
-      + "href=\"/page/{}\">{}</a>"
-   ).format(unify_name(elision) + ".html", genre)
+      + "href=\"/page/{}.html\">{}</a>"
+   ).format(unify_name(elision), genre)
    return sink
 
 def write_element_series(series):
@@ -388,8 +384,8 @@ def write_element_series(series):
       return None
    sink = (
       "<a class=\"data-series\"" + ' '
-      + "href=\"/page/{}\">{}</a>"
-   ).format(unify_name(series) + ".html", series)
+      + "href=\"/page/{}.html\">{}</a>"
+   ).format(unify_name(series), series)
    return sink
 
 def write_element_tag(tag):
@@ -397,8 +393,8 @@ def write_element_tag(tag):
       return None
    sink = (
       "<a class=\"data-tag\"" + ' '
-      + "href=\"/page/{}\">{}</a>"
-   ).format(unify_name(tag) + ".html", tag)
+      + "href=\"/page/{}.html\">{}</a>"
+   ).format(unify_name(tag), tag)
    return sink
 
 def write_title(title):
@@ -413,25 +409,28 @@ def get_day(stamp):
       day = day[1]
    return day
 
-def get_month(stamp):
+def give_months():
    months = {
       "01": "January", "02": "February", "03": "March",
       "04": "April", "05": "May", "06": "June",
       "07": "July", "08": "August", "09": "September",
       "10": "October", "11": "November", "12": "December",
    }
-   month = months.get(stamp[2:4])
-   return month
+   return months
 
-def get_year(stamp):
+def get_month(stamp):
+   sink = ''
+   months = give_months()
+   month = months.get(stamp[2:4])
    year = "20" + stamp[0:2]
-   return year
+   sink = month + ' ' + year
+   return sink
+
 
 def get_date(stamp):
    month = get_month(stamp)
    day = get_day(stamp)
-   year = get_year(stamp)
-   date = ' '.join([month, day + ',', year])
+   date = day + ' ' + month
    return date
 
 def give_genres():
