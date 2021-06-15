@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -25,12 +27,12 @@
 
   <!-- Mathjax configuration -->
   <script src="/asset/mathjax.js" defer></script>
-  <script async
+  <script defer
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
   </script>
 
   <!-- random quotes -->
-  <script src="/asset/quote.js"></script>
+  <script src="/asset/quote.js" defer></script>
 </head>
 
 
@@ -39,18 +41,18 @@
 
 <header>
   <div id="header-banner">
-    <p id="name-site">
-      <a class="title-site" href="/">Photoluminescence</a>
+    <div id="name-site">
+      <h1> <a class="title-site" href="/">Photoluminescence</a> </h1>
       <span class="tagline-site">Math, Machines, and Music</span>
-    </p>
+    </div>
     <nav id="menu">
-      <span class="button-menu">by date</span>
+      <span class="button-menu" href="/stamp.html">by date</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by genre</span>
+      <span class="button-menu" href="/genre.html">by genre</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by tag</span>
+      <span class="button-menu" href="/series.html">by series</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by series</span>
+      <span class="button-menu" href="/tag.html">by tag</span>
     </nav>
     <img id="cover" src="/asset/cover.png" alt="cover">
   </div>
@@ -58,9 +60,9 @@
 
 <header>
   <div id="header-post">
-    <p class="heading-post">
-      <p class="display-post"> <span>Worries on technological unemployment</span> </p>
-    </p>
+    <h2 class="heading-post">
+      <span class="display-post">Worries on technological unemployment</span>
+    </h2>
     <p class="data-post">
       <a class="data-stamp" href="/page/april.html">April 4, 2021</a>
       <a class="data-genre" href="/page/comments.html">Contentious comments</a>
@@ -71,21 +73,21 @@
   </div>
 </header>
 
-<article class="document">
-<section class="paragraphs">
+<main class="document">
+<div class="paragraphs">
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">People studying in science like to picture such a utopia, in which, with the advance of artificial intelligence, machine learning, robotics and the like, humans live in eternal happiness, being served by machines, and not having to work.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">I just don’t understand the unlimited optimism.</span> </span> <span class="phrase"> <span class="serif-roman">Any optimist, pray tell me where I get it wrong.</span> </span> <span class="phrase"> <span class="serif-roman">As machines and robots replace our jobs, there will be less and less jobs, and more and more poor people.</span> </span> <span class="phrase"> <span class="serif-roman">It only takes some one third of people being unemployed, to make our society collapse into chaos.</span> </span> <span class="phrase"> <span class="serif-roman">While machines do produce more products, these products can’t be sold by then, because most people have got no money.</span> </span> <span class="phrase"> <span class="serif-roman">Some say that there will be novel, irreplaceable jobs unimaginable to us, yet when asked of how we create such jobs, they have no idea.</span> </span> <span class="phrase"> <span class="serif-roman">With such risk unparalleled in history, they are like, “the ship will cross the bridge when it comes over”, is that a responsible attitude which departments in science should have?</span> </span>
 </p>
-</section>
-<section class="paragraphs">
+</div>
+<div class="paragraphs">
 <p class="paragraph">
 <span class="phrase"> <em class="serif-italic">On Apr 4, 2021.</em> </span>
 </p>
-</section>
-</article>
+</div>
+</main>
 
 <footer>
   <div id="footer-whole">
@@ -109,7 +111,7 @@
       </div>
 
       <div id="footer-right">
-        <img class="footer-profile" src="/asset/profile.png" />
+        <img class="footer-profile" src="/asset/profile.png" alt="profile">
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -25,12 +27,12 @@
 
   <!-- Mathjax configuration -->
   <script src="/asset/mathjax.js" defer></script>
-  <script async
+  <script defer
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
   </script>
 
   <!-- random quotes -->
-  <script src="/asset/quote.js"></script>
+  <script src="/asset/quote.js" defer></script>
 </head>
 
 
@@ -39,18 +41,18 @@
 
 <header>
   <div id="header-banner">
-    <p id="name-site">
-      <a class="title-site" href="/">Photoluminescence</a>
+    <div id="name-site">
+      <h1> <a class="title-site" href="/">Photoluminescence</a> </h1>
       <span class="tagline-site">Math, Machines, and Music</span>
-    </p>
+    </div>
     <nav id="menu">
-      <span class="button-menu">by date</span>
+      <span class="button-menu" href="/stamp.html">by date</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by genre</span>
+      <span class="button-menu" href="/genre.html">by genre</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by tag</span>
+      <span class="button-menu" href="/series.html">by series</span>
       <span class="button-menu">&#x2767;</span>
-      <span class="button-menu">by series</span>
+      <span class="button-menu" href="/tag.html">by tag</span>
     </nav>
     <img id="cover" src="/asset/cover.png" alt="cover">
   </div>
@@ -58,17 +60,17 @@
 
 <header>
   <div id="header-page">
-    <p class="heading-page">
-      physics
-    </p>
+    <h2 class="heading-page">
+      <h2 class="heading-post">physics</h2>
+    </h2>
   </div>
 </header>
 
-<div class="entry-post">
-  <p class="heading-post">
-    <p class="display-post"> <a href="/post/190515-macroscopic-microscopic-randomness.html">Macroscopic and microscopic randomness</a> </p>
+<div class="entry">
+  <p class="title-entry">
+    <a class="display-post" href="/post/190515-macroscopic-microscopic-randomness.html">Macroscopic and microscopic randomness</a>
   </p>
-  <p class="data-post">
+  <p class="data-entry">
     <a class="data-stamp" href="/page/may.html">May 15, 2019</a>
     <a class="data-genre" href="/page/comments.html">Contentious comments</a>
     
@@ -99,7 +101,7 @@
       </div>
 
       <div id="footer-right">
-        <img class="footer-profile" src="/asset/profile.png" />
+        <img class="footer-profile" src="/asset/profile.png" alt="profile">
       </div>
     </div>
   </div>

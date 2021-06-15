@@ -177,18 +177,24 @@ def write_catalog(matter, catalogs, folder_post, heading):
    wholes = []
    head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
-   header_page = matter["header_page"].replace("$HEADING", heading)
+   header_page = matter["header_page"].replace(
+      "$HEADING",
+      write_element_heading(heading, None)
+   )
    footer = matter["footer"]
    entry = matter["entry"]
 
-   wholes.append("<html>")
+   wholes.append("<!DOCTYPE html>")
+   wholes.append("<html lang=\"en\">")
    wholes.append(head)
    wholes.append("<body>")
    wholes.append(header_banner)
    wholes.append(header_page)
    for kind, catalog in catalogs.items():
-      element = write_element_subheading(kind, unify_name(kind))
-      wholes.append(element)
+      subdisplay = write_element_subdisplay(kind, unify_name(kind))
+      wholes.append("<p class=\"title-catalog\">")
+      wholes.append(subdisplay)
+      wholes.append("</p>")
       for record in catalog:
          stamp = record.get("stamp")
          name_post = search_path_post(folder_post, stamp)
@@ -204,11 +210,15 @@ def write_page(matter, records, folder_post, heading):
    wholes = []
    head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
-   header_page = matter["header_page"].replace("$HEADING", heading)
+   header_page = matter["header_page"].replace(
+      "$HEADING",
+      write_element_heading(heading, None)
+   )
    footer = matter["footer"]
    entry = matter["entry"]
 
-   wholes.append("<html>")
+   wholes.append("<!DOCTYPE html>")
+   wholes.append("<html lang=\"en\">")
    wholes.append(head)
    wholes.append("<body>")
    wholes.append(header_banner)
@@ -232,7 +242,8 @@ def write_post(matter, plain, record):
    header_post = write_entry(matter["header_post"], record, None)
    footer = matter["footer"]
 
-   wholes.append("<html>")
+   wholes.append("<!DOCTYPE html>")
+   wholes.append("<html lang=\"en\">")
    wholes.append(head)
    wholes.append("<body>")
    wholes.append(header_banner)
@@ -307,31 +318,14 @@ def write_element_heading(heading, name):
    sink = ''
    if not name:
       sink = (
-         "<h1 class=\"heading-post\">"
-         + "{}</h1>".format(heading)
+         "<h2 class=\"heading-post\">"
+         + "{}</h2>".format(heading)
       )
    else:
       sink = (
-         "<h1 class=\"heading-post\">" + ' '
+         "<h2 class=\"heading-post\">" + ' '
          + "<a href=\"/post/{}\">".format(name)
-         + "{}</a>".format(heading) + ' ' + "</h1>"
-      )
-   return sink
-
-def write_element_subheading(subheading, name):
-   if not subheading:
-      return None
-   sink = ''
-   if not name:
-      sink = (
-         "<h2 class=\"subheading-post\">"
-         + "{}</h2>".format(subheading)
-      )
-   else:
-      sink = (
-         "<h2 class=\"subheading-post\">" + ' '
-         + "<a href=\"/post/{}\">".format(name)
-         + "{}</a>".format(subheading) + ' ' + "</h2>"
+         + "{}</a>".format(heading) + ' ' + "</h2>"
       )
    return sink
 
@@ -340,12 +334,32 @@ def write_element_display(display, name):
       return None
    sink = ''
    if not name:
-      sink = "<p class=\"display-post\"> <span>{}</span> </p>".format(display)
+      sink = (
+         "<span class=\"display-post\">"
+         + "{}</span>".format(display)
+      )
    else:
       sink = (
-         "<p class=\"display-post\">" + ' '
-         + "<a href=\"/post/{}\">".format(name)
-         + "{}</a>".format(display) + ' ' + "</p>"
+         "<a class=\"display-post\"" + ' '
+         + "href=\"/post/{}\">".format(name)
+         + "{}</a>".format(display)
+      )
+   return sink
+
+def write_element_subdisplay(subdisplay, name):
+   if not subdisplay:
+      return None
+   sink = ''
+   if not name:
+      sink = (
+         "<span class=\"subdisplay-post\">"
+         + "{}</span>".format(subdisplay)
+      )
+   else:
+      sink = (
+         "<a class=\"subdisplay-post\"" + ' '
+         + "href=\"/post/{}\">".format(name)
+         + "{}</a>".format(subdisplay)
       )
    return sink
 

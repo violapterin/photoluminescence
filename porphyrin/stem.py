@@ -6,7 +6,7 @@ from . import aid as AID
 class Document(Stem):
 
    KIND = "document"
-   TAG = "article"
+   TAG = "main"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -107,7 +107,7 @@ class Break(Stem):
 class Paragraphs(Stem):
 
    KIND = "paragraphs"
-   TAG = "section"
+   TAG = "div"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -139,7 +139,7 @@ class Paragraphs(Stem):
 class Lines(Stem):
 
    KIND = "lines"
-   TAG = "section"
+   TAG = "div"
 
    def __init__(self, **data):
       self.fill_basic(**data)
