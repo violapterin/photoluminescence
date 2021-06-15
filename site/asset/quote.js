@@ -9,5 +9,5 @@ var texts= [
     erkläret, wie unrecht tut ihr mir!`
     // // // // // // // //
 ];
-var choice = Math.floor(Math.random() * array_text.length);
+var choice = Math.floor(Math.random() * texts.length);
 document.getElementById("footer-quote").innerHTML = texts[choice];
