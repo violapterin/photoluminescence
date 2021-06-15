@@ -18,8 +18,6 @@
 /* pseudo-round pseudo-square pseudo-curly */
 /* pseudo-serif pseudo-sans pseudo-mono */
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 body { min-width: 750px; }
 @media screen and (max-width: 900px) {
   body { min-width: 600px; }
@@ -40,16 +38,18 @@ body { min-width: 750px; }
   body { min-width: 320px; }
 }
 
-
-article,
-.document,
-#header-common, #header-post, #footer-whole
+main, header,
+.document, .entry,
+#header-banner, #header-page, #header-post,
+#footer-whole
 {
   max-width: 720px;
   margin: auto;
-  font-size: 22px;
+  width: 96%;
 }
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .paragraphs, .lines, .rows, .break, .graph
@@ -84,13 +84,17 @@ article,
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-div, span
+main, header,
+p, div, table,
+span, em, b
 {
   font-family: "Alegreya", serif;
+  font-size: 20px;
 }
 
-h1, p, table, em, b,
+h1, h2,
 .title-site, .title-post,
+span, em, b,
 .serif-roman, .serif-italic, .serif-bold
 {
   font-family: "Alegreya", "Noto Serif", "Noto Serif CJK KR",
@@ -110,106 +114,46 @@ i,
   font-variant-ligatures: none;
 }
 
-pre,
-.mono
-{
-  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
-    "Courier New", monospace;
-}
-
 em,
-.serif-italic, .sans-italic, .tagline-site
+.serif-italic, .sans-italic,
+.tagline-site
 {
   font-style: italic;
 }
 
 b,
-.serif-bold, .sans-bold, .title-site
+.serif-bold, .sans-bold,
+.title-site, .heading, .display
 { 
   font-weight: 700;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#name-site, #menu
+pre,
+.mono
 {
-  margin: 12px 8px;
-  padding: 0px;
-}
-
-.tagline-site
-{
-  font-size: 30px;
-  font-weight: 400;
-}
-
-.title-site
-{
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.title-post
-{
-  font-size: 42px;
-  font-weight: 400;
-}
-
-.item-newest
-{
-  margin: 8px 4px;
-  font-size: 30px;
-  font-weight: 400;
-}
-
-
-.title-site
-{
-  font-size: 32px;
-}
-
-.site-tagline
-{
-  font-size: 24px;
-}
-
-.button-menu,
-.button-date, .button-genres, .button-tags, .button-series
-{
-  font-size: 20px;
+  font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
+    "Courier New", monospace;
+  display: inline;
 }
 
 a
 {
   color: dodgerblue;
-  text-decoration: none;
 }
 
-a:visited
+a :visited
 {
-  color: steelblue;
+  color: mediumslateblue;
 }
 
-a:hover
+a :hover
 {
-  color: lightskyblue;
+  color: midnightblue;
   text-decoration: underline;
 }
 
-
-/* deprecated? */
-/* * Icons * */
-.icon > svg {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-}
-.icon > svg path {
-  fill: #828282;
-}
-
-/* https://gist.github.com/andyferra/2554919 */
 table tr th, table tr td
 {
   background-color: darkseagreen;
@@ -221,56 +165,61 @@ table tr:nth-child(2n)
 }
 
 table tr th,
-table tr td {
-  border: 1px solid #606060;
-  text-align: left;
-  margin: 0;
-  padding: 9px;
-}
-
-#header-post > .heading-post
+table tr td
 {
-  font-size: 36;
-  font-weight: 700;
+  border: 1px solid #606060;
+  padding: 6px;
 }
 
-#display-post > .data-post
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+header #name-site, header #menu, header #banner
+{
+  margin: 8px 12px;
+  width: 92%;
+  float: left;
+}
+
+#name-site > .title-site,
+#name-site > .tagline-site,
+#menu > .button-menu
+{
+  margin: 6px 12px;
+  padding: 0px 12px;
+}
+
+#name-site > .title-site
+{
+  font-size: 30px;
+  color: mediumpurple;
+  text-decoration: none;
+}
+
+#name-site > .tagline-site
+{
+  font-size: 18px;
+  color: lightslategray;
+}
+
+#menu > .button-menu
+{
+  font-size: 18px;
+  text-decoration: underline;
+  color: darkmagenta;
+}
+
+#name-site > .title-site :hover
+{
+  text-decoration: underline;
+}
+
+#header-post > .heading-post,
+#header-page > .heading-page
 {
   font-size: 30;
-  font-weight: 400;
-}
-
-#header-post > .data-date
-{
-  color: mediumpurple
-}
-
-#title-post
-{
-  color: indigo
-}
-
-#header-post
-{
-  padding: 3px 6px;
-  margin: auto;
-}
-
-#name-site, #menu, #cover
-{
-  width: 96%;
-  height: auto;
-}
-
-#cover
-{
-  border-bottom: 3px solid;
-}
-
-.button-menu
-{
-  padding: 18px 6px;
-  margin: auto;
+  font-weight: 700;
 }
 
 #data
@@ -279,39 +228,127 @@ table tr td {
   margin: auto;
 }
 
-.button-data
+.display
 {
-  padding: 6px 3px;
-  margin: auto;
+  font-size: 36px;
 }
+
+.heading
+{
+  font-size: 36px;
+  color: maroon;
+}
+
+main .display
+{
+  margin: auto;
+  font-size: 30px;
+}
+
+
+#header-banner, #header-post, #header-page
+{
+  margin: auto;
+  padding: 3px 6px;
+}
+
+#banner
+{
+  border-bottom: 3px solid;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.title-entry > .heading
+{
+  margin: auto;
+  font-size: 24px;
+}
+
+.data-post, .data-entry
+{
+  margin: 6px 18px;
+  font-size: 18px;
+}
+
+header .data-stamp, header .data-genre,
+header .data-series, header .data-tag
+{
+  font-size: 18px;
+  margin: 6px;
+  text-decoration: underline;
+  color: black;
+}
+
+header .data-stamp :hover, header .data-genre :hover,
+header .data-series :hover, header .data-tag :hover
+{
+  text-decoration: underline;
+  color: dimgray;
+}
+
+.data-post .data-stamp
+{
+  background-color: lightsalmon
+}
+
+.data-post .data-genre
+{
+  background-color: gold
+}
+
+.data-post .data-series
+{
+  background-color: mediumspringgreen
+}
+
+.data-post .data-tag
+{
+  background-color: powderblue
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#footer-whole
+{
+  border-top: 3px solid;
+}
 
 #footer-signature, #footer-quote
 {
   margin: auto;
-  padding: 12px;
-  width: 330px;
+  padding: 8px;
+  width: 336px;
   height: auto;
-  font-size: 16px;
-  font-weight: 700;
-  font-style: italic;
 }
 
+#footer-quote
+{
+  color: steelblue;
+}
+
+#footer-quote,
+#footer-left > .footer-author,
+#footer-left > .footer-motto
+{
+  font-size: 18px;
+  font-style: italic;
+}
 
 #footer-left, #footer-right
 {
   margin: auto;
-  padding: 4px;
+  padding: 3px;
   display: inline-block;
   vertical-align: middle;
 }
 
 #footer-left
 {
-  width: 128px;
+  width: 144px;
   height: auto;
 }
 
@@ -321,16 +358,17 @@ table tr td {
   height: auto;
 }
 
-.footer-profile, .footer-icon, .footer-author, .footer-motto
+.footer-author, .footer-motto, .footer-icon,
+.footer-profile
 {
-  margin: 2px;
-  padding: 2px;
+  margin: auto;
+  padding: 3px;
 }
 
 .footer-icon
 {
-  width: 108px;
-  height: 36px;
+  width: 128px;
+  height: 64px;
 }
 
 .footer-profile
@@ -342,10 +380,8 @@ table tr td {
 .icon-gmail, .icon-twitter, .icon-github
 {
   margin: 6px;
-  padding: 0px;
+  padding: 12px;
   float: left;
-  width: 24px;
-  height: 24px;
 }
 
 .icon-gmail

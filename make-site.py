@@ -175,7 +175,7 @@ def write_catalog(matter, catalogs, folder_post, heading):
    header_banner = matter["header_banner"]
    header_page = matter["header_page"].replace(
       "$HEADING",
-      write_element_heading(heading, None)
+      write_element_display(heading, None)
    )
    footer = matter["footer"]
    entry = matter["entry"]
@@ -187,9 +187,9 @@ def write_catalog(matter, catalogs, folder_post, heading):
    wholes.append(header_banner)
    wholes.append(header_page)
    for kind, catalog in catalogs.items():
-      subdisplay = write_element_subdisplay(kind, unify_name(kind))
+      display = write_element_display(kind, unify_name(kind))
       wholes.append("<p class=\"title-catalog\">")
-      wholes.append(subdisplay)
+      wholes.append(display)
       wholes.append("</p>")
       for record in catalog:
          stamp = record.get("stamp")
@@ -208,7 +208,7 @@ def write_page(matter, records, folder_post, heading):
    header_banner = matter["header_banner"]
    header_page = matter["header_page"].replace(
       "$HEADING",
-      write_element_heading(heading, None)
+      write_element_display(heading, None)
    )
    footer = matter["footer"]
    entry = matter["entry"]
@@ -261,7 +261,7 @@ def write_entry(source, record, name):
       tags = check_group(record.get("tag"))
       series = record.get("series")
       if heading is not None:
-         element = write_element_display(heading, name)
+         element = write_element_heading(heading, name)
          sink = sink.replace("$HEADING", element)
       else:
          sink = sink.replace("$HEADING", '')
@@ -314,12 +314,12 @@ def write_element_heading(title, name):
    sink = ''
    if not name:
       sink = (
-         "<span class=\"heading-post\">"
+         "<span class=\"heading\">"
          + "{}</span>".format(title)
       )
    else:
       sink = (
-         "<a class=\"heading-post\"" + ' '
+         "<a class=\"heading\"" + ' '
          + "href=\"/post/{}\">".format(name)
          + "{}</a>".format(title) + ' ' + "</span>"
       )
@@ -331,30 +331,13 @@ def write_element_display(title, name):
    sink = ''
    if not name:
       sink = (
-         "<span class=\"display-post\">"
+         "<span class=\"display\">"
          + "{}</span>".format(title)
       )
    else:
       sink = (
-         "<a class=\"display-post\"" + ' '
+         "<a class=\"display\"" + ' '
          + "href=\"/post/{}\">".format(name)
-         + "{}</a>".format(title)
-      )
-   return sink
-
-def write_element_subdisplay(title, name):
-   if not title:
-      return None
-   sink = ''
-   if not name:
-      sink = (
-         "<span class=\"subdisplay-post\">"
-         + "{}</span>".format(title)
-      )
-   else:
-      sink = (
-         "<a class=\"subdisplay-post\"" + ' '
-         + "href=\"/page/{}.html\">".format(name)
          + "{}</a>".format(title)
       )
    return sink
