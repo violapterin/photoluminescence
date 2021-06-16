@@ -24,62 +24,31 @@ body
   font-size: 24px;
 }
 @media screen and (max-width: 900px) {
-  body
-  {
-    width: 600px;
-    font-size: 22px;
-  }
+  body { width: 600px; font-size: 22px; }
 }
 @media screen and (max-width: 720px) {
-  body
-  {
-    width: 540px; 
-    font-size: 20px;
-  }
+  body { width: 540px; font-size: 20px; }
 }
 @media screen and (max-width: 600px) {
-  body
-  {
-    width: 450px; 
-    font-size: 18px;
-  }
+  body { width: 450px; font-size: 18px; }
 }
 @media screen and (max-width: 500px) {
-  body
-  {
-    width: 400px;
-    font-size: 16px;
-  }
+  body { width: 400px; font-size: 16px; }
 }
 @media screen and (max-width: 420px) {
-  body
-  {
-    width: 360px;
-    font-size: 14px;
-  }
+  body { width: 360px; font-size: 14px; }
 }
 @media screen and (max-width: 360px) {
-  body
-  {
-    width: 320px;
-    font-size: 12px;
-  }
+  body { width: 320px; font-size: 12px; }
 }
 
-body
+body, header
+#header-banner, #header-page, #header-post,
+#footer-whole
 {
   margin: auto;
   height: auto;
-}
-
-#header-banner, #footer-whole
-{
-  margin: 6px 18px;
-}
-
-#header-page, #header-post
-{
-  margin: 6px 36px;
+  padding: 12px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -211,10 +180,63 @@ table tr td
 
 #header-banner #name-site, #header-banner #menu
 {
-  margin: 6px 6px;
+  margin: 12px 12px;
   padding: 0px 60px;
-  width: 100%;
 }
+@media screen and (max-width: 600px) {
+  #header-banner #name-site, #header-banner #menu
+  { margin: 6px 6px; padding: 0px 30px; }
+}
+@media screen and (max-width: 600px) {
+  #header-banner #name-site, #header-banner #menu
+  { margin: 6px 3px; padding: 0px 12px; }
+}
+
+#name-site > .title-site
+{
+  font-size: 30px;
+}
+@media screen and (max-width: 600px) {
+  #name-site > .title-site
+  { font-size: 24px; }
+}
+@media screen and (max-width: 400px) {
+  #name-site > .title-site
+  { font-size: 18px; }
+}
+
+#name-site > .tagline-site
+{
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  #name-site > .tagline-site
+  { font-size: 16px; }
+}
+@media screen and (max-width: 400px) {
+  #name-site > .tagline-site
+  { font-size: 14px; }
+}
+
+#menu > .button-menu
+{
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  #menu > .button-menu
+  { font-size: 15px; }
+}
+@media screen and (max-width: 400px) {
+  #menu > .button-menu
+  { font-size: 12px; }
+}
+
+@media screen and (max-width: 600px) {
+  #name-site > .title-site, #name-site > .tagline-site
+  { display: block; }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #header-banner #banner
 {
@@ -232,7 +254,6 @@ table tr td
 
 #name-site > .title-site
 {
-  font-size: 30px;
   font-weight: 700;
   color: mediumpurple;
   text-decoration: none;
@@ -240,7 +261,6 @@ table tr td
 
 #name-site > .tagline-site
 {
-  font-size: 18px;
   font-style: italic;
   font-weight: 500;
   color: steelblue;
@@ -248,7 +268,6 @@ table tr td
 
 #menu > .button-menu
 {
-  font-size: 18px;
   font-weight: 500;
   text-decoration: underline;
   color: darkmagenta;
@@ -266,12 +285,18 @@ table tr td
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#header-post .heading-post,
-#header-page .heading-page
+.heading-post, .heading-page
 {
   margin: 18px auto;
   font-size: 36px;
-  font-weight: 700;
+}
+@media screen and (max-width: 600px) {
+  .heading-post, .heading-page
+  { margin: 9px auto; font-size: 27px; }
+}
+@media screen and (max-width: 400px) {
+  .heading-post, .heading-page
+  { margin: 9px auto; font-size: 18px; }
 }
 
 .title-catalog .display
@@ -279,10 +304,65 @@ table tr td
   margin: 6px 48px;
   font-size: 30px;
 }
+@media screen and (max-width: 600px) {
+  .title-catalog .display
+  { margin: 6px 24px; font-size: 24px; }
+}
+@media screen and (max-width: 400px) {
+  .title-catalog .display
+  { margin: 6px 8px; font-size: 18px; }
+}
+
+.title-entry .heading
+{
+  font-size: 30px;
+}
+@media screen and (max-width: 600px) {
+  .title-entry .heading
+  { font-size: 24px; }
+}
+@media screen and (max-width: 400px) {
+  .title-entry .heading
+  { font-size: 18px; }
+}
 
 .heading-page .display
 {
   margin: 6px 36px;
+}
+@media screen and (max-width: 600px) {
+  .heading-page .display
+  { margin: 6px 18px; }
+}
+@media screen and (max-width: 400px) {
+  .heading-page .display
+  { margin: 6px 6px; }
+}
+
+.entry
+{
+  padding: 0px 48px;
+}
+@media screen and (max-width: 600px) {
+  .entry
+  { padding: 0px 24px; }
+}
+@media screen and (max-width: 400px) {
+  .entry
+  { padding: 8px; }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.title-entry .heading
+{
+  margin: 0px;
+  font-weight: 500;
+}
+
+.heading-post, .heading-page
+{
+  font-weight: 700;
 }
 
 .heading
@@ -290,23 +370,25 @@ table tr td
   color: maroon
 }
 
-.title-entry .heading
-{
-  margin: 0px;
-  font-size: 30px;
-  font-weight: 500;
-}
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.entry
+.data-post, .data-entry
 {
-  padding: 0px 48px;
+  padding: 0px 12px;
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  .data-post, .data-entry
+  { padding: 0px 6px; font-size: 15px; }
+}
+@media screen and (max-width: 400px) {
+  .data-post, .data-entry
+  { padding: 0px 6px; font-size: 12px; }
 }
 
 .data-post, .data-entry
 {
   margin: auto;
-  padding: 0px 12px;
-  font-size: 18px;
   font-weight: 500;
 }
 
@@ -357,6 +439,19 @@ table tr td
 
 #footer-whole
 {
+  font-size: 18px;
+}
+@media screen and (max-width: 600px) {
+  #footer-whole
+  { font-size: 16px; }
+}
+@media screen and (max-width: 400px) {
+  #footer-whole
+  { font-size: 14px; }
+}
+
+#footer-whole
+{
   margin: 18px auto;
   border-top: 3px lightgray solid;
 }
@@ -378,7 +473,6 @@ table tr td
 #footer-left > .footer-author,
 #footer-left > .footer-motto
 {
-  font-size: 18px;
   font-style: italic;
 }
 
