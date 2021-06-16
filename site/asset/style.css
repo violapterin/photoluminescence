@@ -365,7 +365,7 @@ table tr td
 {
   margin: auto;
   padding: 8px;
-  width: 336px;
+  width: 320px;
   height: auto;
 }
 
@@ -384,7 +384,7 @@ table tr td
 
 #footer-left, #footer-right
 {
-  margin: auto;
+  margin: 0px;
   padding: 3px;
   display: inline-block;
   vertical-align: middle;
@@ -398,21 +398,22 @@ table tr td
 
 #footer-right
 {
-  width: 168px;
+  width: 144px;
   height: auto;
 }
 
 .footer-author, .footer-motto, .footer-icon,
 .footer-profile
 {
-  margin: auto;
-  padding: 3px;
+  margin: 6px 3px;
+  padding: 0px;
 }
 
-.footer-icon
+.footer-icon, .footer-license
 {
-  width: 128px;
-  height: 64px;
+  margin: 0px auto;
+  width: auto;
+  height: 36px;
 }
 
 .footer-profile
@@ -421,29 +422,49 @@ table tr td
   height: auto;
 }
 
-.icon-gmail, .icon-twitter, .icon-github
+.icon-gmail, .icon-github, .icon-twitter, .icon-facebook
 {
-  margin: 6px;
-  padding: 12px;
-  float: left;
+  margin: 0px;
+  padding: 4px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: contain;
+}
+
+.icon-license
+{
+  margin: 2px 2px;
+  padding: 6px;
+  width: 120px;
+  height: 36px;
+  display: inline-block;
+  background-size: 100%;
 }
 
 .icon-gmail
 {
   background: url("/asset/icon-gmail.png") no-repeat;
-  background-size: 24px;
 }
 
 .icon-twitter
 {
   background: url("/asset/icon-twitter.png") no-repeat;
-  background-size: 24px;
+}
+
+.icon-facebook
+{
+  background: url("/asset/icon-facebook.png") no-repeat;
 }
 
 .icon-github
 {
   background: url("/asset/icon-github.png") no-repeat;
-  background-size: 24px;
+}
+
+.icon-license
+{
+  background: url("/asset/icon-license.png") no-repeat;
 }
 
 
