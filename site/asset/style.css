@@ -18,34 +18,68 @@
 /* pseudo-round pseudo-square pseudo-curly */
 /* pseudo-serif pseudo-sans pseudo-mono */
 
-body { min-width: 750px; }
+body
+{
+  width: 750px; 
+  font-size: 24px;
+}
 @media screen and (max-width: 900px) {
-  body { min-width: 600px; }
+  body
+  {
+    width: 600px;
+    font-size: 22px;
+  }
 }
 @media screen and (max-width: 720px) {
-  body { min-width: 540px; }
+  body
+  {
+    width: 540px; 
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 600px) {
-  body { min-width: 450px; }
+  body
+  {
+    width: 450px; 
+    font-size: 18px;
+  }
 }
 @media screen and (max-width: 500px) {
-  body { min-width: 400px; }
+  body
+  {
+    width: 400px;
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 420px) {
-  body { min-width: 360px; }
+  body
+  {
+    width: 360px;
+    font-size: 14px;
+  }
 }
 @media screen and (max-width: 360px) {
-  body { min-width: 320px; }
+  body
+  {
+    width: 320px;
+    font-size: 12px;
+  }
 }
 
-main, header,
-.document, .entry,
-#header-banner, #header-page, #header-post,
-#footer-whole
+body
 {
-  max-width: 720px;
   margin: auto;
-  width: 96%;
+  height: auto;
+}
+
+#header-banner, #footer-whole
+{
+  margin: 6px 18px;
+}
+
+#header-page, #header-post
+{
+  margin: 6px 36px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -54,7 +88,8 @@ main, header,
 
 .paragraphs, .lines, .rows, .break, .graph
 {
-  margin: 12px 0px;
+  margin: 8px 0px;
+  padding: 0px;
 }
 
 .lines, .rows
@@ -78,7 +113,7 @@ main, header,
 
 .phrase, .verse, .cell
 {
-  margin: 0px 6px;
+  margin: 0px 4px;
   padding: 0px;
 }
 
@@ -88,8 +123,9 @@ main, header,
 p, div, table,
 span, em, b
 {
-  font-family: "Alegreya", serif;
-  font-size: 20px;
+  font-family: "Alegreya", "Noto Serif CJK KR", serif;
+  font-weight: 400;
+  font-variant-ligatures: none;
 }
 
 h1, h2,
@@ -101,7 +137,6 @@ span, em, b,
     "Georgia", "Times New Roman", serif;
   font-weight: 400;
   color: black;
-  font-variant-ligatures: none;
 }
 
 i,
@@ -115,15 +150,14 @@ i,
 }
 
 em,
-.serif-italic, .sans-italic,
-.tagline-site
+.serif-italic, .sans-italic
 {
   font-style: italic;
 }
 
 b,
 .serif-bold, .sans-bold,
-.title-site, .heading, .display
+.heading, .display
 { 
   font-weight: 700;
 }
@@ -138,17 +172,17 @@ pre,
   display: inline;
 }
 
-a
+.document a
 {
   color: dodgerblue;
 }
 
-a :visited
+.document a :visited
 {
   color: mediumslateblue;
 }
 
-a :hover
+.document a :hover
 {
   color: midnightblue;
   text-decoration: underline;
@@ -156,7 +190,7 @@ a :hover
 
 table tr th, table tr td
 {
-  background-color: darkseagreen;
+  background-color: mediumseagreen;
 }
 
 table tr:nth-child(2n)
@@ -175,24 +209,31 @@ table tr td
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-header #name-site, header #menu, header #banner
+#header-banner #name-site, #header-banner #menu
 {
-  margin: 8px 12px;
-  width: 92%;
-  float: left;
+  margin: 6px 6px;
+  padding: 0px 60px;
+  width: 100%;
+}
+
+#header-banner #banner
+{
+  margin: 18px auto;
+  width: 90%;
+  display: block;
 }
 
 #name-site > .title-site,
 #name-site > .tagline-site,
 #menu > .button-menu
 {
-  margin: 6px 12px;
-  padding: 0px 12px;
+  margin: 0px 4px;
 }
 
 #name-site > .title-site
 {
   font-size: 30px;
+  font-weight: 700;
   color: mediumpurple;
   text-decoration: none;
 }
@@ -200,12 +241,15 @@ header #name-site, header #menu, header #banner
 #name-site > .tagline-site
 {
   font-size: 18px;
-  color: lightslategray;
+  font-style: italic;
+  font-weight: 500;
+  color: steelblue;
 }
 
 #menu > .button-menu
 {
   font-size: 18px;
+  font-weight: 500;
   text-decoration: underline;
   color: darkmagenta;
 }
@@ -215,94 +259,93 @@ header #name-site, header #menu, header #banner
   text-decoration: underline;
 }
 
-#header-post > .heading-post,
-#header-page > .heading-page
+#header-banner
 {
-  font-size: 30;
-  font-weight: 700;
-}
-
-#data
-{
-  padding: 24px 3px;
-  margin: auto;
-}
-
-.display
-{
-  font-size: 36px;
-}
-
-.heading
-{
-  font-size: 36px;
-  color: maroon;
-}
-
-main .display
-{
-  margin: auto;
-  font-size: 30px;
-}
-
-
-#header-banner, #header-post, #header-page
-{
-  margin: auto;
-  padding: 3px 6px;
-}
-
-#banner
-{
-  border-bottom: 3px solid;
+  border-bottom: 3px lightgray solid;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.title-entry > .heading
+#header-post .heading-post,
+#header-page .heading-page
 {
-  margin: auto;
-  font-size: 24px;
+  margin: 18px auto;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.title-catalog .display
+{
+  margin: 6px 48px;
+  font-size: 30px;
+}
+
+.heading-page .display
+{
+  margin: 6px 36px;
+}
+
+.heading
+{
+  color: maroon
+}
+
+.title-entry .heading
+{
+  margin: 0px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.entry
+{
+  padding: 0px 48px;
 }
 
 .data-post, .data-entry
 {
-  margin: 6px 18px;
+  margin: auto;
+  padding: 0px 12px;
   font-size: 18px;
+  font-weight: 500;
 }
 
-header .data-stamp, header .data-genre,
-header .data-series, header .data-tag
+.data-post .data-stamp, .data-entry .data-stamp,
+.data-post .data-genre, .data-entry .data-genre,
+.data-post .data-series, .data-entry .data-series,
+.data-post .data-tag, .data-entry .data-tag
 {
-  font-size: 18px;
-  margin: 6px;
+  margin: 0px 6px;
+  padding: 0px 6px;
   text-decoration: underline;
-  color: black;
+  color: darkslategray;
 }
 
-header .data-stamp :hover, header .data-genre :hover,
-header .data-series :hover, header .data-tag :hover
+.data-post .data-stamp :hover, .data-entry.data-stamp :hover,
+.data-post .data-genre :hover, .data-entry .data-genre :hover,
+.data-post .data-series :hover, .data-entry .data-series :hover,
+.data-post .data-tag :hover .data-entry .data-tag :hover
 {
   text-decoration: underline;
   color: dimgray;
 }
 
-.data-post .data-stamp
+.data-post .data-stamp, .data-entry .data-stamp
 {
   background-color: lightsalmon
 }
 
-.data-post .data-genre
+.data-post .data-genre, .data-entry .data-genre
 {
   background-color: gold
 }
 
-.data-post .data-series
+.data-post .data-series, .data-entry .data-series
 {
   background-color: mediumspringgreen
 }
 
-.data-post .data-tag
+.data-post .data-tag, .data-entry .data-tag
 {
   background-color: powderblue
 }
@@ -314,7 +357,8 @@ header .data-series :hover, header .data-tag :hover
 
 #footer-whole
 {
-  border-top: 3px solid;
+  margin: 18px auto;
+  border-top: 3px lightgray solid;
 }
 
 #footer-signature, #footer-quote
@@ -327,7 +371,7 @@ header .data-series :hover, header .data-tag :hover
 
 #footer-quote
 {
-  color: steelblue;
+  color: dimgray;
 }
 
 #footer-quote,
