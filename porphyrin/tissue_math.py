@@ -389,6 +389,8 @@ class Math_pair(Leaf):
       boxes = [[]]
       while (head_right < len(self.source)):
          tissue, head_right = self.snip_tissue_math(head_left)
+         if not tissue:
+            continue
          head_left = head_right
          head_right = self.move_right(0, head_right)
          if tissue:
@@ -428,10 +430,12 @@ class Math_triplet(Leaf):
       boxes = [[]]
       while (head_right < len(self.source)):
          tissue, head_right = self.snip_tissue_math(head_left)
+         if not tissue:
+            continue
          head_left = head_right
          head_right = self.move_right(0, head_right)
          label = AID.get_label_math(tissue.source[0])
-         if tissue and (label == label_cut):
+         if (label == label_cut):
             boxes.append([])
          else:
             boxes[-1].append(tissue)
@@ -476,6 +480,8 @@ class Math_tuple(Leaf):
       boxes = [[]]
       while (head_right < len(self.source)):
          tissue, head_right = self.snip_tissue_math(head_left)
+         if not tissue:
+            continue
          head_left = head_right
          head_right = self.move_right(0, head_right)
          label = AID.get_label_math(tissue.source[0])

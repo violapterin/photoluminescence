@@ -361,6 +361,22 @@ def be_latin(glyph):
       return True # IPA Extensions
    return False
 
+def normalize_percentage(weights):
+   percentages = []
+   grosses = weights
+   partition = 100
+   lowest = 5
+   while (True):
+      if not grosses:
+         break
+      gross = min(grosses)
+      percentage = round(partition * gross / sum(grosses))
+      grosses.pop(grosses.index(gross))
+      percentage = max(lowest, percentage)
+      partition -= percentage
+      percentages.append(percentage)
+   return percentages
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

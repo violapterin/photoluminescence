@@ -34,6 +34,10 @@ class Column_not_agreeing(Caution):
 
    message_left = "Columns in the row"
    message_right = "does not agree others rows in number."
+class Too_many_column(Caution):
+
+   message_left = "Row"
+   message_right = "has too many columns."
 
 class Bracket_mismatched(Caution):
 
