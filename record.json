@@ -1,12 +1,24 @@
 [
-{"stamp": "190515", "genre": "comments",
-    "tag": ["Mathematics", "Physics"],
-    "title": "Macroscopic and microscopic randomness"},
 {"stamp": "210404", "genre": "comments",
     "tag": ["Technology", "Economics"],
     "title": "Worries on technological unemployment"},
-{"stamp": "200719", "genre": "notes",
-    "tag": ["Technology"], "series": "GitHub Page report",
+{"stamp": "210310", "genre": "notes", "series": "GitHub Page progress report",
+    "tag": ["Technology", "Coding"],
+    "title": "Digressing: GitHub Page report, part 3"},
+
+{"stamp": "200805", "genre": "notes", "series": "GitHub Page progress report",
+    "tag": ["Technology", "Coding"],
+    "title": "Hesitating: GitHub Page report, part 2"},
+{"stamp": "200719", "genre": "notes", "series": "GitHub Page progress report",
+    "tag": ["Technology", "Coding"],
     "title": "Exploring: GitHub Page report, part 1"},
+
+{"stamp": "190515", "genre": "comments",
+    "tag": ["Probability", "Statistical physics"],
+    "title": "Macroscopic and microscopic randomness"},
+
+{"stamp": "170317", "genre": "comments",
+    "tag": ["Technology"],
+    "title": "Installing Arch Linux"},
 null
 ]

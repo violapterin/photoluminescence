@@ -168,7 +168,7 @@ class Organ(object):
       while (head_right in interval):
          if not (self.source[head_right] == tip):
             break
-         head_right = self.move_right(1, head_right)
+         head_right += 1
       mark_left = self.source[head_left: head_right]
       return mark_left
 
