@@ -1,325 +1,324 @@
-This note summarizes the steps to install Arch Linux.
-I do not intend to explain everything, and the wording is as concise as possible.
-Do tell me if you find anything no longer working now, or any link broken.
+===
+@@this note summarizes the steps to install Arch Linux.@@ _
+@@I do not intend to explain everything, and the wording is as concise as possible.@@ _
+@@do tell me if you find anything no longer working now, or any link broken.@@ _ '
+===
 
+===
 ##enter the firmware interface##
+===
 
-download the Arch Linux ISO, and make a bootable USB.
-on Windows, we may use Rufus.
-on Mac, we have to format the USB first, and copy the ISO into it using ++dd++ utility.
+===
+@@download the Arch Linux ISO, and make a bootable USB.@@ _
+@@on Windows, we may use Rufus.@@ _
+@@on Mac, we have to format the USB first, and copy the ISO into it by using ++dd++ utility.@@ _ '
 
-plug in the bootable USB, then enter the firmware interface.
-before the computer starts normally, there will be a notice like “Please press DEL or F2 to enter UEFI BIOS setting”.
-do that immediately, and there will be a temporary ++zsh++ shell, with prompt ++root@archiso ~ #++ @@.@@
-From now, a ++#++ sign indicates the shell prompt.
+@@plug in the bootable USB,@@
+@@then enter the firmware interface.@@ _
+@@before the computer starts normally, there will be a notice like “Please press DEL or F2 to enter UEFI BIOS setting”.@@ _
+@@do that immediately to enter a temporary ++zsh++ shell, with prompt ++root@archiso ~ #++ @@.@@ _
+@@from now on, a@@ ++#++ @@sign indicates the shell prompt.@@ _ '
+===
 
+===
 ##Partition and formatting##
+===
 
-List the disk blocks: '
+===
+@@List the disk blocks.@@ _ '
 
 ++# lsblk++ '
 
-The largest block shall be your hard disk, which is likely called ++sda++ @@.@@
-a smaller one is the bootable USB we are using,
-and a still smaller one is the ROM.
+@@The largest block shall be your hard disk, which is likely called@@ ++sda++ @@.@@ _
+@@a smaller one is the bootable USB we are using,@@
+@@and a still smaller one is the ROM.@@ _ '
 
-To partition the hard disk, invoke the command line utility ++parted++.
+@@to partition the hard disk, invoke the command line utility ++parted++.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># parted /dev/sda
-++</pre></div></div>
+++# parted /dev/sda++ '
 
-Here, the prompt ++(parted)++ will be shown for clarity.
-Create a partition table with the MSDOS (MBR) standard.
+@@here, the prompt ++(parted)++ will be shown for clarity.@@ _
+@@create a partition table with the MSDOS (MBR) standard.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) mklabel msdos
-++</pre></div></div>
+++(parted) mklabel msdos++ '
 
-Meanwhile, UEFI/GPT partition is a newer standard, which not every motherboard supports.
-Partitioning commands for UEFI/GPT are similar and covered in references.
+@@meanwhile, UEFI/GPT partition is a newer standard, which not every motherboard supports.@@ _
+@@partitioning commands for UEFI/GPT are similar and covered in references.@@ _ '
 
-My computer currently used has 1TB,
-and I will generously allocate 40GB for ++/++(the root directory except for the user’s home), 2GB for swap memory, and the rest for ++/home/++(the user’s home).
-Nowadays computers often have a large RAM (mine has 4GB),
-and 2GB of swap memory shall be more than enough.
+@@my Lenovo Thinkpad currently used has 1TB,@@
+@@and I shall generously allocate 40GB for@@ ++/++ @@(the root directory except for the user’s home), 2GB for swap memory, and the rest for@@ ++/home/++ @@(the user’s home).@@ _
+@@nowadays computers often have a large RAM (mine has 4GB),@@
+@@and 2GB of swap memory shall be more than enough.@@ _ '
 
-Create partition for the root directory except for home.
+@@create partition for the root directory except for home.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) mkpart primary ext4 1MiB 40GiB
-++</pre></div></div>
+++(parted) mkpart primary ext4 1MiB 40GiB++ '
 
-Set the boot flag to be true.
+@@set the boot flag to be true.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) set 1 boot on
-++</pre></div></div>
+++(parted) set 1 boot on++ '
 
-Create the partition for swap memory.
+@@create the partition for swap memory.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) mkpart primary linux-swap 40GiB 42GiB
-++</pre></div></div>
+++(parted) mkpart primary linux-swap 40GiB 42GiB++ '
 
-Finally create the partition for the home, making up the rest of the hard disk.
+@@finally create the partition for the home, making up the rest of the hard disk.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) mkpart primary ext4 42GiB 100%
-++</pre></div></div>
+++(parted) mkpart primary ext4 42GiB 100%++ '
 
-In the steps above, if the requested partition cannot be made precisely as such,
-an alternative suggestion will be prompted.
-You might also be asked again of the point of start and end, and of the file system.
-I just apply default for everything.
-You may also be warned that ++The resulting partition is not properly aligned for best performance.++ which we may ignore.
+@@in the steps above, if the requested partition cannot be made precisely as such,@@
+@@an alternative suggestion will be prompted.@@ _
+@@you might also be asked again of the point of start and end, and of the file system.@@ _
+@@I just apply default for everything.@@ _
+@@you may also be warned that@@ ++The resulting partition is not properly aligned for best performance.++ @@which we may ignore.@@ _ '
 
-Print a summary of each partition to double check.
+@@print a summary of each partition to double check.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) print
-++</pre></div></div>
+++(parted) print++ '
 
-My report has that ++sda1++ is the root directory except home, ++sda2++ the swap memory, ++sda3++ the root’s home.
-Quit if everything looks fine.
+@@my report has that@@ ++sda1++ @@is the root directory except home,@@ ++sda2++ @@the swap memory,@@ ++sda3++ @@the root’s home.@@ _
+@@quit if everything looks fine.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(parted) quit
-++</pre></div></div>
+++(parted) quit++ '
 
-Format partitions intended for root directory.
+@@format partitions intended for root directory.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.ext4 /dev/sda1
-++</pre></div></div>
+++# mkfs.ext4 /dev/sda1++ '
 
-Mount the root directory.
+@@mount the root directory.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mount /dev/sda1 /mnt
-++</pre></div></div>
+++# mount /dev/sda1 /mnt++ '
 
-To mount the home, create the directory, then mount it.
+@@to mount the home, create the directory, then mount it.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkdir /mnt/home
-# mount /dev/sda3 /mnt/home
-++</pre></div></div>
+++# mkdir /mnt/home++ '
+++# mount /dev/sda3 /mnt/home++ '
+===
 
-<h1 id="installation-of-system-files">Installation of system files##
+===
+##Installation of system files##
+===
 
-Now the internet connection is required,
-since we will download packages.
-It is best that you have ethernet automatically connected.
-Otherwise, you have to set it in command line (which is not covered here).
-Alternatively, you may use a Wifi (not covered here either).
-We may test connection with (say)
+===
+@@now the internet connection is required,@@
+@@since we will download packages.@@ _
+@@it is best that you have ethernet automatically connected.@@ _
+@@otherwise, you have to set it in command line (which is not covered here).@@ _
+@@alternatively, you may use a Wifi (not covered here either).@@ _
+@@we may test connection with@@ ++ping++ @@.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ping -c 3 www.google.com
-++</pre></div></div>
+++# ping -c 3 www.google.com++ '
 
-Edit the list of mirrors,
-so that closer servers are preferred.
-(You may use ++nano++
-if you are unfamiliar with ++vi++, and same hereafter.)
+@@edit the list of mirrors,@@
+@@so that closer servers are preferred.@@ _
+@@you may want to use@@ ++nano++ @@if you are unfamiliar with ++vi++ @@.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/pacman.d/mirrorlist
-++</pre></div></div>
+++# vi /etc/pacman.d/mirrorlist++ '
 
-Install the base packages, which will take quite a while, about twenty minutes in my case.
+@@install the base packages, which will take quite a while, about twenty minutes in my case.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacstrap -i /mnt base base-devel
-++</pre></div></div>
+++# pacstrap -i /mnt base base-devel++ '
 
-Generate the ++fstab++ file (which specifies information about mounted partitions),
-and write it to the configuration file.
+@@generate and write the@@ ++fstab++ @@file, which specifies information about mounted partitions.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># genfstab -U /mnt > /mnt/etc/fstab
-++</pre></div></div>
+++# genfstab -U /mnt > /mnt/etc/fstab++ '
+===
 
-<h1 id="language-and-location">Language and location##
+===
+##Language and location##
+===
 
-In completing the remaining tasks, temporarily take ++/mnt++ to be the root directory (the partition where Arch Linux will be installed).
+===
+@@for the rest, temporarily take@@ ++/mnt++ @@to be the root directory, where Arch Linux will be installed.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># arch-chroot /mnt
-++</pre></div></div>
+++# arch-chroot /mnt++ '
 
-I shall choose American English to be the default for system display,
-and further install Chinese input methods.
-To do so, edit the languages to be enabled.
+@@I choose American English to be the default for system display,@@
+@@and install Chinese input methods.@@ _
+@@to do so, edit@@ ++/etc/locale.gen++ @@,@@
+@@and uncomment before the line@@ ++en_US.UTF-8 UTF-8++ @@and@@ ++zh_TW.UTF-8 UTF-8++ @@.@@ _
+@@then,@@ ++locale-gen++ @@will generates necessary information for all languages enabled,@@
+@@and@@ ++locale.conf++ @@specifies system display.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vi /etc/locale.gen
-++</pre></div></div>
+++# locale-gen++ '
+++# echo "LANG=en_US.UTF-8" > /etc/locale.conf++ '
+++# export LANG=en_US.UTF-8++ '
 
-I have to uncomment (delete the ++#++) before the line ++en_US.UTF-8 UTF-8++ and ++zh_TW.UTF-8 UTF-8++.
-Then, ++locale-gen++ generates necessary information for all languages enabled,
-while ++locale.conf++ specifies system display.
+@@to type Chinese, I have to install the input method framework Ibus (package ++ibus++) and the input method Rime (package ++ibus-rime++).@@ _
+@@to initiate them at startup, add these lines into@@ ++~/.xinitrc++ @@.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># locale-gen
-# echo "LANG=en_US.UTF-8" > /etc/locale.conf
-# export LANG=en_US.UTF-8
-++</pre></div></div>
+++export GTK_IM_MODULE=ibus++ '
+++export XMODIFIERS=@im=ibus++ '
+++export QT_IM_MODULE=ibus++ '
+++ibus-daemon -drx++ '
 
-FOr me, I have to install the input method framework Ibus (package ++ibus++) and the input method Rime (package ++ibus-rime++).
-It supports several Chinese input methods.
-To initiate it at startup, add these lines in ++~/.xinitrc++:
+@@select the time zone.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-ibus-daemon -drx
-++</pre></div></div>
+++# tzselect++ '
 
-Select the time zone.
+@@in my case this is ++4) Asia++, and ++43) Taiwan++ @@.@@ _
+@@to be sure, its very existence of this item is a reassurance.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tzselect
-++</pre></div></div>
+@@create a symlink from the shared directory to the system configuration directory.@@ _ '
 
-In my case this is ++4) Asia++, and ++43) Taiwan++.
-Its very existence of this item is a reassurance!
+++# ln -s /usr/share/zoneinfo/Asia/Taiwan > /etc/localtime++ '
 
-Create a symlink from the shared directory to the system configuration directory.
+@@set the hardware clock.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ln -s /usr/share/zoneinfo/Asia/Taiwan > /etc/localtime
-++</pre></div></div>
+++# hwclock --systohc --utc++ '
+===
 
-Set the hardware clock.
+===
+##Setting a boot manager##
+===
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># hwclock --systohc --utc
-++</pre></div></div>
+===
+@@for MBR users, download a boot manager (packages@@ ++grub++ @@)@@ @@and an OS-detector (@@ ++os-prober++ @@),@@ @@possibly in order to do a dual boot.@@ _
+@@set up the@@ ++grub++ @@on the booted partition, and generate the configuration file.@@ _
+@@again, replace@@ ++sda++ @@with your partition name.@@ _ '
 
-<h1 id="setting-a-boot-manager">Setting a boot manager##
+++# grub-install --recheck --force --target=i386-pc /dev/sda++ '
+++# grub-mkconfig -o /boot/grub/grub.cfg++ '
 
-For MBR users, download a boot manager and an OS-detector, possibly for sake of dual boot.
-They are provided by packages ++grub++ and ++os-prober++.
+@@at this point, I encountered the error@@ ++Failed to connect to lvmetad++ @@.@@ _
+@@this is because the service@@ ++lvmetad++ @@that improves performance of the Logical Volume Manager.@@ _
+@@I have to disable it by editing@@ ++/etc/lvm/lvm.conf++ @@,@@ @@and write@@ ++use_lvmetad = 0++ @@.@@ _ '
+===
 
-Set up the ++grub++ on the booted partition, and generate the configuration file.
-Again, replace ++sda++ with your partition name.
+===
+##Setting a host name##
+===
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># grub-install --recheck --force --target=i386-pc /dev/sda
-# grub-mkconfig -o /boot/grub/grub.cfg
-++</pre></div></div>
+===
+@@replace@@ ++Host-Name++ @@with your host name.@@ _ '
 
-At this point, I encountered the error ++Failed to connect to lvmetad++.
-The is due to the ++lvmetad++ service that improves performance of LVM, the Logical Volume Manager (which manages disk drives and other mass-storage devices).
-I have to disable it by editing ++/etc/lvm/lvm.conf++,
-and write ++use_lvmetad = 0++.
+++# echo "Host-Name" > /etc/hostname++ '
 
-<h1 id="setting-a-host-name">Setting a host name##
+@@set the root’s password.@@ _ '
 
-Replace ++Host-Name++ with your host name.
+++# passwd++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># echo "Host-Name" > /etc/hostname
-++</pre></div></div>
+@@we may now leave the@@ ++chroot++ @@environment,@@
+@@unmount the corresponding partition,@@
+@@and schedule shutdown.@@ _ '
 
-Set the root’s password.
+++# exit++ '
+++# umount -R /mnt++ '
+++# shutdown++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># passwd
-++</pre></div></div>
+@@unplug the USB,@@
+@@restart,@@
+@@and login as@@ ++root++ @@.@@ _ '
+===
 
-We may now leave the ++chroot++-ed environment,
-unmount the corresponding partition,
-and schedule shutdown.
+===
+##Internet connection##
+===
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># exit
-# umount -R /mnt
-# shutdown
-++</pre></div></div>
+===
+@@assuming a working connection, we set up DHCP (Dynamic Host Configuration Protocol).@@ _ '
 
-Unplug the USB,
-restart,
-and login as ++root++.
+++# ip link++ '
 
-<h1 id="internet-connection">Internet connection##
+@@the first item in the output is, in my case,@@ '
 
-Assuming a connection is fine, we set up DHCP (Dynamic Host Configuration Protocol) that requests an IP address in the present ethernet.
+++1: lo:mtu 65536 qdisk noqueue state UNKNOWN mode DEFAULT group default qlen 1000++ '
+++link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ip link
-++</pre></div></div>
+@@let the DHCP service start now, and whenever the system boots.@@ _ '
 
-The first item in the output is, in my case,
+++# systemctl start dhcpcd@______.service++ '
+++# systemctl enable dhcpcd@______.service++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1: lo:mtu 65536 qdisk noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-++</pre></div></div>
+@@replace@@ ++______++ @@with the name of wired device just seen above.@@ _
+@@mine is@@ ++lo++ @@.@@ _ '
+===
 
-Start the DHCP service now, and whenever the system boots.
+===
+##Creating the daily user’s account##
+===
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl start dhcpcd@_______.service
-# systemctl enable dhcpcd@_______.service
-++</pre></div></div>
+===
+@@create a user account to be used on a daily basis.@@ _
+@@add the ID (mine is@@ ++violapterin++ @@)@@ @@into the wheel group having sudo privileges,@@
+@@and set the password.@@ _ '
 
-Replace the ++______++ with the name of wired device just seen above.
-Mine is ++lo++.
+++# useradd -m -G wheel,users -s /bin/bash violapterin++ '
+++# passwd violapterin++ '
 
-<h1 id="creating-the-daily-users-account">Creating the daily user’s account##
+@@install package@@ ++sudo++ @@to get superuser privilege,@@
+@@then edit the@@ ++sudoers++ @@file.@@ _
+@@this file is special, we have to specify the editor.@@ _ '
 
-Create a user account intended to be used on a daily basis.
-Add the ID (mine is ++violapterin++) into the wheel group to get sudo privileges,
-and sets its password.
+++# EDITOR=vi visudo++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># useradd -m -G wheel,users -s /bin/bash violapterin
-# passwd violapterin
-++</pre></div></div>
+@@uncomment this line by deleting the beginning@@ ++#++ @@.@@ _ '
 
-Install package ++sudo++ to get superuser privilege,
-then edit the ++sudoers++ file.
-Since this file is special, we have to specify the editor.
+++%wheel ALL=(ALL) ALL++ '
+===
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># EDITOR=vi visudo
-++</pre></div></div>
+===
+##Basic packages##
+===
 
-Uncomment this line (by deleting the beginning ++#++).
+===
+@@make stable repositories available to package manager ++pacman++.@@ _
+@@to do so, open@@ ++/etc/pacman.conf++ @@,@@ @@and uncomment these lines.@@ _ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%wheel ALL=(ALL) ALL
-++</pre></div></div>
+++[multilib]++ '
+++Include = /etc/pacman.d/mirrorlist++ '
 
-<h1 id="basic-packages">Basic packages##
+@@update@@ ++pacman++ @@,@@
+@@and install all refreshed packages.@@ _
+@@flags@@ ++-Syu++ @@means respectively install packages, refresh the database, and check outdated packages.@@ _ '
 
-Make stable repositories available to package manager ++pacman++, by opening ++/etc/pacman.conf++, and uncommenting these lines:
+++# sudo pacman –Syu++ '
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[multilib]
-Include = /etc/pacman.d/mirrorlist
-++</pre></div></div>
+@@besides the official repository that@@ ++pacman++ @@uses, there is another Arch User Repository (AUR) maintained by community.@@ _
+@@we need other helpers to install AUR packages, including@@ ++yay++ @@,@@ ++pakku++ @@,@@ ++pikaur++ @@,@@ @@and@@ ++pacaur++ @@.@@ _
+@@the flag@@ ++-S++ @@also means installation.@@ _ '
+===
 
-Update ++pacman++,
-and install all refreshed packages.
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># sudo pacman –Syu
-++</pre></div></div>
-
-Flags ++-Syu++ means, respectively, install packages, refresh database for packages, and look for existing outdated packages.
-
-A
-    <a href="https://wiki.archlinux.org/index.php/list_of_applications">comprehensive list of packages</a>,
-is provided on Arch Linux Wiki’s
-Besides the official repository that ++pacman++ uses, there is another Arch User Repository (AUR) maintained by community.
-We need the so-called pacman helpers to install AUR packages, including ++yay++, ++pakku++, ++pikaur++, and ++pacaur++.
-The flag ++-S++ again means installation.
-
+===
 ##Graphical interface##
+===
 
-it remains to set up a desktop environment.
-we install the X-server ++xorg-server++ and ++xorg-server-utils++.
-check which graphic card the current system is using:
+===
+@@it remains to set up a desktop environment.@@ _
+@@we install the X-server@@ ++xorg-server++ @@and@@ ++xorg-server-utils++ @@.@@ _
+@@check which graphic card the current system is using.@@ _ '
 
-# lspci -v
+++# lspci -v++ '
 
-As my computer has an Intel GPU, I have to install ++xf86-video-intel++ @@.@@
+@@as my computer has an Intel GPU, I have to install@@ ++xf86-video-intel++ @@.@@ _
+@@I choose KDE to be my desktop,@@
+@@and installed packages@@ ++plasma++ @@and@@ ++kde-applications++ @@which took nearly thirty minutes.@@ _
+@@afterwards, we configure@@ ++.xinitrc++ that calls KDE on startup.@@ _
+@@log in as the daily user’s account, and write this lines.@@ _ '
 
-I choose KDE to be my desktop,
-and installed packages ++plasma++ and ++kde-applications++ which took nearly thirty minutes.
+++# echo "exec startkd>" > ~/.xinitrc++ '
 
-configure ++.xinitrc++ that calls KDE on startup.
-First, log in as the daily user’s account, and write these:
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># echo "exec startkd>" > ~/.xinitrc
-++</pre></div></div>
-
-Here ++.xinitrc++ must be saved in the daily user’s home in order to be found and read.
-Even so, KDE will only be started after ++startx++ command is run.
-To start KDE immediately after logged in, install package ++xorg-xinit++.
-Put these lines in ++~/.bashrc++ @@:@@ _ '
+@@here@@ ++.xinitrc++ @@must be saved in the daily user’s home in order to be found and read.@@ _
+@@even so, KDE will only be started after@@ ++startx++ @@command is run.@@ _
+@@to start KDE immediately after logged in, install package@@ ++xorg-xinit++ @@.@@ _
+@@put these lines in@@ ++~/.bashrc++ @@.@@ _ '
 
 ++if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then++ '
 ++exec startx++ '
 ++fi++ '
 
-This means that we start the X server, if the display variable is not a null, and if there is more than one terminal instance.
+@@this means that we start the X server, if the display variable is not a null, and if there is more than one terminal instance.@@ _ '
 
-In the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.
+@@in the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.@@ _ '
+===
 
+===
 ##Source##
+===
 
-Arch Linux Wiki, «Installation Guide» \\https://wiki.archlinux.org/title/Installation_guide\\
-Arch Linux Wiki, «List of applications» \\https://wiki.archlinux.org/title/List_of_applications\\
-Arch Linux Wiki, «Desktop environment» \\https://wiki.archlinux.org/title/desktop_environment\\
+===
+@@Arch Linux Wiki,@@ @@«Installation Guide»@@ \\https://wiki.archlinux.org/title/Installation_guide\\
+@@Arch Linux Wiki,@@ @@«List of applications»@@ \\https://wiki.archlinux.org/title/List_of_applications\\
+@@Arch Linux Wiki,@@ @@«Desktop environment»@@ \\https://wiki.archlinux.org/title/desktop_environment\\
+===
+
