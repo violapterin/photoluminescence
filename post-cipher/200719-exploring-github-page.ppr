@@ -5,109 +5,101 @@
 @@every account of GitHub was allowed to own 1 GHP, endowed with a unique URL derived from the username.@@ _
 @@I would like to import some past posts and modify the time stamp accordingly, so let this notice attest to the moment of what was supposedly a new start.@@ _ '
 
-one reason I want to have a personal site is to write notes containing mathematics, of either popular or research level.
-about just one year ago, I created a WordPress (WP) account, mainly because they support LaTeX (to some extent).
-WP’s interface is straighforward, their templates modern and elegant, and their email support prompt and helpful.
+@@one reason I want to have a personal site is to write notes containing mathematics, of either popular or research level.@@ _
+@@about just one year ago, I created a WordPress (WP) account, mainly because they support LaTeX (to some extent).@@ _
+@@WP’s interface is straighforward, their templates modern and elegant, and their email support prompt and helpful.@@ _
 
-so why did I move away?
-WP only allowed the user to type in the web interface,
-and one could not write and save locally.
-WP does not allow a lot of CSS, let alone Javascript, except in some expensive plans.
-more importantly, it required ++$latex ...$++ for LaTeX expression, which can be verbose,
-and there was no way to compile and preview one’s work.
-thus I basically stopped writing on the WP site after a while.
+@@so why did I move away?@@ _
+@@WP only allowed the user to type in the web interface,@@ _
+@@and one could not write and save locally.@@ _
+@@WP does not allow a lot of CSS, let alone Javascript, except in some expensive plans.@@ _
+@@more importantly, it required ++$latex ...$++ for LaTeX expression, which can be verbose,@@ _
+@@and there was no way to compile and preview one’s work.@@ _
+@@thus I basically stopped writing on the WP site after a while.@@ _
 
-this May, a friend recommended GHP to me.
-I researched about that,
-and it sounded much like what I intend.
-it supported Mathjax, a free engine of LaTeX rendition, enabling me to write mathematics.
-and I may also write on a local machine and commit, which is more convenient and reliable,
-and commit records would also better protect my intellectual property.
-finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.
-
-I tred to follow Jonathan McGlone’s guide on GHP,
-but, as I have zero experience with web development, by now everything looked rather complicated.
+@@this May, a friend recommended GHP to me.@@ _
+@@I researched about that,@@ _
+@@and it sounded much like what I intend.@@ _
+@@it supported Mathjax, a free engine of LaTeX rendition, enabling me to write mathematics.@@ _
+@@and I may also write on a local machine and commit, which is more convenient and reliable,@@ _
+@@and commit records would also better protect my intellectual property.@@ _
+@@finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.@@ _
 ===
 
 ===
 %%July 19%%:
-found the Jekyll template provided officially by Jekyll group, which was incredibly helpful.
-copied the code to my repo,
-and for the first time, my site worked on localhost, via ++bundle exec jekyll serve++.
-after I committed, the default domain ++violapterinblog.github.io++ was also rendered successfully on the browser, which was exciting!
+@@found the Jekyll template provided officially by Jekyll group, which was incredibly helpful.@@ _
+@@copied the code to my repo,@@ _
+@@and for the first time, my site worked on localhost, via ++bundle exec jekyll serve++.@@ _
+@@after I committed, the default domain ++violapterinblog.github.io++ was also rendered successfully on the browser, which was exciting!@@ _
 ===
 
 ===
 %%July 20%%:
-Jekyll called Kramdown, a Markdown standard, by default.
-Realized that Jekyll allowed raw html code protected by tags,
-so I might actually write directly in HTML.
-But it did not harm to try Kramdown first.
+@@Jekyll called Kramdown, a Markdown standard, by default.@@ _
+@@realized that Jekyll allowed raw html code protected by tags,@@ _
+@@so I might actually write directly in HTML.@@ _
+@@but it did not harm to try Kramdown first.@@ _
 
-tried to call Mathjax, which Kramdown was said to call, with no avail.
-it was pointed out that Mathjax seemed to have difficulty recognizing ++$$++.
-thus one had to apply the snippet on the official document “Changes in the Mathjax API”, which solved everything.
+@@tried to call Mathjax, which Kramdown was said to call, with no avail.@@ _
+@@it was pointed out that Mathjax seemed to have difficulty recognizing ++$$++.@@ _
+@@thus one had to apply the snippet on the official document “Changes in the Mathjax API”, which solved everything.@@ _
 ===
 
 ===
 %%July 22%%:
-I wonder whether my favorite Google fonts may be used instead of the default LaTeX fonts, like Computer Modern or STIX.
-Perhaps I might specify, in the CSS, the fonts which ++\textrm++, ++\textsf++, ++\texttt++ calls, by a slight abuse of system?
-I asked on Stack Exchange and Stack Overflow,
-and it turned out that, although Mathjax 2.7 allowed that, Mathjax 3 didn’t.
-tried to call Mathjax 2.7 instead of 3,
-and failed.
-Quite disappointed, I gave up the thought of using custom fonts in LaTeX.
+@@I wonder whether my favorite Google fonts may be used instead of the default LaTeX fonts, like Computer Modern or STIX.@@ _
+@@Perhaps I might specify, in the CSS, the fonts which ++\textrm++, ++\textsf++, ++\texttt++ calls, by a slight abuse of system?@@ _
+@@I asked on Stack Exchange and Stack Overflow,@@ _
+@@and it turned out that, although Mathjax 2.7 allowed that, Mathjax 3 didn’t.@@ _
+@@tried to call Mathjax 2.7 instead of 3,@@ _
+@@and failed.@@ _
+@@Quite disappointed, I gave up the thought of using custom fonts in LaTeX.@@ _
 
-at least I learned to call Google fonts.
-Jekyll characterized CSS in ++/css/main.scss++,
-and ++$++ prefixed variables were expanded, in order to generated CSS statements.
-I used Roboto Sans for titles and headings, Open Sans for normal text, and Vollkorn for bold text (a slight abuse of design).
-===
-
-<<<
-%%July 26%%:
-Last year, I had bought a domain under WP account,
-and today I finally transfered that to the GHP.
-I asked WordPress staff via email,
-and their response was so kind!
-They sent link of instruction, which had always been there,
-and I never read carefully.
-To start, I had to renew ++violapterin.com++ and ++violapterin.blog++, like before, which was a matter of one-click.
-Then, to point the two domains, presently managed by WordPress-com, towards my GHP, I had to add a DNS CNAME-records  on WordPress-com, under WP’s tutorial
-  <a href="https://wordpress.com/domains/manage">domain management</a>,
-and simply add the alias on the web interface for GitHub repo.
-The official introduction, “Managing a custom domain for your github pages site”, explains everything.
+@@at least I learned to call Google fonts.@@ _
+@@Jekyll characterized CSS in ++/css/main.scss++,@@ _
+@@and ++$++ prefixed variables were expanded, in order to generated CSS statements.@@ _
+@@I used Roboto Sans for titles and headings, Open Sans for normal text, and Vollkorn for bold text (a slight abuse of design).@@ _
 ===
 
 ===
-%%July 28%%:
-Discovered ++\unicode++ extension of MathJax,
-and suddenly there again was hope for changing LaTeX font.
-In doing so, I might extract arbitrary unicode characters,
-as long as the font (known to the browser) supports that.
-It appeared I could not specify the style (normal or italic) and weight (light, regular, or bold etc),
-but obviously this was asking too much.
+%%July 26:%% '
 
-The ++macro++ extension was tremendously helpful too.
-While it was not part of TeX,
-still these macros expanded, even recursively, before Mathjax was called!
-I imported and translated the whole big list of custom LaTeX macros I used with ConTeXt,
+@@last year, I had bought a domain under WP account,@@ _
+@@And today I finally transfered that to the GHP.@@ _
+@@I asked WordPress staff via email,@@ _
+@@and their response was so kind!@@ _
+@@the instruction had always been there,@@ _
+@@and I never read carefully.@@ _
+@@to point a domain managed by WordPress- com, towards my GHP, I had to add a DNS CNAME- record and Apex domains on WordPress- com.@@ _
+@@then simply add the CNAME on the web interface for GitHub repo of the GHP.@@ _
 ===
 
+===
+%%July 28:%% '
+
+@@Discovered ++\unicode++ extension of MathJax,@@ _
+@@and suddenly there again was hope for changing LaTeX font.@@ _
+@@with that, one may extract arbitrary unicode characters supported by the font.@@ _
+@@one could not specify the style (normal or italic) and weight (light, regular, or bold etc),@@ _
+@@but this may be asking too much.@@ _
+
+@@The ++macro++ extension, though not part of TeX, was tremendously helpful too.@@ _
+@@it have the macros expanded, even recursively, before Mathjax was called!@@ _
+@@I imported and translated the whole big list of custom LaTeX macros which I have been using all the time.@@ _
+===
+
+<<<<
 ===
 %%July 29%%:
-A critical progress!
-This night, I was thinking intensively of an imagined command.
-This command displayed a first glyph onto the document,
-but threw it away from the ``stack’’ (or whatever),
-and displayed a second glyph like usual,
+a critical progress!
+this night, I was thinking intensively of an imagined command.
+this command should display a first glyph on the document, but throw it away from the “stack” (or whatever), and display a second glyph like usual,
 so that the ensuing, third glyph knew only the second glyph, but not the first one.
-If only there is exactly such TeX command!
-But I was not optimistic,
-as I felt this did not quite agree the spirit of TeX’s design.
+if only there is exactly such TeX command!
+but I was not optimistic, as I felt this did not quite agree the spirit of TeX’s design.
 
-Meanwhile, I was troubled by the ugliness of the ++\unicode++ letters manually accented by me.
+Meanwhile, I was troubled by the ugliness of the ++\unicode++ letters with accents.
 When researching Stack Overflow about ++\overset++ and ++\underset++, I saw several posts, like ++barbara beeton++’s answer in
   <a href="https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks">this thread on vertical spacing of ++\underset++</a>
   used the plain-TeX control sequence ++\smash++.
@@ -127,23 +119,23 @@ Instantly I applied ++\smash++ to my ++\unicode++ containing macro, and the lett
 I really should learn TeX at least in a cursory manner,
 since many of my original solutions might very well be simplified greatly by plain TeX sequences which I did not yet know (or would never know).
 ===
+>>>>
 
 ===
-%%Aug 2%%:
-unfortunately, most miscellaneous symbols were not in Noto Sans nor Noto Serif, which means I might have to stick to Mathjax.
-however, Mathjax’s ++\unicode++ extension, allows one to use unicode characters not provided by LaTeX.
-it might be even possible to display Japanese Hiragana and Kanji, for example.
+%%Aug 2:%% '
 
-at this point, I decided to take a break to learn a good deal of HTML, CSS, Javascript, as well as Jekyll, SASS, and Kramdown.
-hopefully, the solution of some problems will come naturally afterwards,
-or at least, knowing more web programming can only be beneficial to one’s career.
-finally, I had spent too much on these matters which this post explains,
-and for now I had better focus on the very writing which this site was constructed for.
+@@unfortunately, most miscellaneous symbols were not in Noto Sans nor Noto Serif, which means I might have to stick to Mathjax.@@ _
+@@but as I said, ++\unicode++ extension allows one to use unicode characters not provided by LaTeX, even Japanese Hiragana and Kanji.@@ _
+
+@@at this point, I decided to take a break to learn a good deal of HTML, CSS, Javascript, as well as Jekyll, SASS, and Kramdown.@@ _
+@@hopefully, the solution of some problems will come naturally afterwards,@@ _
+@@or at least, knowing more web programming can only be beneficial to one’s career.@@ _
+@@by now, I had spent too much on these matters which this post explains,@@ _
+@@and I had better focus on the very writing which this site was constructed for.@@ _
 ===
 
-===
-##Source##
-===
+=== ##Source## ===
+
 ===
 @@Jonathan McGlone, “Guide on GitHub Pages”@@
    \\http://jmcglone.com/guides/github-pages\\ '
@@ -157,8 +149,7 @@ and for now I had better focus on the very writing which this site was construct
    \\https://developers.google.com/fonts/docs/getting_started\\ '
 @@“Domain management”@@
    \\https://wordpress.com/domains/manage\\
-
-
+@@vertical-spacing-of-underset-and-other-tweaks@@
+   \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
 ===
 
->>>
