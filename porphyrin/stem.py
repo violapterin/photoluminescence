@@ -368,9 +368,6 @@ class Phrase(Stem):
 
    def parse(self):
       head = self.move_right(0, 0)
-      glyph_start = self.source[0]
-      if (glyph_start.islower()):
-         self.source[0] = glyph_start.upper()
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
          if (not leaf) or (not leaf.source):
@@ -388,6 +385,7 @@ class Phrase(Stem):
    def write(self):
       contents = []
       self.explain()
+      self.capitalize()
       self.parse()
       for leaf in self.sinks:
          if leaf and leaf.source:
@@ -432,6 +430,7 @@ class Verse(Stem):
    def write(self):
       contents = []
       self.explain()
+      self.capitalize()
       self.parse()
       for leaf in self.sinks:
          if leaf and leaf.source:
@@ -476,6 +475,7 @@ class Cell(Stem):
    def write(self):
       contents = []
       self.explain()
+      self.capitalize()
       self.parse()
       for leaf in self.sinks:
          if leaf and leaf.source:

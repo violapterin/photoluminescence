@@ -213,6 +213,16 @@ def be_start_asymmetry(label):
    }
    return (label in labels)
 
+def be_literary(label):
+   labels = {
+      "SERIF_ROMAN",
+      "SERIF_ITALIC",
+      "SERIF_BOLD",
+      "SANS_ROMAN",
+      "SANS_BOLD",
+   }
+   return (label in labels)
+
 def be_start_macro(label):
    labels = {
       "IDENITFIER",
@@ -252,12 +262,14 @@ def tune_text(source):
    sink = remove_token(glyphs_mark, sink)
    sink = erase_token(glyphs_space, sink)
    sink = prune_space(sink)
+   sink = tune_hypertext(sink)
    return sink
 
 def tune_code(source):
    glyphs_space = set([' ', '\t', '\n'])
    sink = source
    sink = erase_token(glyphs_space, sink)
+   sink = tune_hypertext(sink)
    return sink
 
 def tune_comment(source):
@@ -275,11 +287,22 @@ def tune_hypertext(source):
       '<': "&lt;",
       '>': "&gt;",
       '&': "&amp;",
-      '\"': "&quote;",
-      '\'': "&apos;",
+      '\"': "&quot;",
+      '\'': "&#39;",
    }
    sink = source
-   sink = replace_token(escapes, sink)
+   index = 0
+   while True:
+      if (index >= len(sink)):
+         break
+      for glyph, escape in escapes.items():
+         if (index >= len(sink)):
+            break
+         if (sink[index] == glyph):
+            sink = sink[:index] + escape + sink[index + 1:]
+            index += len(escape)
+            continue
+      index += 1
    return sink
 
 def remove_token(tokens, source):

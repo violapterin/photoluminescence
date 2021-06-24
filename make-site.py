@@ -19,8 +19,8 @@ def main():
 
    # # # # # # # # # # # # # # # #
    # # Convert posts into HTML article.
-   # AID.make_all(folder_cipher, folder_plain) # XXX
-   AID.make_new(folder_cipher, folder_plain)
+   AID.make_all(folder_cipher, folder_plain) # XXX
+   # AID.make_new(folder_cipher, folder_plain)
 
    # # # # # # # # # # # # # # # #
    # # Write posts.

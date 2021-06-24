@@ -133,12 +133,13 @@ b,
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-pre,
+code,
 .mono
 {
   font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
     "Courier New", monospace;
-  display: inline;
+  white-space: pre-wrap;
+  word-break: keep-all;
 }
 
 .document a

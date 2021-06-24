@@ -326,6 +326,21 @@ class Stem(Organ):
       branch = creator(**data)
       return branch, head_right
 
+   def capitalize(self):
+      label_start = AID.get_label(self.source[0])
+      if not AID.be_literary(label_start):
+         return
+      for index in range(len(self.source)):
+         glyph = self.source[index]
+         if not glyph.isalpha():
+            continue
+         self.source = (
+            self.source[:index]
+            + glyph.upper()
+            + self.source[index + 1:]
+         )
+         break
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

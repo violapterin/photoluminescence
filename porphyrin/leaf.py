@@ -81,7 +81,7 @@ class Sans_bold(Leaf):
 class Mono(Leaf):
 
    KIND = "mono"
-   TAG_PLAIN = "pre"
+   TAG_PLAIN = "code"
 
    def __init__(self, **data):
       self.fill_basic(**data)

@@ -4,7 +4,7 @@
 @@This was embarassing:@@ _
 @@I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
 @@I knew that when Jekyll was run, GitHub automatically generated the site again in the server end.@@ _
-@@but I did not know if there was a empty file ++.nojekyll++, GitHub no longer ran Jekyll, but it simply recognized ++index.html++, and serve the site accordingly.@@ _
+@@but I did not know if there was a empty file@@ ++.nojekyll++ @@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++ @@,@@ @@and serve the site accordingly.@@ _
 @@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ _ '
 ===
 
@@ -36,7 +36,7 @@
 
 @@implementing a Markdown parser will not be an easy task, as to me, Markdown is not an elegant markup.@@ _
 @@the earliest proposal of Markdown by John Gruber was sometimes ambiguous.@@ _
-@@for example, ++*italic __bold*__++ can be either a italic or a bold, depending on the precedence.@@ _
+@@for example,@@ ++*italic __bold*__++ @@can be either a italic or a bold, depending on the precedence.@@ _
 @@afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.@@ _
 @@to make things more complicated, I do not know GitHub- Flavored Markdown has a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
 @@recall that it was well known that whether a language is unambiguous is undecidable, in general.@@ _ '
