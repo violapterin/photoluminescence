@@ -47,16 +47,16 @@
 @@then when I had a better grasp of computation theory, I finish the rest which is recursively enumerable, perhaps as strong as HTML5.@@ _
 @@when that is done, I stop using Markdown and Jekyll altogether.@@ _
 @@still, I do not know how to show rigorously the two parts of the project are theoretically consistent, and I got confused.@@ _ '
+===
 
 ===
 %%Aug 12%% _ '
 
-@@Tested CSS-span-fractions, okay.@@ _
-@@Discovered CSS grids, which might be superior to@@ ++table++ @@.@@ _
-@@Came up with the artificial square brackets made of@@ ++span++ @@.@@ _ '
+@@tested CSS-span-fractions, okay.@@ _
+@@discovered CSS grids, which might be superior to@@ ++table++ @@.@@ _
+@@came up with the artificial square brackets made of@@ ++span++ @@.@@ _ '
 ===
 
-<<<<
 ///
 _ ++.v, .v-b, .v-l, .v-r, .v-l-r {++ '
 _ ++display: inline-block;++ '
@@ -78,15 +78,19 @@ _ ++</span> <br>++ '
 _ ++<span class="v"> x+y+z </span>++ '
 ++</span>++ '
 ///
->>>>
 
 ===
-%%Aug 14:%% '
+%%Aug 14:%% _ '
+
 @@realized that an expression is really a tree.@@ _
 @@if I choose prefix form always, there is no parsiing problem, like Lisp does.@@ _
 @@later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I brought up the topic of obelus sign.@@ _
 @@this helped me further clarify the tree image, and came up with a interpretation of the transformation.@@ _
-@@the design of esoteric language Jelly (inspired by J and APL in turn) is very instructive in its tacit function notation.@@ _
+@@the design of esoteric language Jelly (inspired by J and APL in turn) is very instructive in its tacit function notation.@@ _ '
 ===
 
+=== ##Source## ===
+
+===
 @@A grammar for HTML5@@ \\http://trevorjim.com/a-grammar-for-html5\\
+===

@@ -300,19 +300,12 @@ def search_path_plain(folder_plain, stamp):
          break
    return path_plain
 
-def search_path_post(folder_post, stamp):
-   name_post = ''
-   for name in os.listdir(folder_post):
-      if name.startswith(stamp):
-         name_post = name
-         break
-   return name_post
-
-'''
-# # revised
 def search_path_post(folder, stamp):
    name_post = ''
    for name in os.listdir(folder):
+      if name.startswith(stamp):
+         name_post = name
+         break
       subfolder = os.path.join(folder, name)
       if not os.path.isdir(subfolder):
          continue
@@ -321,7 +314,6 @@ def search_path_post(folder, stamp):
             name_post = subname
             break
    return name_post
-'''
 
 def write_element_heading(title, name):
    if not title:

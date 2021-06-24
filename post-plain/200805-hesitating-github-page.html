@@ -1,0 +1,126 @@
+<main class="document">
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 5, 2020:</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">This was embarassing:</span> </span> <span class="phrase"> <span class="serif-roman">I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.</span> </span> <span class="phrase"> <span class="serif-roman">I knew that when Jekyll was run, GitHub automatically generated the site again in the server end.</span> </span> <span class="phrase"> <span class="serif-roman">but I did not know if there was a empty file ++.nojekyll++, GitHub no longer ran Jekyll, but it simply recognized ++index.html++, and serve the site accordingly.</span> </span> <span class="phrase"> <span class="serif-roman">it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.</span> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 6</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">surprisingly, as I tested for several simple cases, most browsers don’t support MathML, including even Chrome and Safari.</span> </span> <span class="phrase"> <span class="serif-roman">that crossed out MathML as the realizer of my new notation.</span> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">if I use a more linear notation, as Peano did, which fell in the realm of HTML and CSS, I might solve the problem by not creating it.</span> </span> <span class="phrase"> <span class="serif-roman">OK, brace yourself for a even more unconventional notation!</span> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">this way, I only have to mimic fractions and matrices, possibly by drawing a horizontal line between items, and a outermost vertical line surrounding them all.</span> </span> <span class="phrase"> <span class="serif-roman">then I soon discovered that</span> <pre class="mono"><p></pre> <span class="serif-roman">did not allow block- level tags like</span> <pre class="mono"><table></pre> <span class="serif-roman">or</span> <pre class="mono"><div></pre> <span class="serif-roman">!</span> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 7</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">important realization!</span> </span> <span class="phrase"> <span class="serif-roman">HTML</span> <pre class="mono"><p></pre> <span class="serif-roman">may contain several lines separated by</span> <pre class="mono"><br></pre> <span class="serif-roman">and stacked vertically, if grouped by a</span> <pre class="mono"><span></pre> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">moreover, the CSS</span> <pre class="mono">border-left</pre> <span class="serif-roman">,</span> <pre class="mono">border-right</pre> <span class="serif-roman">,</span> <pre class="mono">border-top</pre> <span class="serif-roman">,</span> <span class="serif-roman">and</span> <pre class="mono">border-bottom</pre> <span class="serif-roman">may serve as traditional mathematical brackets.</span> </span> <span class="phrase"> <span class="serif-roman">they may be colored, scaled, or thickened as I wish, by a suitable class.</span> </span> <span class="phrase"> <span class="serif-roman">this would perhaps suffice for my revolution of notation.</span> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 8</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">implementing a Markdown parser will not be an easy task, as to me, Markdown is not an elegant markup.</span> </span> <span class="phrase"> <span class="serif-roman">the earliest proposal of Markdown by John Gruber was sometimes ambiguous.</span> </span> <span class="phrase"> <span class="serif-roman">for example, ++*italic __bold*__++ can be either a italic or a bold, depending on the precedence.</span> </span> <span class="phrase"> <span class="serif-roman">afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.</span> </span> <span class="phrase"> <span class="serif-roman">to make things more complicated, I do not know GitHub- Flavored Markdown has a PEG (parsing expression grammar) or a BNF (Backus–Naur form).</span> </span> <span class="phrase"> <span class="serif-roman">recall that it was well known that whether a language is unambiguous is undecidable, in general.</span> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">or it may be more reasonable to first design a subset of the markup, which is context- free.</span> </span> <span class="phrase"> <span class="serif-roman">it should encompass Markdown Kramdown-with-Mathjax.</span> </span> <span class="phrase"> <span class="serif-roman">at this stage I convert the source to Markdown, and generate via Jekyll.</span> </span> <span class="phrase"> <span class="serif-roman">then when I had a better grasp of computation theory, I finish the rest which is recursively enumerable, perhaps as strong as HTML5.</span> </span> <span class="phrase"> <span class="serif-roman">when that is done, I stop using Markdown and Jekyll altogether.</span> </span> <span class="phrase"> <span class="serif-roman">still, I do not know how to show rigorously the two parts of the project are theoretically consistent, and I got confused.</span> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 12</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">tested CSS-span-fractions, okay.</span> </span> <span class="phrase"> <span class="serif-roman">discovered CSS grids, which might be superior to</span> <pre class="mono">table</pre> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">came up with the artificial square brackets made of</span> <pre class="mono">span</pre> <span class="serif-roman">.</span> </span>
+</p>
+</div>
+<div class="lines">
+<p class="line">
+<span class="verse"> <pre class="mono">.v, .v-b, .v-l, .v-r, .v-l-r {</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">display: inline-block;</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">vertical-align: middle;</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">}</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">.v-b { border-bottom: thin dotted black;}</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">.v-l { border-left: thin dotted black;}</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">.v-r { border-right: thin dotted black;}</pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">.v-l-r { border-left: thin dotted black; border-right: thin dotted black;}</pre> </span>
+</p>
+
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v-l-r"></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v-b"></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v-r"></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v-b"> a </span> <br></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v"> b </span></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"></span></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono">- <span class="v"> cd </span></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"></span> <br></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"><span class="v"> x+y+z </span></pre> </span>
+</p>
+<p class="line">
+<span class="verse"> <pre class="mono"></span></pre> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">Aug 14:</em> </span>
+</p>
+<p class="paragraph">
+<span class="phrase"> <span class="serif-roman">realized that an expression is really a tree.</span> </span> <span class="phrase"> <span class="serif-roman">if I choose prefix form always, there is no parsiing problem, like Lisp does.</span> </span> <span class="phrase"> <span class="serif-roman">later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I brought up the topic of obelus sign.</span> </span> <span class="phrase"> <span class="serif-roman">this helped me further clarify the tree image, and came up with a interpretation of the transformation.</span> </span> <span class="phrase"> <span class="serif-roman">the design of esoteric language Jelly (inspired by J and APL in turn) is very instructive in its tacit function notation.</span> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <b class="serif-bold">Source</b> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <a class="serif-roman" href="http://trevorjim.com/a-grammar-for-html5">A grammar for HTML5</a> </span>
+</p>
+</div>
+</main>

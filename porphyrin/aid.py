@@ -377,6 +377,15 @@ def normalize_percentage(weights):
       percentages.append(percentage)
    return percentages
 
+def extract_caption(address):
+   caption = address.split('/')[-1]
+   for index in range(len(caption)):
+      glyph = caption[index]
+      if not glyph.isalnum():
+         caption = caption.replace(glyph, ' ')
+   caption = ' '.join(caption.split())
+   return caption
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

@@ -204,8 +204,8 @@ class Stem(Organ):
          return bough, head_right
 
       head_right = self.find_greedy(mark_left, mark_right, head_left)
-      probe_left = self.move_right(len(mark_left), head_left)
-      probe_right = self.move_left(len(mark_right) + 1, head_right) + 1
+      probe_left = self.move_right(0, head_left + len(mark_left))
+      probe_right = self.move_left(0, head_right - len(mark_right))
       content = self.source[probe_left: probe_right]
 
       data = self.give_data(head_left, probe_left)
@@ -273,8 +273,8 @@ class Stem(Organ):
             return leaf, head_right
 
       head_right = self.find_greedy(mark_left, mark_right, head_left)
-      probe_left = self.move_right(len(mark_left), head_left)
-      probe_right = self.move_left(len(mark_right) + 1, head_right) + 1
+      probe_left = self.move_right(0, head_left + len(mark_left))
+      probe_right = self.move_left(0, head_right - len(mark_right))
       content = self.source[probe_left: probe_right]
 
       data = self.give_data(head_left, probe_left)
@@ -282,23 +282,8 @@ class Stem(Organ):
          from .caution import Not_matching_mark_leaf as creator
          creator(**data).panic()
       if not AID.be_start_leaf(label):
-         print(label)
          from .caution import Allowing_only_leaf as creator
          creator(**data).panic()
-
-      if (label == "LINK"):
-         data = self.give_data(probe_left, probe_right)
-         if (self.KIND == "graph"):
-            self.address = self.tune_hypertext(content)
-            return None, head_right
-         elif (len(sinks) > 0):
-            leaf_link = self.sinks[-1]
-            if (hasattr(leaf_link, "address")):
-               leaf_link.address = self.tune_hypertext(content)
-            return None, head_right
-         else:
-            from .caution import Disallowing_link as creator
-            creator(**data).panic()
 
       data = self.give_data(probe_left, probe_right)
       if not data["source"]:
@@ -319,18 +304,20 @@ class Stem(Organ):
          leaf = LEAF.Pseudo(**data)
       if (label == "MATH"):
          leaf = LEAF.Math(**data)
+      if (label == "LINK"):
+         leaf = LEAF.Link(**data)
       if (label == "COMMENT_LEFT"):
          leaf = None
       return leaf, head_right
 
    def shatter_stem(self, kind_stop, creator, head_left):
       branch = None
-      head_right = self.move_right(0, head_left)
-      head_middle = head_right
+      head_middle = self.move_right(0, head_left)
+      head_right = head_middle
       while (head_right < len(self.source)):
-         leaf, head_right = self.snip_leaf(head_right)
-         head_middle = head_right
-         head_right = self.move_right(0, head_right)
+         leaf, probe = self.snip_leaf(head_right)
+         head_middle = probe
+         head_right = self.move_right(0, probe)
          if leaf and (leaf.KIND == kind_stop):
             break
       data = self.give_data(head_left, head_middle)

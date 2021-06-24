@@ -14,7 +14,8 @@ class Serif_roman(Leaf):
 
    def write(self):
       content = AID.tune_text(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
 class Serif_italic(Leaf):
@@ -28,7 +29,8 @@ class Serif_italic(Leaf):
 
    def write(self):
       content = AID.tune_text(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
 class Serif_bold(Leaf):
@@ -42,7 +44,8 @@ class Serif_bold(Leaf):
 
    def write(self):
       content = AID.tune_text(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
 class Sans_roman(Leaf):
@@ -56,7 +59,8 @@ class Sans_roman(Leaf):
 
    def write(self):
       content = AID.tune_text(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
 class Sans_bold(Leaf):
@@ -70,7 +74,8 @@ class Sans_bold(Leaf):
 
    def write(self):
       content = AID.tune_text(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
 class Mono(Leaf):
@@ -84,26 +89,21 @@ class Mono(Leaf):
 
    def write(self):
       content = AID.tune_code(self.source)
-      sink = self.write_text(content)
+      if content:
+         sink = self.write_text(content)
       return sink
 
-class Comment(Leaf):
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-   KIND = "comment"
+class Link(Leaf):
+
+   KIND = "link"
 
    def __init__(self, **data):
       self.fill_basic(**data)
 
    def write(self):
-      token_left = "<!--"
-      token_right = "-->"
-      sinks = [
-         token_left,
-         AID.tune_comment(self.source),
-         token_right,
-      ]
-      sink = AID.unite(sinks)
-      return sink
+      return AID.tune_hypertext(self.source)
 
 class Newline(Leaf):
 
@@ -124,6 +124,24 @@ class Space(Leaf):
 
    def write(self):
       return ''
+
+class Comment(Leaf):
+
+   KIND = "comment"
+
+   def __init__(self, **data):
+      self.fill_basic(**data)
+
+   def write(self):
+      token_left = "<!--"
+      token_right = "-->"
+      sinks = [
+         token_left,
+         AID.tune_comment(self.source),
+         token_right,
+      ]
+      sink = AID.unite(sinks)
+      return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

@@ -67,7 +67,12 @@ class Macro_not_gathered_in_beginning(Caution):
 class Disallowing_link(Caution):
 
    message_left = "Link"
-   message_right = "is disallowed in this position."
+   message_right = "is disallowed in the very beginning."
+
+class Invalid_link_for_image(Caution):
+
+   message_left = "Token"
+   message_right = "is not a valid link for the image."
 
 class Allowing_only_symbol(Caution):
 

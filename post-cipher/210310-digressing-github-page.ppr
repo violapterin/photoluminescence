@@ -14,7 +14,7 @@
 
 @@or it seems to be the best that I abandon Jekyll altogether,@@ _
 @@I may use CSS to typeset fractions, vectors, and matrices,@@ _
-@@and ++\mathfrak++ @@,@@ ++\mathbb++ @@,@@ ++\mathcal++ @@,@@ @@and@@ ++\mathscr++ @@can be simulated by different fonts.@@ _
+@@and@@ ++\mathfrak++ @@,@@ ++\mathbb++ @@,@@ ++\mathcal++ @@,@@ @@and@@ ++\mathscr++ @@can be simulated by different fonts.@@ _
 @@superscripts and subscripts is inherent in HTML, though recursive applications may not look nice.@@ _
 @@for example, a double superscript is traditaionlly smaller than a single superscript, which has to be modified by a class.@@ _
 @@these are possible, but not easy.@@ _
@@ -26,8 +26,8 @@
 
 @@lastly, for some time, perhaps by middle of December 2020, I actually considered completely abandoning traditional mathematical notation,@@ _
 @@and I entertained the possibility of designing a new language expressed entirely in ASCII characters.@@ _
-@@the ++ + ++, ++-++, ++*++, ++/++, ++^++ continue to mean basic operations,@@ _
-@@and more complicated ones are to be represented by words ++intergration++, ++differentiation++, as in Mathematica.@@ _
+@@the@@ ++ + ++ @@,@@ ++-++ @@,@@ ++*++ @@,@@ ++/++ @@,@@ ++^++ @@continue to mean basic operations,@@ _
+@@and more complicated ones are to be represented by words@@ ++intergration++ @@,@@ ++differentiation++ @@,@@ @@as in Mathematica.@@ _
 @@the downside is that I will not be able to communicate with other people.@@ _
 @@even if I link every post to a summary of convention, the probability that people insist to finish a post is diminishing.@@ _ '
 ===

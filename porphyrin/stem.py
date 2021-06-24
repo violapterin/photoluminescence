@@ -61,16 +61,21 @@ class Graph(Stem):
       self.sink = None
 
    def parse(self):
-      address = AID.tune_hypertext(self.address)
+      leaf, _ = self.snip_leaf(0)
+      if not (leaf.KIND == "link"):
+         from .caution import Invalid_link_for_image as creator
+         creator(**data).panic()
+      self.sink = leaf.write()
 
    def write(self):
       self.parse()
-      result = AID.write_element(
-         content = '',
-         tag = self.TAG,
-         attributes = ["class"],
-         values = [self.KIND],
-      )
+      contents = ["<img"]
+      contents.append("src=\"" + self.sink + '\"')
+      contents.append("class=\"" + self.KIND + '\"')
+      caption = self.sink.split('/')[-1]
+      contents.append("alt=\"" + AID.extract_caption(self.sink) + '\"')
+      contents.append('>')
+      result = AID.unite(contents)
       return result
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -131,6 +136,8 @@ class Paragraphs(Stem):
          if twig:
             contents.append(twig.write())
       content = AID.unite(contents, cut = '\n')
+      if not content:
+         return ''
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -163,6 +170,8 @@ class Lines(Stem):
          if twig:
             contents.append(twig.write())
       content = AID.unite(contents, cut = '\n')
+      if not content:
+         return ''
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -232,6 +241,8 @@ class Rows(Stem):
       contents.insert(0, setup)
 
       content = AID.unite(contents, cut = '\n')
+      if not content:
+         return ''
       result = AID.write_element(
          content = content,
          tag = self.TAG_ALL,
@@ -255,7 +266,7 @@ class Paragraph(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Phrase, head)
-         if frond:
+         if frond and frond.source:
             self.sinks.append(frond)
          head = self.move_right(0, head)
 
@@ -263,9 +274,11 @@ class Paragraph(Stem):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond:
+         if frond and frond.source:
             contents.append(frond.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -287,7 +300,7 @@ class Line(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Verse, head)
-         if frond:
+         if frond and frond.source:
             self.sinks.append(frond)
          head = self.move_right(0, head)
 
@@ -295,9 +308,11 @@ class Line(Stem):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond:
+         if frond and frond.source:
             contents.append(frond.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -319,7 +334,7 @@ class Row(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Cell, head)
-         if frond:
+         if frond and frond.source:
             self.sinks.append(frond)
          head = self.move_right(0, head)
 
@@ -327,9 +342,11 @@ class Row(Stem):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond:
+         if frond and frond.source:
             contents.append(frond.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -356,7 +373,15 @@ class Phrase(Stem):
          self.source[0] = glyph_start.upper()
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if leaf:
+         if (not leaf) or (not leaf.source):
+            continue
+         if (leaf.KIND == "link"):
+            if not self.sinks:
+               from .caution import Disallowing_link as creator
+               creator(**data).panic()
+            address = leaf.write()
+            self.sinks[-1].address = address
+         else:
             self.sinks.append(leaf)
          head = self.move_right(0, head)
 
@@ -365,9 +390,11 @@ class Phrase(Stem):
       self.explain()
       self.parse()
       for leaf in self.sinks:
-         if leaf:
+         if leaf and leaf.source:
             contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,
@@ -390,7 +417,15 @@ class Verse(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if leaf:
+         if (not leaf) or (not leaf.source):
+            continue
+         if (leaf.KIND == "link"):
+            if not self.sinks:
+               from .caution import Disallowing_link as creator
+               creator(**data).panic()
+            address = leaf.write()
+            self.sinks[-1].address = address
+         else:
             self.sinks.append(leaf)
          head = self.move_right(0, head)
 
@@ -399,9 +434,11 @@ class Verse(Stem):
       self.explain()
       self.parse()
       for leaf in self.sinks:
-         if leaf:
+         if leaf and leaf.source:
             contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,
@@ -424,7 +461,15 @@ class Cell(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if leaf:
+         if (not leaf) or (not leaf.source):
+            continue
+         if (leaf.KIND == "link"):
+            if not self.sinks:
+               from .caution import Disallowing_link as creator
+               creator(**data).panic()
+            address = leaf.write()
+            self.sinks[-1].address = address
+         else:
             self.sinks.append(leaf)
          head = self.move_right(0, head)
 
@@ -433,9 +478,11 @@ class Cell(Stem):
       self.explain()
       self.parse()
       for leaf in self.sinks:
-         if leaf:
+         if leaf and leaf.source:
             contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,
@@ -444,4 +491,3 @@ class Cell(Stem):
             values = [self.KIND],
       )
       return result
-

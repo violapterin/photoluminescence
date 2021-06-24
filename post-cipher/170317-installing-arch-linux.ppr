@@ -11,12 +11,12 @@
 ===
 @@download the Arch Linux ISO, and make a bootable USB.@@ _
 @@on Windows, we may use Rufus.@@ _
-@@on Mac, we have to format the USB first, and copy the ISO into it by using ++dd++ utility.@@ _ '
+@@on Mac, we have to format the USB first, and copy the ISO into it by using utility@@ ++dd++ @@.@@ _ '
 
 @@plug in the bootable USB,@@
 @@then enter the firmware interface.@@ _
 @@before the computer starts normally, there will be a notice like “Please press DEL or F2 to enter UEFI BIOS setting”.@@ _
-@@do that immediately to enter a temporary ++zsh++ shell, with prompt ++root@archiso ~ #++ @@.@@ _
+@@do that immediately to enter a temporary@@ ++zsh++ @@shell, with prompt@@ ++root@archiso ~ #++ @@.@@ _
 @@from now on, a@@ ++#++ @@sign indicates the shell prompt.@@ _ '
 ===
 
@@ -33,11 +33,11 @@
 @@a smaller one is the bootable USB we are using,@@
 @@and a still smaller one is the ROM.@@ _ '
 
-@@to partition the hard disk, invoke the command line utility ++parted++.@@ _ '
+@@to partition the hard disk, invoke the command line utility@@ ++parted++ @@.@@ _ '
 
 ++# parted /dev/sda++ '
 
-@@here, the prompt ++(parted)++ will be shown for clarity.@@ _
+@@here, the prompt@@ ++(parted)++ @@will be shown for clarity.@@ _
 @@create a partition table with the MSDOS (MBR) standard.@@ _ '
 
 ++(parted) mklabel msdos++ '
@@ -70,7 +70,7 @@
 @@an alternative suggestion will be prompted.@@ _
 @@you might also be asked again of the point of start and end, and of the file system.@@ _
 @@I just apply default for everything.@@ _
-@@you may also be warned that@@ ++The resulting partition is not properly aligned for best performance.++ @@which we may ignore.@@ _ '
+@@you may also be warned that@@ ++The resulting partition is not properly aligned for best performance++ @@,@@ @@which we may ignore.@@ _ '
 
 @@print a summary of each partition to double check.@@ _ '
 
@@ -111,7 +111,7 @@
 
 @@edit the list of mirrors,@@
 @@so that closer servers are preferred.@@ _
-@@you may want to use@@ ++nano++ @@if you are unfamiliar with ++vi++ @@.@@ _ '
+@@you may want to use@@ ++nano++ @@if you are unfamiliar with@@ ++vi++ @@.@@ _ '
 
 ++# vi /etc/pacman.d/mirrorlist++ '
 
@@ -144,7 +144,7 @@
 ++# echo "LANG=en_US.UTF-8" > /etc/locale.conf++ '
 ++# export LANG=en_US.UTF-8++ '
 
-@@to type Chinese, I have to install the input method framework Ibus (package ++ibus++) and the input method Rime (package ++ibus-rime++).@@ _
+@@to type Chinese, I have to install the input method framework Ibus (package@@ ++ibus++ @@)@@ @@and the input method Rime (package@@ ++ibus-rime++ @@).@@ _
 @@to initiate them at startup, add these lines into@@ ++~/.xinitrc++ @@.@@ _ '
 
 ++export GTK_IM_MODULE=ibus++ '
@@ -156,7 +156,7 @@
 
 ++# tzselect++ '
 
-@@in my case this is ++4) Asia++, and ++43) Taiwan++ @@.@@ _
+@@in my case this is@@ ++4) Asia++ @@,@@ @@and@@ ++43) Taiwan++ @@.@@ _
 @@to be sure, its very existence of this item is a reassurance.@@ _ '
 
 @@create a symlink from the shared directory to the system configuration directory.@@ _ '
@@ -293,7 +293,7 @@
 @@as my computer has an Intel GPU, I have to install@@ ++xf86-video-intel++ @@.@@ _
 @@I choose KDE to be my desktop,@@
 @@and installed packages@@ ++plasma++ @@and@@ ++kde-applications++ @@which took nearly thirty minutes.@@ _
-@@afterwards, we configure@@ ++.xinitrc++ that calls KDE on startup.@@ _
+@@afterwards, we configure@@ ++.xinitrc++ @@that calls KDE on startup.@@ _
 @@log in as the daily user’s account, and write this lines.@@ _ '
 
 ++# echo "exec startkd>" > ~/.xinitrc++ '
@@ -312,13 +312,11 @@
 @@in the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.@@ _ '
 ===
 
-===
-##Source##
-===
+=== ##Source## ===
 
 ===
-@@Arch Linux Wiki,@@ @@«Installation Guide»@@ \\https://wiki.archlinux.org/title/Installation_guide\\
-@@Arch Linux Wiki,@@ @@«List of applications»@@ \\https://wiki.archlinux.org/title/List_of_applications\\
-@@Arch Linux Wiki,@@ @@«Desktop environment»@@ \\https://wiki.archlinux.org/title/desktop_environment\\
+@@Arch Linux Wiki,@@ @@«Installation Guide»@@ \\https://wiki.archlinux.org/title/Installation_guide\\ _ '
+@@Arch Linux Wiki,@@ @@«List of applications»@@ \\https://wiki.archlinux.org/title/List_of_applications\\ _ '
+@@Arch Linux Wiki,@@ @@«Desktop environment»@@ \\https://wiki.archlinux.org/title/desktop_environment\\ _ '
 ===
 

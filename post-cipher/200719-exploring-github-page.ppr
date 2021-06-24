@@ -1,5 +1,6 @@
 ===
 %%July 18, 2020:%% '
+
 @@today, at about 5:30 pm Taiwan time, I registered a 2nd GitHub account,@@ ++violapterinblog++ @,@ @@to set up this GitHub Page (GHP).@@ _
 @@the new site was born!@@ _
 @@every account of GitHub was allowed to own 1 GHP, endowed with a unique URL derived from the username.@@ _
@@ -7,7 +8,7 @@
 
 @@one reason I want to have a personal site is to write notes containing mathematics, of either popular or research level.@@ _
 @@about just one year ago, I created a WordPress (WP) account, mainly because they support LaTeX (to some extent).@@ _
-@@WP’s interface is straighforward, their templates modern and elegant, and their email support prompt and helpful.@@ _
+@@WP’s interface is straighforward, their templates modern and elegant, and their email support prompt and helpful.@@ _ '
 
 @@so why did I move away?@@ _
 @@WP only allowed the user to type in the web interface,@@ _
@@ -15,7 +16,7 @@
 @@WP does not allow a lot of CSS, let alone Javascript, except in some expensive plans.@@ _
 @@more importantly, it required ++$latex ...$++ for LaTeX expression, which can be verbose,@@ _
 @@and there was no way to compile and preview one’s work.@@ _
-@@thus I basically stopped writing on the WP site after a while.@@ _
+@@thus I basically stopped writing on the WP site after a while.@@ _ '
 
 @@this May, a friend recommended GHP to me.@@ _
 @@I researched about that,@@ _
@@ -23,11 +24,12 @@
 @@it supported Mathjax, a free engine of LaTeX rendition, enabling me to write mathematics.@@ _
 @@and I may also write on a local machine and commit, which is more convenient and reliable,@@ _
 @@and commit records would also better protect my intellectual property.@@ _
-@@finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.@@ _
+@@finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.@@ _ '
 ===
 
 ===
-%%July 19%%:
+%%July 19:%% _ '
+
 @@found the Jekyll template provided officially by Jekyll group, which was incredibly helpful.@@ _
 @@copied the code to my repo,@@ _
 @@and for the first time, my site worked on localhost, via ++bundle exec jekyll serve++.@@ _
@@ -35,7 +37,8 @@
 ===
 
 ===
-%%July 20%%:
+%%July 20:%% _ '
+
 @@Jekyll called Kramdown, a Markdown standard, by default.@@ _
 @@realized that Jekyll allowed raw html code protected by tags,@@ _
 @@so I might actually write directly in HTML.@@ _
@@ -47,7 +50,8 @@
 ===
 
 ===
-%%July 22%%:
+%%July 22:%% _ '
+
 @@I wonder whether my favorite Google fonts may be used instead of the default LaTeX fonts, like Computer Modern or STIX.@@ _
 @@Perhaps I might specify, in the CSS, the fonts which ++\textrm++, ++\textsf++, ++\texttt++ calls, by a slight abuse of system?@@ _
 @@I asked on Stack Exchange and Stack Overflow,@@ _
@@ -63,7 +67,7 @@
 ===
 
 ===
-%%July 26:%% '
+%%July 26:%% _ '
 
 @@last year, I had bought a domain under WP account,@@ _
 @@And today I finally transfered that to the GHP.@@ _
@@ -76,7 +80,7 @@
 ===
 
 ===
-%%July 28:%% '
+%%July 28:%% _ '
 
 @@Discovered ++\unicode++ extension of MathJax,@@ _
 @@and suddenly there again was hope for changing LaTeX font.@@ _
@@ -89,37 +93,35 @@
 @@I imported and translated the whole big list of custom LaTeX macros which I have been using all the time.@@ _
 ===
 
-<<<<
 ===
-%%July 29%%:
-a critical progress!
-this night, I was thinking intensively of an imagined command.
-this command should display a first glyph on the document, but throw it away from the “stack” (or whatever), and display a second glyph like usual,
-so that the ensuing, third glyph knew only the second glyph, but not the first one.
-if only there is exactly such TeX command!
-but I was not optimistic, as I felt this did not quite agree the spirit of TeX’s design.
+%%July 29:%% _ '
 
-Meanwhile, I was troubled by the ugliness of the ++\unicode++ letters with accents.
-When researching Stack Overflow about ++\overset++ and ++\underset++, I saw several posts, like ++barbara beeton++’s answer in
-  <a href="https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks">this thread on vertical spacing of ++\underset++</a>
-  used the plain-TeX control sequence ++\smash++.
-Its name alone sounded just like what I was after!
-I was excited and nervous, and looked up Knuth’s %%TeXbook%%, quoted below (p.178)
+@@a critical progress!@@ _
+@@this night, I was thinking intensively of an imagined command.@@ _
+@@this command should display a first glyph on the document, but throw it away from the “stack” (or whatever), and display a second glyph like usual,@@ _
+@@so that the ensuing, third glyph knew only the second glyph, but not the first one.@@ _
+@@if only there is exactly such TeX command!@@ _
+@@but I was not optimistic, as I felt this did not quite agree the spirit of TeX’s design.@@ _ '
 
-Plain TeX also provides ++\smash {<subformula>}++, a macro that yields the same result as ++<subformula>++, but makes the height and depth zero.
-  By using both ++\smash++ and ++\vphantom++ you can typeset any subformula and give it any desired nonnegative height and depth.
+@@meanwhile, I was troubled by the ugliness of the ++\unicode++ letters with accents.@@ _
+@@then, when researching Stack Overflow about ++\overset++ and ++\underset++, I saw several posts@@ _
+@@explaining the plain-TeX control sequence ++\smash++.@@ _
+@@its name alone sounded just like what I was after!@@ _
 
-Its implementation was shown in Appendix B (p 360),
+@@to elaborate, macro@@ ++\smash {<subformula>}++ @@is in Plain TeX;@@ _
+@@it yields the same result as ++<subformula>++, but makes the height and depth zero.@@ _
+@@by using both ++\smash++ and ++\vphantom++ one can typeset any subformula, and give it any desired height and depth.@@ _
+@@for more explanation, see TeXbook (p 178),@@ _
+@@and its implementation is in Appendix B (p 360):@@ _ '
 
-++\def\smash{\relax % \relax, in case this comes first in \halign
-  \ifmmode\def\next{\mathpalette\mathsm@sh}\else\let\next\makesm@sh
-  \fi \next}
+++\def\smash{\relax % \relax, in case this comes first in \halign++ '
+_ ++\ifmmode\def\next{\mathpalette\mathsm@sh}\else\let\next\makesm@sh++ '
+_ ++\fi \next}++ '
 
-Instantly I applied ++\smash++ to my ++\unicode++ containing macro, and the letters did look normal!
-I really should learn TeX at least in a cursory manner,
-since many of my original solutions might very well be simplified greatly by plain TeX sequences which I did not yet know (or would never know).
+@@instantly I applied ++\smash++ to my ++\unicode++ containing macro, and the letters did look normal!@@ _ '
+@@I really should have learnt TeX.@@ _ '
+@@some plain TeX sequences unknown to me might very well answer many of my confusions.@@ _ '
 ===
->>>>
 
 ===
 %%Aug 2:%% '
@@ -145,11 +147,11 @@ since many of my original solutions might very well be simplified greatly by pla
    \\https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site\\ '
 @@“Changes in the Mathjax API”@@
    \\http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api\\ '
-@@“Getting Started”@@
+@@“Getting started”@@
    \\https://developers.google.com/fonts/docs/getting_started\\ '
 @@“Domain management”@@
    \\https://wordpress.com/domains/manage\\
-@@vertical-spacing-of-underset-and-other-tweaks@@
+@@User@@ ++barbara beeton++ @@,@@ @@“Vertical spacing of underset and other tweaks”@@
    \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
 ===
 
