@@ -266,16 +266,16 @@ class Paragraph(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Phrase, head)
-         if frond and frond.source:
-            self.sinks.append(frond)
+         if (not frond) or (not frond.source.strip(" \t\n")):
+            continue
+         self.sinks.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond and frond.source:
-            contents.append(frond.write())
+         contents.append(frond.write())
       content = AID.unite(contents)
       if not content:
          return ''
@@ -300,16 +300,16 @@ class Line(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Verse, head)
-         if frond and frond.source:
-            self.sinks.append(frond)
+         if (not frond) or (not frond.source.strip(" \t\n")):
+            continue
+         self.sinks.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond and frond.source:
-            contents.append(frond.write())
+         contents.append(frond.write())
       content = AID.unite(contents)
       if not content:
          return ''
@@ -334,16 +334,16 @@ class Row(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Cell, head)
-         if frond and frond.source:
-            self.sinks.append(frond)
+         if (not frond) or (not frond.source.strip(" \t\n")):
+            continue
+         self.sinks.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
       for frond in self.sinks:
-         if frond and frond.source:
-            contents.append(frond.write())
+         contents.append(frond.write())
       content = AID.unite(contents)
       if not content:
          return ''
@@ -370,7 +370,7 @@ class Phrase(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if (not leaf) or (not leaf.source):
+         if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
             if not self.sinks:
@@ -385,14 +385,21 @@ class Phrase(Stem):
    def write(self):
       contents = []
       self.explain()
-      self.capitalize()
       self.parse()
       for leaf in self.sinks:
-         if leaf and leaf.source:
-            contents.append(leaf.write())
+         if not AID.be_literary(leaf.KIND):
+            continue
+         leaf.capitalize()
+         break
+      for leaf in self.sinks:
+         if AID.be_literary(leaf.KIND):
+            punctuations = {',', ':', ';', '.', '?', '!'}
+            if leaf.source[0] in punctuations:
+               last = contents.pop()
+               contents.append(last + leaf.write())
+               continue
+         contents.append(leaf.write())
       content = AID.unite(contents)
-      if not content:
-         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,
@@ -415,7 +422,7 @@ class Verse(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if (not leaf) or (not leaf.source):
+         if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
             if not self.sinks:
@@ -430,14 +437,10 @@ class Verse(Stem):
    def write(self):
       contents = []
       self.explain()
-      self.capitalize()
       self.parse()
       for leaf in self.sinks:
-         if leaf and leaf.source:
-            contents.append(leaf.write())
+         contents.append(leaf.write())
       content = AID.unite(contents)
-      if not content:
-         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,
@@ -460,7 +463,7 @@ class Cell(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
-         if (not leaf) or (not leaf.source):
+         if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
             if not self.sinks:
@@ -475,14 +478,10 @@ class Cell(Stem):
    def write(self):
       contents = []
       self.explain()
-      self.capitalize()
       self.parse()
       for leaf in self.sinks:
-         if leaf and leaf.source:
-            contents.append(leaf.write())
+         contents.append(leaf.write())
       content = AID.unite(contents)
-      if not content:
-         return ''
       result = AID.write_element(
             cut = ' ',
             content = content,

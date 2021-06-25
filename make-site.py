@@ -99,7 +99,7 @@ def main():
    number_post_max = 16
    number_post_shown = min(number_post_max, len(records))
    records_index = records[:number_post_shown]
-   heading = "Newest"
+   heading = "Latest"
    whole = write_page(matter, records_index, folder_post, heading)
    path_index = os.path.join(folder_site, "index.html")
    AID.output_file(path_index, whole)

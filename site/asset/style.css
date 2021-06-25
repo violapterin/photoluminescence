@@ -55,35 +55,56 @@ body, header
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.paragraphs, .lines, .rows, .break, .graph
+.paragraphs
 {
-  margin: 8px 0px;
+  margin: 24px 0px;
   padding: 0px;
 }
 
 .lines, .rows
 {
-  padding: 0px 12px;
+  margin: 24px 18px;
+  padding: 0px 6px;
 }
 
-.graph
+.break, .graph
 {
-  padding: 12px;
-  max-width: 80%;
+  margin: 24px 36px;
+  padding: 0px 12px;
+  max-width: 90%;
+}
+
+.lines
+{
+  border-top: 12px lemonchiffon solid;
 }
 
 .paragraph, .line, .row
 {
   margin: 0px;
   padding: 0px;
-  text-indent: 30px;
+  text-indent: 18px;
   text-align: justify;
 }
 
 .phrase, .verse, .cell
 {
-  margin: 0px 4px;
   padding: 0px;
+}
+
+.phrase
+{
+  margin: 0px 4px;
+}
+
+.verse
+{
+  margin: 0px 4px 0px 12px;
+}
+
+.cell
+{
+  margin: 0px 12px 0px 12px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -119,7 +140,7 @@ i,
 }
 
 em,
-.serif-italic, .sans-italic
+.serif-italic
 {
   font-style: italic;
 }
@@ -131,16 +152,25 @@ b,
   font-weight: 700;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 code,
 .mono
 {
   font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
     "Courier New", monospace;
+  font-size: 0.9em;
+  font-weight: 600;
   white-space: pre-wrap;
   word-break: keep-all;
 }
+
+.serif-italic, .serif-bold,
+.sans-roman, .sans-bold
+.mono, .math, .pseudo
+{
+  padding: 0px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .document a
 {
@@ -288,7 +318,7 @@ table tr td
 
 .heading-post, .heading-page
 {
-  margin: 18px auto;
+  margin: 12px 36px;
   font-size: 36px;
 }
 @media screen and (max-width: 600px) {
@@ -377,6 +407,7 @@ table tr td
 {
   padding: 0px 12px;
   font-size: 18px;
+  line-height: 200%;
 }
 @media screen and (max-width: 600px) {
   .data-post, .data-entry
@@ -398,7 +429,7 @@ table tr td
 .data-post .data-series, .data-entry .data-series,
 .data-post .data-tag, .data-entry .data-tag
 {
-  margin: 0px 6px;
+  margin: 6px 6px;
   padding: 0px 6px;
   text-decoration: underline;
   color: darkslategray;
@@ -415,22 +446,22 @@ table tr td
 
 .data-post .data-stamp, .data-entry .data-stamp
 {
-  background-color: lightsalmon
+  background-color: lightsalmon;
 }
 
 .data-post .data-genre, .data-entry .data-genre
 {
-  background-color: gold
+  background-color: gold;
 }
 
 .data-post .data-series, .data-entry .data-series
 {
-  background-color: mediumspringgreen
+  background-color: palegreen;
 }
 
 .data-post .data-tag, .data-entry .data-tag
 {
-  background-color: powderblue
+  background-color: powderblue;
 }
 
 

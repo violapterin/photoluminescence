@@ -213,16 +213,6 @@ def be_start_asymmetry(label):
    }
    return (label in labels)
 
-def be_literary(label):
-   labels = {
-      "SERIF_ROMAN",
-      "SERIF_ITALIC",
-      "SERIF_BOLD",
-      "SANS_ROMAN",
-      "SANS_BOLD",
-   }
-   return (label in labels)
-
 def be_start_macro(label):
    labels = {
       "IDENITFIER",
@@ -408,6 +398,16 @@ def extract_caption(address):
          caption = caption.replace(glyph, ' ')
    caption = ' '.join(caption.split())
    return caption
+
+def be_literary(kind):
+   kinds = {
+      "serif-roman",
+      "serif-italic",
+      "serif-bold",
+      "sans-roman",
+      "sans-bold",
+   }
+   return (kind in kinds)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

@@ -4,7 +4,7 @@
 @@This was embarassing:@@ _
 @@I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
 @@I knew that when Jekyll was run, GitHub automatically generated the site again in the server end.@@ _
-@@but I did not know if there was a empty file@@ ++.nojekyll++ @@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++ @@,@@ @@and serve the site accordingly.@@ _
+@@but I did not know if there was a empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly.@@ _
 @@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ _ '
 ===
 
@@ -25,8 +25,8 @@
 %%Aug 7%% _ '
 
 @@important realization!@@ _
-@@HTML@@ ++<p>++ @@may contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++ @@.@@ _
-@@moreover, the CSS@@ ++border-left++ @@,@@ ++border-right++ @@,@@ ++border-top++ @@,@@ @@and@@ ++border-bottom++ @@may serve as traditional mathematical brackets.@@ _
+@@HTML@@ ++<p>++ @@may contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
+@@moreover, the CSS@@ ++border-left++@@,@@ ++border-right++@@,@@ ++border-top++@@,@@ @@and@@ ++border-bottom++ @@may serve as traditional mathematical brackets.@@ _
 @@they may be colored, scaled, or thickened as I wish, by a suitable class.@@ _
 @@this would perhaps suffice for my revolution of notation.@@ _ '
 ===
@@ -53,8 +53,8 @@
 %%Aug 12%% _ '
 
 @@tested CSS-span-fractions, okay.@@ _
-@@discovered CSS grids, which might be superior to@@ ++table++ @@.@@ _
-@@came up with the artificial square brackets made of@@ ++span++ @@.@@ _ '
+@@discovered CSS grids, which might be superior to@@ ++table++@@.@@ _
+@@came up with the artificial square brackets made of@@ ++span++@@.@@ _ '
 ===
 
 ///

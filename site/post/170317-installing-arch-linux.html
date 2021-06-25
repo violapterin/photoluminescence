@@ -19,7 +19,7 @@
   <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"/>
   <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400"/>
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:600"/>
   <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700"/>
   <link rel="stylesheet"
@@ -28,8 +28,14 @@
   <!-- Mathjax configuration -->
   <script src="/asset/mathjax.js" defer></script>
   <script defer
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
   </script>
+  <!-- latest: -->
+  <!-- 
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+    </script>
+  -->
 
   <!-- random quotes -->
   <script src="/asset/quote.js" defer></script>
@@ -75,7 +81,7 @@
 <main class="document">
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">This note summarizes the steps to install Arch Linux.</span> </span> <span class="phrase"> <span class="serif-roman">I do not intend to explain everything, and the wording is as concise as possible.</span> </span> <span class="phrase"> <span class="serif-roman">Do tell me if you find anything no longer working now, or any link broken.</span> </span>
+<span class="phrase"> <span class="serif-roman">This note summarizes the steps to install Arch Linux.</span> </span> <span class="phrase"> <span class="serif-roman">I do not intend to explain everything, and the wording is as concise as possible.</span> </span> <span class="phrase"> <span class="serif-roman">Do tell me if you find anything no longer working now, or any link broken.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -85,10 +91,10 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Download the Arch Linux ISO, and make a bootable USB.</span> </span> <span class="phrase"> <span class="serif-roman">On Windows, we may use Rufus.</span> </span> <span class="phrase"> <span class="serif-roman">On Mac, we have to format the USB first, and copy the ISO into it by using utility</span> <code class="mono">dd</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Download the Arch Linux ISO, and make a bootable USB.</span> </span> <span class="phrase"> <span class="serif-roman">On Windows, we may use Rufus.</span> </span> <span class="phrase"> <span class="serif-roman">On Mac, we have to format the USB first, and copy the ISO into it by using utility</span> <code class="mono">dd</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Plug in the bootable USB,</span> <span class="serif-roman">then enter the firmware interface.</span> </span> <span class="phrase"> <span class="serif-roman">Before the computer starts normally, there will be a notice like “Please press DEL or F2 to enter UEFI BIOS setting”.</span> </span> <span class="phrase"> <span class="serif-roman">Do that immediately to enter a temporary</span> <code class="mono">zsh</code> <span class="serif-roman">shell, with prompt</span> <code class="mono">root@archiso ~ #</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">From now on, a</span> <code class="mono">#</code> <span class="serif-roman">sign indicates the shell prompt.</span> </span>
+<span class="phrase"> <span class="serif-roman">Plug in the bootable USB,</span> <span class="serif-roman">then enter the firmware interface.</span> </span> <span class="phrase"> <span class="serif-roman">Before the computer starts normally, there will be a notice like “Please press DEL or F2 to enter UEFI BIOS setting”.</span> </span> <span class="phrase"> <span class="serif-roman">Do that immediately to enter a temporary</span> <code class="mono">zsh</code> <span class="serif-roman">shell, with prompt</span> <code class="mono">root@archiso ~ #</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">From now on, a</span> <code class="mono">#</code> <span class="serif-roman">sign indicates the shell prompt.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -98,85 +104,85 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">List the disk blocks.</span> </span>
+<span class="phrase"> <span class="serif-roman">List the disk blocks.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># lsblk</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">The largest block shall be your hard disk, which is likely called</span> <code class="mono">sda</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">A smaller one is the bootable USB we are using,</span> <span class="serif-roman">and a still smaller one is the ROM.</span> </span>
+<span class="phrase"> <span class="serif-roman">The largest block shall be your hard disk, which is likely called</span> <code class="mono">sda</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">A smaller one is the bootable USB we are using,</span> <span class="serif-roman">and a still smaller one is the ROM.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">To partition the hard disk, invoke the command line utility</span> <code class="mono">parted</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">To partition the hard disk, invoke the command line utility</span> <code class="mono">parted</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># parted /dev/sda</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Here, the prompt</span> <code class="mono">(parted)</code> <span class="serif-roman">will be shown for clarity.</span> </span> <span class="phrase"> <span class="serif-roman">Create a partition table with the MSDOS (MBR) standard.</span> </span>
+<span class="phrase"> <span class="serif-roman">Here, the prompt</span> <code class="mono">(parted)</code> <span class="serif-roman">will be shown for clarity.</span> </span> <span class="phrase"> <span class="serif-roman">Create a partition table with the MSDOS (MBR) standard.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) mklabel msdos</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Meanwhile, UEFI/GPT partition is a newer standard, which not every motherboard supports.</span> </span> <span class="phrase"> <span class="serif-roman">Partitioning commands for UEFI/GPT are similar and covered in references.</span> </span>
+<span class="phrase"> <span class="serif-roman">Meanwhile, UEFI/GPT partition is a newer standard, which not every motherboard supports.</span> </span> <span class="phrase"> <span class="serif-roman">Partitioning commands for UEFI/GPT are similar and covered in references.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">My Lenovo Thinkpad currently used has 1TB,</span> <span class="serif-roman">and I shall generously allocate 40GB for</span> <code class="mono">/</code> <span class="serif-roman">(the root directory except for the user’s home), 2GB for swap memory, and the rest for</span> <code class="mono">/home/</code> <span class="serif-roman">(the user’s home).</span> </span> <span class="phrase"> <span class="serif-roman">Nowadays computers often have a large RAM (mine has 4GB),</span> <span class="serif-roman">and 2GB of swap memory shall be more than enough.</span> </span>
+<span class="phrase"> <span class="serif-roman">My Lenovo Thinkpad currently used has 1TB,</span> <span class="serif-roman">and I shall generously allocate 40GB for</span> <code class="mono">/</code> <span class="serif-roman">(the root directory except for the user’s home), 2GB for swap memory, and the rest for</span> <code class="mono">/home/</code> <span class="serif-roman">(the user’s home).</span> </span> <span class="phrase"> <span class="serif-roman">Nowadays computers often have a large RAM (mine has 4GB),</span> <span class="serif-roman">and 2GB of swap memory shall be more than enough.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Create partition for the root directory except for home.</span> </span>
+<span class="phrase"> <span class="serif-roman">Create partition for the root directory except for home.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) mkpart primary ext4 1MiB 40GiB</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Set the boot flag to be true.</span> </span>
+<span class="phrase"> <span class="serif-roman">Set the boot flag to be true.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) set 1 boot on</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Create the partition for swap memory.</span> </span>
+<span class="phrase"> <span class="serif-roman">Create the partition for swap memory.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) mkpart primary linux-swap 40GiB 42GiB</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Finally create the partition for the home, making up the rest of the hard disk.</span> </span>
+<span class="phrase"> <span class="serif-roman">Finally create the partition for the home, making up the rest of the hard disk.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) mkpart primary ext4 42GiB 100%</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">In the steps above, if the requested partition cannot be made precisely as such,</span> <span class="serif-roman">an alternative suggestion will be prompted.</span> </span> <span class="phrase"> <span class="serif-roman">You might also be asked again of the point of start and end, and of the file system.</span> </span> <span class="phrase"> <span class="serif-roman">I just apply default for everything.</span> </span> <span class="phrase"> <span class="serif-roman">You may also be warned that</span> <code class="mono">The resulting partition is not properly aligned for best performance</code> <span class="serif-roman">,</span> <span class="serif-roman">which we may ignore.</span> </span>
+<span class="phrase"> <span class="serif-roman">In the steps above, if the requested partition cannot be made precisely as such,</span> <span class="serif-roman">an alternative suggestion will be prompted.</span> </span> <span class="phrase"> <span class="serif-roman">You might also be asked again of the point of start and end, and of the file system.</span> </span> <span class="phrase"> <span class="serif-roman">I just apply default for everything.</span> </span> <span class="phrase"> <span class="serif-roman">You may also be warned that</span> <code class="mono">The resulting partition is not properly aligned for best performance</code><span class="serif-roman">,</span> <span class="serif-roman">which we may ignore.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Print a summary of each partition to double check.</span> </span>
+<span class="phrase"> <span class="serif-roman">Print a summary of each partition to double check.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) print</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">My report has that</span> <code class="mono">sda1</code> <span class="serif-roman">is the root directory except home,</span> <code class="mono">sda2</code> <span class="serif-roman">the swap memory,</span> <code class="mono">sda3</code> <span class="serif-roman">the root’s home.</span> </span> <span class="phrase"> <span class="serif-roman">Quit if everything looks fine.</span> </span>
+<span class="phrase"> <span class="serif-roman">My report has that</span> <code class="mono">sda1</code> <span class="serif-roman">is the root directory except home,</span> <code class="mono">sda2</code> <span class="serif-roman">the swap memory,</span> <code class="mono">sda3</code> <span class="serif-roman">the root’s home.</span> </span> <span class="phrase"> <span class="serif-roman">Quit if everything looks fine.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">(parted) quit</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Format partitions intended for root directory.</span> </span>
+<span class="phrase"> <span class="serif-roman">Format partitions intended for root directory.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># mkfs.ext4 /dev/sda1</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Mount the root directory.</span> </span>
+<span class="phrase"> <span class="serif-roman">Mount the root directory.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># mount /dev/sda1 /mnt</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">To mount the home, create the directory, then mount it.</span> </span>
+<span class="phrase"> <span class="serif-roman">To mount the home, create the directory, then mount it.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># mkdir /mnt/home</code> </span>
@@ -192,25 +198,25 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Now the internet connection is required,</span> <span class="serif-roman">since we will download packages.</span> </span> <span class="phrase"> <span class="serif-roman">It is best that you have ethernet automatically connected.</span> </span> <span class="phrase"> <span class="serif-roman">Otherwise, you have to set it in command line (which is not covered here).</span> </span> <span class="phrase"> <span class="serif-roman">Alternatively, you may use a Wifi (not covered here either).</span> </span> <span class="phrase"> <span class="serif-roman">We may test connection with</span> <code class="mono">ping</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Now the internet connection is required,</span> <span class="serif-roman">since we will download packages.</span> </span> <span class="phrase"> <span class="serif-roman">It is best that you have ethernet automatically connected.</span> </span> <span class="phrase"> <span class="serif-roman">Otherwise, you have to set it in command line (which is not covered here).</span> </span> <span class="phrase"> <span class="serif-roman">Alternatively, you may use a Wifi (not covered here either).</span> </span> <span class="phrase"> <span class="serif-roman">We may test connection with</span> <code class="mono">ping</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># ping -c 3 www.google.com</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Edit the list of mirrors,</span> <span class="serif-roman">so that closer servers are preferred.</span> </span> <span class="phrase"> <span class="serif-roman">You may want to use</span> <code class="mono">nano</code> <span class="serif-roman">if you are unfamiliar with</span> <code class="mono">vi</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Edit the list of mirrors,</span> <span class="serif-roman">so that closer servers are preferred.</span> </span> <span class="phrase"> <span class="serif-roman">You may want to use</span> <code class="mono">nano</code> <span class="serif-roman">if you are unfamiliar with</span> <code class="mono">vi</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># vi /etc/pacman.d/mirrorlist</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Install the base packages, which will take quite a while, about twenty minutes in my case.</span> </span>
+<span class="phrase"> <span class="serif-roman">Install the base packages, which will take quite a while, about twenty minutes in my case.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># pacstrap -i /mnt base base-devel</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Generate and write the</span> <code class="mono">fstab</code> <span class="serif-roman">file, which specifies information about mounted partitions.</span> </span>
+<span class="phrase"> <span class="serif-roman">Generate and write the</span> <code class="mono">fstab</code> <span class="serif-roman">file, which specifies information about mounted partitions.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># genfstab -U /mnt &gt; /mnt/etc/fstab</code> </span>
@@ -223,13 +229,13 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">For the rest, temporarily take</span> <code class="mono">/mnt</code> <span class="serif-roman">to be the root directory, where Arch Linux will be installed.</span> </span>
+<span class="phrase"> <span class="serif-roman">For the rest, temporarily take</span> <code class="mono">/mnt</code> <span class="serif-roman">to be the root directory, where Arch Linux will be installed.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># arch-chroot /mnt</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">I choose American English to be the default for system display,</span> <span class="serif-roman">and install Chinese input methods.</span> </span> <span class="phrase"> <span class="serif-roman">To do so, edit</span> <code class="mono">/etc/locale.gen</code> <span class="serif-roman">,</span> <span class="serif-roman">and uncomment before the line</span> <code class="mono">en_US.UTF-8 UTF-8</code> <span class="serif-roman">and</span> <code class="mono">zh_TW.UTF-8 UTF-8</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Then,</span> <code class="mono">locale-gen</code> <span class="serif-roman">will generates necessary information for all languages enabled,</span> <span class="serif-roman">and</span> <code class="mono">locale.conf</code> <span class="serif-roman">specifies system display.</span> </span>
+<span class="phrase"> <span class="serif-roman">I choose American English to be the default for system display,</span> <span class="serif-roman">and install Chinese input methods.</span> </span> <span class="phrase"> <span class="serif-roman">To do so, edit</span> <code class="mono">/etc/locale.gen</code><span class="serif-roman">,</span> <span class="serif-roman">and uncomment before the line</span> <code class="mono">en_US.UTF-8 UTF-8</code> <span class="serif-roman">and</span> <code class="mono">zh_TW.UTF-8 UTF-8</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Then,</span> <code class="mono">locale-gen</code> <span class="serif-roman">will generates necessary information for all languages enabled,</span> <span class="serif-roman">and</span> <code class="mono">locale.conf</code> <span class="serif-roman">specifies system display.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># locale-gen</code> </span>
@@ -241,7 +247,7 @@
 <span class="phrase"> <code class="mono"># export LANG=en_US.UTF-8</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">To type Chinese, I have to install the input method framework Ibus (package</span> <code class="mono">ibus</code> <span class="serif-roman">)</span> <span class="serif-roman">and the input method Rime (package</span> <code class="mono">ibus-rime</code> <span class="serif-roman">).</span> </span> <span class="phrase"> <span class="serif-roman">To initiate them at startup, add these lines into</span> <code class="mono">~/.xinitrc</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">To type Chinese, I have to install the input method framework Ibus (package</span> <code class="mono">ibus</code> <span class="serif-roman">)</span> <span class="serif-roman">and the input method Rime (package</span> <code class="mono">ibus-rime</code> <span class="serif-roman">).</span> </span> <span class="phrase"> <span class="serif-roman">To initiate them at startup, add these lines into</span> <code class="mono">~/.xinitrc</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">export GTK_IM_MODULE=ibus</code> </span>
@@ -256,22 +262,22 @@
 <span class="phrase"> <code class="mono">ibus-daemon -drx</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Select the time zone.</span> </span>
+<span class="phrase"> <span class="serif-roman">Select the time zone.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># tzselect</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">In my case this is</span> <code class="mono">4) Asia</code> <span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">43) Taiwan</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">To be sure, its very existence of this item is a reassurance.</span> </span>
+<span class="phrase"> <span class="serif-roman">In my case this is</span> <code class="mono">4) Asia</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">43) Taiwan</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">To be sure, its very existence of this item is a reassurance.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Create a symlink from the shared directory to the system configuration directory.</span> </span>
+<span class="phrase"> <span class="serif-roman">Create a symlink from the shared directory to the system configuration directory.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># ln -s /usr/share/zoneinfo/Asia/Taiwan &gt; /etc/localtime</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Set the hardware clock.</span> </span>
+<span class="phrase"> <span class="serif-roman">Set the hardware clock.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># hwclock --systohc --utc</code> </span>
@@ -284,7 +290,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">For MBR users, download a boot manager (packages</span> <code class="mono">grub</code> <span class="serif-roman">)</span> <span class="serif-roman">and an OS-detector (</span> <code class="mono">os-prober</code> <span class="serif-roman">),</span> <span class="serif-roman">possibly in order to do a dual boot.</span> </span> <span class="phrase"> <span class="serif-roman">Set up the</span> <code class="mono">grub</code> <span class="serif-roman">on the booted partition, and generate the configuration file.</span> </span> <span class="phrase"> <span class="serif-roman">Again, replace</span> <code class="mono">sda</code> <span class="serif-roman">with your partition name.</span> </span>
+<span class="phrase"> <span class="serif-roman">For MBR users, download a boot manager (packages</span> <code class="mono">grub</code> <span class="serif-roman">)</span> <span class="serif-roman">and an OS-detector (</span> <code class="mono">os-prober</code> <span class="serif-roman">),</span> <span class="serif-roman">possibly in order to do a dual boot.</span> </span> <span class="phrase"> <span class="serif-roman">Set up the</span> <code class="mono">grub</code> <span class="serif-roman">on the booted partition, and generate the configuration file.</span> </span> <span class="phrase"> <span class="serif-roman">Again, replace</span> <code class="mono">sda</code> <span class="serif-roman">with your partition name.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># grub-install --recheck --force --target=i386-pc /dev/sda</code> </span>
@@ -293,7 +299,7 @@
 <span class="phrase"> <code class="mono"># grub-mkconfig -o /boot/grub/grub.cfg</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">At this point, I encountered the error</span> <code class="mono">Failed to connect to lvmetad</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">This is because the service</span> <code class="mono">lvmetad</code> <span class="serif-roman">that improves performance of the Logical Volume Manager.</span> </span> <span class="phrase"> <span class="serif-roman">I have to disable it by editing</span> <code class="mono">/etc/lvm/lvm.conf</code> <span class="serif-roman">,</span> <span class="serif-roman">and write</span> <code class="mono">use_lvmetad = 0</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">At this point, I encountered the error</span> <code class="mono">Failed to connect to lvmetad</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">This is because the service</span> <code class="mono">lvmetad</code> <span class="serif-roman">that improves performance of the Logical Volume Manager.</span> </span> <span class="phrase"> <span class="serif-roman">I have to disable it by editing</span> <code class="mono">/etc/lvm/lvm.conf</code><span class="serif-roman">,</span> <span class="serif-roman">and write</span> <code class="mono">use_lvmetad = 0</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -303,19 +309,19 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Replace</span> <code class="mono">Host-Name</code> <span class="serif-roman">with your host name.</span> </span>
+<span class="phrase"> <span class="serif-roman">Replace</span> <code class="mono">Host-Name</code> <span class="serif-roman">with your host name.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># echo &quot;Host-Name&quot; &gt; /etc/hostname</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Set the root’s password.</span> </span>
+<span class="phrase"> <span class="serif-roman">Set the root’s password.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># passwd</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">We may now leave the</span> <code class="mono">chroot</code> <span class="serif-roman">environment,</span> <span class="serif-roman">unmount the corresponding partition,</span> <span class="serif-roman">and schedule shutdown.</span> </span>
+<span class="phrase"> <span class="serif-roman">We may now leave the</span> <code class="mono">chroot</code> <span class="serif-roman">environment,</span> <span class="serif-roman">unmount the corresponding partition,</span> <span class="serif-roman">and schedule shutdown.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># exit</code> </span>
@@ -327,7 +333,7 @@
 <span class="phrase"> <code class="mono"># shutdown</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Unplug the USB,</span> <span class="serif-roman">restart,</span> <span class="serif-roman">and login as</span> <code class="mono">root</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Unplug the USB,</span> <span class="serif-roman">restart,</span> <span class="serif-roman">and login as</span> <code class="mono">root</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -337,7 +343,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Assuming a working connection, we set up DHCP (Dynamic Host Configuration Protocol).</span> </span>
+<span class="phrase"> <span class="serif-roman">Assuming a working connection, we set up DHCP (Dynamic Host Configuration Protocol).</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># ip link</code> </span>
@@ -352,7 +358,7 @@
 <span class="phrase"> <code class="mono">link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Let the DHCP service start now, and whenever the system boots.</span> </span>
+<span class="phrase"> <span class="serif-roman">Let the DHCP service start now, and whenever the system boots.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># systemctl start dhcpcd@______.service</code> </span>
@@ -361,7 +367,7 @@
 <span class="phrase"> <code class="mono"># systemctl enable dhcpcd@______.service</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Replace</span> <code class="mono">______</code> <span class="serif-roman">with the name of wired device just seen above.</span> </span> <span class="phrase"> <span class="serif-roman">Mine is</span> <code class="mono">lo</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Replace</span> <code class="mono">______</code> <span class="serif-roman">with the name of wired device just seen above.</span> </span> <span class="phrase"> <span class="serif-roman">Mine is</span> <code class="mono">lo</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -371,7 +377,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Create a user account to be used on a daily basis.</span> </span> <span class="phrase"> <span class="serif-roman">Add the ID (mine is</span> <code class="mono">violapterin</code> <span class="serif-roman">)</span> <span class="serif-roman">into the wheel group having sudo privileges,</span> <span class="serif-roman">and set the password.</span> </span>
+<span class="phrase"> <span class="serif-roman">Create a user account to be used on a daily basis.</span> </span> <span class="phrase"> <span class="serif-roman">Add the ID (mine is</span> <code class="mono">violapterin</code> <span class="serif-roman">)</span> <span class="serif-roman">into the wheel group having sudo privileges,</span> <span class="serif-roman">and set the password.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># useradd -m -G wheel,users -s /bin/bash violapterin</code> </span>
@@ -380,13 +386,13 @@
 <span class="phrase"> <code class="mono"># passwd violapterin</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Install package</span> <code class="mono">sudo</code> <span class="serif-roman">to get superuser privilege,</span> <span class="serif-roman">then edit the</span> <code class="mono">sudoers</code> <span class="serif-roman">file.</span> </span> <span class="phrase"> <span class="serif-roman">This file is special, we have to specify the editor.</span> </span>
+<span class="phrase"> <span class="serif-roman">Install package</span> <code class="mono">sudo</code> <span class="serif-roman">to get superuser privilege,</span> <span class="serif-roman">then edit the</span> <code class="mono">sudoers</code> <span class="serif-roman">file.</span> </span> <span class="phrase"> <span class="serif-roman">This file is special, we have to specify the editor.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># EDITOR=vi visudo</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Uncomment this line by deleting the beginning</span> <code class="mono">#</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Uncomment this line by deleting the beginning</span> <code class="mono">#</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">%wheel ALL=(ALL) ALL</code> </span>
@@ -399,7 +405,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Make stable repositories available to package manager ++pacman++.</span> </span> <span class="phrase"> <span class="serif-roman">To do so, open</span> <code class="mono">/etc/pacman.conf</code> <span class="serif-roman">,</span> <span class="serif-roman">and uncomment these lines.</span> </span>
+<span class="phrase"> <span class="serif-roman">Make stable repositories available to package manager ++pacman++.</span> </span> <span class="phrase"> <span class="serif-roman">To do so, open</span> <code class="mono">/etc/pacman.conf</code><span class="serif-roman">,</span> <span class="serif-roman">and uncomment these lines.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">[multilib]</code> </span>
@@ -408,13 +414,13 @@
 <span class="phrase"> <code class="mono">Include = /etc/pacman.d/mirrorlist</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Update</span> <code class="mono">pacman</code> <span class="serif-roman">,</span> <span class="serif-roman">and install all refreshed packages.</span> </span> <span class="phrase"> <span class="serif-roman">Flags</span> <code class="mono">-Syu</code> <span class="serif-roman">means respectively install packages, refresh the database, and check outdated packages.</span> </span>
+<span class="phrase"> <span class="serif-roman">Update</span> <code class="mono">pacman</code><span class="serif-roman">,</span> <span class="serif-roman">and install all refreshed packages.</span> </span> <span class="phrase"> <span class="serif-roman">Flags</span> <code class="mono">-Syu</code> <span class="serif-roman">means respectively install packages, refresh the database, and check outdated packages.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># sudo pacman –Syu</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Besides the official repository that</span> <code class="mono">pacman</code> <span class="serif-roman">uses, there is another Arch User Repository (AUR) maintained by community.</span> </span> <span class="phrase"> <span class="serif-roman">We need other helpers to install AUR packages, including</span> <code class="mono">yay</code> <span class="serif-roman">,</span> <code class="mono">pakku</code> <span class="serif-roman">,</span> <code class="mono">pikaur</code> <span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">pacaur</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">The flag</span> <code class="mono">-S</code> <span class="serif-roman">also means installation.</span> </span>
+<span class="phrase"> <span class="serif-roman">Besides the official repository that</span> <code class="mono">pacman</code> <span class="serif-roman">uses, there is another Arch User Repository (AUR) maintained by community.</span> </span> <span class="phrase"> <span class="serif-roman">We need other helpers to install AUR packages, including</span> <code class="mono">yay</code><span class="serif-roman">,</span> <code class="mono">pakku</code><span class="serif-roman">,</span> <code class="mono">pikaur</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">pacaur</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">The flag</span> <code class="mono">-S</code> <span class="serif-roman">also means installation.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -424,19 +430,19 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">It remains to set up a desktop environment.</span> </span> <span class="phrase"> <span class="serif-roman">We install the X-server</span> <code class="mono">xorg-server</code> <span class="serif-roman">and</span> <code class="mono">xorg-server-utils</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Check which graphic card the current system is using.</span> </span>
+<span class="phrase"> <span class="serif-roman">It remains to set up a desktop environment.</span> </span> <span class="phrase"> <span class="serif-roman">We install the X-server</span> <code class="mono">xorg-server</code> <span class="serif-roman">and</span> <code class="mono">xorg-server-utils</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Check which graphic card the current system is using.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># lspci -v</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">As my computer has an Intel GPU, I have to install</span> <code class="mono">xf86-video-intel</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">I choose KDE to be my desktop,</span> <span class="serif-roman">and installed packages</span> <code class="mono">plasma</code> <span class="serif-roman">and</span> <code class="mono">kde-applications</code> <span class="serif-roman">which took nearly thirty minutes.</span> </span> <span class="phrase"> <span class="serif-roman">Afterwards, we configure</span> <code class="mono">.xinitrc</code> <span class="serif-roman">that calls KDE on startup.</span> </span> <span class="phrase"> <span class="serif-roman">Log in as the daily user’s account, and write this lines.</span> </span>
+<span class="phrase"> <span class="serif-roman">As my computer has an Intel GPU, I have to install</span> <code class="mono">xf86-video-intel</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">I choose KDE to be my desktop,</span> <span class="serif-roman">and installed packages</span> <code class="mono">plasma</code> <span class="serif-roman">and</span> <code class="mono">kde-applications</code> <span class="serif-roman">which took nearly thirty minutes.</span> </span> <span class="phrase"> <span class="serif-roman">Afterwards, we configure</span> <code class="mono">.xinitrc</code> <span class="serif-roman">that calls KDE on startup.</span> </span> <span class="phrase"> <span class="serif-roman">Log in as the daily user’s account, and write this lines.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono"># echo &quot;exec startkd&gt;&quot; &gt; ~/.xinitrc</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Here</span> <code class="mono">.xinitrc</code> <span class="serif-roman">must be saved in the daily user’s home in order to be found and read.</span> </span> <span class="phrase"> <span class="serif-roman">Even so, KDE will only be started after</span> <code class="mono">startx</code> <span class="serif-roman">command is run.</span> </span> <span class="phrase"> <span class="serif-roman">To start KDE immediately after logged in, install package</span> <code class="mono">xorg-xinit</code> <span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Put these lines in</span> <code class="mono">~/.bashrc</code> <span class="serif-roman">.</span> </span>
+<span class="phrase"> <span class="serif-roman">Here</span> <code class="mono">.xinitrc</code> <span class="serif-roman">must be saved in the daily user’s home in order to be found and read.</span> </span> <span class="phrase"> <span class="serif-roman">Even so, KDE will only be started after</span> <code class="mono">startx</code> <span class="serif-roman">command is run.</span> </span> <span class="phrase"> <span class="serif-roman">To start KDE immediately after logged in, install package</span> <code class="mono">xorg-xinit</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Put these lines in</span> <code class="mono">~/.bashrc</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <code class="mono">if [ -z &quot;$DISPLAY&quot; ] &amp;& [ -n &quot;$XDG_VTNR&quot; ] &amp;& [ &quot;$XDG_VTNR&quot; -eq 1 ]; then</code> </span>
@@ -448,10 +454,10 @@
 <span class="phrase"> <code class="mono">fi</code> </span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">This means that we start the X server, if the display variable is not a null, and if there is more than one terminal instance.</span> </span>
+<span class="phrase"> <span class="serif-roman">This means that we start the X server, if the display variable is not a null, and if there is more than one terminal instance.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">In the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.</span> </span>
+<span class="phrase"> <span class="serif-roman">In the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.</span> </span> <span class="phrase"></span>
 </p>
 </div>
 <div class="paragraphs">
@@ -461,13 +467,13 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/Installation_guide">«Installation Guide»</a> </span>
+<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/Installation_guide">«Installation Guide»</a> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/List_of_applications">«List of applications»</a> </span>
+<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/List_of_applications">«List of applications»</a> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/desktop_environment">«Desktop environment»</a> </span>
+<span class="phrase"> <span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https://wiki.archlinux.org/title/desktop_environment">«Desktop environment»</a> </span> <span class="phrase"></span>
 </p>
 </div>
 </main>

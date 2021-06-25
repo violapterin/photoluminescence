@@ -148,7 +148,7 @@ class Comment(Leaf):
 class Math(Leaf):
 
    KIND = "math"
-   TAG = "div"
+   TAG = "span"
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -178,7 +178,7 @@ class Math(Leaf):
 class Pseudo(Leaf):
 
    KIND = "pseudo"
-   TAG = "div"
+   TAG = "span"
 
    def __init__(self, **data):
       self.fill_basic(**data)
