@@ -17,7 +17,10 @@
     "tag": ["Probability", "Statistical physics"],
     "title": "Macroscopic and microscopic randomness"},
 
-{"stamp": "170317", "genre": "comments",
+{"stamp": "170809", "genre": "notes",
+    "tag": ["Notation", "Elementary mathematics"],
+    "title": "The obelus notation for division"},
+{"stamp": "170317", "genre": "notes",
     "tag": ["Technology"],
     "title": "Installing Arch Linux"},
 null

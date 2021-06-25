@@ -26,19 +26,14 @@
       href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700"/>
 
   <!-- Mathjax configuration -->
-  <script src="/asset/mathjax.js" defer></script>
-  <script defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script src="/asset/mathjax.js" defer>
   </script>
-  <!-- latest: -->
-  <!-- 
-    <script defer
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
-    </script>
-  -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer>
+  </script>
 
   <!-- random quotes -->
-  <script src="/asset/quote.js" defer></script>
+  <script src="/asset/quote.js" defer>
+  </script>
 </head>
 
 
@@ -91,7 +86,7 @@
 <span class="phrase"> <span class="serif-roman">Or it seems to be the best that I abandon Jekyll altogether,</span> </span> <span class="phrase"> <span class="serif-roman">I may use CSS to typeset fractions, vectors, and matrices,</span> </span> <span class="phrase"> <span class="serif-roman">And</span> <code class="mono">\mathfrak</code><span class="serif-roman">,</span> <code class="mono">\mathbb</code><span class="serif-roman">,</span> <code class="mono">\mathcal</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">\mathscr</code> <span class="serif-roman">can be simulated by different fonts.</span> </span> <span class="phrase"> <span class="serif-roman">Superscripts and subscripts is inherent in HTML, though recursive applications may not look nice.</span> </span> <span class="phrase"> <span class="serif-roman">For example, a double superscript is traditaionlly smaller than a single superscript, which has to be modified by a class.</span> </span> <span class="phrase"> <span class="serif-roman">These are possible, but not easy.</span> </span> <span class="phrase"> <span class="serif-roman">I may not be capable of writing a system equivalent to Jekyll.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
-<span class="phrase"> <span class="serif-roman">There are other options, after extensive search, such as invoking MathML or save everything as images.</span> </span> <span class="phrase"> <span class="serif-roman">Quickly I saw that directly input MathML is highly verbose.</span> </span> <span class="phrase"> <span class="serif-roman">Saving images will soon reach the limit of Github page, which is</span> <span class="math"> <span class="math-plain"> \(1\) </span> </span> <span class="serif-roman">GB.</span> </span> <span class="phrase"></span>
+<span class="phrase"> <span class="serif-roman">There are other options, after extensive search, such as invoking MathML or save everything as images.</span> </span> <span class="phrase"> <span class="serif-roman">Quickly I saw that directly input MathML is highly verbose.</span> </span> <span class="phrase"> <span class="serif-roman">Saving images will soon reach the limit of Github page, which is</span> <span class="math"><span class="math-plain">\(1\)</span></span> <span class="serif-roman">GB.</span> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Lastly, for some time, perhaps by middle of December 2020, I actually considered completely abandoning traditional mathematical notation,</span> </span> <span class="phrase"> <span class="serif-roman">And I entertained the possibility of designing a new language expressed entirely in ASCII characters.</span> </span> <span class="phrase"> <span class="serif-roman">The</span> <code class="mono">+</code><span class="serif-roman">,</span> <code class="mono">-</code><span class="serif-roman">,</span> <code class="mono">*</code><span class="serif-roman">,</span> <code class="mono">/</code><span class="serif-roman">,</span> <code class="mono">^</code> <span class="serif-roman">continue to mean basic operations,</span> </span> <span class="phrase"> <span class="serif-roman">And more complicated ones are to be represented by words</span> <code class="mono">intergration</code><span class="serif-roman">,</span> <code class="mono">differentiation</code><span class="serif-roman">,</span> <span class="serif-roman">as in Mathematica.</span> </span> <span class="phrase"> <span class="serif-roman">The downside is that I will not be able to communicate with other people.</span> </span> <span class="phrase"> <span class="serif-roman">Even if I link every post to a summary of convention, the probability that people insist to finish a post is diminishing.</span> </span> <span class="phrase"></span>
@@ -112,6 +107,11 @@
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">It simply remains to design a markup which describes normal text and mathematics, and outputs HTML.</span> </span> <span class="phrase"> <span class="serif-roman">This markup, like Markdown does, describes italic and bold texts, and so on.</span> </span> <span class="phrase"> <span class="serif-roman">Moreover, there has to be a mark which denotes the beginning and end of math modes, where I am free to rename the symbols as I wish.</span> </span> <span class="phrase"> <span class="serif-roman">The code within the math mode, in turn, is to be convered to standard LaTeX,</span> </span> <span class="phrase"> <span class="serif-roman">I am ready to code.</span> </span> <span class="phrase"></span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">On June 23, 2021</em> </span>
 </p>
 </div>
 </main>

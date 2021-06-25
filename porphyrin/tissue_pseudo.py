@@ -279,3 +279,15 @@ class Pseudo_mono(Leaf):
 
 class Pseudo_tiny(Leaf):
    pass
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+class Pseudo_void(Leaf):
+
+   KIND = "pseudo-void"
+
+   def __init__(self):
+      pass
+
+   def write(self):
+      return ''

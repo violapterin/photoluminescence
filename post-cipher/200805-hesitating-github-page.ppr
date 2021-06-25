@@ -1,5 +1,5 @@
 ===
-%%Aug 5, 2020:%% _ '
+%%August 5, 2020:%% _ '
 
 @@This was embarassing:@@ _
 @@I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
@@ -9,7 +9,7 @@
 ===
 
 ===
-%%Aug 6%% _ '
+%%August 6%% _ '
 
 @@surprisingly, as I tested for several simple cases, most browsers don’t support MathML, including even Chrome and Safari.@@ _
 @@that crossed out MathML as the realizer of my new notation.@@ _ '
@@ -22,7 +22,7 @@
 ===
 
 ===
-%%Aug 7%% _ '
+%%August 7%% _ '
 
 @@important realization!@@ _
 @@HTML@@ ++<p>++ @@may contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
@@ -32,7 +32,7 @@
 ===
 
 ===
-%%Aug 8%% _ '
+%%August 8%% _ '
 
 @@implementing a Markdown parser will not be an easy task, as to me, Markdown is not an elegant markup.@@ _
 @@the earliest proposal of Markdown by John Gruber was sometimes ambiguous.@@ _
@@ -50,7 +50,7 @@
 ===
 
 ===
-%%Aug 12%% _ '
+%%August 12%% _ '
 
 @@tested CSS-span-fractions, okay.@@ _
 @@discovered CSS grids, which might be superior to@@ ++table++@@.@@ _
@@ -80,7 +80,7 @@ _ ++<span class="v"> x+y+z </span>++ '
 ///
 
 ===
-%%Aug 14:%% _ '
+%%August 14:%% _ '
 
 @@realized that an expression is really a tree.@@ _
 @@if I choose prefix form always, there is no parsiing problem, like Lisp does.@@ _
@@ -93,4 +93,8 @@ _ ++<span class="v"> x+y+z </span>++ '
 
 ===
 @@A grammar for HTML5@@ \\http://trevorjim.com/a-grammar-for-html5\\
+===
+
+===
+%%in late August, 2020%%
 ===

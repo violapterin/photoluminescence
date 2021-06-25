@@ -147,7 +147,7 @@ class Organ(object):
    def find_balanced(self, mark_left, mark_right, head_left):
       probe_right = head_left
       count = 0
-      interval = range(len(self.source) - len(mark_right))
+      interval = range(len(self.source) - len(mark_right) + 1)
       while (probe_right in interval):
          head_right = probe_right + len(mark_right)
          mark_probe = self.source[probe_right: head_right]
@@ -157,7 +157,7 @@ class Organ(object):
             count -= 1
          if (count == 0):
             break
-         probe_right = self.move_right(1, probe_right)
+         probe_right += 1
       return head_right
 
    def probe_mark(self, head_left):
@@ -386,7 +386,7 @@ class Leaf(Organ):
       if (self.OUTSIDE):
          content = mark_left + source + mark_right
          sink = AID.write_element(
-            cut = ' ',
+            cut = '',
             content = content,
             tag = tag,
             attributes = ["class"],
@@ -394,6 +394,7 @@ class Leaf(Organ):
          )
       else:
          sink = source
+      sink = sink.strip()
       return sink
 
    def write_pseudo_outside(self, source):
@@ -426,56 +427,68 @@ class Leaf(Organ):
    # head_left, head_after, probe_middle, probe_right, head_right,
    def snip_tissue_math(self, head_left):
       from . import tissue_math as TISSUE
-      tissue = None
+      tissue = TISSUE.Math_void()
       tip_left = self.source[head_left]
       label_left = AID.get_label_math(tip_left)
       head_after = self.move_right(1, head_left)
-      if (head_after >= len(self.source)):
-         return None, len(self.source)
-      tip_after = self.source[head_after]
-      label_after = AID.get_label_math(tip_after)
       if not AID.be_start_math(label_left):
          data = self.give_data(head_left, head_after)
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
+
+      if (AID.be_cut_math(label_left)):
+         head_right = head_after
+         data = self.give_data(head_left, head_right)
+         if not data["source"]:
+            tissue = TISSUE.Math_void()
+            return tissue, head_right
+         if (label_left == "CUT_PAIR"):
+            tissue = TISSUE.Math_cut_pair(**data)
+         elif (label_left == "CUT_TRIPLET"):
+            tissue = TISSUE.Math_cut_triplet(**data)
+         elif (label_left == "CUT_TUPLE"):
+            tissue = TISSUE.Math_cut_tuple(**data)
+         return tissue, head_right
+
+      if (head_after >= len(self.source)):
+         return tissue, len(self.source)
+
+      tip_after = self.source[head_after]
+      label_after = AID.get_label_math(tip_after)
       if AID.be_stop_asymmetry_math(label_left):
          data = self.give_data(head_left, head_after)
          from .caution import Bracket_mismatched as creator
          creator(**data).panic()
 
-      elif (AID.be_cut_math(label_left)):
-         head_right = head_after
-         data = self.give_data(head_left, head_right)
-         if not data["source"]:
-            return None, head_right
-         tissue = TISSUE.Math_cut(**data)
-         return tissue, head_right
-
-      elif (AID.be_start_symbol_math(label_left)):
+      if (AID.be_start_symbol_math(label_left)):
          head_right = self.move_right(1, head_after)
-         tip_middle = self.source[head_right]
-         label_middle = AID.get_label_math(tip_middle)
-         if (AID.be_start_accent_math(label_middle)):
-            head_right = self.move_right(2, head_right)
+         if (head_right < len(self.source)):
+            tip_middle = self.source[head_right]
+            label_middle = AID.get_label_math(tip_middle)
+            if (AID.be_start_accent_math(label_middle)):
+               head_right = self.move_right(2, head_right)
          if (head_right - head_left < 2):
             data = self.give_data(head_left, head_right)
             from .caution import Token_invalid_as_symbol as creator
             creator(**data).panic()
          data = self.give_data(head_left, head_right)
          if not data["source"]:
-            return None, head_right
+            tissue = TISSUE.Math_void()
+            return tissue, head_right
          if (AID.be_start_letter_math(label_left)):
             tissue = TISSUE.Math_letter(**data)
          elif (AID.be_start_sign_math(label_left)):
             tissue = TISSUE.Math_sign(**data)
+         return tissue, head_right
 
-      elif (AID.be_start_box_math(label_left)):
+      if (AID.be_start_box_math(label_left)):
          tip_right = AID.get_tip_right_math(tip_left)
          head_right = self.find_balanced(tip_left, tip_right, head_left)
-         probe_right = self.move_left(1, head_right)
+         probe_right = head_right - 1
          data = self.give_data(head_after, probe_right)
          if not data["source"]:
-            return None, head_right
+            tissue = TISSUE.Math_void()
+            return tissue, head_right
          if (label_left == "START_PAIR"):
             tissue = TISSUE.Math_pair(**data)
          if (label_left == "START_TRIPLET"):
@@ -489,23 +502,26 @@ class Leaf(Organ):
          if (label_left == "MONO"):
             tissue = TISSUE.Math_mono(**data)
          if (label_left == "CHECK"):
-            tissue = None
+            tissue = TISSUE.Math_void()
+         return tissue, head_right
 
-      elif (label_left == "PLAIN"):
+      if (label_left == "PLAIN"):
          if not AID.be_start_asymmetry_math(label_after):
             head_right = self.move_right(1, head_after)
             data = self.give_data(head_left, head_right)
             if not data["source"]:
-               return None, head_right
+               tissue = TISSUE.Math_void()
+               return tissue, head_right
             tissue = TISSUE.Math_plain(**data)
          else:
             tip_right = AID.get_tip_right_math(tip_after)
             head_right = self.find_balanced(tip_after, tip_right, head_after)
             probe_middle = self.move_right(1, head_after)
-            probe_right = self.move_left(2, head_right)
+            probe_right = head_right - 2
             data = self.give_data(probe_middle, probe_right)
             if not data["source"]:
-               return None, head_right
+               tissue = TISSUE.Math_void()
+               return tissue, head_right
 
             if (label_after == "START_PAIR"):
                tissue = TISSUE.Math_bracket_round(**data)
@@ -517,7 +533,6 @@ class Leaf(Organ):
                tissue = TISSUE.Math_bracket_angle(**data)
             if (label_after == "ARROW_LEFT"):
                tissue = TISSUE.Math_bracket_line(**data)
-
       return tissue, head_right
 
    # # # # # # # # # # # # # # # #
@@ -525,12 +540,13 @@ class Leaf(Organ):
    # head_left, probe_left, probe_right, head_right,
    def snip_tissue_pseudo(self, head_left):
       from . import tissue_pseudo as TISSUE
-      tissue = None
+      tissue = TISSUE.Pseudo_void()
       tip_left = self.source[head_left]
       label_left = AID.get_label_pseudo(tip_left)
       head_right = self.move_right(1, head_left)
       if (head_after >= len(self.source)):
-         return None, len(self.source)
+         tissue = TISSUE.Pseudo_void()
+         return tissue, len(self.source)
       if not AID.be_start_pseudo(label_left):
          data = self.give_data(head_left, head_right)
          from .caution import Token_invalid_as_symbol as creator
@@ -548,7 +564,8 @@ class Leaf(Organ):
             creator(**data).panic()
          data = self.give_data(head_left, head_right)
          if not data["source"]:
-            return None, head_right
+            tissue = TISSUE.Pseudo_void()
+            return tissue, head_right
          if (AID.be_letter_pseudo(label_left)):
             tissue = TISSUE.Pseudo_letter(**data)
          elif (AID.be_sign_pseudo(label_left)):
@@ -559,7 +576,8 @@ class Leaf(Organ):
          head_right = self.move_right(2, head_left)
          data = self.give_data(head_left, head_right)
          if not data["source"]:
-            return None, head_right
+            tissue = TISSUE.Pseudo_void()
+            return tissue, head_right
          tissue = TISSUE.Pseudo_plain(**data)
          return tissue, head_right
 
@@ -571,7 +589,8 @@ class Leaf(Organ):
          probe_right = self.move_left(1, head_right)
          data = give_data(probe_left, probe_right)
          if not data["source"]:
-            return None, head_right
+            tissue = TISSUE.Pseudo_void()
+            return tissue, head_right
          if (label_left == "START_ROUND"):
             tissue = TISSUE.Pseudo_bracket_round(**data)
          if (label_left == "START_SQUARE"):
@@ -587,7 +606,7 @@ class Leaf(Organ):
          if (label_left == "MONO"):
             tissue = TISSUE.Pseudo_mono(**data)
          if (label_left == "CHECK"):
-            tissue = None
+            tissue = TISSUE.Pseudo_void()
       return tissue, head_right
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -603,6 +622,8 @@ class Caution(Organ):
 
    def panic(self):
       self.warn()
+      # Use the line below to show the stack:
+      assert(1 == 0) # XXX
       raise SystemExit()
 
    def warn(self):

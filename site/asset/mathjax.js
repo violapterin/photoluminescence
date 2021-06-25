@@ -6,7 +6,6 @@ window.MathJax = {
       "math-bracket-angle", "math-bracket-line",
       "math-pair", "math-triplet", "math-tuple",
       "math-serif", "math-sans", "math-mono",
-      "math"
     ],
     ignoreHtmlClass: "body"
   },
@@ -28,3 +27,5 @@ window.MathJax = {
   }
 };
 
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+</script>

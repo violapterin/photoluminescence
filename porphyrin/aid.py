@@ -470,8 +470,12 @@ def give_alphabets_upper():
    return alphabets
 
 def give_alphabets_lower():
-   alphabets = give_alphabets_upper().lower()
-   return alphabets
+   alphabets_upper = give_alphabets_upper()
+   alphabets_lower = []
+   for alphabet in alphabets_upper:
+      alphabets_lower.append(alphabet.lower())
+   alphabets_lower = tuple(alphabets_lower)
+   return alphabets_lower
 
 def give_digits():
    digits = (
@@ -505,18 +509,18 @@ def give_labels_math():
       '!': "ACCENT_ONE",
       '?': "ACCENT_TWO",
       #
-      '%': "ABSTRACTION",
       '/': "LINE",
       '+': "OPERATION_ONE",
       '-': "OPERATION_TWO",
       '*': "OPERATION_THREE",
       '=': "EQUIVALENCE_ONE",
       '~': "EQUIVALENCE_TWO",
-      '^': "ARROW_MIDDLE",
       '\\': "ARROW_LEFT",
       '|': "ARROW_RIGHT",
+      '^': "ARROW_MIDDLE",
       '<': "ORDER_LEFT",
       '>': "ORDER_RIGHT",
+      '%': "ABSTRACTION",
       #
       '(': "START_PAIR",
       ',': "CUT_PAIR",
@@ -525,8 +529,8 @@ def give_labels_math():
       ':': "CUT_TRIPLET",
       ']': "STOP_TRIPLET",
       '{': "START_TUPLE",
-      '}': "STOP_TUPLE",
       ';': "CUT_TUPLE",
+      '}': "STOP_TUPLE",
       '\'': "SERIF" ,
       '\"': "SANS",
       '`': "MONO",
@@ -551,7 +555,6 @@ def get_tip_math(label):
 
 def be_start_letter_math(label):
    labels = {
-      "ESCAPE",
       "BOLD",
       "BLACK",
       "CURSIVE",
@@ -561,16 +564,18 @@ def be_start_letter_math(label):
 
 def be_start_sign_math(label):
    labels = {
-      "ESCAPE",
-      "ABSTRACTION",
-      "ARITHMETICS",
-      "OPERATION",
-      "SHAPE",
       "LINE",
-      "ARROW",
-      "EQUIVALENCE",
+      "OPERATION_ONE",
+      "OPERATION_TWO",
+      "OPERATION_THREE",
+      "EQUIVALENCE_ONE",
+      "EQUIVALENCE_TWO",
+      "ARROW_LEFT",
+      "ARROW_RIGHT",
+      "ARROW_MIDDLE",
       "ORDER_LEFT",
       "ORDER_RIGHT",
+      "ABSTRACTION",
    }
    return (label in labels)
 
@@ -652,6 +657,14 @@ def be_start_math(label):
       or (label in miscellaneous)
    )
    return being
+
+def kind_be_cut_math(kind):
+   kinds = {
+      "math-cut-pair",
+      "math-cut-triplet",
+      "math-cut-tuple",
+   }
+   return (kind in kinds)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

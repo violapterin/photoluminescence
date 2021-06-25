@@ -165,12 +165,13 @@ class Math(Leaf):
          head = self.move_right(0, head)
       content = AID.unite(contents)
       sink = AID.write_element(
-            cut = ' ',
+            cut = '',
             content = content,
             tag = self.TAG,
             attributes = ["class"],
             values = [self.KIND],
       )
+      sink.strip()
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

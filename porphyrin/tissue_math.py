@@ -28,33 +28,33 @@ class Math_letter(Leaf):
       if (len(self.source) >= 4):
          tip_one = self.source[2]
          tip_two = self.source[3]
-         label_one = get_label_math(tip_one)
-         label_two = get_label_math(tip_two)
-         if (label_one == "ACCENT_ONE"):
-            if (label_two == "ACCENT_ONE"):
+         label_accent_one = get_label_math(tip_one)
+         label_accent_two = get_label_math(tip_two)
+         if (label_accent_one == "ACCENT_ONE"):
+            if (label_accent_two == "ACCENT_ONE"):
                self.accent = "\\bar"
-            elif (label_two == "ACCENT_TWO"):
+            elif (label_accent_two == "ACCENT_TWO"):
                self.accent = "\\hat"
-         elif (label_one == "ACCENT_TWO"):
-            if (label_two == "ACCENT_ONE"):
+         elif (label_accent_one == "ACCENT_TWO"):
+            if (label_accent_two == "ACCENT_ONE"):
                self.accent = "\\breve"
-            elif (label_two == "ACCENT_TWO"):
+            elif (label_accent_two == "ACCENT_TWO"):
                self.accent = "\\tilde"
 
-      elif (label == "BOLD"):
+      elif (label_tip == "BOLD"):
          if (tail.islower() or tail.isupper()):
-            letter = tail
-      elif (label == "BLACK"):
+            letter = AID.write_latex("\\mathbf", tail)
+      elif (label_tip == "BLACK"):
          if (tail.islower()):
             letter = AID.write_latex("\\mathbb", tail)
          elif (tail.isupper()):
             letter = AID.write_latex("\\fraktur", tail)
-      elif (label == "CURSIVE"):
+      elif (label_tip == "CURSIVE"):
          if (tail.islower()):
             letter = AID.write_latex("\\mathcal", tail)
          elif (tail.isupper()):
             letter = AID.write_latex("\\mathscr", tail)
-      elif (label == "GREEK"):
+      elif (label_tip == "GREEK"):
          uppers = (
             "\\@", "\\infty", "\\Xi",
             "\\Delta", "\\&",
@@ -77,8 +77,8 @@ class Math_letter(Leaf):
             "\\upsilon", "\\digamma", "\\omega",
             "\\chi", "\\psi", "\\zeta",
          )
-         table_upper = get_table_upper(uppers)
-         table_lower = get_table_lower(lowers)
+         table_upper = AID.get_table_upper(uppers)
+         table_lower = AID.get_table_lower(lowers)
          if (tail.isupper()):
             letter = table_upper.get(tail)
          elif (tail.islower()):
@@ -117,11 +117,11 @@ class Math_sign(Leaf):
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
 
-      if (label_tip == "ABSTRACTION"):
+      if (label_tip == "LINE"):
          signs = (
-            "\\sum", "\\prod", "\\int", "\\oint",
-            "\\bigoplus", "\\bigodot", "\\bigotimes",
-            "\\bigcup", "\\bigcap", "\\bigsqcup",
+            "\\mid", "\\nmid", "\\backslash",
+            "\\parallel", "\\nparallel", "\\between",
+            "\\dotsc", "\\dotsb", "\\vdots", "\\ddots",
          )
       elif (label_tip == "OPERATION_ONE"):
          signs = (
@@ -142,12 +142,6 @@ class Math_sign(Leaf):
             "\\times", "\\odot", "\\otimes",
             "\\bullet", "\\circ", "\\star",
             "\\ltimes", "\\rtimes", "\\div", "\\oslash", 
-         )
-      elif (label_tip == "LINE"):
-         signs = (
-            "\\mid", "\\nmid", "\\backslash",
-            "\\parallel", "\\nparallel", "\\between",
-            "\\dotsc", "\\dotsb", "\\vdots", "\\ddots",
          )
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
@@ -203,6 +197,12 @@ class Math_sign(Leaf):
             "\\geq", ">", "\\gtrsim", "\\gg",
             "\\supseteq", "\\supsetneq", "\\notin",
             "\\succeq", "\\succneqq", "\\vdash",
+         )
+      elif (label_tip == "ABSTRACTION"):
+         signs = (
+            "\\sum", "\\prod", "\\int", "\\oint",
+            "\\bigoplus", "\\bigodot", "\\bigotimes",
+            "\\bigcup", "\\bigcap", "\\bigsqcup",
          )
 
       if signs:
@@ -383,22 +383,19 @@ class Math_pair(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      label_cut = "CUT_PAIR"
-      head_left = self.move_right(0, 0)
-      head_right = head_left
+      kind_cut = "math-cut-pair"
+      head = self.move_right(0, 0)
       boxes = [[]]
-      while (head_right < len(self.source)):
-         tissue, head_right = self.snip_tissue_math(head_left)
-         if not tissue:
-            continue
-         head_left = head_right
-         head_right = self.move_right(0, head_right)
-         if tissue:
-            label = AID.get_label_math(tissue.source[0])
-            if (label == label_cut):
+      while (head < len(self.source)):
+         tissue, head = self.snip_tissue_math(head)
+         head = self.move_right(0, head)
+         kind = tissue.KIND
+         if AID.kind_be_cut_math(kind):
+            if (kind == kind_cut):
                boxes.append([])
-            else:
-               boxes[-1].append(tissue)
+            continue
+         else:
+            boxes[-1].append(tissue)
       if not (len(boxes) == 2):
          data = self.give_data(0, len(self.source))
          from .caution import Containing_wrong_number_boxes as creator
@@ -407,7 +404,7 @@ class Math_pair(Leaf):
       box_top, box_bottom = boxes
       top = AID.unite([tissue.write() for tissue in box_top])
       bottom = AID.unite([tissue.write() for tissue in box_bottom])
-      command = "\\frac"
+      command = "\\dfrac"
       content = AID.write_latex(command, top, bottom)
       sink = self.write_math_outside(content)
       return sink
@@ -424,19 +421,17 @@ class Math_triplet(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      label_cut = "CUT_TRIPLET"
-      head_left = self.move_right(0, 0)
-      head_right = head_left
+      kind_cut = "math-cut-triplet"
+      head = self.move_right(0, 0)
       boxes = [[]]
-      while (head_right < len(self.source)):
-         tissue, head_right = self.snip_tissue_math(head_left)
-         if not tissue:
+      while (head < len(self.source)):
+         tissue, head = self.snip_tissue_math(head)
+         head = self.move_right(0, head)
+         kind = tissue.KIND
+         if AID.kind_be_cut_math(kind):
+            if (kind == kind_cut):
+               boxes.append([])
             continue
-         head_left = head_right
-         head_right = self.move_right(0, head_right)
-         label = AID.get_label_math(tissue.source[0])
-         if (label == label_cut):
-            boxes.append([])
          else:
             boxes[-1].append(tissue)
       if not (len(boxes) == 3):
@@ -474,19 +469,17 @@ class Math_tuple(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      label_cut = "CUT_TUPLE"
-      head_left = self.move_right(0, 0)
-      head_right = head_left
+      kind_cut = "math-cut-tuple"
+      head = self.move_right(0, 0)
       boxes = [[]]
-      while (head_right < len(self.source)):
-         tissue, head_right = self.snip_tissue_math(head_left)
-         if not tissue:
+      while (head < len(self.source)):
+         tissue, head = self.snip_tissue_math(head)
+         head = self.move_right(0, head)
+         kind = tissue.KIND
+         if AID.kind_be_cut_math(kind):
+            if (kind == kind_cut):
+               boxes.append([])
             continue
-         head_left = head_right
-         head_right = self.move_right(0, head_right)
-         label = AID.get_label_math(tissue.source[0])
-         if tissue and (label == label_cut):
-            boxes.append([])
          else:
             boxes[-1].append(tissue)
 
@@ -502,15 +495,35 @@ class Math_tuple(Leaf):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-class Math_cut(Leaf):
+class Math_cut_pair(Leaf):
 
-   KIND = "math-cut"
+   KIND = "math-cut-pair"
 
    def __init__(self, **data):
       self.fill_basic(**data)
 
    def write(self):
-      pass
+      return ''
+
+class Math_cut_triplet(Leaf):
+
+   KIND = "math-cut-triplet"
+
+   def __init__(self, **data):
+      self.fill_basic(**data)
+
+   def write(self):
+      return ''
+
+class Math_cut_tuple(Leaf):
+
+   KIND = "math-cut-tuple"
+
+   def __init__(self, **data):
+      self.fill_basic(**data)
+
+   def write(self):
+      return ''
 
 class Math_check(Leaf):
 
@@ -520,7 +533,7 @@ class Math_check(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      pass
+      return ''
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -530,7 +543,7 @@ class Math_check(Leaf):
 
 class Math_serif(Leaf):
 
-   KIND = "math"
+   KIND = "math-serif"
    LATERAL = True
 
    def __init__(self, **data):
@@ -549,7 +562,7 @@ class Math_serif(Leaf):
 
 class Math_sans(Leaf):
 
-   KIND = "math"
+   KIND = "math-sans"
    LATERAL = True
 
    def __init__(self, **data):
@@ -568,7 +581,7 @@ class Math_sans(Leaf):
 
 class Math_mono(Leaf):
 
-   KIND = "math"
+   KIND = "math-mono"
    LATERAL = True
 
    def __init__(self, **data):
@@ -582,3 +595,15 @@ class Math_mono(Leaf):
          creator(**data).panic()
       sink = AID.write_latex(command, self.source)
       return sink
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+
+class Math_void(Leaf):
+
+   KIND = "math-void"
+
+   def __init__(self):
+      pass
+
+   def write(self):
+      return ''

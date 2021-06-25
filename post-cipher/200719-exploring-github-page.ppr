@@ -124,7 +124,7 @@ _ ++\fi \next}++ '
 ===
 
 ===
-%%Aug 2:%% '
+%%August 2:%% '
 
 @@unfortunately, most miscellaneous symbols were not in Noto Sans nor Noto Serif, which means I might have to stick to Mathjax.@@ _
 @@but as I said, ++\unicode++ extension allows one to use unicode characters not provided by LaTeX, even Japanese Hiragana and Kanji.@@ _
@@ -155,3 +155,6 @@ _ ++\fi \next}++ '
    \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
 ===
 
+===
+%%in early August, 2020%%
+===

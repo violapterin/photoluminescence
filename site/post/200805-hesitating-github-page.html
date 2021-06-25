@@ -26,19 +26,14 @@
       href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700"/>
 
   <!-- Mathjax configuration -->
-  <script src="/asset/mathjax.js" defer></script>
-  <script defer
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  <script src="/asset/mathjax.js" defer>
   </script>
-  <!-- latest: -->
-  <!-- 
-    <script defer
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
-    </script>
-  -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer>
+  </script>
 
   <!-- random quotes -->
-  <script src="/asset/quote.js" defer></script>
+  <script src="/asset/quote.js" defer>
+  </script>
 </head>
 
 
@@ -82,7 +77,7 @@
 <main class="document">
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 5, 2020:</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 5, 2020:</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">This was embarassing:</span> </span> <span class="phrase"> <span class="serif-roman">I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.</span> </span> <span class="phrase"> <span class="serif-roman">I knew that when Jekyll was run, GitHub automatically generated the site again in the server end.</span> </span> <span class="phrase"> <span class="serif-roman">But I did not know if there was a empty file</span> <code class="mono">.nojekyll</code><span class="serif-roman">,</span> <span class="serif-roman">GitHub no longer ran Jekyll, but it simply recognized</span> <code class="mono">index.html</code><span class="serif-roman">,</span> <span class="serif-roman">and serve the site accordingly.</span> </span> <span class="phrase"> <span class="serif-roman">It suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.</span> </span> <span class="phrase"></span>
@@ -90,7 +85,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 6</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 6</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Surprisingly, as I tested for several simple cases, most browsers don’t support MathML, including even Chrome and Safari.</span> </span> <span class="phrase"> <span class="serif-roman">That crossed out MathML as the realizer of my new notation.</span> </span> <span class="phrase"></span>
@@ -104,7 +99,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 7</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 7</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Important realization!</span> </span> <span class="phrase"> <span class="serif-roman">HTML</span> <code class="mono">&lt;p&gt;</code> <span class="serif-roman">may contain several lines separated by</span> <code class="mono">&lt;br&gt;</code> <span class="serif-roman">and stacked vertically, if grouped by a</span> <code class="mono">&lt;span&gt;</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Moreover, the CSS</span> <code class="mono">border-left</code><span class="serif-roman">,</span> <code class="mono">border-right</code><span class="serif-roman">,</span> <code class="mono">border-top</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">border-bottom</code> <span class="serif-roman">may serve as traditional mathematical brackets.</span> </span> <span class="phrase"> <span class="serif-roman">They may be colored, scaled, or thickened as I wish, by a suitable class.</span> </span> <span class="phrase"> <span class="serif-roman">This would perhaps suffice for my revolution of notation.</span> </span> <span class="phrase"></span>
@@ -112,7 +107,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 8</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 8</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Implementing a Markdown parser will not be an easy task, as to me, Markdown is not an elegant markup.</span> </span> <span class="phrase"> <span class="serif-roman">The earliest proposal of Markdown by John Gruber was sometimes ambiguous.</span> </span> <span class="phrase"> <span class="serif-roman">For example,</span> <code class="mono">*italic __bold*__</code> <span class="serif-roman">can be either a italic or a bold, depending on the precedence.</span> </span> <span class="phrase"> <span class="serif-roman">Afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.</span> </span> <span class="phrase"> <span class="serif-roman">To make things more complicated, I do not know GitHub- Flavored Markdown has a PEG (parsing expression grammar) or a BNF (Backus–Naur form).</span> </span> <span class="phrase"> <span class="serif-roman">Recall that it was well known that whether a language is unambiguous is undecidable, in general.</span> </span> <span class="phrase"></span>
@@ -123,7 +118,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 12</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 12</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Tested CSS-span-fractions, okay.</span> </span> <span class="phrase"> <span class="serif-roman">Discovered CSS grids, which might be superior to</span> <code class="mono">table</code><span class="serif-roman">.</span> </span> <span class="phrase"> <span class="serif-roman">Came up with the artificial square brackets made of</span> <code class="mono">span</code><span class="serif-roman">.</span> </span> <span class="phrase"></span>
@@ -190,7 +185,7 @@
 </div>
 <div class="paragraphs">
 <p class="paragraph">
-<span class="phrase"> <em class="serif-italic">Aug 14:</em> </span> <span class="phrase"></span>
+<span class="phrase"> <em class="serif-italic">August 14:</em> </span> <span class="phrase"></span>
 </p>
 <p class="paragraph">
 <span class="phrase"> <span class="serif-roman">Realized that an expression is really a tree.</span> </span> <span class="phrase"> <span class="serif-roman">If I choose prefix form always, there is no parsiing problem, like Lisp does.</span> </span> <span class="phrase"> <span class="serif-roman">Later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I brought up the topic of obelus sign.</span> </span> <span class="phrase"> <span class="serif-roman">This helped me further clarify the tree image, and came up with a interpretation of the transformation.</span> </span> <span class="phrase"> <span class="serif-roman">The design of esoteric language Jelly (inspired by J and APL in turn) is very instructive in its tacit function notation.</span> </span> <span class="phrase"></span>
@@ -204,6 +199,11 @@
 <div class="paragraphs">
 <p class="paragraph">
 <span class="phrase"> <a class="serif-roman" href="http://trevorjim.com/a-grammar-for-html5">A grammar for HTML5</a> </span>
+</p>
+</div>
+<div class="paragraphs">
+<p class="paragraph">
+<span class="phrase"> <em class="serif-italic">In late August, 2020</em> </span>
 </p>
 </div>
 </main>
