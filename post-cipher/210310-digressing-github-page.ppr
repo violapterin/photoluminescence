@@ -1,68 +1,76 @@
+=== ##Deciding the framework## ===
+
 ===
-@@for this post, I didn't take detailed notes from time to time.@@ _
-@@in fact, I was not sure where this project is going.@@ _
-@@as I said, in writing mathematical posts, I was hard to please.@@ _
-@@I want a more succint, readable, and precise source, which Markdown is not.@@ _
-@@and I want typography features, which Markdown cannot express.@@ _ '
+@@as of this part, I @didn’t take detailed notes from time to time.@@ _
+@@in fact, I was not sure where this project was %going.@@ _
+@@as I @said, in writing mathematical posts, I was hard to please.@@ _
+@@I @wanted a more succint, readable, and precise source, {which Markdown was not}.@@ _
+@@and I @wanted typography features, {which Markdown couldn’t express}.@@ '
 
 @@let me reaccount these considerations, to recapitulate and partly to organize my own thought.@@ _
-@@the easiest choice is just sticking to Mathjax in Markdown.@@ _
-@@however, one has to use Javascript preprocessing to effectively introduce macros, which is not flexible.@@ _
-@@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflict HTML,@@ _
+@@the easiest choice was just sticking to Mathjax in Markdown.@@ _
+@@however, one $has to use Javascript preprocessing to effectively introduce macros, {which was not flexible}.@@ _
+@@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflict HTML,@@
 @@and there was no unicode characters beyond standard LaTeX.@@ _
-@@moreover, the latest version does not break long expressions,@@ _ '
+@@moreover, the latest version does not break long expressions.@@ '
 
-@@or it seems to be the best that I abandon Jekyll altogether,@@ _
-@@I may use CSS to typeset fractions, vectors, and matrices,@@ _
-@@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@can be simulated by different fonts.@@ _
-@@superscripts and subscripts is inherent in HTML, though recursive applications may not look nice.@@ _
-@@for example, a double superscript is traditaionlly smaller than a single superscript, which has to be modified by a class.@@ _
-@@these are possible, but not easy.@@ _
-@@I may not be capable of writing a system equivalent to Jekyll.@@ _ '
+@@or it seems to be the best <that I abandon Jekyll altogether>,@@
+@@I may use CSS to typeset fractions, vectors, and matrices,@@
+@@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@could be simulated by different fonts.@@ _
+@@superscripts and subscripts were inherent in HTML, though recursive applications may not look nice.@@ _
+@@for example, a double superscript was traditaionlly smaller than a single superscript, {which has to be modified by a class}.@@ _
+@@these tasks were possible, but not easy.@@ _
+@@I may not be capable of writing a system equivalent to Jekyll.@@ '
 
-@@there are other options, after extensive search, such as invoking MathML or save everything as images.@@ _
-@@quickly I saw that directly input MathML is highly verbose.@@ _
-@@saving images will soon reach the limit of Github page, which is@@ ^^.1^^ @@GB.@@ _ '
+@@there were other options, after extensive search, such as invoking MathML or save everything as images.@@ _
+@@quickly I @realized <that directly input MathML was highly verbose>.@@ _
+@@saving images would soon reach the limit of Github page, {which is@@ ^^.1^^ @@GB}.@@ '
 
-@@lastly, for some time, perhaps by middle of December 2020, I actually considered completely abandoning traditional mathematical notation,@@ _
-@@and I entertained the possibility of designing a new language expressed entirely in ASCII characters.@@ _
-@@the@@ ++ + ++@@,@@ ++-++@@,@@ ++*++@@,@@ ++/++@@,@@ ++^++ @@continue to mean basic operations,@@ _
-@@and more complicated ones are to be represented by words@@ ++intergration++@@,@@ ++differentiation++@@,@@ @@as in Mathematica.@@ _
-@@the downside is that I will not be able to communicate with other people.@@ _
-@@even if I link every post to a summary of convention, the probability that people insist to finish a post is diminishing.@@ _ '
+@@lastly, for some time, perhaps by middle of December 2020, I actually @considered completely abandoning traditional mathematical notation,@@
+@@and I @entertained the possibility of designing a new language expressed entirely in ASCII characters.@@ _
+@@the@@ ++ + ++@@,@@ ++-++@@,@@ ++*++@@,@@ ++/++@@,@@ ++^++ @@continue to mean basic operations,@@
+@@and more complicated ones were to be represented by words@@ ++intergration++@@,@@ ++differentiation++@@,@@ @@as in Mathematica.@@ _
+@@the downside was <that I wouldn’t be able to communicate with other people>.@@ _
+@@even if I @linked every post to a summary of convention, the probability <that people insist to finish a post> was %diminishing.@@ '
 ===
 
+=== ##In search of a new style of proof## ===
+
 ===
-@@therefore, between these months, I keep wondering what an ideal proof presentation would be.@@ _
-@@I have the independent realization that traditional style of proof is in many ways inadequate.@@ _
-@@about the middle of August, I came across the Wikipedia post of Curry- Howard isomorphism, and that truly changed my worldview.@@ _
-@@I searched widely to learn more about logic, mathematical foundation, intuitionistic mathematics, constructivism, type theory, and interactive theorem provers.@@ _
-@@since this account is not centered about, so to say, these new mathematics, I shall continue my train of thought about the GitHub pages without explaining these terms.@@ _ '
+@@what’s more, between these months, I @kept wondering what an ideal proof presentation would be.@@ _
+@@I @had the independent awareness <that the traditional style of proof was in many ways inadequate>.@@ _
+@@about the middle of August, I @came across the Wikipedia post of Curry- Howard isomorphism,
+and that truly @changed my worldview.@@ _
+@@I @searched widely to learn more about logic, mathematical foundation, intuitionistic mathematics, constructivism, type theory, and interactive theorem provers.@@ _
+@@since this narrative is not &centered about, so to say, these new mathematics, I shall continue my train of thought about the GitHub pages without explaining these fancy terms.@@ '
 
-@@in short, I had the urge to present classical mathematics in a more type theoretical style.@@ _
-@@a thorough approach might be designing a pseudo code for proof assistant, such as Coq,@@ _
-@@so that besides checking mentally, it is easy to rewrite in a way it can be checked via Coq too.@@ _
-@@additionally it is perhaps more asthetically pleasing to me to have a syntax which utilized only ASCII.@@ _ '
+@@in short, I @had the urge to present classical mathematics in a more type theoretical style.@@ _
+@@a thorough approach might be designing a pseudo code for proof assistant, such as Coq,@@
+@@so that besides checking mentally, it was easy to rewrite in a way it could be checked via Coq too.@@ _
+@@additionally it was perhaps more asthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
 
-@@January, Febuary, and March soon passed,@@ _
-@@and it occurs to me classical mathematics has not missed much, if few little changes are made.@@ _
-@@just to be sure that I wasn't missing much, I took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
-@@most importantly, I suggest that statements which are not identity nor partial orders, should not be buried in paragraphs, but occupy a lone line and numbered as equations.@@ _
-@@another suggestion is that when explaining the reason of a proposition, the reason should go before the equation, and these reasons are ordered according to the time of substitution.@@ _
+@@January, Febuary, and March soon passed,@@
+@@and it occurs to me classical mathematics has not missed much, if few little changes were &made.@@ _
+@@just to be sure that I wasn’t missing much, I @took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
+@@most importantly, I #suggest <that statements {which were not identity nor partial orders}, should not be buried in paragraphs, but should occupy a lone line and be numbered as equations>.@@ _
+@@another suggestion was <that the reasons of a proposition should go just above the equation>, and <that these reasons should be ordered according to the order of substitution>.@@ _
 @@finally, application of law of excluded middle and nonconstructive axiom of choice should be announced every time.@@ _
-@@this way, it becomes likely to recover the Curry- Howard isomorphism.@@ _ '
+@@this way, it became likely to recover the Curry- Howard isomorphism.@@ '
 
-@@therefore, I realized that classical mathematics is fine, as long as I have a strong inclination to type theoretical interpretation.@@ _
-@@a balance between constructiveness and convention is feasible.@@ _
-@@I may be very well content with more strictly natural deduction style presentation, to have a more reasonable scope of project.@@ _ '
+@@most simply put, I @realized <that classical mathematics was fine, as long as I @had a strong type theoretical inclination>.@@ _
+@@a balance between constructiveness and convention was therefore feasible.@@ _
+@@I may be very well content with more strictly natural deduction style presentation, to have a more reasonable scope of project.@@ '
 
-@@it simply remains to design a markup which describes normal text and mathematics, and outputs HTML.@@ _
-@@this markup, like Markdown does, describes italic and bold texts, and so on.@@ _
-@@moreover, there has to be a mark which denotes the beginning and end of math modes, where I am free to rename the symbols as I wish.@@ _
-@@the code within the math mode, in turn, is to be convered to standard LaTeX,@@ _
-@@I am ready to code.@@ _ '
+@@it simply $remains to design a markup {which $describes normal text and mathematics, and $outputs HTML}.@@ _
+@@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _
+@@moreover, there $has to be a mark {which $denotes the beginning and end of a math mode},@@
+@@so I am free to rename the symbols as I wish.@@ _
+@@the code in the math mode, in turn, is to be convered to standard LaTeX,@@
+@@I am ready to code.@@ '
 ===
 
+~~~
+
 ===
-%%on June 23, 2021%%
+%%June 23, 2021.%%
 ===

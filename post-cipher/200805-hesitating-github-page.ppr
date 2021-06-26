@@ -1,60 +1,60 @@
 ===
-%%August 5, 2020:%% _ '
+%%August 5, 2020:%% '
 
-@@This was embarassing:@@ _
-@@I learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
-@@I knew that when Jekyll was run, GitHub automatically generated the site again in the server end.@@ _
-@@but I did not know if there was a empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly.@@ _
-@@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ _ '
+@@this was %embarassing:@@ _
+@@I @learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
+@@I @knew <that when Jekyll was &run, GitHub automatically generated the site again in the server end>.@@ _
+@@but I @didn’t know if there was a empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly.@@ _
+@@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ '
 ===
 
 ===
-%%August 6%% _ '
+%%August 6%% '
 
-@@surprisingly, as I tested for several simple cases, most browsers don’t support MathML, including even Chrome and Safari.@@ _
-@@that crossed out MathML as the realizer of my new notation.@@ _ '
+@@surprisingly, as I @tested for several simple cases, most browsers @didn’t support MathML, including even Chrome and Safari.@@ _
+@@that crossed out MathML as the framework for my new notation.@@ '
 
-@@if I use a more linear notation, as Peano did, which fell in the realm of HTML and CSS, I might solve the problem by not creating it.@@ _
-@@OK, brace yourself for a even more unconventional notation!@@ _ '
+@@if I @used a more linear notation, as Peano did, {which fell in the realm of HTML and CSS}, I might solve the problem by not creating it.@@ _
+@@OK, brace yourself for a even more unconventional notation!@@ '
 
-@@this way, I only have to mimic fractions and matrices, possibly by drawing a horizontal line between items, and a outermost vertical line surrounding them all.@@ _
-@@then I soon discovered that@@ ++<p>++ @@did not allow block- level tags like@@ ++<table>++ @@or@@ ++<div>++ @@!@@ _ '
+@@this way, I only @had to mimic fractions and matrices, possibly by drawing a horizontal line between items, and a outermost vertical line surrounding them all.@@ _
+@@then I soon @discovered <that@@ ++<p>++ @@ @didn’t allow block- level tags like@@ ++<table>++ @@or@@ ++<div>++ @@>!@@ '
 ===
 
 ===
-%%August 7%% _ '
+%%August 7%% '
 
 @@important realization!@@ _
 @@HTML@@ ++<p>++ @@may contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
 @@moreover, the CSS@@ ++border-left++@@,@@ ++border-right++@@,@@ ++border-top++@@,@@ @@and@@ ++border-bottom++ @@may serve as traditional mathematical brackets.@@ _
-@@they may be colored, scaled, or thickened as I wish, by a suitable class.@@ _
-@@this would perhaps suffice for my revolution of notation.@@ _ '
+@@they may be colored, scaled, or thickened as I @wished, by a suitable class.@@ _
+@@this would perhaps suffice for my revolution of notation.@@ '
 ===
 
 ===
-%%August 8%% _ '
+%%August 8%% '
 
-@@implementing a Markdown parser will not be an easy task, as to me, Markdown is not an elegant markup.@@ _
+@@implementing a Markdown parser will not be an easy task, as to me, Markdown wasn’t an elegant markup.@@ _
 @@the earliest proposal of Markdown by John Gruber was sometimes ambiguous.@@ _
 @@for example,@@ ++*italic __bold*__++ @@can be either a italic or a bold, depending on the precedence.@@ _
 @@afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.@@ _
-@@to make things more complicated, I do not know GitHub- Flavored Markdown has a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
-@@recall that it was well known that whether a language is unambiguous is undecidable, in general.@@ _ '
+@@to make things more complicated, I wasn’t sure whether GitHub- Flavored Markdown had a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
+@@recall <that it was well &known <that whether a language was unambiguous was undecidable>, in general>.@@ '
 
-@@or it may be more reasonable to first design a subset of the markup, which is context- free.@@ _
-@@it should encompass Markdown Kramdown-with-Mathjax.@@ _
-@@at this stage I convert the source to Markdown, and generate via Jekyll.@@ _
-@@then when I had a better grasp of computation theory, I finish the rest which is recursively enumerable, perhaps as strong as HTML5.@@ _
-@@when that is done, I stop using Markdown and Jekyll altogether.@@ _
-@@still, I do not know how to show rigorously the two parts of the project are theoretically consistent, and I got confused.@@ _ '
+@@or it may be more reasonable to first design a subset of the markup, {which was context- free}.@@ _
+@@it should encompass Markdown with Kramdown.@@ _
+@@at this stage I @converted the source to Markdown, and generate via Jekyll.@@ _
+@@then when I had a better grasp of computation theory, I @finished the rest {which was recursively enumerable}, perhaps as strong as HTML5.@@ _
+@@when that was &done, I @stopped using Markdown and Jekyll altogether.@@ _
+@@still, I @didn’t know how to show rigorously the two parts of the project are theoretically consistent, and I @got confused.@@ '
 ===
 
 ===
-%%August 12%% _ '
+%%August 12%% '
 
 @@tested CSS-span-fractions, okay.@@ _
-@@discovered CSS grids, which might be superior to@@ ++table++@@.@@ _
-@@came up with the artificial square brackets made of@@ ++span++@@.@@ _ '
+@@discovered CSS grids, {which might be superior to@@ ++table++@@}.@@ _
+@@came up with the artificial square brackets made of@@ ++span++@@.@@ '
 ===
 
 ///
@@ -66,7 +66,7 @@ _ ++vertical-align: middle;++ '
 ++.v-l { border-left: thin dotted black;}++ '
 ++.v-r { border-right: thin dotted black;}++ '
 ++.v-l-r { border-left: thin dotted black; border-right: thin dotted black;}++ '
-_ '
+'
 ++<span class="v-l-r">++ '
 _ ++<span class="v-b">++ '
 _ _ ++<span class="v-r">++ '
@@ -80,13 +80,13 @@ _ ++<span class="v"> x+y+z </span>++ '
 ///
 
 ===
-%%August 14:%% _ '
+%%August 14:%% '
 
-@@realized that an expression is really a tree.@@ _
-@@if I choose prefix form always, there is no parsiing problem, like Lisp does.@@ _
-@@later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I brought up the topic of obelus sign.@@ _
+@@realized <that an expression was really a tree>.@@ _
+@@if I @chose prefix form always, there would be no parsiing problem, like Lisp does.@@ _
+@@later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I @brought up the topic of obelus sign.@@ _
 @@this helped me further clarify the tree image, and came up with a interpretation of the transformation.@@ _
-@@the design of esoteric language Jelly (inspired by J and APL in turn) is very instructive in its tacit function notation.@@ _ '
+@@the design of esoteric language Jelly (inspired by J and APL in turn) was very instructive in its tacit function notation.@@ '
 ===
 
 === ##Source## ===
@@ -95,6 +95,8 @@ _ ++<span class="v"> x+y+z </span>++ '
 @@A grammar for HTML5@@ \\http://trevorjim.com/a-grammar-for-html5\\
 ===
 
+~~~
+
 ===
-%%in late August, 2020%%
+%%late August, 2020.%%
 ===

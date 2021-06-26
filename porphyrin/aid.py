@@ -78,15 +78,16 @@ def write_element(cut = '\n', **data):
    sink_middle = cut + data["content"] + cut
    sink_right = "</" + data["tag"] + '>'
    sink += sink_left
-   if (sink_middle.strip(" \n\t")):
+   if sink_middle.strip(" \t\n"):
       sink += sink_middle
    sink += sink_right
+   sink = sink.strip(" \t\n")
    return sink
 
 def unite(sources, cut = ' '):
    for index in range(len(sources)):
       sources[index] = (sources[index]).strip()
-   sink = (cut.join(sources)).strip()
+   sink = (cut.join(sources)).strip(" \t\n")
    return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -313,6 +314,9 @@ def replace_token(tokens_out, source):
    for token_in in tokens_out:
       sink = sink.replace(token_in, tokens_out[token_in])
    return sink
+
+def give_wide_space():
+   return "<span class=\"phrase\">&ensp;</span>"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

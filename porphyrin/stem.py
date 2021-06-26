@@ -90,16 +90,18 @@ class Break(Stem):
       self.sinks = []
 
    def parse(self):
-      dingbat = "&#10086;"
+      space = "<span class=\"phrase\">&emsp;</span>"
+      dingbat = "<span class=\"phrase\">&#10086;</span>"
       repeat = 3
-      self.sinks = dingbat * repeat
+      for _ in range(repeat):
+         self.sinks.append(space)
+         self.sinks.append(dingbat)
 
    def write(self):
       contents = []
       self.parse()
       for sink in self.sinks:
-         if sink:
-            contents.append(sink)
+         contents.append(sink)
       content = AID.unite(contents)
       result = AID.write_element(
          content = content,
@@ -266,7 +268,7 @@ class Paragraph(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Phrase, head)
-         if (not frond) or (not frond.source.strip(" \t\n")):
+         if not frond:
             continue
          self.sinks.append(frond)
          head = self.move_right(0, head)
@@ -300,7 +302,7 @@ class Line(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Verse, head)
-         if (not frond) or (not frond.source.strip(" \t\n")):
+         if not frond:
             continue
          self.sinks.append(frond)
          head = self.move_right(0, head)
@@ -334,7 +336,7 @@ class Row(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Cell, head)
-         if (not frond) or (not frond.source.strip(" \t\n")):
+         if not frond:
             continue
          self.sinks.append(frond)
          head = self.move_right(0, head)
@@ -345,8 +347,8 @@ class Row(Stem):
       for frond in self.sinks:
          contents.append(frond.write())
       content = AID.unite(contents)
-      if not content:
-         return ''
+      if not content.strip(" \t\n"):
+         return "&nbsp;&nbsp;"
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -400,8 +402,10 @@ class Phrase(Stem):
                continue
          contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return AID.give_wide_space()
       result = AID.write_element(
-            cut = ' ',
+            cut = '',
             content = content,
             tag = self.TAG,
             attributes = ["class"],
@@ -441,8 +445,10 @@ class Verse(Stem):
       for leaf in self.sinks:
          contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return AID.give_wide_space()
       result = AID.write_element(
-            cut = ' ',
+            cut = '',
             content = content,
             tag = self.TAG,
             attributes = ["class"],
@@ -482,8 +488,10 @@ class Cell(Stem):
       for leaf in self.sinks:
          contents.append(leaf.write())
       content = AID.unite(contents)
+      if not content:
+         return AID.give_wide_space()
       result = AID.write_element(
-            cut = ' ',
+            cut = '',
             content = content,
             tag = self.TAG,
             attributes = ["class"],

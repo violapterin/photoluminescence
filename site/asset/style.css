@@ -55,10 +55,8 @@ body, header
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.paragraphs
-{
-  margin: 24px 0px;
-  padding: 0px;
+@media screen and (min-width: 600px) {
+  .lines { border-left: 12px lightgoldenrodyellow solid; }
 }
 
 .lines, .rows
@@ -67,16 +65,18 @@ body, header
   padding: 0px 6px;
 }
 
-.break, .graph
+.paragraphs
 {
-  margin: 24px 36px;
-  padding: 0px 12px;
-  max-width: 90%;
+  margin: 24px 0px;
+  padding: 0px;
 }
 
-.lines
+.break, .graph
 {
-  border-top: 12px lemonchiffon solid;
+  margin: 24px auto;
+  padding: 0px 12px;
+  width: 90%;
+  text-align: center;
 }
 
 .paragraph, .line, .row
@@ -157,7 +157,7 @@ code,
 {
   font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
     "Courier New", monospace;
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: 600;
   white-space: pre-wrap;
   word-break: keep-all;
