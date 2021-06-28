@@ -147,7 +147,8 @@ em,
 
 b,
 .serif-bold, .sans-bold,
-.heading, .display
+#header-post .heading-post .display,
+#header-post .heading-page .display
 { 
   font-weight: 700;
 }
@@ -213,6 +214,7 @@ table tr td
 {
   margin: 12px 12px;
   padding: 0px 60px;
+  text-align: center;
 }
 @media screen and (max-width: 600px) {
   #header-banner #name-site, #header-banner #menu
@@ -316,58 +318,10 @@ table tr td
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.heading-post, .heading-page
+header #header-post, header #header-page
 {
-  margin: 12px 36px;
-  font-size: 36px;
-}
-@media screen and (max-width: 600px) {
-  .heading-post, .heading-page
-  { margin: 9px auto; font-size: 27px; }
-}
-@media screen and (max-width: 400px) {
-  .heading-post, .heading-page
-  { margin: 9px auto; font-size: 18px; }
-}
-
-.title-catalog .display
-{
-  margin: 6px 48px;
-  font-size: 30px;
-}
-@media screen and (max-width: 600px) {
-  .title-catalog .display
-  { margin: 6px 24px; font-size: 24px; }
-}
-@media screen and (max-width: 400px) {
-  .title-catalog .display
-  { margin: 6px 8px; font-size: 18px; }
-}
-
-.title-entry .heading
-{
-  font-size: 30px;
-}
-@media screen and (max-width: 600px) {
-  .title-entry .heading
-  { font-size: 24px; }
-}
-@media screen and (max-width: 400px) {
-  .title-entry .heading
-  { font-size: 18px; }
-}
-
-.heading-page .display
-{
-  margin: 6px 36px;
-}
-@media screen and (max-width: 600px) {
-  .heading-page .display
-  { margin: 6px 18px; }
-}
-@media screen and (max-width: 400px) {
-  .heading-page .display
-  { margin: 6px 6px; }
+  margin: 0px;
+  padding: 0px;
 }
 
 .entry
@@ -383,15 +337,68 @@ table tr td
   { padding: 8px; }
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-.title-entry .heading
+#header-post .heading-post .heading,
+#header-page .heading-page .display
 {
-  margin: 0px;
-  font-weight: 500;
+  margin: 12px 36px;
+  font-size: 36px;
+}
+@media screen and (max-width: 600px) {
+  #header-post .heading-post, #header-page.heading-page
+  { font-size: 27px; }
+}
+@media screen and (max-width: 400px) {
+  #header-post .heading-post, #header-page.heading-page
+  { font-size: 18px; }
 }
 
-.heading-post, .heading-page
+.title-catalog .display
+{
+  margin: 6px 48px;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+  .title-catalog .display
+  { margin: 6px 24px; font-size: 24px; }
+}
+@media screen and (max-width: 400px) {
+  .title-catalog .display
+  { margin: 6px 8px; font-size: 18px; }
+}
+
+.entry .title-entry
+{
+  font-size: 24px;
+}
+@media screen and (max-width: 600px) {
+  .entry .title-entry
+  { font-size: 20px; }
+}
+@media screen and (max-width: 400px) {
+  .entry .title-entry
+  { font-size: 16px; }
+}
+
+#header-page .heading-page, #header-post .heading-post
+{
+  margin: 12px 36px;
+}
+@media screen and (max-width: 600px) {
+  #header-page .heading-page, #header-post .heading-post
+  { margin: 12px 24px; }
+}
+@media screen and (max-width: 400px) {
+  #header-page .heading-page, #header-post .heading-post
+  { margin: 12px 12px; }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#header-post .heading-post .heading,
+#header-page .heading-page .display,
+.title-entry .heading
 {
   font-weight: 700;
 }
@@ -403,18 +410,31 @@ table tr td
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.data-post, .data-entry
+.data-post
 {
   padding: 0px 12px;
   font-size: 18px;
-  line-height: 200%;
 }
 @media screen and (max-width: 600px) {
-  .data-post, .data-entry
-  { padding: 0px 6px; font-size: 15px; }
+  .data-post
+  { padding: 0px 9px; font-size: 15px; }
 }
 @media screen and (max-width: 400px) {
-  .data-post, .data-entry
+  .data-post
+  { padding: 0px 6px; font-size: 12px; }
+}
+
+.data-entry
+{
+  padding: 0px 12px;
+  font-size: 16px;
+}
+@media screen and (max-width: 600px) {
+  .data-entry
+  { padding: 0px 9px; font-size: 14px; }
+}
+@media screen and (max-width: 400px) {
+  .data-entry
   { padding: 0px 6px; font-size: 12px; }
 }
 
@@ -422,6 +442,7 @@ table tr td
 {
   margin: auto;
   font-weight: 500;
+  line-height: 200%;
 }
 
 .data-post .data-stamp, .data-entry .data-stamp,

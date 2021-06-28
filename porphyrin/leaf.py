@@ -89,6 +89,7 @@ class Mono(Leaf):
 
    def write(self):
       content = AID.tune_code(self.source)
+      print("mono", content)
       if content:
          sink = self.write_text(content)
       return sink
@@ -103,7 +104,7 @@ class Link(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      return AID.tune_hypertext(self.source)
+      return AID.tune_address(self.source)
 
 class Newline(Leaf):
 

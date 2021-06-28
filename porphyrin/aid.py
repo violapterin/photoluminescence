@@ -15,31 +15,26 @@ def make_new(folder_in, folder_out):
    make("NEW", folder_in, folder_out)
 
 def make(flag, folder_in, folder_out):
-   extension_in = ".ppr"
-   extension_out = ".html"
+   suffix_in = ".ppr"
+   suffix_out = ".html"
    things_in = os.scandir(folder_in)
-   for thing_in in things_in:
-      name_in = thing_in.name
-      path_in = os.path.join(folder_in, name_in)
-      if not thing_in.is_file():
-         print(f"Warning: {name_in} is not a file.")
-         continue
-      if not path_in.endswith(extension_in):
-         print(
-            f"Warning: file {name_in}",
-            f"does not end in \"{extension_in}\".",
-         )
-         continue
-      name_out = name_in.replace(extension_in, extension_out)
-      path_out = os.path.join(folder_out, name_out)
-      if not (flag == "ALL"):
-         if os.path.isfile(path_out):
-            time_in = thing_in.stat().st_ctime
-            time_out = os.path.getmtime(path_out)
-            if time_in < time_out:
-               continue
-      print(f"Trying to convert {path_in} to {path_out}:")
-      convert(path_in, path_out) 
+   for thing in things_in:
+      name_in = thing.name
+      if thing.is_dir():
+         make(flag, thing.path, folder_out)
+      elif thing.is_file():
+         if not thing.path.endswith(suffix_in):
+            continue
+         name_out = thing.name.replace(suffix_in, suffix_out)
+         path_out = os.path.join(folder_out, name_out)
+         if not (flag == "ALL"):
+            if os.path.isfile(path_out):
+               time_in = thing.stat().st_ctime
+               time_out = os.path.getmtime(path_out)
+               if time_in < time_out:
+                  continue
+         print(f"Trying to convert {thing.path} to {path_out}:")
+         convert(thing.path, path_out) 
 
 def input_file(path):
    if not os.path.exists(path):
@@ -143,7 +138,7 @@ def give_labels():
       '/': "LINES",
       '\"': "ROWS",
       '|': "graph",
-      '`': "IDENITFIER",
+      '`': "IDENTIFIER",
       '~': "BREAK",
       '<': "COMMENT_LEFT",
       '>': "COMMENT_RIGHT",
@@ -203,7 +198,7 @@ def be_start_leaf(label):
       "LINK",
       "COMMENT_LEFT",
       "DEFINITION_LEFT",
-      "IDENITFIER",
+      "IDENTIFIER",
    }
    return (label in labels)
 
@@ -216,7 +211,7 @@ def be_start_asymmetry(label):
 
 def be_start_macro(label):
    labels = {
-      "IDENITFIER",
+      "IDENTIFIER",
       "DEFINITION_LEFT",
    }
    return (label in labels)
@@ -245,7 +240,7 @@ def tune_text(source):
       "COMMENT_RIGHT",
       "DEFINITION_LEFT",
       "DEFINITION_RIGHT",
-      "IDENITFIER",
+      "IDENTIFIER",
    }
    for label in labels_mark:
       glyphs_mark.add(get_tip(label))
@@ -280,6 +275,40 @@ def tune_hypertext(source):
       '&': "&amp;",
       '\"': "&quot;",
       '\'': "&#39;",
+   }
+   sink = source
+   index = 0
+   while True:
+      if (index >= len(sink)):
+         break
+      step = 1
+      for glyph, escape in escapes.items():
+         if (index >= len(sink)):
+            break
+         if (sink[index] == glyph):
+            sink = sink[:index] + escape + sink[index + 1:]
+            step = len(escape)
+            break
+      index += step
+   return sink
+
+def tune_address(source):
+   escapes = {
+      '!': "%21",
+      '\"': "%22",
+      '#': "%23",
+      '$': "%24",
+      '%': "%25",
+      '&': "%26",
+      '\'': "%27",
+      '(': "%28",
+      ')': "%29",
+      '*': "%2A",
+      '+': "%2B",
+      ',': "%2C",
+      '-': "%2D",
+      '.': "%2E",
+      '/': "%2F",
    }
    sink = source
    index = 0

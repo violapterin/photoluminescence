@@ -19,8 +19,8 @@ def main():
 
    # # # # # # # # # # # # # # # #
    # # Convert posts into HTML article.
-   AID.make_all(folder_cipher, folder_plain) # XXX
-   # AID.make_new(folder_cipher, folder_plain)
+   # AID.make_all(folder_cipher, folder_plain) # XXX
+   AID.make_new(folder_cipher, folder_plain)
 
    # # # # # # # # # # # # # # # #
    # # Write posts.
@@ -290,29 +290,30 @@ def write_entry(source, record, name):
          sink = sink.replace("$TAG", '')
       return sink
 
-def search_path_plain(folder_plain, stamp):
+def search_path_plain(folder, stamp):
    path_plain = ''
-   for name in os.listdir(folder_plain):
+   for name in os.listdir(folder):
       if name.startswith(stamp):
          if not name.split('.')[0]:
             continue
-         path_plain = os.path.join(folder_plain, name)
+         path_plain = os.path.join(folder, name)
          break
    return path_plain
 
 def search_path_post(folder, stamp):
    name_post = ''
    for name in os.listdir(folder):
-      if name.startswith(stamp):
-         name_post = name
+      path = os.path.join(folder, name)
+      if os.path.isfile(path):
+         if name.startswith(stamp):
+            name_post = name
+      elif os.path.isdir(path):
+         for subname in os.listdir(path):
+            if subname.startswith(stamp):
+               name_post = subname
+               break
+      if name_post:
          break
-      subfolder = os.path.join(folder, name)
-      if not os.path.isdir(subfolder):
-         continue
-      for subname in os.listdir(subfolder):
-         if subname.startswith(stamp):
-            name_post = subname
-            break
    return name_post
 
 def write_element_heading(title, name):
@@ -344,7 +345,7 @@ def write_element_display(title, name):
    else:
       sink = (
          "<a class=\"display\"" + ' '
-         + "href=\"/post/{}\">".format(name)
+         + "href=\"/page/{}.html\">".format(name)
          + "{}</a>".format(title)
       )
    return sink
@@ -424,18 +425,24 @@ def get_date(stamp):
    return date
 
 def give_genres():
-   genres = {
-      "data": "Detailed data",
-      "notes": "Negligible notes",
-      "comments": "Contentious comments",
-      "expositions": "Exotic expositions",
-      "quests": "Quaint quests",
-      "inventions": "Incongruous inventions",
-      "readings": "Reflective readings",
-      "satires": "Sincere satires",
-      "memories": "Misleading memories",
-      "fictions": "Fantastic fictions",
+   prefixes = {
+      "vocabulary": "voluminous",
+      "data": "detailed",
+      "notes": "negligible",
+      "comments": "contentious",
+      "expositions": "exotic",
+      "quests": "quaint",
+      "inventions": "incongruous",
+      "readings": "reflective",
+      "satires": "sincere",
+      "aphorisms": "anomalous",
+      "memories": "misleading",
+      "fictions": "fantastic",
    }
+   genres = {}
+   for key, prefix in prefixes.items():
+      prefix = prefix.capitalize()
+      genres[key] = prefix + ' ' + key
    return genres
 
 def get_genre(elision):
@@ -457,7 +464,13 @@ def unify_name(source):
    for prefix in prefixes:
       if sink.startswith(prefix):
          sink = sink[len(prefix):]
-   infixes = {' the ', ' a ', ', ', ': '}
+   infixes = {
+      ' the ', ' a ',
+      ',', ':', ';', '.',
+      '“', '”', '‘', '’',
+      '«', '»', '‹', '›',
+      '  ', '   ', '    ',
+   }
    for infix in infixes:
       sink = sink.replace(infix, ' ')
    sink = sink.replace(' ', '-')

@@ -26,6 +26,3 @@ window.MathJax = {
     font: "STIX-Web"
   }
 };
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
-</script>

@@ -19,7 +19,7 @@
 @@do that immediately to enter a temporary@@ ++zsh++ @@shell, with prompt@@ ++root@archiso ~ #++ @@.@@ _
 @@from now on, a@@ ++#++ @@sign $indicates the shell prompt.@@ '
 
-@@list the disk blocks.@@ '
+@@list the disk blocks:@@ '
 
 ++# lsblk++ '
 
@@ -27,12 +27,12 @@
 @@a smaller one is the bootable USB we are %using,@@
 @@and a still smaller one is the ROM.@@ '
 
-@@to partition the hard disk, invoke the command line utility@@ ++parted++ @@.@@ '
+@@to partition the hard disk, invoke the command line utility@@ ++parted++ @@:@@ '
 
 ++# parted /dev/sda++ '
 
 @@here, the prompt@@ ++(parted)++ @@will be shown for clarity.@@ _
-@@create a partition table with the MSDOS (MBR) standard.@@ '
+@@create a partition table with the MSDOS (MBR) standard:@@ '
 
 ++(parted) mklabel msdos++ '
 
@@ -44,19 +44,19 @@
 @@nowadays computers often have a large RAM (mine $has 4GB),@@
 @@and 2GB of swap memory shall be more than enough.@@ '
 
-@@create partition for the root directory except for home.@@ '
+@@create partition for the root directory except for home:@@ '
 
 ++(parted) mkpart primary ext4 1MiB 40GiB++ '
 
-@@set the boot flag to be true.@@ '
+@@set the boot flag to be true:@@ '
 
 ++(parted) set 1 boot on++ '
 
-@@create the partition for swap memory.@@ '
+@@create the partition for swap memory:@@ '
 
 ++(parted) mkpart primary linux-swap 40GiB 42GiB++ '
 
-@@finally create the partition for the home, making up the rest of the hard disk.@@ '
+@@finally create the partition for the home, making up the rest of the hard disk:@@ '
 
 ++(parted) mkpart primary ext4 42GiB 100%++ '
 
@@ -66,25 +66,25 @@
 @@I just @applied default for everything.@@ _
 @@you might also be warned <that@@ ++The resulting partition is not properly aligned for best performance++ @@>,@@ @@{which we may ignore}.@@ '
 
-@@print a summary of each partition to double check.@@ '
+@@print a summary of each partition to double check:@@ '
 
 ++(parted) print++ '
 
 @@my report $has <that@@ ++sda1++ @@is the root directory except home,@@ ++sda2++ @@the swap memory,@@ ++sda3++ @@the root’s home>.@@ _
-@@quit if everything $looks fine.@@ '
+@@quit if everything $looks fine:@@ '
 
 ++(parted) quit++ '
 
-@@format partitions intended for root directory.@@ '
+@@format partitions intended for root directory:@@ '
 
 ++# mkfs.ext4 /dev/sda1++ '
 
-@@mount the root directory.@@ '
+@@mount the root directory:@@ '
 
 ++# mount /dev/sda1 /mnt++ '
 
 @@to mount the home, create the directory,@@
-@@then mount it.@@ '
+@@then mount it:@@ '
 
 ++# mkdir /mnt/home++ '
 ++# mount /dev/sda3 /mnt/home++ '
@@ -93,7 +93,7 @@
 === ##Language and location## ===
 
 ===
-@@for the rest, temporarily take@@ ++/mnt++ @@to be the root directory, where Arch Linux will be installed.@@ '
+@@for the rest, temporarily take@@ ++/mnt++ @@to be the root directory, where Arch Linux will be installed:@@ '
 
 ++# arch-chroot /mnt++ '
 
@@ -102,32 +102,32 @@
 @@to do so, edit@@ ++/etc/locale.gen++ @@,@@
 @@and uncomment before the line@@ ++en_US.UTF-8 UTF-8++ @@and@@ ++zh_TW.UTF-8 UTF-8++ @@.@@ _
 @@then,@@ ++locale-gen++ @@will generate necessary information for all languages enabled,@@
-@@and@@ ++locale.conf++ @@$specifies system display.@@ '
+@@and@@ ++locale.conf++ @@$specifies system display:@@ '
 
 ++# locale-gen++ '
 ++# echo "LANG=en_US.UTF-8" > /etc/locale.conf++ '
 ++# export LANG=en_US.UTF-8++ '
 
 @@to type Chinese, I @had to install the input method framework Ibus (package@@ ++ibus++ @@)@@ @@and the input method Rime (package@@ ++ibus-rime++ @@).@@ _
-@@to initiate them at startup, add these lines into@@ ++~/.xinitrc++ @@.@@ '
+@@to initiate them at startup, add these lines into@@ ++~/.xinitrc++ @@:@@ '
 
 ++export GTK_IM_MODULE=ibus++ '
 ++export XMODIFIERS=@im=ibus++ '
 ++export QT_IM_MODULE=ibus++ '
 ++ibus-daemon -drx++ '
 
-@@select the time zone.@@ '
+@@select the time zone:@@ '
 
 ++# tzselect++ '
 
 @@in my case this is@@ ++4) Asia++ @@,@@ @@and@@ ++43) Taiwan++ @@.@@ _
 @@to be sure, its very existence of this item is a reassurance.@@ '
 
-@@create a symlink from the shared directory to the system configuration directory.@@ '
+@@create a symlink from the shared directory to the system configuration directory:@@ '
 
 ++# ln -s /usr/share/zoneinfo/Asia/Taiwan > /etc/localtime++ '
 
-@@set the hardware clock.@@ '
+@@set the hardware clock:@@ '
 
 ++# hwclock --systohc --utc++ '
 ===
@@ -135,34 +135,32 @@
 === ##Setting up the Internet## ===
 
 ===
-@@assuming a working connection, we #set up DHCP (Dynamic Host Configuration Protocol).@@ '
+@@assuming a working connection, we #set up DHCP (Dynamic Host Configuration Protocol):@@ '
 
 ++# ip link++ '
 
-@@the first item in the output is, in my case,@@ '
+@@the first item in the output is, in my case:@@ '
 
 ++1: lo:mtu 65536 qdisk noqueue state UNKNOWN mode DEFAULT group default qlen 1000++ '
 ++link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00++ '
 
 @@let the DHCP service start now, and whenever the system boots.@@ _
-@@replace@@ ++______++ @@with the name of wired device just seen above.@@ _
-@@mine is@@ ++lo++ @@.@@ '
-
+@@replace@@ ++______++ @@with the name of wired device just seen above (mine is@@ ++lo++ @@):@@ '
 
 ++# systemctl start dhcpcd@______.service++ '
 ++# systemctl enable dhcpcd@______.service++ '
 
-@@replace@@ ++Host-Name++ @@with your host name.@@ '
+@@replace@@ ++Host-Name++ @@with your host name:@@ '
 
 ++# echo "Host-Name" > /etc/hostname++ '
 
-@@set the root’s password.@@ '
+@@set the root’s password:@@ '
 
 ++# passwd++ '
 
 @@we may now leave the@@ ++chroot++ @@environment,@@
 @@unmount the corresponding partition,@@
-@@and schedule shutdown.@@ '
+@@and schedule shutdown:@@ '
 
 ++# exit++ '
 ++# umount -R /mnt++ '
@@ -180,26 +178,26 @@
 @@and it is best <that you have ethernet automatically connected>.@@ _
 @@otherwise, you have to set it in command line, {which is not &covered here}.@@ _
 @@alternatively, you may use a Wifi (not covered here either).@@ _
-@@we may test the connection with@@ ++ping++ @@.@@ '
+@@we may test the connection with@@ ++ping++ @@:@@ '
 
 ++# ping -c 3 www.google.com++ '
 
-@@edit the list of mirrors, so <that closer servers are &preferred>.@@ _
-@@you may want to use@@ ++nano++ @@if you are unfamiliar with@@ ++vi++ @@.@@ '
+@@edit the list of mirrors, so <that closer servers are &preferred>@@ _
+@@(you may want to use@@ ++nano++ @@if you are unfamiliar with@@ ++vi++ @@):@@ '
 
 ++# vi /etc/pacman.d/mirrorlist++ '
 
-@@install the base packages, {which will take quite a while, about twenty minutes in my case}.@@ '
+@@install the base packages, {which will take quite a while, about twenty minutes in my case}:@@ '
 
 ++# pacstrap -i /mnt base base-devel++ '
 
-@@generate and write the@@ ++fstab++ @@file, {which $specifies the mounted partitions}.@@ '
+@@generate and write the@@ ++fstab++ @@file, {which $specifies the mounted partitions}:@@ '
 
 ++# genfstab -U /mnt > /mnt/etc/fstab++ '
 
-@@create a user account to be used on a daily basis.@@ _
+@@create a user account to be used on a daily basis,@@
 @@add the ID (mine is@@ ++violapterin++ @@)@@ @@into the wheel group having sudo privileges,@@
-@@and set the password.@@ '
+@@and set the password:@@ '
 
 ++# useradd -m -G wheel,users -s /bin/bash violapterin++ '
 ++# passwd violapterin++ '
@@ -207,23 +205,23 @@
 @@install package@@ ++sudo++ @@to get superuser privilege,@@
 @@then edit the@@ ++sudoers++ @@file.@@ _
 @@this file is special,@@
-@@so we #have to specify the editor.@@ '
+@@so we #have to specify the editor:@@ '
 
 ++# EDITOR=vi visudo++ '
 
-@@uncomment the line below by deleting the@@ ++#++ @@sign.@@ '
+@@uncomment the line below by deleting the@@ ++#++ @@sign:@@ '
 
 ++%wheel ALL=(ALL) ALL++ '
 
 @@make stable repositories available to package manager ++pacman++.@@ _
-@@to do so, open@@ ++/etc/pacman.conf++ @@,@@ @@and uncomment these lines.@@ '
+@@to do so, open@@ ++/etc/pacman.conf++ @@,@@ @@and uncomment these lines:@@ '
 
 ++[multilib]++ '
 ++Include = /etc/pacman.d/mirrorlist++ '
 
 @@update@@ ++pacman++ @@,@@
-@@and install all refreshed packages.@@ _
-@@flags@@ ++-Syu++ @@$means respectively installing packages, refreshing the database, and checking outdated packages.@@ '
+@@and install all refreshed packages@@
+@@(flags@@ ++-Syu++ @@$means respectively installing packages, refreshing the database, and checking outdated packages):@@ '
 
 ++# sudo pacman –Syu++ '
 
@@ -237,22 +235,21 @@
 ===
 @@it $remains to set up a desktop environment.@@ _
 @@we #install the X-server@@ ++xorg-server++ @@and@@ ++xorg-server-utils++ @@.@@ _
-@@check which graphic card the current system is %using.@@ '
+@@check which graphic card the current system is %using:@@ '
 
 ++# lspci -v++ '
 
-@@as my computer @had an Intel GPU, I @had to install@@ ++xf86-video-intel++ @@.@@ _
-
+@@since my computer @had an Intel GPU, I @had to install@@ ++xf86-video-intel++ @@.@@ _
 @@as for desktop, I @chose KDE, and @installed packages@@ ++plasma++ @@and@@ ++kde-applications++ @@,@@ @@which @took nearly thirty minutes.@@ _
 @@afterwards, we #configure@@ ++.xinitrc++ @@{that $calls KDE on startup}.@@ _
-@@log in as the daily user’s account, and write this lines.@@ '
+@@log in as the daily user’s account, and write this line:@@ '
 
 ++# echo "exec startkd>" > ~/.xinitrc++ '
 
 @@here@@ ++.xinitrc++ @@must be saved in the daily user’s home in order to be found.@@ _
 @@even so, KDE will only be started after@@ ++startx++ @@command is &run.@@ _
 @@to start KDE immediately after logged in, install package@@ ++xorg-xinit++ @@.@@ _
-@@put these lines in@@ ++~/.bashrc++ @@.@@ '
+@@put these lines in@@ ++~/.bashrc++ @@:@@ '
 
 ++if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then++ '
 _ ++exec startx++ '

@@ -4,10 +4,10 @@
 @@as of this part, I @didn’t take detailed notes from time to time.@@ _
 @@in fact, I was not sure where this project was %going.@@ _
 @@as I @said, in writing mathematical posts, I was hard to please.@@ _
-@@I @wanted a more succint, readable, and precise source, {which Markdown was not}.@@ _
+@@I @wanted a more succinct, readable, and precise source, {which Markdown was not}.@@ _
 @@and I @wanted typography features, {which Markdown couldn’t express}.@@ '
 
-@@let me reaccount these considerations, to recapitulate and partly to organize my own thought.@@ _
+@@let me recount these considerations, to recapitulate and partly to organize my own thought.@@ _
 @@the easiest choice was just sticking to Mathjax in Markdown.@@ _
 @@however, one $has to use Javascript preprocessing to effectively introduce macros, {which was not flexible}.@@ _
 @@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflict HTML,@@
@@ -18,7 +18,7 @@
 @@I may use CSS to typeset fractions, vectors, and matrices,@@
 @@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@could be simulated by different fonts.@@ _
 @@superscripts and subscripts were inherent in HTML, though recursive applications may not look nice.@@ _
-@@for example, a double superscript was traditaionlly smaller than a single superscript, {which has to be modified by a class}.@@ _
+@@for example, a double superscript was traditionally smaller than a single superscript, {which has to be modified by a class}.@@ _
 @@these tasks were possible, but not easy.@@ _
 @@I may not be capable of writing a system equivalent to Jekyll.@@ '
 
@@ -29,7 +29,7 @@
 @@lastly, for some time, perhaps by middle of December 2020, I actually @considered completely abandoning traditional mathematical notation,@@
 @@and I @entertained the possibility of designing a new language expressed entirely in ASCII characters.@@ _
 @@the@@ ++ + ++@@,@@ ++-++@@,@@ ++*++@@,@@ ++/++@@,@@ ++^++ @@continue to mean basic operations,@@
-@@and more complicated ones were to be represented by words@@ ++intergration++@@,@@ ++differentiation++@@,@@ @@as in Mathematica.@@ _
+@@and more complicated ones were to be represented by words@@ ++integration++@@,@@ ++differentiation++@@,@@ @@as in Mathematica.@@ _
 @@the downside was <that I wouldn’t be able to communicate with other people>.@@ _
 @@even if I @linked every post to a summary of convention, the probability <that people insist to finish a post> was %diminishing.@@ '
 ===
@@ -47,9 +47,9 @@ and that truly @changed my worldview.@@ _
 @@in short, I @had the urge to present classical mathematics in a more type theoretical style.@@ _
 @@a thorough approach might be designing a pseudo code for proof assistant, such as Coq,@@
 @@so that besides checking mentally, it was easy to rewrite in a way it could be checked via Coq too.@@ _
-@@additionally it was perhaps more asthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
+@@additionally it was perhaps more aesthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
 
-@@January, Febuary, and March soon passed,@@
+@@January, February, and March soon passed,@@
 @@and it occurs to me classical mathematics has not missed much, if few little changes were &made.@@ _
 @@just to be sure that I wasn’t missing much, I @took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
 @@most importantly, I #suggest <that statements {which were not identity nor partial orders}, should not be buried in paragraphs, but should occupy a lone line and be numbered as equations>.@@ _
@@ -65,7 +65,7 @@ and that truly @changed my worldview.@@ _
 @@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _
 @@moreover, there $has to be a mark {which $denotes the beginning and end of a math mode},@@
 @@so I am free to rename the symbols as I wish.@@ _
-@@the code in the math mode, in turn, is to be convered to standard LaTeX,@@
+@@the code in the math mode, in turn, is to be converted to standard LaTeX,@@
 @@I am ready to code.@@ '
 ===
 
