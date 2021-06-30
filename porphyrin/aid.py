@@ -17,8 +17,8 @@ def make_new(folder_in, folder_out):
 def make(flag, folder_in, folder_out):
    suffix_in = ".ppr"
    suffix_out = ".html"
-   things_in = os.scandir(folder_in)
-   for thing in things_in:
+   many_thing_in = os.scandir(folder_in)
+   for thing in many_thing_in:
       name_in = thing.name
       if thing.is_dir():
          make(flag, thing.path, folder_out)
@@ -58,18 +58,18 @@ def write_element(cut = '\n', **data):
    assert ("content" in data)
    assert ("tag" in data)
    sink = ''
-   sinks_left = ['<' + data["tag"]]
-   if ("attributes" in data):
-      attributes = data["attributes"]
-      values = data["values"]
-      assert (len(values) == len(attributes))
-      for index in range(len(attributes)):
-         sinks_left.append(
-            attributes[index] +
-            "=\"" + values[index] + '\"'
+   many_sink_left = ['<' + data["tag"]]
+   if ("many_attribute" in data):
+      many_attribute = data["many_attribute"]
+      many_value = data["many_value"]
+      assert (len(many_value) == len(many_attribute))
+      for index in range(len(many_attribute)):
+         many_sink_left.append(
+            many_attribute[index] +
+            "=\"" + many_value[index] + '\"'
          )
-   sinks_left[-1] += '>'
-   sink_left = unite(sinks_left)
+   many_sink_left[-1] += '>'
+   sink_left = unite(many_sink_left)
    sink_middle = cut + data["content"] + cut
    sink_right = "</" + data["tag"] + '>'
    sink += sink_left
@@ -79,10 +79,10 @@ def write_element(cut = '\n', **data):
    sink = sink.strip(" \t\n")
    return sink
 
-def unite(sources, cut = ' '):
-   for index in range(len(sources)):
-      sources[index] = (sources[index]).strip()
-   sink = (cut.join(sources)).strip(" \t\n")
+def unite(many_source, cut = ' '):
+   for index in range(len(many_source)):
+      many_source[index] = (many_source[index]).strip()
+   sink = (cut.join(many_source)).strip(" \t\n")
    return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -107,36 +107,36 @@ def get_mark_right(mark_left):
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 def be_bough(kind):
-   kinds = {
-      "paragraphs",
-      "lines",
-      "rows",
+   many_kind = {
+      "section",
+      "stanza",
+      "array",
    }
-   return (kind in kinds)
+   return (kind in many_kind)
 
 def be_stem(kind):
-   kinds = {
+   many_kind = {
       "paragraph",
       "line",
       "row",
    }
-   return (kind in kinds)
+   return (kind in many_kind)
 
 def be_frond(kind):
-   kinds = {
+   many_kind = {
       "phrase",
       "verse",
       "cell",
    }
-   return (kind in kinds)
+   return (kind in many_kind)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-def give_labels():
-   labels = {
-      '=': "PARAGRAPHS",
-      '/': "LINES",
-      '\"': "ROWS",
+def give_many_label():
+   many_label = {
+      '=': "SECTION",
+      '/': "STANZA",
+      '\"': "ARRAY",
       '|': "graph",
       '`': "IDENTIFIER",
       '~': "BREAK",
@@ -157,36 +157,36 @@ def give_labels():
       '_': "SPACE",
       '\'': "NEWLINE",
    }
-   return labels
+   return many_label
 
-def give_tips():
-   labels = give_labels()
-   tips = {label: tip for tip, label in labels.items()}
-   return tips
+def give_many_tip():
+   many_label = give_many_label()
+   many_tip = {label: tip for tip, label in many_label.items()}
+   return many_tip
 
 def get_label(tip):
-   labels = give_labels()
-   label = labels.get(tip)
+   many_label = give_many_label()
+   label = many_label.get(tip)
    return label
 
 def get_tip(label):
-   tips = give_tips()
-   tip = tips.get(label)
+   many_tip = give_many_tip()
+   tip = many_tip.get(label)
    return tip
 
 def be_start_bough(label):
-   labels = {
-      "PARAGRAPHS",
-      "LINES",
-      "ROWS",
-      "graph",
+   many_label = {
+      "SECTION",
+      "STANZA",
+      "ARRAY",
+      "GRAPH",
       "BREAK",
       "COMMENT_LEFT",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_leaf(label):
-   labels = {
+   many_label = {
       "SERIF_ROMAN",
       "SERIF_ITALIC",
       "SERIF_BOLD",
@@ -200,37 +200,37 @@ def be_start_leaf(label):
       "DEFINITION_LEFT",
       "IDENTIFIER",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_asymmetry(label):
-   labels = {
+   many_label = {
       "DEFINITION_LEFT",
       "COMMENT_LEFT",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_macro(label):
-   labels = {
+   many_label = {
       "IDENTIFIER",
       "DEFINITION_LEFT",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_hollow_leaf(label):
-   labels = {
+   many_label = {
       "SPACE",
       "NEWLINE",
    }
-   return (label in labels)
+   return (label in many_label)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 def tune_text(source):
-   glyphs_space = {' ', '\t', '\n'}
-   glyphs_mark = set()
-   labels_mark = {
+   many_glyph_space = {' ', '\t', '\n'}
+   many_glyph_mark = set()
+   many_label_mark = {
       "SERIF_ROMAN",
       "SERIF_ITALIC",
       "SERIF_BOLD",
@@ -242,34 +242,34 @@ def tune_text(source):
       "DEFINITION_RIGHT",
       "IDENTIFIER",
    }
-   for label in labels_mark:
-      glyphs_mark.add(get_tip(label))
+   for label in many_label_mark:
+      many_glyph_mark.add(get_tip(label))
    sink = source
-   sink = remove_token(glyphs_mark, sink)
-   sink = erase_token(glyphs_space, sink)
+   sink = remove_token(many_glyph_mark, sink)
+   sink = erase_token(many_glyph_space, sink)
    sink = prune_space(sink)
    sink = tune_hypertext(sink)
    return sink
 
 def tune_code(source):
-   glyphs_space = set([' ', '\t', '\n'])
+   many_glyph_space = set([' ', '\t', '\n'])
    sink = source
-   sink = erase_token(glyphs_space, sink)
+   sink = erase_token(many_glyph_space, sink)
    sink = tune_hypertext(sink)
    return sink
 
 def tune_comment(source):
-   escapes = {
+   many_escape = {
       '----': '-',
       '---': '-',
       '--': '-',
    }
    sink = source
-   sink = replace_token(escapes, sink)
+   sink = replace_token(many_escape, sink)
    return sink
 
 def tune_hypertext(source):
-   escapes = {
+   many_escape = {
       '<': "&lt;",
       '>': "&gt;",
       '&': "&amp;",
@@ -282,7 +282,7 @@ def tune_hypertext(source):
       if (index >= len(sink)):
          break
       step = 1
-      for glyph, escape in escapes.items():
+      for glyph, escape in many_escape.items():
          if (index >= len(sink)):
             break
          if (sink[index] == glyph):
@@ -293,7 +293,7 @@ def tune_hypertext(source):
    return sink
 
 def tune_address(source):
-   escapes = {
+   many_escape = {
       '!': "%21",
       '\"': "%22",
       '#': "%23",
@@ -315,7 +315,7 @@ def tune_address(source):
    while True:
       if (index >= len(sink)):
          break
-      for glyph, escape in escapes.items():
+      for glyph, escape in many_escape.items():
          if (index >= len(sink)):
             break
          if (sink[index] == glyph):
@@ -325,23 +325,23 @@ def tune_address(source):
       index += 1
    return sink
 
-def remove_token(tokens, source):
+def remove_token(many_token, source):
    sink = source
-   for token in tokens:
+   for token in many_token:
       sink = sink.replace(token, '')
    return sink
 
-def erase_token(tokens, source):
+def erase_token(many_token, source):
    sink = source
-   for token in tokens:
+   for token in many_token:
       sink = sink.replace(token, ' ')
    ' '.join(sink.split())
    return sink
 
-def replace_token(tokens_out, source):
+def replace_token(many_token_out, source):
    sink = source
-   for token_in in tokens_out:
-      sink = sink.replace(token_in, tokens_out[token_in])
+   for token_in in many_token_out:
+      sink = sink.replace(token_in, many_token_out[token_in])
    return sink
 
 def give_wide_space():
@@ -407,21 +407,21 @@ def be_latin(glyph):
       return True # IPA Extensions
    return False
 
-def normalize_percentage(weights):
-   percentages = []
-   grosses = weights
+def normalize_percentage(many_weight):
+   many_percentage = []
+   many_gross = many_weight
    partition = 100
    lowest = 5
    while (True):
-      if not grosses:
+      if not many_gross:
          break
-      gross = min(grosses)
-      percentage = round(partition * gross / sum(grosses))
-      grosses.pop(grosses.index(gross))
+      gross = min(many_gross)
+      percentage = round(partition * gross / sum(many_gross))
+      many_gross.pop(many_gross.index(gross))
       percentage = max(lowest, percentage)
       partition -= percentage
-      percentages.append(percentage)
-   return percentages
+      many_percentage.append(percentage)
+   return many_percentage
 
 def extract_caption(address):
    caption = address.split('/')[-1]
@@ -433,14 +433,14 @@ def extract_caption(address):
    return caption
 
 def be_literary(kind):
-   kinds = {
+   many_kind = {
       "serif-roman",
       "serif-italic",
       "serif-bold",
       "sans-roman",
       "sans-bold",
    }
-   return (kind in kinds)
+   return (kind in many_kind)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -479,17 +479,17 @@ def get_tip_middle_math(tip_left):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-def write_latex(command, *items):
+def write_latex(command, *many_option):
    sink = ''
-   sinks = []
-   sinks.append(command)
-   for item in items:
-      sinks.append('{' + item + '}')
-   sink = unite(sinks)
+   many_sink = []
+   many_sink.append(command)
+   for option in many_option:
+      many_sink.append('{' + option + '}')
+   sink = unite(many_sink)
    return sink
 
-def give_alphabets_upper():
-   alphabets = (
+def give_many_alphabet_upper():
+   many_alphabet = (
       'A', 'B', 'C',
       'D', 'E', 
       'F', 'G', 'H', 
@@ -500,15 +500,15 @@ def give_alphabets_upper():
       'U', 'V', 'W',
       'X', 'Y', 'Z',
    )
-   return alphabets
+   return many_alphabet
 
-def give_alphabets_lower():
-   alphabets_upper = give_alphabets_upper()
-   alphabets_lower = []
-   for alphabet in alphabets_upper:
-      alphabets_lower.append(alphabet.lower())
-   alphabets_lower = tuple(alphabets_lower)
-   return alphabets_lower
+def give_many_alphabet_lower():
+   many_alphabet_upper = give_many_alphabet_upper()
+   many_alphabet_lower = []
+   for alphabet in many_alphabet_upper:
+      many_alphabet_lower.append(alphabet.lower())
+   many_alphabet_lower = tuple(many_alphabet_lower)
+   return many_alphabet_lower
 
 def give_digits():
    digits = (
@@ -523,17 +523,17 @@ def get_table_sign(targets):
    return table
 
 def get_table_upper(targets):
-   table = dict(zip(give_alphabets_upper(), targets))
+   table = dict(zip(give_many_alphabet_upper(), targets))
    return table
 
 def get_table_lower(targets):
-   table = dict(zip(give_alphabets_lower(), targets))
+   table = dict(zip(give_many_alphabet_lower(), targets))
    return table
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-def give_labels_math():
-   labels = {
+def give_many_label_math():
+   many_label = {
       '.': "PLAIN",
       '#': "BOLD",
       '&': "BLACK",
@@ -569,34 +569,34 @@ def give_labels_math():
       '`': "MONO",
       '_': "CHECK",
    }
-   return labels
+   return many_label
 
-def give_tips_math():
-   labels = give_labels_math()
-   tips = {label: tip for tip, label in labels.items()}
-   return tips
+def give_many_tip_math():
+   many_label = give_many_label_math()
+   many_tip = {label: tip for tip, label in many_label.items()}
+   return many_tip
 
 def get_label_math(tip):
-   labels = give_labels_math()
-   label = labels.get(tip)
+   many_label = give_many_label_math()
+   label = many_label.get(tip)
    return label
 
 def get_tip_math(label):
-   tips = give_tips_math()
-   tip = tips.get(label)
+   many_tip = give_many_tip_math()
+   tip = many_tip.get(label)
    return tip
 
 def be_start_letter_math(label):
-   labels = {
+   many_label = {
       "BOLD",
       "BLACK",
       "CURSIVE",
       "GREEK",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_sign_math(label):
-   labels = {
+   many_label = {
       "LINE",
       "OPERATION_ONE",
       "OPERATION_TWO",
@@ -610,37 +610,37 @@ def be_start_sign_math(label):
       "ORDER_RIGHT",
       "ABSTRACTION",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_accent_math(label):
-   labels = {
+   many_label = {
       "ACCENT_ONE",
       "ACCENT_TWO",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_asymmetry_math(label):
-   labels = {
+   many_label = {
       "START_PAIR",
       "START_TRIPLET",
       "START_TUPLE",
       "ARROW_LEFT",
       "ORDER_LEFT",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_stop_asymmetry_math(label):
-   labels = {
+   many_label = {
       "STOP_PAIR",
       "STOP_TRIPLET",
       "STOP_TUPLE",
       "ARROW_LEFT",
       "ORDER_LEFT",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_box_math(label):
-   labels = {
+   many_label = {
       "START_PAIR",
       "START_TRIPLET",
       "START_TUPLE",
@@ -649,18 +649,18 @@ def be_start_box_math(label):
       "MONO",
       "CHECK",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_cut_math(label):
-   labels = {
+   many_label = {
       "CUT_PAIR",
       "CUT_TRIPLET",
       "CUT_TUPLE",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_not_lateral_math(label):
-   labels = {
+   many_label = {
       "BOLD",
       "BLACK",
       "CURSIVE",
@@ -668,7 +668,7 @@ def be_not_lateral_math(label):
       "EQUIVALENCE_ONE",
       "EQUIVALENCE_TWO",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_symbol_math(label):
    being = (
@@ -692,12 +692,12 @@ def be_start_math(label):
    return being
 
 def kind_be_cut_math(kind):
-   kinds = {
+   many_kind = {
       "math-cut-pair",
       "math-cut-triplet",
       "math-cut-tuple",
    }
-   return (kind in kinds)
+   return (kind in many_kind)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -726,8 +726,8 @@ def get_tip_right_pseudo(tip_left):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-def give_labels_pseudo():
-   labels = {
+def give_many_label_pseudo():
+   many_label = {
       "PLAIN": '.',
       "BOLD": ',',
       "SERIF_BLACK": ';',
@@ -764,25 +764,25 @@ def give_labels_pseudo():
       "MONO": '`',
       "CHECK": '_',
    }
-   return labels
+   return many_label
 
-def give_tips_pseudo():
-   labels = give_labels_pseudo()
-   tips = {label: tip for tip, label in labels.items()}
-   return tips
+def give_many_tip_pseudo():
+   many_label = give_many_label_pseudo()
+   many_tip = {label: tip for tip, label in many_label.items()}
+   return many_tip
 
 def get_label_pseudo(tip):
-   labels = give_labels_pseudo()
-   label = labels.get(tip)
+   many_label = give_many_label_pseudo()
+   label = many_label.get(tip)
    return label
 
 def get_tip_pseudo(label):
-   tips = give_tips_pseudo()
-   tip = tips.get(label)
+   many_tip = give_many_tip_pseudo()
+   tip = many_tip.get(label)
    return tip
 
 def be_start_letter_pseudo(label):
-   labels = {
+   many_label = {
       "BOLD",
       "SERIF_BLACK",
       "SANS_BLACK",
@@ -791,10 +791,10 @@ def be_start_letter_pseudo(label):
       "KANJI_FIRST",
       "KANJI_SECOND",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_sign_pseudo(label):
-   labels = {
+   many_label = {
       "KANA_FIRST",
       "KANA_SECOND",
       "KANA_THIRD",
@@ -805,10 +805,10 @@ def be_start_sign_pseudo(label):
       "KANA_EIGHTH",
       "KANA_NINTH",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_bracket_pseudo(label):
-   labels = {
+   many_label = {
       "START_ROUND",
       "START_SQUARE",
       "START_CURLY",
@@ -818,7 +818,7 @@ def be_start_bracket_pseudo(label):
       "MONO",
       "CHECK",
    }
-   return (label in labels)
+   return (label in many_label)
 
 def be_start_symbol_pseudo(label):
    being = (

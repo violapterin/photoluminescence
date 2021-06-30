@@ -18,16 +18,16 @@ class Pseudo_letter(Leaf):
       assert (len(self.source) == 2)
       content = ''
       letter = ''
-      letters = ()
+      many_letter = ()
       tip = self.source[0]
       tail = self.source[1]
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
-      alphabets_latin = (
-         *(AID.give_alphabets_upper()),
-         *(AID.give_alphabets_lower()),
+      many_alphabet_latin = (
+         *(AID.give_many_alphabet_upper()),
+         *(AID.give_many_alphabet_lower()),
       )
-      alphabets_greek = (
+      many_alphabet_greek = (
          'Д', 'Б', 'Γ', 'Δ', 'Э', 'Ж',
          'Ђ', 'Θ', 'Я', 'Ч', 'Λ', 'Ш',
          'И', 'Ξ', 'Ю', 'Π', 'Л', 'Σ',
@@ -42,7 +42,7 @@ class Pseudo_letter(Leaf):
       # Б Д Є Ж З И Л Ц Ч Џ Ш Щ Э Я
       # б д є ж з и л ц ч џ ш щ э я
       '''
-      alphabets_greek = (
+      many_alphabet_greek = (
          'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ',
          'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ',
          'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ',
@@ -82,44 +82,44 @@ class Pseudo_letter(Leaf):
 
       suffix_kind = "italic"
       if (label_tip == "BOLD"):
-         letters = alphabets_latin
+         many_letter = many_alphabet_latin
          suffix_kind = "bold"
       elif (label_tip == "SERIF_BLACK"):
-         letters = alphabets_latin
+         many_letter = many_alphabet_latin
          suffix_kind = "serif-black"
       elif (label_tip == "SANS_BLACK"):
-         letters = alphabets_latin
+         many_letter = many_alphabet_latin
          suffix_kind = "sans-black"
       elif (label_tip == "GREEK"):
-         letters = alphabets_greek
+         many_letter = many_alphabet_greek
          suffix_kind = "italic"
       elif (label_tip == "GREEK_BOLD"):
-         letters = alphabets_greek
+         many_letter = many_alphabet_greek
          suffix_kind = "bold"
       elif (label_tip == "KANJI_FIRST"):
-         letters = kanji_first
+         many_letter = kanji_first
          suffix_kind = "serif-black"
       elif (label_tip == "KANJI_SECOND"):
-         letters = kanji_second
+         many_letter = kanji_second
          suffix_kind = "sans-black"
 
       assert (len(self.source) == 2)
       tip = self.source[0]
       tail = self.source[1]
-      content = letters.get(tail)
+      content = many_letter.get(tail)
       if not content:
          data = self.give_data()
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
-      if letters:
-         table_letter = AID.get_table_sign(signs)
+      if many_letter:
+         table_letter = AID.get_table_sign(many_sign)
          letter = table_letter.get(tail)
       sink = write_element(
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND + '-' + suffix_kind],
+            many_attribute = ["class"],
+            many_value = [self.KIND + '-' + suffix_kind],
       )
       return sink
 
@@ -137,38 +137,38 @@ class Pseudo_sign(Leaf):
       assert (len(self.source) == 2)
       content = ''
       sign = ''
-      signs = ()
+      many_sign = ()
       tip = self.source[0]
       tail = self.source[1]
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
 
       if (label_tip == "KANA_FIRST"):
-         signs = ('い', 'ろ', 'は', 'に', 'ほ',
+         many_sign = ('い', 'ろ', 'は', 'に', 'ほ',
                'イ', 'ロ', 'ハ', 'ニ', 'ホ')
       elif (label_tip == "KANA_SECOND"):
-         signs = ('へ', 'と', 'ち', 'り', 'ぬ',
+         many_sign = ('へ', 'と', 'ち', 'り', 'ぬ',
                'ヘ', 'ト', 'チ', 'リ', 'ヌ')
       elif (label_tip == "KANA_THIRD"):
-         signs = ('る', 'を', 'わ', 'か', 'よ',
+         many_sign = ('る', 'を', 'わ', 'か', 'よ',
                'ル', 'ヲ', 'ワ', 'カ', 'ヨ')
       elif (label_tip == "KANA_FOURTH"):
-         signs = ('た', 'れ', 'そ', 'つ', 'ね',
+         many_sign = ('た', 'れ', 'そ', 'つ', 'ね',
                'タ', 'レ', 'ソ', 'ツ', 'ネ')
       elif (label_tip == "KANA_FIFTH"):
-         signs = ('な', 'ら', 'む', 'う', 'の',
+         many_sign = ('な', 'ら', 'む', 'う', 'の',
                'ナ', 'ラ', 'ム', 'ウ', 'ノ')
       elif (label_tip == "KANA_SIXTH"):
-         signs = ('お', 'く', 'や', 'ま', 'け',
+         many_sign = ('お', 'く', 'や', 'ま', 'け',
                'オ', 'ク', 'ヤ', 'マ', 'ケ')
       elif (label_tip == "KANA_SEVENTH"):
-         signs = ('ふ', 'こ', 'え', 'て', 'あ',
+         many_sign = ('ふ', 'こ', 'え', 'て', 'あ',
                'フ', 'コ', 'エ', 'テ', 'ア')
       elif (label_tip == "KANA_EIGHTH"):
-         signs = ('さ', 'き', 'ゆ', 'め', 'み',
+         many_sign = ('さ', 'き', 'ゆ', 'め', 'み',
                'サ', 'キ', 'ユ', 'メ', 'ミ')
       elif (label_tip == "KANA_NINTH"):
-         signs = ('し', 'ひ', 'も', 'せ', 'す',
+         many_sign = ('し', 'ひ', 'も', 'せ', 'す',
                'シ', 'ヒ', 'モ', 'セ', 'ス')
       suffix_kind = ''
       if (tail in {'0', '1', '2', '3', '4'}):
@@ -179,8 +179,8 @@ class Pseudo_sign(Leaf):
       assert (len(self.source) == 2)
       tip = self.source[0]
       tail = self.source[1]
-      if signs:
-         table_sign = AID.get_table_sign(signs)
+      if many_sign:
+         table_sign = AID.get_table_sign(many_sign)
          sign = table_sign.get(tail)
       if not content:
          data = self.give_data()
@@ -190,8 +190,8 @@ class Pseudo_sign(Leaf):
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND + '-' + suffix_kind],
+            many_attribute = ["class"],
+            many_value = [self.KIND + '-' + suffix_kind],
       )
       return sink
 
@@ -226,8 +226,8 @@ class Pseudo_plain(Leaf):
             cut = '',
             content = sink,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND + suffix_kind],
+            many_attribute = ["class"],
+            many_value = [self.KIND + suffix_kind],
       )
       return sink
 

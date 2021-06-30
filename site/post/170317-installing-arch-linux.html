@@ -74,17 +74,17 @@
 </header>
 
 <main class="document">
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">This note summarizes the steps to install Arch Linux.</span></span> <span class="phrase"><span class="serif-roman">I don’t intend to explain everything,</span> <span class="serif-roman">and the wording is as concise as possible.</span></span> <span class="phrase"><span class="serif-roman">Do tell me if you find anything no longer working now, or any link broken.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Partition and formatting</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Download the Arch Linux ISO,</span> <span class="serif-roman">and make a bootable USB.</span></span> <span class="phrase"><span class="serif-roman">On Windows, we may use the application Rufus.</span></span> <span class="phrase"><span class="serif-roman">On Mac, we have to format the USB first, and copy the ISO into it by using utility</span> <code class="mono">dd</code><span class="serif-roman">.</span></span>
 </p>
@@ -179,12 +179,12 @@
 <span class="phrase"><code class="mono"># mount /dev/sda3 /mnt/home</code></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Language and location</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">For the rest, temporarily take</span> <code class="mono">/mnt</code> <span class="serif-roman">to be the root directory, where Arch Linux will be installed:</span></span>
 </p>
@@ -240,12 +240,12 @@
 <span class="phrase"><code class="mono"># hwclock --systohc --utc</code></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Setting up the Internet</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Assuming a working connection, we set up DHCP (Dynamic Host Configuration Protocol):</span></span>
 </p>
@@ -298,12 +298,12 @@
 <span class="phrase"><span class="serif-roman">Unplug the USB,</span> <span class="serif-roman">restart,</span> <span class="serif-roman">and login as</span> <code class="mono">root</code><span class="serif-roman">.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Essential packages</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Now the internet connection is required,</span> <span class="serif-roman">and it is best that you have ethernet automatically connected.</span></span> <span class="phrase"><span class="serif-roman">Otherwise, you have to set it in command line, which is not covered here.</span></span> <span class="phrase"><span class="serif-roman">Alternatively, you may use a Wifi (not covered here either).</span></span> <span class="phrase"><span class="serif-roman">We may test the connection with</span> <code class="mono">ping</code><span class="serif-roman">:</span></span>
 </p>
@@ -368,12 +368,12 @@
 <span class="phrase"><span class="serif-roman">Besides the official repository that</span> <code class="mono">pacman</code> <span class="serif-roman">uses, there is another Arch User Repository (AUR) maintained by community.</span></span> <span class="phrase"><span class="serif-roman">We need other helpers to install AUR packages, including</span> <code class="mono">yay</code><span class="serif-roman">,</span> <code class="mono">pakku</code><span class="serif-roman">,</span> <code class="mono">pikaur</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">pacaur</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">The flag</span> <code class="mono">-S</code> <span class="serif-roman">also means installation.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Desktop and the graphical interface</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">It remains to set up a desktop environment.</span></span> <span class="phrase"><span class="serif-roman">We install the X-server</span> <code class="mono">xorg-server</code> <span class="serif-roman">and</span> <code class="mono">xorg-server-utils</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Check which graphic card the current system is using:</span></span>
 </p>
@@ -405,12 +405,12 @@
 <span class="phrase"><span class="serif-roman">In the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Source</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Arch Linux Wiki,</span> <a class="serif-roman" href="https:%2F/wiki%2Earchlinux%2Eorg%2Ftitle%2FInstallation_guide">‹Installation Guide›</a></span>
 </p>
@@ -424,7 +424,7 @@
 <div class="break">
 <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span> <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span> <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">March 17, 2017.</em></span> <span class="phrase"><em class="serif-italic">Revised June 24, 2021.</em></span>
 </p>

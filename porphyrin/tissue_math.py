@@ -111,41 +111,41 @@ class Math_sign(Leaf):
       assert (len(self.source) == 2)
       content = ''
       sign = ''
-      signs = ()
+      many_sign = ()
       tip = self.source[0]
       tail = self.source[1]
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
 
       if (label_tip == "LINE"):
-         signs = (
+         many_sign = (
             "\\mid", "\\nmid", "\\backslash",
             "\\parallel", "\\nparallel", "\\between",
             "\\dotsc", "\\dotsb", "\\vdots", "\\ddots",
          )
       elif (label_tip == "OPERATION_ONE"):
-         signs = (
+         many_sign = (
             "\\pm", "\\oplus", "\\cup",
             "\\sqcup", "\\vee", "\\curlyvee",
             "\\spadesuit", "\\heartsuit",
             "\\diamondsuit", "\\clubsuit", 
          )
       elif (label_tip == "OPERATION_TWO"):
-         signs = (
+         many_sign = (
             "\\mp", "\\ominus", "\\cap",
             "\\sqcap", "\\wedge", "\\curlywedge",
             "\\neg", "\\angle",
             "\\square", "\\blacksquare",
          )
       elif (label_tip == "OPERATION_THREE"):
-         signs = (
+         many_sign = (
             "\\times", "\\odot", "\\otimes",
             "\\bullet", "\\circ", "\\star",
             "\\ltimes", "\\rtimes", "\\div", "\\oslash", 
          )
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\Leftarrow", "\\Lleftarrow",
             "\\nwarrow", "\\swarrow",
             "\\leftarrowtail", "\\twoheadleftarrow", 
@@ -154,7 +154,7 @@ class Math_sign(Leaf):
          )
       elif (label_tip == "ARROW_RIGHT"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\Rightarrow", "\\Rrightarrow",
             "\\nearrow", "\\searrow",
             "\\rightarrowtail", "\\twoheadrightarrow", 
@@ -163,7 +163,7 @@ class Math_sign(Leaf):
          )
       elif (label_tip == "ARROW_MIDDLE"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\downarrow", "\\Uparrow", "\\Downarrow",
             "\\updownarrow", "\\Updownarrow",
             "\\blacktriangle", "\\blacktriangledown",
@@ -171,7 +171,7 @@ class Math_sign(Leaf):
          )
       elif (label_tip == "EQUIVALENCE_ONE"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\neq", "\\equiv", "\\not\\equiv", "\\doteq",
             "\\leftrightarrow", "\\not\\leftrightarrow",
             "\\Leftrightarrow", "\\not\\Leftrightarrow",
@@ -179,34 +179,34 @@ class Math_sign(Leaf):
          )
       elif (label_tip == "EQUIVALENCE_TWO"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\approx", "\\simeq", "\\approxeq", "\\cong",
             "\\propto", "\\asymp", "\\gtreqless", "\\lesseqgtr"
-            "\\leftrightarrows", "\\rightleftarrows",
+            "\\leftrightararray", "\\rightleftararray",
          )
       elif (label_tip == "ORDER_LEFT"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\leq", "<", "\\ll", "\\lesssim",
             "\\subseteq", "\\subsetneq", "\\in",
             "\\preceq", "\\precneqq", "\\dashv",
          )
       elif (label_tip == "ORDER_RIGHT"):
          self.LATERAL = False
-         signs = (
+         many_sign = (
             "\\geq", ">", "\\gtrsim", "\\gg",
             "\\supseteq", "\\supsetneq", "\\notin",
             "\\succeq", "\\succneqq", "\\vdash",
          )
       elif (label_tip == "ABSTRACTION"):
-         signs = (
+         many_sign = (
             "\\sum", "\\prod", "\\int", "\\oint",
             "\\bigoplus", "\\bigodot", "\\bigotimes",
             "\\bigcup", "\\bigcap", "\\bigsqcup",
          )
 
-      if signs:
-         table_sign = AID.get_table_sign(signs)
+      if many_sign:
+         table_sign = AID.get_table_sign(many_sign)
       if tail.isdigit():
          sign = table_sign.get(tail)
       if not sign:
@@ -553,7 +553,7 @@ class Math_serif(Leaf):
       command = "\\mathrm"
       if not isalnum(self.source):
          data = self.give_data()
-         from .caution import Allowing_only_alphabets as creator
+         from .caution import Allowing_only_many_alphabet as creator
          creator(**data).panic()
       sink = AID.write_latex(command, self.source)
       return sink
@@ -572,7 +572,7 @@ class Math_sans(Leaf):
       command = "\\mathsf"
       if not isalnum(self.source):
          data = self.give_data()
-         from .caution import Allowing_only_alphabets as creator
+         from .caution import Allowing_only_many_alphabet as creator
          creator(**data).panic()
       sink = AID.write_latex(command, self.source)
       return sink
@@ -591,7 +591,7 @@ class Math_mono(Leaf):
       command = "\\mathtt"
       if not isalnum(self.source):
          data = self.give_data()
-         from .caution import Allowing_only_alphabets as creator
+         from .caution import Allowing_only_many_alphabet as creator
          creator(**data).panic()
       sink = AID.write_latex(command, self.source)
       return sink

@@ -3,7 +3,7 @@ from pdb import set_trace
 from . import aid as AID
 
 # # Stem: Document
-# # Stem (bough): Paragraphs, Lines, Rows, Graph, Break,
+# # Stem (bough): Section, Stanza, Array, Graph, Break,
 # # Stem (twig): Paragraph, Line, Row, Newline
 # # Stem (frond): Phrase, Verse, Cell, Space
 # # Leaf: Math, Pseudo,
@@ -24,7 +24,7 @@ class Organ(object):
 
    def give_data(self, head_left, head_right):
       data = {
-         "source" : (self.source[head_left: head_right]).rstrip(" \t\n"),
+         "source" : self.source[head_left: head_right].rstrip(" \t\n"),
          "leftmost" : self.get_leftmost_new(head_left),
          "rightmost" : self.get_rightmost_new(head_right),
          "count_line" : self.get_count_line_new(head_left),
@@ -233,12 +233,12 @@ class Stem(Organ):
       data = self.give_data(probe_left, probe_right)
       if not data["source"]:
          return None, head_right
-      if (label == "PARAGRAPHS"):
-         bough = STEM.Paragraphs(**data)
-      if (label == "LINES"):
-         bough = STEM.Lines(**data)
-      if (label == "ROWS"):
-         bough = STEM.Rows(**data)
+      if (label == "SECTION"):
+         bough = STEM.Section(**data)
+      if (label == "STANZA"):
+         bough = STEM.Stanza(**data)
+      if (label == "ARRAY"):
+         bough = STEM.Array(**data)
       if (label == "graph"):
          bough = STEM.Graph(**data)
       if (label == "BREAK"):
@@ -337,8 +337,8 @@ class Leaf(Organ):
          cut = '',
          content = content,
          tag = self.give_tag_text(),
-         attributes = self.give_attributes_text(),
-         values = self.give_values_text(),
+         many_attribute = self.give_many_attribute_text(),
+         many_value = self.give_many_value_text(),
       )
       return sink
 
@@ -350,19 +350,19 @@ class Leaf(Organ):
          tag = 'a'
       return tag
 
-   def give_attributes_text(self):
+   def give_many_attribute_text(self):
       assert (hasattr(self, "address"))
-      attributes = ["class"]
+      many_attribute = ["class"]
       if self.address:
-         attributes.append("href")
-      return attributes
+         many_attribute.append("href")
+      return many_attribute
 
-   def give_values_text(self):
+   def give_many_value_text(self):
       assert (hasattr(self, "address"))
-      values = [self.KIND]
+      many_value = [self.KIND]
       if self.address:
-         values.append(self.address)
-      return values
+         many_value.append(self.address)
+      return many_value
 
    def write_math_bracket(self, mark_left, mark_right):
       contents = [mark_left]
@@ -389,8 +389,8 @@ class Leaf(Organ):
             cut = '',
             content = content,
             tag = tag,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
          )
       else:
          sink = source
@@ -403,8 +403,8 @@ class Leaf(Organ):
          cut = ' ',
          content = source,
          tag = tag,
-         attributes = ["class"],
-         values = [self.KIND],
+         many_attribute = ["class"],
+         many_value = [self.KIND],
       )
       return sink
 

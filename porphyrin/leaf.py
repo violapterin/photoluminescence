@@ -136,12 +136,12 @@ class Comment(Leaf):
    def write(self):
       token_left = "<!--"
       token_right = "-->"
-      sinks = [
+      many_sink = [
          token_left,
          AID.tune_comment(self.source),
          token_right,
       ]
-      sink = AID.unite(sinks)
+      sink = AID.unite(many_sink)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -169,8 +169,8 @@ class Math(Leaf):
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       sink.strip()
       return sink
@@ -198,7 +198,7 @@ class Pseudo(Leaf):
       sink = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return sink

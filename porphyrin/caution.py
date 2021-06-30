@@ -33,7 +33,7 @@ class Allowing_only_bough(Caution):
 class Column_not_agreeing(Caution):
 
    message_left = "Columns in the row"
-   message_right = "does not agree others rows in number."
+   message_right = "does not agree others array in number."
 class Too_many_column(Caution):
 
    message_left = "Row"
@@ -77,12 +77,12 @@ class Invalid_link_for_image(Caution):
 class Allowing_only_symbol(Caution):
 
    message_left = "Token"
-   message_right = "is not a symbol; here only a symbol is allowed."
+   message_right = "is not a symbol; only a symbol is allowed."
 
 class Allowing_only_alphabet(Caution):
 
    message_left = "Token"
-   message_right = "is not an alphabet; here only an alphabet is allowed."
+   message_right = "is not an alphabet; only an alphabet is allowed."
 
 class Containing_wrong_number_boxes(Caution):
 

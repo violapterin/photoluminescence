@@ -75,7 +75,7 @@
 </header>
 
 <main class="document">
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 18, 2020:</em></span>
 </p>
@@ -92,7 +92,7 @@
 <span class="phrase"><span class="serif-roman">This May, a friend recommended GHP to me.</span></span> <span class="phrase"><span class="serif-roman">I researched about that,</span> <span class="serif-roman">and it sounded much like what I intend.</span></span> <span class="phrase"><span class="serif-roman">It supported Mathjax, a free engine of LaTeX rendition, enabling me to write mathematics.</span></span> <span class="phrase"><span class="serif-roman">And I may also write on a local machine and commit, which is more convenient and reliable,</span> <span class="serif-roman">and commit records would also better protect my intellectual property.</span></span> <span class="phrase"><span class="serif-roman">Finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 19:</em></span>
 </p>
@@ -100,7 +100,7 @@
 <span class="phrase"><span class="serif-roman">Found the Jekyll template provided officially by Jekyll group, which was incredibly helpful.</span></span> <span class="phrase"><span class="serif-roman">Copied the code to my repo,</span> <span class="serif-roman">and for the first time, my site worked on localhost, via ++bundle exec jekyll serve++.</span></span> <span class="phrase"><span class="serif-roman">After I committed, the default domain ++violapterinblog.github.io++ was also rendered successfully on the browser, which was exciting!</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 20:</em></span>
 </p>
@@ -108,7 +108,7 @@
 <span class="phrase"><span class="serif-roman">Jekyll called Kramdown, a Markdown standard, by default.</span></span> <span class="phrase"><span class="serif-roman">Realized that Jekyll allowed raw html code protected by tags,</span> <span class="serif-roman">so I might actually write directly in HTML.</span></span> <span class="phrase"><span class="serif-roman">But it did not harm to try Kramdown first.</span></span> <span class="phrase"><span class="serif-roman">Tried to call Mathjax, which Kramdown calls, with no avail.</span></span> <span class="phrase"><span class="serif-roman">It was pointed out that Mathjax seemed to have difficulty recognizing ++++.</span></span> <span class="phrase"><span class="serif-roman">Thus one had to apply the snippet on the official document “Changes in the Mathjax API”, which solved everything.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 22:</em></span>
 </p>
@@ -116,7 +116,7 @@
 <span class="phrase"><span class="serif-roman">I wonder whether my favorite Google fonts may be used instead of the default LaTeX fonts, like Computer Modern or STIX.</span></span> <span class="phrase"><span class="serif-roman">Perhaps I might specify, in the CSS, the fonts which ++\textrm++, ++\textsf++, ++\texttt++ call, by a slight abuse of system?</span></span> <span class="phrase"><span class="serif-roman">I asked on Stack Exchange and Stack Overflow,</span> <span class="serif-roman">and it turned out that, although Mathjax 2.7 allowed that, Mathjax 3 didn’t.</span></span> <span class="phrase"><span class="serif-roman">Tried to call Mathjax 2.7 instead of 3,</span> <span class="serif-roman">and failed.</span></span> <span class="phrase"><span class="serif-roman">Quite disappointed, I gave up the thought of using custom fonts in LaTeX.</span></span> <span class="phrase"><span class="serif-roman">At least I learned to call Google fonts.</span></span> <span class="phrase"><span class="serif-roman">Jekyll characterized CSS in ++/css/main.scss++,</span> <span class="serif-roman">and ++++ prefixed variables were expanded, in order to generated CSS statements.</span></span> <span class="phrase"><span class="serif-roman">I used Roboto Sans for titles and headings, Open Sans for normal text, and Vollkorn for bold text (a slight abuse of design).</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 26:</em></span>
 </p>
@@ -124,7 +124,7 @@
 <span class="phrase"><span class="serif-roman">Last year, I had bought a domain under WordPress account,</span> <span class="serif-roman">And today I finally transfered that to the GHP.</span></span> <span class="phrase"><span class="serif-roman">I asked WordPress staff via email,</span> <span class="serif-roman">and their response was so kind!</span></span> <span class="phrase"><span class="serif-roman">The instruction had always been there,</span> <span class="serif-roman">and I never read carefully.</span></span> <span class="phrase"><span class="serif-roman">To point a domain managed by WordPress- com, towards my GHP, I had to add a DNS CNAME- record and Apex domains on WordPress- com.</span></span> <span class="phrase"><span class="serif-roman">Then simply add the CNAME on the web interface for GitHub repo of the GHP.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 28:</em></span>
 </p>
@@ -132,7 +132,7 @@
 <span class="phrase"><span class="serif-roman">Discovered ++\unicode++ extension of MathJax,</span> <span class="serif-roman">and suddenly there again was hope for changing LaTeX font.</span></span> <span class="phrase"><span class="serif-roman">With that, one may extract arbitrary unicode characters supported by the font.</span></span> <span class="phrase"><span class="serif-roman">One could not specify the style (normal or italic) and weight (light, regular, or bold etc),</span> <span class="serif-roman">but this may be asking too much.</span></span> <span class="phrase"><span class="serif-roman">The ++macro++ extension, though not part of TeX, was tremendously helpful too.</span></span> <span class="phrase"><span class="serif-roman">It have the macros expanded, even recursively, before Mathjax was called!</span></span> <span class="phrase"><span class="serif-roman">I imported and translated the whole big list of custom LaTeX macros which I had been using all the time.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">July 29:</em></span>
 </p>
@@ -161,7 +161,7 @@
 <span class="phrase"><span class="serif-roman">Some plain TeX sequences unknown to me might very well answer many of my confusions.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">August 2:</em></span>
 </p>
@@ -169,12 +169,12 @@
 <span class="phrase"><span class="serif-roman">Unfortunately, most miscellaneous symbols weren’t in Noto Sans nor Noto Serif, which means I might have to stick to Mathjax.</span></span> <span class="phrase"><span class="serif-roman">But as I said, ++\unicode++ extension allows one to use unicode characters not provided by LaTeX, even Japanese Hiragana and Kanji.</span></span> <span class="phrase"><span class="serif-roman">At this point, I decided to take a break to learn a good deal of HTML, CSS, Javascript, as well as Jekyll, SASS, and Kramdown.</span></span> <span class="phrase"><span class="serif-roman">Hopefully, the solution of some problems would come naturally afterwards,</span> <span class="serif-roman">or at least, knowing more web programming could only be beneficial to one’s career.</span></span> <span class="phrase"><span class="serif-roman">By now, I had spent too much on these matters which this post explains,</span> <span class="serif-roman">and I had better focus on the very writing which this site was constructed for.</span></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><b class="serif-bold">Source</b></span>
 </p>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><a class="serif-roman" href="http:%2F/jmcglone%2Ecom%2Fguides%2Fgithub%2Dpages">Jonathan McGlone, “Guide on GitHub Pages”</a></span>
 </p>
@@ -197,7 +197,7 @@
 <div class="break">
 <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span> <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span> <span class="phrase">&emsp;</span> <span class="phrase">&#10086;</span>
 </div>
-<div class="paragraphs">
+<div class="section">
 <p class="paragraph">
 <span class="phrase"><em class="serif-italic">Early August, 2020.</em></span>
 </p>

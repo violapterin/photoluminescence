@@ -10,7 +10,7 @@ class Document(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
       self.address = ''
       self.definitions = []
       self.instructions = []
@@ -21,21 +21,21 @@ class Document(Stem):
       while (head < len(self.source)):
          bough, head = self.snip_bough(head)
          if bough:
-            self.sinks.append(bough)
+            self.many_sink.append(bough)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      for bough in self.sinks:
+      for bough in self.many_sink:
          if bough:
             contents.append(bough.write())
       content = AID.unite(contents, cut = '\n')
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -87,54 +87,54 @@ class Break(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       space = "<span class=\"phrase\">&emsp;</span>"
       dingbat = "<span class=\"phrase\">&#10086;</span>"
       repeat = 3
       for _ in range(repeat):
-         self.sinks.append(space)
-         self.sinks.append(dingbat)
+         self.many_sink.append(space)
+         self.many_sink.append(dingbat)
 
    def write(self):
       contents = []
       self.parse()
-      for sink in self.sinks:
+      for sink in self.many_sink:
          contents.append(sink)
       content = AID.unite(contents)
       result = AID.write_element(
          content = content,
          tag = self.TAG,
-         attributes = ["class"],
-         values = [self.KIND],
+         many_attribute = ["class"],
+         many_value = [self.KIND],
       )
       return result
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-class Paragraphs(Stem):
+class Section(Stem):
 
-   KIND = "paragraphs"
+   KIND = "section"
    TAG = "div"
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Paragraph, head)
          if twig:
-            self.sinks.append(twig)
+            self.many_sink.append(twig)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.explain()
       self.parse()
-      for twig in self.sinks:
+      for twig in self.many_sink:
          if twig:
             contents.append(twig.write())
       content = AID.unite(contents, cut = '\n')
@@ -143,32 +143,32 @@ class Paragraphs(Stem):
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
-class Lines(Stem):
+class Stanza(Stem):
 
-   KIND = "lines"
+   KIND = "stanza"
    TAG = "div"
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Line, head)
          if twig:
-            self.sinks.append(twig)
+            self.many_sink.append(twig)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      for twig in self.sinks:
+      for twig in self.many_sink:
          if twig:
             contents.append(twig.write())
       content = AID.unite(contents, cut = '\n')
@@ -177,42 +177,42 @@ class Lines(Stem):
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
-class Rows(Stem):
+class Array(Stem):
 
-   KIND = "rows"
+   KIND = "array"
    TAG_ALL = "table"
    TAG_HEAD = "thead"
    TAG_BODY = "tbody"
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Row, head)
          if twig:
-            self.sinks.append(twig)
+            self.many_sink.append(twig)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      twig_head = self.sinks.pop(0)
+      twig_head = self.many_sink.pop(0)
       element = AID.write_element(
          content = twig_head.write(),
          tag = self.TAG_HEAD,
-         attributes = ["class"],
-         values = [self.KIND],
+         many_attribute = ["class"],
+         many_value = [self.KIND],
       )
       contents.append(element)
-      for twig_body in self.sinks:
+      for twig_body in self.many_sink:
          element = AID.write_element(
             content = twig_body.write(),
             tag = self.TAG_BODY,
@@ -220,23 +220,23 @@ class Rows(Stem):
          contents.append(element)
 
       setups = ["<colgroup>"]
-      count_row = len(self.sinks[0].sinks)
+      count_row = len(self.many_sink[0].many_sink)
       highest_count_row = 12
       if (count_row > highest_count_row):
-         row = self.sinks[0]
+         row = self.many_sink[0]
          data = row.give_data(0, len(row.source))
          from .caution import Too_many_column as creator
          creator(**data).panic()
-      weights = [0] * count_row
-      for row in self.sinks:
-         if not (len(row.sinks) == count_row):
+      many_weight = [0] * count_row
+      for row in self.many_sink:
+         if not (len(row.many_sink) == count_row):
             data = row.give_data(0, len(row.source))
             from .caution import Column_not_agreeing as creator
             creator(**data).panic()
          for index in range(count_row):
-            weights[index] += len(row.sinks[index].source)
-      percentages = AID.normalize_percentage(weights)
-      for percentage in percentages:
+            many_weight[index] += len(row.many_sink[index].source)
+      many_percentage = AID.normalize_percentage(many_weight)
+      for percentage in many_percentage:
          setups.append("<col style=\"width: {}%;\">".format(percentage))
       setups.append("</colgroup>")
       setup = AID.unite(setups, cut = '\n')
@@ -248,8 +248,8 @@ class Rows(Stem):
       result = AID.write_element(
          content = content,
          tag = self.TAG_ALL,
-         attributes = ["class"],
-         values = [self.KIND],
+         many_attribute = ["class"],
+         many_value = [self.KIND],
       )
       return result
 
@@ -262,7 +262,7 @@ class Paragraph(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -270,13 +270,13 @@ class Paragraph(Stem):
          frond, head = self.shatter_stem("space", Phrase, head)
          if not frond:
             continue
-         self.sinks.append(frond)
+         self.many_sink.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      for frond in self.sinks:
+      for frond in self.many_sink:
          contents.append(frond.write())
       content = AID.unite(contents)
       if not content:
@@ -284,8 +284,8 @@ class Paragraph(Stem):
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -296,7 +296,7 @@ class Line(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -304,13 +304,13 @@ class Line(Stem):
          frond, head = self.shatter_stem("space", Verse, head)
          if not frond:
             continue
-         self.sinks.append(frond)
+         self.many_sink.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      for frond in self.sinks:
+      for frond in self.many_sink:
          contents.append(frond.write())
       content = AID.unite(contents)
       if not content:
@@ -318,8 +318,8 @@ class Line(Stem):
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -330,7 +330,7 @@ class Row(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -338,13 +338,13 @@ class Row(Stem):
          frond, head = self.shatter_stem("space", Cell, head)
          if not frond:
             continue
-         self.sinks.append(frond)
+         self.many_sink.append(frond)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.parse()
-      for frond in self.sinks:
+      for frond in self.many_sink:
          contents.append(frond.write())
       content = AID.unite(contents)
       if not content.strip(" \t\n"):
@@ -352,8 +352,8 @@ class Row(Stem):
       result = AID.write_element(
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -366,7 +366,7 @@ class Phrase(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -375,25 +375,25 @@ class Phrase(Stem):
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
-            if not self.sinks:
+            if not self.many_sink:
                from .caution import Disallowing_link as creator
                creator(**data).panic()
             address = leaf.write()
-            self.sinks[-1].address = address
+            self.many_sink[-1].address = address
          else:
-            self.sinks.append(leaf)
+            self.many_sink.append(leaf)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.explain()
       self.parse()
-      for leaf in self.sinks:
+      for leaf in self.many_sink:
          if not AID.be_literary(leaf.KIND):
             continue
          leaf.capitalize()
          break
-      for leaf in self.sinks:
+      for leaf in self.many_sink:
          if AID.be_literary(leaf.KIND):
             punctuations = {',', ':', ';', '.', '?', '!'}
             if leaf.source[0] in punctuations:
@@ -408,8 +408,8 @@ class Phrase(Stem):
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -420,7 +420,7 @@ class Verse(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -429,20 +429,20 @@ class Verse(Stem):
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
-            if not self.sinks:
+            if not self.many_sink:
                from .caution import Disallowing_link as creator
                creator(**data).panic()
             address = leaf.write()
-            self.sinks[-1].address = address
+            self.many_sink[-1].address = address
          else:
-            self.sinks.append(leaf)
+            self.many_sink.append(leaf)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.explain()
       self.parse()
-      for leaf in self.sinks:
+      for leaf in self.many_sink:
          contents.append(leaf.write())
       content = AID.unite(contents)
       if not content:
@@ -451,8 +451,8 @@ class Verse(Stem):
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
 
@@ -463,7 +463,7 @@ class Cell(Stem):
 
    def __init__(self, **data):
       self.fill_basic(**data)
-      self.sinks = []
+      self.many_sink = []
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -472,20 +472,20 @@ class Cell(Stem):
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
-            if not self.sinks:
+            if not self.many_sink:
                from .caution import Disallowing_link as creator
                creator(**data).panic()
             address = leaf.write()
-            self.sinks[-1].address = address
+            self.many_sink[-1].address = address
          else:
-            self.sinks.append(leaf)
+            self.many_sink.append(leaf)
          head = self.move_right(0, head)
 
    def write(self):
       contents = []
       self.explain()
       self.parse()
-      for leaf in self.sinks:
+      for leaf in self.many_sink:
          contents.append(leaf.write())
       content = AID.unite(contents)
       if not content:
@@ -494,7 +494,7 @@ class Cell(Stem):
             cut = '',
             content = content,
             tag = self.TAG,
-            attributes = ["class"],
-            values = [self.KIND],
+            many_attribute = ["class"],
+            many_value = [self.KIND],
       )
       return result
