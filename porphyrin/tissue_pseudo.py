@@ -29,31 +29,28 @@ class Pseudo_letter(Leaf):
       )
       many_alphabet_greek = (
          'Д', 'Б', 'Γ', 'Δ', 'Э', 'Ж',
+         #A    B    G    D    E    Z
          'Ђ', 'Θ', 'Я', 'Ч', 'Λ', 'Ш',
+         #H    Q    I    K    L    M
          'И', 'Ξ', 'Ю', 'Π', 'Л', 'Σ',
+         #N    C    O    P    R    S
          'Ц', 'Ѫ', 'Φ', 'Щ', 'Ψ', 'Ω',
+         #T    U    F    X    Y    W
+         '£', '€',
+         #V    J
+
          'α', 'β', 'γ', 'δ', 'ε', 'ζ',
+         #A    B    G    D    E    Z
          'η', 'θ', 'ι', 'κ', 'λ', 'μ',
-         'ν', 'ξ', '?', 'π', 'ρ', 'σ',
+         #H    Q    I    K    L    M
+         'ν', 'ξ', 'ø', 'π', 'ρ', 'σ',
+         #N    C    O    P    R    S
          'τ', 'υ', 'φ', 'χ', 'ψ', 'ω',
+         #T    U    F    X    Y    W
+         '$', '¢',
+         #V    J
       )
-      # Đ Ґ Ђ Є Ћ Џ
-      # $ € £ ¥ ¢
-      # Б Д Є Ж З И Л Ц Ч Џ Ш Щ Э Я
-      # б д є ж з и л ц ч џ ш щ э я
-      '''
-      many_alphabet_greek = (
-         'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ',
-         'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ',
-         'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ',
-         'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω',
-         'α', 'β', 'γ', 'δ', 'ε', 'ζ',
-         'η', 'θ', 'ι', 'κ', 'λ', 'μ',
-         'ν', 'ξ', 'ο', 'π', 'ρ', 'σ',
-         'τ', 'υ', 'φ', 'χ', 'ψ', 'ω',
-      )
-      '''
-      kanji_first = (
+      many_kanji_first = (
          '零', '壹', '貳', '參', '肆',
          '伍', '陸', '柒', '捌', '玖',
          '甲', '乙', '丙', '丁', '戊',
@@ -65,7 +62,7 @@ class Pseudo_letter(Leaf):
          '鼠', '牛', '虎', '兔', '龍', '蛇',
          '馬', '羊', '猴', '雞', '狗', '豬', 
       )
-      kanji_second = (
+      many_kanji_second = (
          '幫', '滂', '並', '明',
          '非', '敷', '奉', '微', 
          '端', '透', '定', '泥',
@@ -97,10 +94,10 @@ class Pseudo_letter(Leaf):
          many_letter = many_alphabet_greek
          suffix_kind = "bold"
       elif (label_tip == "KANJI_FIRST"):
-         many_letter = kanji_first
+         many_letter = many_kanji_first
          suffix_kind = "serif-black"
       elif (label_tip == "KANJI_SECOND"):
-         many_letter = kanji_second
+         many_letter = many_kanji_second
          suffix_kind = "sans-black"
 
       assert (len(self.source) == 2)

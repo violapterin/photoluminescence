@@ -1,40 +1,45 @@
 import os
 from pdb import set_trace
 
+def make_all(folder_in, folder_out):
+   whether_all = True
+   make(whether_all, folder_in, folder_out)
+
+def make_new(folder_in, folder_out):
+   whether_all = False
+   make(whether_all, folder_in, folder_out)
+
+def make(whether_all, folder_in, folder_out):
+   suffix_in = ".ppr"
+   suffix_out = ".html"
+   many_thing_in = os.scandir(folder_in)
+   for thing in many_thing_in:
+      name_in = thing.name
+      name_out = name_in.replace(suffix_in, suffix_out)
+      path_in = thing.path
+      path_out = os.path.join(folder_out, name_out)
+      if thing.is_dir():
+         make(whether_all, path_in, folder_out)
+      elif thing.is_file():
+         if not path_in.endswith(suffix_in):
+            continue
+         if not whether_all:
+            if os.path.exists(path_out):
+               time_in = thing.stat().st_mtime
+               time_out = os.path.getmtime(path_out)
+               if time_in < time_out:
+                  continue
+         print(f"Converting {path_in} to {path_out}:")
+         if os.path.exists(path_out):
+            os.remove(path_out)
+         convert(path_in, path_out) 
+
 def convert(path_in, path_out):
    from .stem import Document
    source = input_file(path_in)
    document = Document(source = source)
    sink = document.write()
    output_file(path_out, sink)
-
-def make_all(folder_in, folder_out):
-   make("ALL", folder_in, folder_out)
-
-def make_new(folder_in, folder_out):
-   make("NEW", folder_in, folder_out)
-
-def make(flag, folder_in, folder_out):
-   suffix_in = ".ppr"
-   suffix_out = ".html"
-   many_thing_in = os.scandir(folder_in)
-   for thing in many_thing_in:
-      name_in = thing.name
-      if thing.is_dir():
-         make(flag, thing.path, folder_out)
-      elif thing.is_file():
-         if not thing.path.endswith(suffix_in):
-            continue
-         name_out = thing.name.replace(suffix_in, suffix_out)
-         path_out = os.path.join(folder_out, name_out)
-         if not (flag == "ALL"):
-            if os.path.isfile(path_out):
-               time_in = thing.stat().st_ctime
-               time_out = os.path.getmtime(path_out)
-               if time_in < time_out:
-                  continue
-         print(f"Trying to convert {thing.path} to {path_out}:")
-         convert(thing.path, path_out) 
 
 def input_file(path):
    if not os.path.exists(path):
@@ -137,7 +142,7 @@ def give_many_label():
       '=': "SECTION",
       '/': "STANZA",
       '\"': "ARRAY",
-      '|': "graph",
+      '|': "GRAPH",
       '`': "IDENTIFIER",
       '~': "BREAK",
       '<': "COMMENT_LEFT",
@@ -345,7 +350,7 @@ def replace_token(many_token_out, source):
    return sink
 
 def give_wide_space():
-   return "<span class=\"phrase\">&ensp;</span>"
+   return "<span class=\"phrase\">&nbsp;</span>"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -690,14 +695,6 @@ def be_start_math(label):
       or (label in miscellaneous)
    )
    return being
-
-def kind_be_cut_math(kind):
-   many_kind = {
-      "math-cut-pair",
-      "math-cut-triplet",
-      "math-cut-tuple",
-   }
-   return (kind in many_kind)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

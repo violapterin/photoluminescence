@@ -155,16 +155,16 @@ class Math(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      contents = []
+      many_content = []
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          if tissue:
             # # XXX comment out this line when debugging:
             tissue.OUTSIDE = True
-            contents.append(tissue.write())
+            many_content.append(tissue.write())
          head = self.move_right(0, head)
-      content = AID.unite(contents)
+      content = AID.unite(many_content)
       sink = AID.write_element(
             cut = '',
             content = content,
@@ -186,15 +186,15 @@ class Pseudo(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      contents = []
+      many_content = []
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_pseudo(head)
          if tissue:
             tissue.OUTSIDE = True
-            contents.append(tissue.write())
+            many_content.append(tissue.write())
          head = self.move_right(0, head)
-      content = AID.unite(contents)
+      content = AID.unite(many_content)
       sink = AID.write_element(
             content = content,
             tag = self.TAG,

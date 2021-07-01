@@ -25,12 +25,12 @@ class Document(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for bough in self.many_sink:
          if bough:
-            contents.append(bough.write())
-      content = AID.unite(contents, cut = '\n')
+            many_content.append(bough.write())
+      content = AID.unite(many_content, cut = '\n')
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -69,13 +69,13 @@ class Graph(Stem):
 
    def write(self):
       self.parse()
-      contents = ["<img"]
-      contents.append("src=\"" + self.sink + '\"')
-      contents.append("class=\"" + self.KIND + '\"')
+      many_content = ["<img"]
+      many_content.append("src=\"" + self.sink + '\"')
+      many_content.append("class=\"" + self.KIND + '\"')
       caption = self.sink.split('/')[-1]
-      contents.append("alt=\"" + AID.extract_caption(self.sink) + '\"')
-      contents.append('>')
-      result = AID.unite(contents)
+      many_content.append("alt=\"" + AID.extract_caption(self.sink) + '\"')
+      many_content.append('>')
+      result = AID.unite(many_content)
       return result
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -98,11 +98,11 @@ class Break(Stem):
          self.many_sink.append(dingbat)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for sink in self.many_sink:
-         contents.append(sink)
-      content = AID.unite(contents)
+         many_content.append(sink)
+      content = AID.unite(many_content)
       result = AID.write_element(
          content = content,
          tag = self.TAG,
@@ -131,13 +131,13 @@ class Section(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.explain()
       self.parse()
       for twig in self.many_sink:
          if twig:
-            contents.append(twig.write())
-      content = AID.unite(contents, cut = '\n')
+            many_content.append(twig.write())
+      content = AID.unite(many_content, cut = '\n')
       if not content:
          return ''
       result = AID.write_element(
@@ -166,12 +166,12 @@ class Stanza(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for twig in self.many_sink:
          if twig:
-            contents.append(twig.write())
-      content = AID.unite(contents, cut = '\n')
+            many_content.append(twig.write())
+      content = AID.unite(many_content, cut = '\n')
       if not content:
          return ''
       result = AID.write_element(
@@ -202,7 +202,7 @@ class Array(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       twig_head = self.many_sink.pop(0)
       element = AID.write_element(
@@ -211,13 +211,13 @@ class Array(Stem):
          many_attribute = ["class"],
          many_value = [self.KIND],
       )
-      contents.append(element)
+      many_content.append(element)
       for twig_body in self.many_sink:
          element = AID.write_element(
             content = twig_body.write(),
             tag = self.TAG_BODY,
          )
-         contents.append(element)
+         many_content.append(element)
 
       setups = ["<colgroup>"]
       count_row = len(self.many_sink[0].many_sink)
@@ -240,9 +240,9 @@ class Array(Stem):
          setups.append("<col style=\"width: {}%;\">".format(percentage))
       setups.append("</colgroup>")
       setup = AID.unite(setups, cut = '\n')
-      contents.insert(0, setup)
+      many_content.insert(0, setup)
 
-      content = AID.unite(contents, cut = '\n')
+      content = AID.unite(many_content, cut = '\n')
       if not content:
          return ''
       result = AID.write_element(
@@ -274,11 +274,11 @@ class Paragraph(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for frond in self.many_sink:
-         contents.append(frond.write())
-      content = AID.unite(contents)
+         many_content.append(frond.write())
+      content = AID.unite(many_content)
       if not content:
          return ''
       result = AID.write_element(
@@ -308,11 +308,11 @@ class Line(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for frond in self.many_sink:
-         contents.append(frond.write())
-      content = AID.unite(contents)
+         many_content.append(frond.write())
+      content = AID.unite(many_content)
       if not content:
          return ''
       result = AID.write_element(
@@ -342,13 +342,11 @@ class Row(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.parse()
       for frond in self.many_sink:
-         contents.append(frond.write())
-      content = AID.unite(contents)
-      if not content.strip(" \t\n"):
-         return "&nbsp;&nbsp;"
+         many_content.append(frond.write())
+      content = AID.unite(many_content)
       result = AID.write_element(
             content = content,
             tag = self.TAG,
@@ -385,7 +383,7 @@ class Phrase(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.explain()
       self.parse()
       for leaf in self.many_sink:
@@ -397,11 +395,11 @@ class Phrase(Stem):
          if AID.be_literary(leaf.KIND):
             punctuations = {',', ':', ';', '.', '?', '!'}
             if leaf.source[0] in punctuations:
-               last = contents.pop()
-               contents.append(last + leaf.write())
+               last = many_content.pop()
+               many_content.append(last + leaf.write())
                continue
-         contents.append(leaf.write())
-      content = AID.unite(contents)
+         many_content.append(leaf.write())
+      content = AID.unite(many_content)
       if not content:
          return AID.give_wide_space()
       result = AID.write_element(
@@ -439,12 +437,12 @@ class Verse(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.explain()
       self.parse()
       for leaf in self.many_sink:
-         contents.append(leaf.write())
-      content = AID.unite(contents)
+         many_content.append(leaf.write())
+      content = AID.unite(many_content)
       if not content:
          return AID.give_wide_space()
       result = AID.write_element(
@@ -482,12 +480,12 @@ class Cell(Stem):
          head = self.move_right(0, head)
 
    def write(self):
-      contents = []
+      many_content = []
       self.explain()
       self.parse()
       for leaf in self.many_sink:
-         contents.append(leaf.write())
-      content = AID.unite(contents)
+         many_content.append(leaf.write())
+      content = AID.unite(many_content)
       if not content:
          return AID.give_wide_space()
       result = AID.write_element(

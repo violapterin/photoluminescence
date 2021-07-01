@@ -252,7 +252,7 @@
 @@put these lines in@@ ++~/.bashrc++ @@:@@ '
 
 ++if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then++ '
-_ ++exec startx++ '
+_ _ ++exec startx++ '
 ++fi++ '
 
 @@this $means {that we #start the X server, if the display variable is not null, and if there is more than one terminal instance}.@@ '

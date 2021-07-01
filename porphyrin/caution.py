@@ -54,12 +54,12 @@ class Token_invalid_as_symbol(Caution):
    message_left = "Token"
    message_right = "is invalid as a symbol."
 
-class Conflicting_delimiter_in_tissue(Caution):
+class Conflicting_delimiter(Caution):
 
    message_left = "Tissue"
    message_right = "contain conflicting delimiters."
 
-class Macro_not_gathered_in_beginning(Caution):
+class Macro_not_gathered(Caution):
 
    message_left = "Macro"
    message_right = "is not gathered in the very beginning."
@@ -84,7 +84,7 @@ class Allowing_only_alphabet(Caution):
    message_left = "Token"
    message_right = "is not an alphabet; only an alphabet is allowed."
 
-class Containing_wrong_number_boxes(Caution):
+class Wrong_number_boxes(Caution):
 
    message_left = "Token"
    message_right = "contains too many or too few boxes."

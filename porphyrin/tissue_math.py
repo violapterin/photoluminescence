@@ -384,21 +384,29 @@ class Math_pair(Leaf):
 
    def write(self):
       kind_cut = "math-cut-pair"
+      many_kind_cut = {
+         "math-cut-pair",
+         "math-cut-triplet",
+         "math-cut-tuple",
+      }
       head = self.move_right(0, 0)
       boxes = [[]]
+      data = self.give_data(0, len(self.source))
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          head = self.move_right(0, head)
          kind = tissue.KIND
-         if AID.kind_be_cut_math(kind):
+         if (kind in many_kind_cut):
             if (kind == kind_cut):
                boxes.append([])
-            continue
+               continue
+            else:
+               from .caution import Conflicting_delimiter as creator
+               creator(**data).panic()
          else:
             boxes[-1].append(tissue)
       if not (len(boxes) == 2):
-         data = self.give_data(0, len(self.source))
-         from .caution import Containing_wrong_number_boxes as creator
+         from .caution import Wrong_number_boxes as creator
          creator(**data).panic()
 
       box_top, box_bottom = boxes
@@ -422,35 +430,44 @@ class Math_triplet(Leaf):
 
    def write(self):
       kind_cut = "math-cut-triplet"
+      many_kind_cut = {
+         "math-cut-pair",
+         "math-cut-triplet",
+         "math-cut-tuple",
+      }
       head = self.move_right(0, 0)
       boxes = [[]]
+      data = self.give_data(0, len(self.source))
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          head = self.move_right(0, head)
          kind = tissue.KIND
-         if AID.kind_be_cut_math(kind):
+         if (kind in many_kind_cut):
             if (kind == kind_cut):
                boxes.append([])
-            continue
+               continue
+            else:
+               from .caution import Conflicting_delimiter as creator
+               creator(**data).panic()
          else:
             boxes[-1].append(tissue)
       if not (len(boxes) == 3):
          data = self.give_data(0, len(self.source))
-         from .caution import Containing_wrong_number_boxes as creator
+         from .caution import Wrong_number_boxes as creator
          creator(**data).panic()
 
       box_top, box_main, box_bottom = boxes
-      be_lateral = ((len(box_main) == 1) and box_main[0].LATERAL)
+      whether_lateral = ((len(box_main) == 1) and box_main[0].LATERAL)
       top = AID.unite([tissue.write() for tissue in box_top])
       main = AID.unite([tissue.write() for tissue in box_main])
       bottom = AID.unite([tissue.write() for tissue in box_bottom])
       content = ''
-      if (be_lateral):
-         contents = []
-         contents.append(AID.write_latex('', main))
-         contents.append(AID.write_latex('^', top))
-         contents.append(AID.write_latex('_', bottom))
-         content = AID.unite(contents)
+      if (whether_lateral):
+         many_content = []
+         many_content.append(AID.write_latex('', main))
+         many_content.append(AID.write_latex('^', top))
+         many_content.append(AID.write_latex('_', bottom))
+         content = AID.unite(many_content)
       else:
          underset = AID.write_latex("\\underset", bottom, main)
          content = AID.write_latex("\\overset", top, underset)
@@ -470,26 +487,35 @@ class Math_tuple(Leaf):
 
    def write(self):
       kind_cut = "math-cut-tuple"
+      many_kind_cut = {
+         "math-cut-pair",
+         "math-cut-triplet",
+         "math-cut-tuple",
+      }
       head = self.move_right(0, 0)
       boxes = [[]]
+      data = self.give_data(0, len(self.source))
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          head = self.move_right(0, head)
          kind = tissue.KIND
-         if AID.kind_be_cut_math(kind):
+         if (kind in many_kind_cut):
             if (kind == kind_cut):
                boxes.append([])
-            continue
+               continue
+            else:
+               from .caution import Conflicting_delimiter as creator
+               creator(**data).panic()
          else:
             boxes[-1].append(tissue)
 
-      contents = []
-      contents.append(AID.write_latex("\\begin", "matrix"))
+      many_content = []
+      many_content.append(AID.write_latex("\\begin", "matrix"))
       for box in boxes:
          sink_tissue = AID.unite([tissue.write() for tissue in box])
-         contents.append(sink_tissue + "\\\\")
-      contents.append(AID.write_latex("\\end", "matrix"))
-      content = AID.unite(contents, cut = '\n')
+         many_content.append(sink_tissue + "\\\\")
+      many_content.append(AID.write_latex("\\end", "matrix"))
+      content = AID.unite(many_content, cut = '\n')
       sink = self.write_math_outside()
       return sink
 

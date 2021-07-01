@@ -1,6 +1,6 @@
 
 /* document graph break */
-/* paragraphs lines rows */
+/* section stanza array */
 /* paragraph line row */
 /* phrase verse cell */
 
@@ -56,16 +56,16 @@ body, header
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @media screen and (min-width: 600px) {
-  .lines { border-left: 12px lightgoldenrodyellow solid; }
+  .stanza { border-left: 12px lightgoldenrodyellow solid; }
 }
 
-.lines, .rows
+.stanza, .array
 {
   margin: 24px 18px;
   padding: 0px 6px;
 }
 
-.paragraphs
+.section
 {
   margin: 24px 0px;
   padding: 0px;

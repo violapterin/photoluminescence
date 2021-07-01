@@ -45,37 +45,37 @@ class Organ(object):
    def get_count_glyph_new(self, head):
       count_glyph = self.count_glyph
       left = self.source[: head]
-      fragments = left.split('\n')
-      if (len(fragments) == 1):
-         count_glyph += len(fragments[0])
+      many_fragment = left.split('\n')
+      if (len(many_fragment) == 1):
+         count_glyph += len(many_fragment[0])
          return count_glyph
-      count_glyph = len(fragments[-1])
+      count_glyph = len(many_fragment[-1])
       return count_glyph
 
    def get_count_line_new(self, head):
       count = self.count_line
       left = self.source[: head]
-      fragments = left.split('\n')
-      count += len(fragments) - 1
+      many_fragment = left.split('\n')
+      count += len(many_fragment) - 1
       return count
 
    def explain(self):
       print(f"Writing {self.KIND} with source:", flush = True)
-      fragments = self.source.split('\n')
-      counts = []
-      for count in range(len(fragments)):
-         if (abs(count) < 3) or (abs(count - len(fragments)) < 3):
-            counts.append(count)
+      many_fragment = self.source.split('\n')
+      many_count = []
+      for count in range(len(many_fragment)):
+         if (abs(count) < 3) or (abs(count - len(many_fragment)) < 3):
+            many_count.append(count)
       color_default = "\033[0m"
       color_yellow = "\033[93m"
-      for count in counts:
-         print(">>", color_yellow, fragments[count], color_default)
+      for count in many_count:
+         print(">>", color_yellow, many_fragment[count], color_default)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
    def move_left(self, step, head):
       probe = head
-      whitespaces = {' ', '\t', '\n'}
+      many_whitespace = {' ', '\t', '\n'}
       size = len(self.source)
       interval = range(size)
       probe = self.confine_head(probe)
@@ -83,7 +83,7 @@ class Organ(object):
          return 0
 
       while (probe in interval):
-         if (self.source[probe] not in whitespaces):
+         if (self.source[probe] not in many_whitespace):
             break
          else:
             probe -= 1
@@ -92,7 +92,7 @@ class Organ(object):
       for _ in range(step):
          probe -= 1
          while (probe in interval):
-            if (self.source[probe] not in whitespaces):
+            if (self.source[probe] not in many_whitespace):
                break
             else:
                probe -= 1
@@ -101,7 +101,7 @@ class Organ(object):
 
    def move_right(self, step, head):
       probe = head
-      whitespaces = {' ', '\t', '\n'}
+      many_whitespace = {' ', '\t', '\n'}
       size = len(self.source)
       interval = range(size)
       probe = self.confine_head(probe)
@@ -109,7 +109,7 @@ class Organ(object):
          return size
 
       while (probe in interval):
-         if (self.source[probe] not in whitespaces):
+         if (self.source[probe] not in many_whitespace):
             break
          else:
             probe += 1
@@ -118,7 +118,7 @@ class Organ(object):
       for _ in range(step):
          probe += 1
          while (probe in interval):
-            if (self.source[probe] not in whitespaces):
+            if (self.source[probe] not in many_whitespace):
                break
             else:
                probe += 1
@@ -365,15 +365,15 @@ class Leaf(Organ):
       return many_value
 
    def write_math_bracket(self, mark_left, mark_right):
-      contents = [mark_left]
+      many_content = [mark_left]
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          if tissue:
-            contents.append(tissue.write())
+            many_content.append(tissue.write())
          head = self.move_right(0, head)
-      contents.append(mark_right)
-      content = AID.unite(contents)
+      many_content.append(mark_right)
+      content = AID.unite(many_content)
       sink = self.write_math_outside(content)
       return sink
 
