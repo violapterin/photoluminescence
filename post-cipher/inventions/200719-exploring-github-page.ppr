@@ -1,96 +1,96 @@
 ===
 %%July 18, 2020:%% '
 
-@@today, at about 5:30 pm Taiwan time, I registered a second GitHub account,@@ ++violapterinblog++ @,@ @@to set up this GitHub Page (GHP).@@ _
+@@today, at about 5:30 pm Taiwan time, I @registered a second GitHub account,@@ ++violapterinblog++ @@,@@ @@to set up this GitHub Page (GHP).@@ _
 @@the new site was &born!@@ _
-@@every account of GitHub was &allowed to own one GHP, endowed with a unique URL derived from the username.@@ _
-@@I would like to import some past posts and modify the time stamp accordingly, so let this notice attest to the moment of what was supposedly a new start.@@ '
+@@every account of GitHub was &allowed to own one GHP, endowed with a unique URL according to the username.@@ _
+@@I would like to import some past posts, so let this notice attest to the moment of <what was supposedly a new start>.@@ '
 
-@@one reason I want to have a personal site is to write notes containing mathematics, of either popular or research level.@@ _
-@@about just one year ago, I created a WordPress account, mainly because they support LaTeX (to some extent).@@ _
-@@WordPress’s interface is straightforward, their templates modern and elegant, and their email support prompt and helpful.@@ '
-
-@@so why did I move away?@@ _
-@@WordPress only allowed the user to type in the web interface,@@
+@@one reason I @wanted to have a personal site was to write notes on mathematics, of either popular or research level.@@ _
+@@about just one year ago, I @created a WordPress account, mainly because I knew <that they support LaTeX to some extent>.@@ _
+@@WordPress’s interface was straighforward, their templates modern and elegant, and their email support quick and helpful.@@ '
+@@so why @did I move away?@@ _
+@@WordPress only @allowed the user to type in the web interface,@@
 @@and one could not write and save locally.@@ _
-@@WordPress did not allow a lot of CSS, let alone Javascript, except in some expensive plans.@@ _
-@@more importantly, it required ++$latex ...$++ for LaTeX expression, {which could be verbose},@@
+@@WordPress @did not allow a lot of CSS, let alone Javascript, except in more expensive plans.@@ _
+@@most importantly, it @required syntax@@ ++$latex ...$++ @@for LaTeX expression, {which could be verbose},@@
 @@and there was no way to compile and preview one’s work.@@ _
 @@thus I basically stopped writing on the WordPress site after a while.@@ '
 
-@@this May, a friend recommended GHP to me.@@ _
-@@I researched about that,@@
-@@and it sounded much like what I intend.@@ _
-@@it supported Mathjax, a free engine of LaTeX rendition, enabling me to write mathematics.@@ _
-@@and I may also write on a local machine and commit, {which is more convenient and reliable},@@
+@@this May, from a friend of mine I @learnt the presence of GHP,@@ _
+@@and it @sounded much like <what I intend>.@@ _
+@@it @supported LaTeX rendition, enabling me to write mathematics,@@
+@@and I may also write on a local device and commit, {which would made the process more convenient and reliable},@@
 @@and commit records would also better protect my intellectual property.@@ _
-@@finally, no matter what fancy thing I might want to do, as long as I converted the piece to standard HTML, it would be fine.@@ '
+@@finally, no matter <what fancy thing I might want to do>, as long as I @converted the piece to standard HTML and CSS, it would be fine.@@ '
 ===
 
 ===
 %%July 19:%% '
 
-@@found the Jekyll template provided officially by Jekyll group, {which was incredibly helpful}.@@ _
+@@ @found the Jekyll template provided officially, {which was incredibly helpful}.@@ _
 @@copied the code to my repo,@@
-@@and for the first time, my site worked on localhost, via ++bundle exec jekyll serve++.@@ _
-@@after I committed, the default domain ++violapterinblog.github.io++ was also &rendered successfully on the browser, {which was %exciting}!@@ _
+@@and for the first time, my site worked on localhost, via@@ ++bundle exec jekyll serve++ @@.@@ _
+@@after I committed, the default domain@@ ++violapterinblog.github.io++ @@was also &rendered successfully on the browser, {which was %exciting}!@@ '
 ===
 
 ===
 %%July 20:%% '
 
-@@Jekyll called Kramdown, a Markdown standard, by default.@@ _
-@@realized {that Jekyll allowed raw html code protected by tags},@@
-@@so I might actually write directly in HTML.@@ _
-@@but it did not harm to try Kramdown first.@@ _
+@@ @realized <that Jekyll allowed raw html code protected by tags>.@@ _
+@@therefore, I might actually write directly in HTML.@@ _
+@@Jekyll @called Kramdown, a Markdown standard, by default,@@
+@@and it @did not harm to try Kramdown first.@@ '
 
-@@tried to call Mathjax, {which Kramdown $calls}, with no avail.@@ _
-@@it was &pointed out that Mathjax seemed to have difficulty recognizing ++$$++.@@ _
-@@thus one had to apply the snippet on the official document “Changes in the Mathjax API”, {which solved everything}.@@ _
+@@ @tried to call Mathjax, with no avail.@@ _
+@@it was &pointed out <that Mathjax seemed to have difficulty recognizing@@ ++$$++ @@>.@@ _
+@@then, I @did to apply the snippet on the official document@@ @@“Changes in the Mathjax API”@@ 
+   \\http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api\\
+   @@,@@ @@{which @solved everything}.@@ '
 ===
 
 ===
 %%July 22:%% '
 
 @@I wonder whether my favorite Google fonts may be used instead of the default LaTeX fonts, like Computer Modern or STIX.@@ _
-@@Perhaps I might specify, in the CSS, the fonts {which ++\textrm++, ++\textsf++, ++\texttt++ #call}, by a slight abuse of system?@@ _
+@@Perhaps I might specify, in the CSS, the fonts {which@@ ++\textrm++ @@,@@ ++\textsf++ @@,@@ ++\texttt++ @@ @called}, by a slight abuse of system?@@ _
 @@I asked on Stack Exchange and Stack Overflow,@@
-@@and it turned out that, although Mathjax 2.7 allowed that, Mathjax 3 didn’t.@@ _
+@@and it turned out <that, although Mathjax 2.7 allowed this, Mathjax 3 didn’t>.@@ _
 @@tried to call Mathjax 2.7 instead of 3,@@
 @@and failed.@@ _
-@@Quite disappointed, I gave up the thought of using custom fonts in LaTeX.@@ _
+@@Quite disappointed, I gave up the thought of using custom fonts in LaTeX.@@ '
 
 @@at least I learned to call Google fonts.@@ _
-@@Jekyll characterized CSS in ++/css/main.scss++,@@
-@@and ++$++ prefixed variables were &expanded, in order to generated CSS statements.@@ _
-@@I used Roboto Sans for titles and headings, Open Sans for normal text, and Vollkorn for bold text (a slight abuse of design).@@ _
+@@Jekyll characterized CSS in@@ ++/css/main.scss++ @@,@@
+@@and@@ ++$++ @@prefixed variables were &expanded, in order to generated CSS statements.@@ _
+@@I used Roboto Sans for titles and headings, Open Sans for normal text, and Vollkorn for bold text (a slight abuse of design).@@ '
 ===
 
 ===
 %%July 26:%% '
 
 @@last year, I had bought a domain under WordPress account,@@
-@@And today I finally transfered that to the GHP.@@ _
+@@And today I finally transfered the domain to this GHP.@@ _
 @@I asked WordPress staff via email,@@
 @@and their response was so kind!@@ _
 @@the instruction had always been there,@@
 @@and I never read carefully.@@ _
 @@to point a domain managed by WordPress- com, towards my GHP, I had to add a DNS CNAME- record and Apex domains on WordPress- com.@@ _
-@@then simply add the CNAME on the web interface for GitHub repo of the GHP.@@ _
+@@then simply add the CNAME on the web interface for GitHub repo of the GHP.@@ '
 ===
 
 ===
 %%July 28:%% '
 
-@@Discovered ++\unicode++ extension of MathJax,@@
+@@Discovered@@ ++\unicode++ @@extension of MathJax,@@
 @@and suddenly there again was hope for changing LaTeX font.@@ _
-@@with that, one may extract arbitrary unicode characters supported by the font.@@ _
+@@with this, one may extract arbitrary unicode characters supported by the font.@@ _
 @@one could not specify the style (normal or italic) and weight (light, regular, or bold etc),@@
-@@but this may be asking too much.@@ _
+@@but this may be asking too much.@@ '
 
-@@The ++macro++ extension, though not part of TeX, was tremendously helpful too.@@ _
+@@The@@ ++macro++ @@extension, though not part of TeX, was tremendously helpful too.@@ _
 @@it have the macros expanded, even recursively, before Mathjax was &called!@@ _
-@@I imported and translated the whole big list of custom LaTeX macros {which I had been using all the time}.@@ _
+@@I imported and translated the whole big list of custom LaTeX macros {which I had been using all the time}.@@ '
 ===
 
 ===
@@ -99,41 +99,40 @@
 @@a critical progress!@@ _
 @@this night, I was %thinking intensively of an imagined command.@@ _
 @@this command should display a first glyph on the document, but throw it away from the “stack” (or whatever), and display a second glyph like usual,@@
-@@so that the ensuing, third glyph knew only the second glyph, but not the first one.@@ _
-@@if only there is exactly such TeX command!@@ _
-@@but I was not optimistic, as I felt this did not quite agree the spirit of TeX’s design.@@ '
+@@so <that the third glyph immediately following @knew only the second glyph, but not the first one>.@@ _
+@@if only there was exactly such TeX command!@@ _
+@@but I was not optimistic, as I @felt this did not quite agree the spirit of TeX’s design.@@ '
 
-@@meanwhile, I was &troubled by the ugliness of the ++\unicode++ letters with accents.@@ _
-@@then, when researching Stack Overflow about ++\overset++ and ++\underset++, I saw several posts@@ _
-@@explaining the plain-TeX control sequence ++\smash++.@@ _
-@@its name alone sounded just like what I was after!@@ _
+@@meanwhile, I was &troubled by the ugliness of the@@ ++\unicode++ @@letters with accents.@@ _
+@@then, when researching Stack Overflow about@@ ++\overset++ @@and@@ ++\underset++ @@,@@ @@I @saw several posts explaining the plain-TeX control sequence@@ ++\smash++ @@.@@ _
+@@its name alone @sounded just like <what I was after>!@@ '
 
-@@to elaborate, macro@@ ++\smash {<subformula>}++ @@is in Plain TeX;@@
-@@it yields the same result as ++<subformula>++, but makes the height and depth zero.@@ _
-@@by using both ++\smash++ and ++\vphantom++ one can typeset any subformula, and give it any desired height and depth.@@ _
-@@for more explanation, see TeXbook (p 178),@@
-@@and its implementation is in Appendix B (p 360):@@ '
+@@to elaborate, macro@@ ++\smash {<subformula>}++ @@was in Plain TeX;@@
+@@it @yielded the same result as@@ ++<subformula>++ @@,@@ @@but makes the height and depth zero.@@ _
+@@by using both@@ ++\smash++ @@and@@ ++\vphantom++ @@we could typeset any subformula, and give it any desired height and depth.@@ _
+@@for more explanation, see TeXbook (p 178) and its implementation in Appendix B (p 360):@@ '
 
-++\def\smash{\relax % \relax, in case this comes first in \halign++ '
-_ ++\ifmmode\def\next{\mathpalette\mathsm@sh}\else\let\next\makesm@sh++ '
-_ ++\fi \next}++ '
+++\def \smash{\relax++ '
+_ _ ++\ifmmode \def \next{\mathpalette \mathsm@sh}++ '
+_ _ ++\else \let \next \makesm@sh++ '
+_ _ ++\fi \next}++ '
 
-@@instantly I applied ++\smash++ to my ++\unicode++ containing macro, and the letters did look normal!@@ '
-@@I really should have learnt TeX.@@ '
+@@instantly I @applied@@ ++\smash++ @@to my@@ ++\unicode++ @@containing macro, and the letters did look normal!@@ _
+@@I really should have learnt TeX.@@ _
 @@some plain TeX sequences unknown to me might very well answer many of my confusions.@@ '
 ===
 
 ===
 %%August 2:%% '
 
-@@unfortunately, most miscellaneous symbols weren’t in Noto Sans nor Noto Serif, which means I might have to stick to Mathjax.@@ _
-@@but as I said, ++\unicode++ extension allows one to use unicode characters not provided by LaTeX, even Japanese Hiragana and Kanji.@@ _
+@@unfortunately, most miscellaneous symbols weren’t in Noto Sans nor Noto Serif, which @meant I might have to stick to Mathjax.@@ _
+@@but as I @said,@@ ++\unicode++ @@extension @allowed me to use unicode characters not provided by LaTeX, even Japanese Hiragana and Kanji.@@ '
 
-@@at this point, I decided to take a break to learn a good deal of HTML, CSS, Javascript, as well as Jekyll, SASS, and Kramdown.@@ _
-@@hopefully, the solution of some problems would come naturally afterwards,@@
-@@or at least, knowing more web programming could only be beneficial to one’s career.@@ _
-@@by now, I had spent too much on these matters which this post explains,@@
-@@and I had better focus on the very writing which this site was &constructed for.@@ _
+@@at this point, I #decide to take a break, in order to learn a good deal of HTML, CSS, Javascript, as well as Jekyll and SASS.@@ _
+@@hopefully, the solution of some problems will come naturally afterwards to me,@@
+@@or at least, knowing more web programming can only be beneficial to my career.@@ _
+@@by now, I #have spent too much on these matters {which this post $explains},@@
+@@and I @had better focus on the very writing {which this site is &constructed for}.@@ '
 ===
 
 ~~~
@@ -147,7 +146,7 @@ _ ++\fi \next}++ '
 ===
 @@Jonathan McGlone, “Guide on GitHub Pages”@@
    \\http://jmcglone.com/guides/github-pages\\ '
-@@Jekyll template@@
+@@A Jekyll template@@
    \\https://github.com/jekyll/example\\ '
 @@Managing a custom domain for your github pages site@@
    \\https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site\\ '
