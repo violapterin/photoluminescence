@@ -8,7 +8,7 @@
 
 @@one reason I want to have a personal site is to write notes containing mathematics, of either popular or research level.@@ _
 @@about just one year ago, I created a WordPress account, mainly because they support LaTeX (to some extent).@@ _
-@@WordPress’s interface is straighforward, their templates modern and elegant, and their email support prompt and helpful.@@ '
+@@WordPress’s interface is straightforward, their templates modern and elegant, and their email support prompt and helpful.@@ '
 
 @@so why did I move away?@@ _
 @@WordPress only allowed the user to type in the web interface,@@
@@ -136,7 +136,13 @@ _ ++\fi \next}++ '
 @@and I had better focus on the very writing which this site was &constructed for.@@ _
 ===
 
-=== ##Source## ===
+~~~
+
+===
+%%early August, 2020.%%
+===
+
+=== ##References## ===
 
 ===
 @@Jonathan McGlone, “Guide on GitHub Pages”@@
@@ -153,10 +159,4 @@ _ ++\fi \next}++ '
    \\https://wordpress.com/domains/manage\\
 @@User@@ ++barbara beeton++@@,@@ @@“Vertical spacing of underset and other tweaks”@@
    \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
-===
-
-~~~
-
-===
-%%early August, 2020.%%
 ===

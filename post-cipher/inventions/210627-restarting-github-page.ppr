@@ -23,7 +23,7 @@
 @@in this manner, parsing was &done recursively.@@ '
 
 @@the parent object @passed, to its child object, the child’s source and additional information on the position relative to the parent’s content.@@ _
-@@such information, used in error messages, @included the line number, the column number, the left fragments of the beginning line, and the right fragments of the ending line.@@ _
+@@such information, to be used in error messages, @included the line number, the column number, the left fragments of the beginning line, and the right fragments of the ending line.@@ _
 @@every object @had to store these fields.@@ '
 
 @@moreover, there shall be corresponding classes of stanza, table, and image, regarded as the same level of section.@@ _
@@ -40,9 +40,9 @@
 @@yet another method @parsed the group of inline level objects (like a sentence).@@ '
 
 @@the text was to be preprocessed before it was &put into a HTML span.@@ _
-@@at least,@@ ++&++ @@,@@ ++<++ @@,@@ ++>++ @@,@@ ++"++ @@,@@ @@and@@ ++'++ @@had to be escaped in HTML.@@ _
-@@for instance, strings may be trimmed of leading and trailing whitespaces.@@ _
-@@additionally, I could have several forbidden characters automatically removed, but used in the source as syntactic sugar to guide myself.@@ '
+@@most importantly,@@ ++&++ @@,@@ ++<++ @@,@@ ++>++ @@,@@ ++"++ @@,@@ @@and@@ ++'++ @@had to be escaped in HTML.@@ _
+@@additionally, strings may be trimmed of leading and trailing whitespaces.@@ _
+@@I could even have several forbidden characters automatically removed, but used in the source as syntactic sugar to guide myself.@@ '
 
 @@for instance, suppose <that@@ ++===++ @@$denotes the beginning and end of a section>,@@
 @@<and@@ ++@@++ @@$denotes beginning and end of a text fragment>,@@
@@ -65,19 +65,20 @@ _ ++<p><span>Who am I?</span></p>++ '
 ===
 %%May 5:%% '
 
-@@two folders were &input into the main function, one of them containing the source, one of the HTML.@@ _
-@@using Python module@@ ++os++ @@ to compare time stamps, I was able to mimic the effect of a makefile.@@ _
-@@that is, when I update a source of a post, only the updated post was converted again.@@ '
+@@two directories were &input into the main function, one of them containing the source, one of the HTML.@@ _
+@@using Python module@@ ++os++ @@ to compare time stamps, I was able to single out the input files newer than output files, mimicking the effect of a makefile.@@ _
+@@this way, when I updated a source of a post, only the updated post was converted again.@@ '
 
-@@I wrote some unity tests.@@ _
-@@when the program @stabilized, generated HTML texts were to be compared to reference answers.@@ '
+@@I @wrote some unity tests.@@ _
+@@they @started from a single “hello world” to tables, code listings, and mathematics.@@ _
+@@when the program @stabilized, newly generated HTML texts were to be compared to reference answers.@@ '
 ===
 
 ===
 %%May 7:%% '
 
 @@the link was a special construction.@@ _
-@@an address, enclosed by@@ ++\\++ @@,@@ @@ @followed a fragment of text,@@
+@@an address, being enclosed by@@ ++\\++ @@,@@ @@ @followed a fragment of text,@@
 @@and they were &combined as an anchor when being parsed.@@ '
 
 @@for instance, consider the Porphyrin source:@@ '
@@ -106,12 +107,12 @@ _ ++<p><span>Who am I?</span></p>++ '
 ===
 %%May 19:%% '
 @@ @embarked the task of parsing math.@@ _
-@@both letter and signs, let us say, were @encoded by precisely two characters.@@ _
+@@both letter and signs, let us say, were &encoded by precisely two characters.@@ _
 @@the token for letters @began with one of@@ ++.#&@$++ @@,@@ @@and @ended in an alphabet@@ ++AaBb ... Zz++ @@,@@ _
 @@and the token for signs @began with one of@@ ++./+-*=~\|^<>%++ @@,@@ @@and @ended in a number@@ ++01 ... 9++ @@.@@ '
 
-@@I @allowed three kinds of composite objects, namely the fraction, the term with superscript and subscript, the vector and matrix.@@ _
-@@they were denoted respectively by the plain brackets@@ ++(.a, .b)++ @@,@@ ++[.a: .b: .c]++ @@,@@ @@and@@ ++{.a; .b; .c; .d}++ @@.@@ _
+@@I @allowed three kinds of composite objects, namely the term of fraction, the term with superscript and subscript, and the term of vector and matrix.@@ _
+@@they were &denoted respectively by the plain brackets@@ ++(.a, .b)++ @@,@@ ++[.a: .b: .c]++ @@,@@ @@and@@ ++{.a; .b; .c; .d}++ @@.@@ _
 @@meanwhile,@@ ++.(.)++ @@,@@ ++.[.]++ @@,@@ ++.{.}++ @@,@@ ++.<.>++ @@,@@ @@and@@ ++.\.|++ @@,@@ @@are literal brackets.@@ '
 
 @@for example, consider the source:@@ '
