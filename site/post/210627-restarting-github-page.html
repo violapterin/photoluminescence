@@ -80,10 +80,10 @@
 <span class="phrase"><em class="serif-italic">March 10, 2021:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Created repo.</span></span> <span class="phrase"><span class="serif-roman">The GitHub commit was going to be helpful in reconstructing the creating process.</span></span> <span class="phrase"><span class="serif-roman">To recapitulate, I was designing a markup, which output HTML with Mathjax- readable LaTeX in it.</span></span> <span class="phrase"><span class="serif-roman">It distinguished normal, italic, and bold text,</span> <span class="serif-roman">and it had a math mode too.</span></span> <span class="phrase"><span class="serif-roman">The project was named “Porphyrin”, because the root had the meaning “purple”.</span></span>
+<span class="phrase"><span class="serif-roman">Created repo.</span></span> <span class="phrase"><span class="serif-roman">The GitHub commit was going to be helpful in reconstructing the creating process.</span></span> <span class="phrase"><span class="serif-roman">To recapitulate, I was designing a markup, which output HTML with Mathjax- readable LaTeX in it.</span></span> <span class="phrase"><span class="serif-roman">It should distinguish normal, italic, and bold text,</span> <span class="serif-roman">and it should have a math mode too.</span></span> <span class="phrase"><span class="serif-roman">The project was named “Porphyrin”, which was derived from the Greek root for ‘purple’.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">It occurred to me, inspired by Markdown, there was a very easy parsing strategy as below.</span></span> <span class="phrase"><span class="serif-roman">Let us say a mark consisted of an ASCII character repeated several times.</span></span> <span class="phrase"><span class="serif-roman">It marked the beginning and the end of an element.</span></span> <span class="phrase"><span class="serif-roman">In so doing, there couldn’t be any ambiguity, as long as the mark didn’t appear in the element’s content.</span></span>
+<span class="phrase"><span class="serif-roman">It occurred to me, inspired by Markdown, there was an easy parsing strategy as below.</span></span> <span class="phrase"><span class="serif-roman">Let us say a mark consisted of an ASCII character repeated several times.</span></span> <span class="phrase"><span class="serif-roman">It marked the beginning and the end of an element.</span></span> <span class="phrase"><span class="serif-roman">In so doing, there couldn’t be any ambiguity, as long as the mark didn’t appear in the element’s content.</span></span>
 </p>
 </div>
 <div class="section">
@@ -91,13 +91,13 @@
 <span class="phrase"><em class="serif-italic">April 19:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">The document consisted of the hierarchy of section, paragraph, sentence, and text.</span></span> <span class="phrase"><span class="serif-roman">Each of them was represented by an object which output HTML element.</span></span> <span class="phrase"><span class="serif-roman">When the parent object was being parsed, it parsed its child objects.</span></span> <span class="phrase"><span class="serif-roman">In this manner, parsing was done recursively.</span></span>
+<span class="phrase"><span class="serif-roman">A run of text might consist of the hierarchy of section, paragraph, sentence, and text.</span></span> <span class="phrase"><span class="serif-roman">Each of them was represented by an object which output HTML element.</span></span> <span class="phrase"><span class="serif-roman">When the parent object was being parsed, it parsed its child objects.</span></span> <span class="phrase"><span class="serif-roman">In this manner, parsing was done recursively.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">The parent object passed, to its child object, the child’s source and additional information on the position relative to the parent’s content.</span></span> <span class="phrase"><span class="serif-roman">Such information, to be used in error messages, included the line number, the column number, the left fragments of the beginning line, and the right fragments of the ending line.</span></span> <span class="phrase"><span class="serif-roman">Every object had to store these fields.</span></span>
+<span class="phrase"><span class="serif-roman">The parent object passed, to its child object, the child’s source and additional information on the position relative to the parent’s content.</span></span> <span class="phrase"><span class="serif-roman">Such information, to be used in error messages, included the line number, the column number, the left fragment of the beginning line, and the right fragment of the ending line.</span></span> <span class="phrase"><span class="serif-roman">Every object had to store these fields.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Moreover, there shall be corresponding classes of stanza, table, and image, regarded as the same level of section.</span></span> <span class="phrase"><span class="serif-roman">Here, a stanza was used to display verses and proof.</span></span> <span class="phrase"><span class="serif-roman">Section, stanza, and table were set to have symmetrical structure in the hierarchy.</span></span> <span class="phrase"><span class="serif-roman">They all inherited a parent class to enhance code reuse.</span></span>
+<span class="phrase"><span class="serif-roman">Similarly, there should be corresponding classes of stanza, table, and image, regarded as the same level of section.</span></span> <span class="phrase"><span class="serif-roman">Here, a stanza was used to display verses and proof.</span></span> <span class="phrase"><span class="serif-roman">Section, stanza, and table were set to have symmetrical structure in the hierarchy.</span></span> <span class="phrase"><span class="serif-roman">They all inherited a parent class to enhance code reuse.</span></span>
 </p>
 </div>
 <div class="section">
@@ -105,13 +105,13 @@
 <span class="phrase"><em class="serif-italic">May 4:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">There was one method which parsed the block level objects (like a sections) from the global source.</span></span> <span class="phrase"><span class="serif-roman">Another method parsed the group of inline level objects (like a paragraph), when a separating token was met.</span></span> <span class="phrase"><span class="serif-roman">Yet another method parsed the group of inline level objects (like a sentence).</span></span>
+<span class="phrase"><span class="serif-roman">There was one method which parsed the block level objects (like a section) from the global source.</span></span> <span class="phrase"><span class="serif-roman">Another method parsed the group of inline level objects (like a paragraph), when a separating token was met.</span></span> <span class="phrase"><span class="serif-roman">Yet another method parsed the group of inline level objects (like a sentence).</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">The text was to be preprocessed before it was put into a HTML span.</span></span> <span class="phrase"><span class="serif-roman">Most importantly,</span> <code class="mono">&amp;</code><span class="serif-roman">,</span> <code class="mono">&lt;</code><span class="serif-roman">,</span> <code class="mono">&gt;</code><span class="serif-roman">,</span> <code class="mono">&quot;</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">&#39;</code> <span class="serif-roman">had to be escaped in HTML.</span></span> <span class="phrase"><span class="serif-roman">Additionally, strings could be trimmed of leading and trailing whitespaces.</span></span> <span class="phrase"><span class="serif-roman">I could even have several forbidden characters automatically removed, but used in the source as syntactic sugar to guide myself.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">For instance, suppose that</span> <code class="mono">===</code> <span class="serif-roman">denotes the beginning and end of a section,</span> <span class="serif-roman">and</span> <code class="mono">@@</code> <span class="serif-roman">denotes beginning and end of a text fragment,</span> <span class="serif-roman">and</span> <code class="mono">&#39;</code> <span class="serif-roman">denotes a newline.</span></span>
+<span class="phrase"><span class="serif-roman">For instance, suppose that</span> <code class="mono">===</code> <span class="serif-roman">denotes the beginning and end of a section,</span> <span class="serif-roman">and that</span> <code class="mono">@@</code> <span class="serif-roman">denotes beginning and end of a text fragment,</span> <span class="serif-roman">and that</span> <code class="mono">&#39;</code> <span class="serif-roman">denotes a newline.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Then below is a valid piece of Porphyrin source:</span></span> <span class="phrase"><code class="mono">===</code></span>
@@ -146,10 +146,10 @@
 <span class="phrase"><em class="serif-italic">May 5:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Two directories were input into the main function, one of them containing the source, one of the HTML.</span></span> <span class="phrase"><span class="serif-roman">Using Python module</span> <code class="mono">os</code> <span class="serif-roman">to compare time stamps, I was able to single out the input files newer than output files, mimicking the effect of a makefile.</span></span> <span class="phrase"><span class="serif-roman">This way, when I updated a source of a post, only the updated post was converted again.</span></span>
+<span class="phrase"><span class="serif-roman">Two directories were input into the main function, one of them containing the source, another containing the HTML.</span></span> <span class="phrase"><span class="serif-roman">Using Python module</span> <code class="mono">os</code> <span class="serif-roman">to compare time stamps, I was able to single out the input files newer than output files, mimicking the effect of a makefile.</span></span> <span class="phrase"><span class="serif-roman">This way, when I updated a source of a post, only the updated post was converted again.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">I wrote some unity tests.</span></span> <span class="phrase"><span class="serif-roman">They started from a single “hello world” to tables, code listings, and mathematics.</span></span> <span class="phrase"><span class="serif-roman">When the program stabilized, newly generated HTML texts were to be compared to reference answers.</span></span>
+<span class="phrase"><span class="serif-roman">Wrote some unity tests.</span></span> <span class="phrase"><span class="serif-roman">They started from a single “hello world” to tables, code listings, and mathematics.</span></span> <span class="phrase"><span class="serif-roman">When the program stabilized, newly generated HTML texts would be compared to reference answers.</span></span>
 </p>
 </div>
 <div class="section">
@@ -177,7 +177,7 @@
 <span class="phrase"><em class="serif-italic">May 11:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">That said, it took more time and caution than I thought to get everything right.</span></span> <span class="phrase"><span class="serif-roman">For example, within a loop, a section called its method to snip a fragment of source intended for a paragraph.</span></span> <span class="phrase"><span class="serif-roman">Should the method immediately call the paragraph constructor?</span></span> <span class="phrase"><span class="serif-roman">If so, how did the loop knew the next position in the section source to look?</span></span> <span class="phrase"><span class="serif-roman">Or should the function return the snipped fragment and the mark only,</span> <span class="serif-roman">so the new position could be calculated?</span></span> <span class="phrase"><span class="serif-roman">If so, in the loop the section was obliged to construct the paragraph according to the enclosing mark,</span> <span class="serif-roman">and there would be more repetitive code.</span></span> <span class="phrase"><span class="serif-roman">In the end, I returned both the paragraph and next position, getting the best of both solutions.</span></span>
+<span class="phrase"><span class="serif-roman">That said, it took more time and caution than I thought to get everything right.</span></span> <span class="phrase"><span class="serif-roman">For example, within a loop, a section called its method to snip a fragment of source for a paragraph.</span></span> <span class="phrase"><span class="serif-roman">Should the method immediately call the paragraph constructor?</span></span> <span class="phrase"><span class="serif-roman">If so, how did the loop know the next position in the section source to look?</span></span> <span class="phrase"><span class="serif-roman">Or should the function return the snipped fragment and the mark only,</span> <span class="serif-roman">so the new position could be calculated?</span></span> <span class="phrase"><span class="serif-roman">If so, in the loop the section was obliged to construct the paragraph according to the enclosing marks,</span> <span class="serif-roman">and there would be more repetitive code.</span></span> <span class="phrase"><span class="serif-roman">In the end, I returned both the paragraph and next position, getting the advantage of both solutions.</span></span>
 </p>
 </div>
 <div class="section">
@@ -185,7 +185,7 @@
 <span class="phrase"><em class="serif-italic">May 19:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Embarked the task of parsing math.</span></span> <span class="phrase"><span class="serif-roman">Both letter and signs, let us say, were encoded by precisely two characters.</span></span> <span class="phrase"><span class="serif-roman">The token for letters began with one of</span> <code class="mono">.#&amp;@$</code><span class="serif-roman">,</span> <span class="serif-roman">and ended in an alphabet</span> <code class="mono">AaBb ... Zz</code><span class="serif-roman">,</span></span> <span class="phrase"><span class="serif-roman">And the token for signs began with one of</span> <code class="mono">./+-*=~\|^&lt;&gt;%</code><span class="serif-roman">,</span> <span class="serif-roman">and ended in a number</span> <code class="mono">01 ... 9</code><span class="serif-roman">.</span></span>
+<span class="phrase"><span class="serif-roman">Embarked the task of parsing math.</span></span> <span class="phrase"><span class="serif-roman">Both letters and signs, let us say, were encoded by precisely two characters.</span></span> <span class="phrase"><span class="serif-roman">The token for letters began with one of</span> <code class="mono">.#&amp;@$</code><span class="serif-roman">,</span> <span class="serif-roman">and ended in one of the alphabets</span> <code class="mono">AaBb ... Zz</code><span class="serif-roman">,</span> <span class="serif-roman">and the token for signs began with one of</span> <code class="mono">./+-*=~\|^&lt;&gt;%</code><span class="serif-roman">,</span> <span class="serif-roman">and ended in one of the numbers</span> <code class="mono">01 ... 9</code><span class="serif-roman">.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">I allowed three kinds of composite objects, namely the term of fraction, the term with superscript and subscript, and the term of vector and matrix.</span></span> <span class="phrase"><span class="serif-roman">They were denoted respectively by the plain brackets</span> <code class="mono">(.a, .b)</code><span class="serif-roman">,</span> <code class="mono">[.a: .b: .c]</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">{.a; .b; .c; .d}</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Meanwhile,</span> <code class="mono">.(.)</code><span class="serif-roman">,</span> <code class="mono">.[.]</code><span class="serif-roman">,</span> <code class="mono">.{.}</code><span class="serif-roman">,</span> <code class="mono">.&lt;.&gt;</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">.\.|</code><span class="serif-roman">,</span> <span class="serif-roman">are literal brackets.</span></span>
@@ -205,7 +205,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">May 27:</em></span>
+<span class="phrase"><em class="serif-italic">May 26:</em></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Interpretation succeeded for the first time!</span></span>
@@ -216,7 +216,7 @@
 <span class="phrase"><em class="serif-italic">May 27:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Except in enclosing marks, I made the document ignore whitespace characters anywhere else.</span></span> <span class="phrase"><span class="serif-roman">However, this made it more difficult to find the next position when snipping a fragment of source.</span></span> <span class="phrase"><span class="serif-roman">After much consideration, I found that there just had to be a function which found the very next non- whitespace character.</span></span>
+<span class="phrase"><span class="serif-roman">Except in enclosing marks, I made the document ignore whitespace characters anywhere else.</span></span> <span class="phrase"><span class="serif-roman">However, this made it more difficult to find the next position when snipping the very next fragment of source.</span></span> <span class="phrase"><span class="serif-roman">After much consideration, I found that there just had to be a function which found the very next non- whitespace character.</span></span>
 </p>
 </div>
 <div class="break">
@@ -224,7 +224,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">June 27, 2021.</em></span>
+<span class="phrase"><span class="serif-roman">🙙</span> <em class="serif-italic">June 27, 2021</em></span>
 </p>
 </div>
 </main>

@@ -1,4 +1,20 @@
 window.MathJax = {
+  jax: {
+    load: ["input/tex", "output/chtml"]
+  },
+  tex2jax: {
+    packages: {
+      '[+]': ['ams'],
+      '[+]': ['unicode'],
+      '[+]': ['color']
+    },
+    inlineMath: ['\\(', '\\)'],
+    displayMath: ['\\[', '\\]']
+  },
+  SVG: {
+    scale: 1.2,
+    font: "STIX-Web"
+  },
   options: {
     processHtmlClass: [
       "math-letter", "math-sign", "math-plain",
@@ -8,21 +24,5 @@ window.MathJax = {
       "math-serif", "math-sans", "math-mono",
     ],
     ignoreHtmlClass: "body"
-  },
-  loader: {
-    load: ["input/tex", "output/chtml"]
-  },
-  tex: {
-    packages: {
-      '[+]': ['ams'],
-      '[+]': ['unicode'],
-      '[+]': ['color']
-    },
-    inlineMath: ['\\(', '\\)'],
-    displayMath: ['\\[', '\\]']
-  },
-  svg: {
-    scale: 1.2,
-    font: "STIX-Web"
   }
 };

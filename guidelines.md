@@ -34,8 +34,15 @@
 
 | | protagonist | senior | junior, remote | junior, close |
 | --- | --- | --- | --- | --- |
-| A, E, F | I, Dziyu | formal title, Chinese given name | informal title, Chinese surname | English name, the feature |
-| B | “the protagonist” | formal title, Chinese surname | informal title, Chinese given name | Chinese given name, the feature |
+| A, E, F | I, Ziyu | formal title, Chinese given name | informal title, Chinese given name | English name, the feature |
+| B | “the protagonist” | formal title, Chinese surname | informal title, Chinese surname | Chinese given name, the feature |
 | C | various | Chinese surname | Chinese given name | Chinese given name |
 
+## Transliteration
+
+| | Romance orthography | other orthography | phonology | sense |
+| --- | --- | --- | --- | --- |
+| in fictions | normal, without diacritics | phonological, all capital | not applicable | in single quotes |
+| in linguistic discussions | normal, bold | other orthography | phonological, in brackets | italic |
+| elsewhere | normal | official, italic | phonological, all capital  | in single quotes  |
 

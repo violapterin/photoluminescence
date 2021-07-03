@@ -4,11 +4,11 @@
 @@ @created repo.@@ _
 @@the GitHub commit was %going to be helpful in reconstructing the creating process.@@ _
 @@to recapitulate, I was %designing a markup, {which &output HTML with Mathjax- readable LaTeX in it}.@@ _
-@@it @distinguished normal, italic, and bold text,@@
-@@and it @had a math mode too.@@ _
-@@the project was &named “Porphyrin”, because the root @had the meaning “purple”.@@ '
+@@it should distinguish normal, italic, and bold text,@@
+@@and it should have a math mode too.@@ _
+@@the project was &named “Porphyrin”, {which was &derived from the Greek root for ‘purple’.@@ '
 
-@@it @occurred to me, inspired by Markdown, there was a very easy parsing strategy as below.@@ _
+@@it @occurred to me, inspired by Markdown, there was an easy parsing strategy as below.@@ _
 @@let us say a mark @consisted of an ASCII character repeated several times.@@ _
 @@it @marked the beginning and the end of an element.@@ _
 @@in so doing, there couldn’t be any ambiguity, as long as the mark didn’t appear in the element’s content.@@ '
@@ -17,16 +17,16 @@
 ===
 %%April 19:%% '
 
-@@the document @consisted of the hierarchy of section, paragraph, sentence, and text.@@ _
+@@a run of text might consist of the hierarchy of section, paragraph, sentence, and text.@@ _
 @@each of them was &represented by an object {which @output HTML element}.@@ _
 @@when the parent object was being &parsed, it @parsed its child objects.@@ _
 @@in this manner, parsing was &done recursively.@@ '
 
 @@the parent object @passed, to its child object, the child’s source and additional information on the position relative to the parent’s content.@@ _
-@@such information, to be used in error messages, @included the line number, the column number, the left fragments of the beginning line, and the right fragments of the ending line.@@ _
+@@such information, to be used in error messages, @included the line number, the column number, the left fragment of the beginning line, and the right fragment of the ending line.@@ _
 @@every object @had to store these fields.@@ '
 
-@@moreover, there shall be corresponding classes of stanza, table, and image, regarded as the same level of section.@@ _
+@@similarly, there should be corresponding classes of stanza, table, and image, regarded as the same level of section.@@ _
 @@here, a stanza was &used to display verses and proof.@@ _
 @@section, stanza, and table were &set to have symmetrical structure in the hierarchy.@@ _
 @@they all @inherited a parent class to enhance code reuse.@@ '
@@ -35,7 +35,7 @@
 =====
 %%May 4:%% '
 
-@@there was one method {which @parsed the block level objects (like a sections) from the global source}.@@ _
+@@there was one method {which @parsed the block level objects (like a section) from the global source}.@@ _
 @@another method @parsed the group of inline level objects (like a paragraph), when a separating token was &met.@@ _
 @@yet another method @parsed the group of inline level objects (like a sentence).@@ '
 
@@ -45,8 +45,8 @@
 @@I could even have several forbidden characters automatically removed, but used in the source as syntactic sugar to guide myself.@@ '
 
 @@for instance, suppose <that@@ ++===++ @@$denotes the beginning and end of a section>,@@
-@@<and@@ ++@@++ @@$denotes beginning and end of a text fragment>,@@
-@@<and@@ ++'++ @@$denotes a newline>.@@ '
+@@and that@@ ++@@++ @@$denotes beginning and end of a text fragment>,@@
+@@and that@@ ++'++ @@$denotes a newline>.@@ '
 @@then below is a valid piece of Porphyrin source:@@ _
 
 ++===++ '
@@ -65,13 +65,13 @@ _ ++<p><span>Who am I?</span></p>++ '
 ===
 %%May 5:%% '
 
-@@two directories were &input into the main function, one of them containing the source, one of the HTML.@@ _
+@@two directories were &input into the main function, one of them containing the source, another containing the HTML.@@ _
 @@using Python module@@ ++os++ @@ to compare time stamps, I was able to single out the input files newer than output files, mimicking the effect of a makefile.@@ _
-@@this way, when I updated a source of a post, only the updated post was converted again.@@ '
+@@this way, when I @updated a source of a post, only the updated post was converted again.@@ '
 
-@@I @wrote some unity tests.@@ _
+@@ @wrote some unity tests.@@ _
 @@they @started from a single “hello world” to tables, code listings, and mathematics.@@ _
-@@when the program @stabilized, newly generated HTML texts were to be compared to reference answers.@@ '
+@@when the program @stabilized, newly generated HTML texts would be compared to reference answers.@@ '
 ===
 
 ===
@@ -94,22 +94,22 @@ _ ++<p><span>Who am I?</span></p>++ '
 %%May 11:%% '
 
 @@that said, it @took more time and caution than I @thought to get everything right.@@ _
-@@for example, within a loop, a section @called its method to snip a fragment of source intended for a paragraph.@@ _
+@@for example, within a loop, a section @called its method to snip a fragment of source for a paragraph.@@ _
 @@should the method immediately call the paragraph constructor?@@ _
-@@if so, how @did the loop @knew the next position in the section source to look?@@ _
+@@if so, how did the loop know the next position in the section source to look?@@ _
 @@or should the function return the snipped fragment and the mark only,@@
 @@so the new position could be calculated?@@ _
-@@if so, in the loop the section was &obliged to construct the paragraph according to the enclosing mark,@@
+@@if so, in the loop the section was &obliged to construct the paragraph according to the enclosing marks,@@
 @@and there would be more repetitive code.@@ _
-@@in the end, I @returned both the paragraph and next position, getting the best of both solutions.@@ '
+@@in the end, I @returned both the paragraph and next position, getting the advantage of both solutions.@@ '
 ===
 
 ===
 %%May 19:%% '
 @@ @embarked the task of parsing math.@@ _
-@@both letter and signs, let us say, were &encoded by precisely two characters.@@ _
-@@the token for letters @began with one of@@ ++.#&@$++ @@,@@ @@and @ended in an alphabet@@ ++AaBb ... Zz++ @@,@@ _
-@@and the token for signs @began with one of@@ ++./+-*=~\|^<>%++ @@,@@ @@and @ended in a number@@ ++01 ... 9++ @@.@@ '
+@@both letters and signs, let us say, were &encoded by precisely two characters.@@ _
+@@the token for letters @began with one of@@ ++.#&@$++ @@,@@ @@and @ended in one of the alphabets@@ ++AaBb ... Zz++ @@,@@
+@@and the token for signs @began with one of@@ ++./+-*=~\|^<>%++ @@,@@ @@and @ended in one of the numbers@@ ++01 ... 9++ @@.@@ '
 
 @@I @allowed three kinds of composite objects, namely the term of fraction, the term with superscript and subscript, and the term of vector and matrix.@@ _
 @@they were &denoted respectively by the plain brackets@@ ++(.a, .b)++ @@,@@ ++[.a: .b: .c]++ @@,@@ @@and@@ ++{.a; .b; .c; .d}++ @@.@@ _
@@ -125,7 +125,7 @@ _ ++<p><span>Who am I?</span></p>++ '
 ===
 
 ===
-%%May 27:%% '
+%%May 26:%% '
 
 @@interpretation @succeeded for the first time!@@ '
 ===
@@ -134,12 +134,12 @@ _ ++<p><span>Who am I?</span></p>++ '
 %%May 27:%% '
 
 @@except in enclosing marks, I @made the document ignore whitespace characters anywhere else.@@ _
-@@however, this @made it more difficult to find the next position when snipping a fragment of source.@@ _
+@@however, this @made it more difficult to find the next position when snipping the very next fragment of source.@@ _
 @@after much consideration, I @found <that there just @had to be a function {which @found the very next non- whitespace character}>.@@ '
 ===
 
 ~~~
 
 ===
-%%June 27, 2021.%%
+@@🙙@@ %%June 27, 2021%%
 ===

@@ -8,7 +8,7 @@
 
 @@one reason I @wanted to own a personal site was to write notes on mathematics, of either popular or research level.@@ _
 @@about just one year ago, I @created a WordPress account, mainly because I knew <that they support LaTeX to some extent>.@@ _
-@@WordPress’s interface was straighforward, their templates modern and elegant, and their email support quick and helpful.@@ '
+@@WordPress’s interface was straightforward, their templates modern and elegant, and their email support quick and helpful.@@ '
 @@so why @did I move away?@@ _
 @@WordPress only @allowed the user to type in the web interface,@@
 @@and one couldn’t write and save locally.@@ _
@@ -17,8 +17,8 @@
 @@and there was no way to compile and preview one’s work.@@ _
 @@thus I basically stopped writing on the WordPress site after a while.@@ '
 
-@@this May, from a friend of mine I @learnt the presence of GHP,@@ _
-@@and it @sounded much like <what I intend>.@@ _
+@@this May, Facebook friend Xinbo @advertised GHP,@@
+@@and it @sounded very much like <what I @desired>.@@ _
 @@it @supported LaTeX rendition, enabling me to write mathematics,@@
 @@and I could also write on a local device and commit, {which would made the process more convenient and reliable},@@
 @@and commit records would also better protect my intellectual property.@@ _
@@ -70,7 +70,7 @@
 %%July 26:%% '
 
 @@last year, I had &bought the domain@@ ++violapterin.com++ @@through WordPress- com,@@
-@@And today I finally @transfered the domain to this GHP.@@ _
+@@And today I finally @transferred the domain to this GHP.@@ _
 @@I @emailed WordPress- com staff about the steps,@@
 @@and their response was so kind!@@ _
 @@the instruction had always &been there,@@
@@ -139,14 +139,12 @@ _ _ ++\fi \next}++ '
 ~~~
 
 ===
-%%early August, 2020.%%
+@@🙙@@ %%early August, 2020%%
 ===
 
-=== ##References## ===
+=== ##references## ===
 
 ===
-@@User@@ ++barbara beeton++ @@,@@ @@‹Vertical spacing of underset and other tweaks›@@
-   \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
 @@GitHub,@@ @@‹A Jekyll template›@@
    \\https://github.com/jekyll/example\\ '
 @@GitHub,@@ @@‹Managing a custom domain for your github pages site@@
@@ -157,6 +155,8 @@ _ _ ++\fi \next}++ '
    \\https://jmcglone.com/guides/github-pages\\ '
 @@Mathjax,@@ @@‹API Changes›@@
    \\https://docs.mathjax.org/en/latest/upgrading/v2.html#v2-api-changes\\ '
-@@WordPress com,@@ @@‹Domain management›@@
-   \\https://wordpress.com/domains/manage\\
+@@in Stack Exchange,@@ @@‹Vertical spacing of underset and other tweaks›@@
+   \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\ '
+@@WordPress- com,@@ @@‹Domain management›@@
+   \\https://wordpress.com/domains/manage\\ '
 ===

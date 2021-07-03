@@ -1,11 +1,11 @@
 ===
 %%August 5, 2020:%% '
 
-@@this was %embarassing:@@ _
-@@I @learned what I should have &known by day one: I could totally disable Jekyll to make it a static site.@@ _
+@@this was %embarrassing:@@ _
+@@I @learned <what I should have &known by day one>: <I could totally disable Jekyll to make it a static site>.@@ _
 @@I @knew <that when Jekyll was &run, GitHub automatically generated the site again in the server end>.@@ _
-@@but I @didn’t know if there was a empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly.@@ _
-@@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ '
+@@but I @didn’t know <that if there was an empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly>.@@ _
+@@it suddenly @looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ '
 ===
 
 ===
@@ -14,10 +14,9 @@
 @@surprisingly, as I @tested for several simple cases, most browsers @didn’t support MathML, including even Chrome and Safari.@@ _
 @@that crossed out MathML as the framework for my new notation.@@ '
 
-@@if I @used a more linear notation, as Peano did, {which fell in the realm of HTML and CSS}, I might solve the problem by not creating it.@@ _
-@@OK, brace yourself for a even more unconventional notation!@@ '
-
-@@this way, I only @had to mimic fractions and matrices, possibly by drawing a horizontal line between items, and a outermost vertical line surrounding them all.@@ _
+@@if I @used a more linear notation as Peano did, {which fell in the realm of HTML and CSS}, I might solve the problem by not creating it.@@ _
+@@OK, brace yourself for a even more unconventional notation.@@ '
+@@if so, I only @had to mimic fractions and matrices, possibly by drawing an inner horizontal line between items, and an outermost vertical line surrounding them all.@@ _
 @@then I soon @discovered <that@@ ++<p>++ @@ @didn’t allow block- level tags like@@ ++<table>++ @@or@@ ++<div>++ @@>!@@ '
 ===
 
@@ -34,27 +33,25 @@
 ===
 %%August 8%% '
 
-@@implementing a Markdown parser will not be an easy task, as to me, Markdown wasn’t an elegant markup.@@ _
-@@the earliest proposal of Markdown by John Gruber was sometimes ambiguous.@@ _
-@@for example,@@ ++*italic __bold*__++ @@could be either a italic or a bold, depending on the precedence.@@ _
-@@afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.@@ _
+@@implementing a Markdown parser wouldn’t be an easy task, since to me, Markdown wasn’t an elegant markup.@@ _
+@@the earliest version of Markdown by John Gruber was sometimes ambiguous.@@ _
+@@for example,@@ ++*italic __bold*__++ @@could be either an italic or a bold, depending on the precedence.@@ _
+@@afterwards John MacFarlane @proposed CommonMark, and @implemented a PEG grammar.@@ _
 @@to complicate matters, I wasn’t sure whether GitHub- Flavored Markdown @had a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
 @@recall <that it was well &known <that whether a language was unambiguous was undecidable>, in general>.@@ '
 
-@@or it would be more reasonable to first design a subset of the markup, {which was context- free}.@@ _
-@@it should encompass Markdown with Kramdown.@@ _
-@@at this stage I @converted the source to Markdown, and generate via Jekyll.@@ _
-@@then when I @had a better grasp of computation theory, I @finished the rest {which was recursively enumerable}, perhaps as strong as HTML5.@@ _
-@@when that was &done, I @stopped using Markdown and Jekyll altogether.@@ _
-@@still, I @didn’t know how to show rigorously the two parts of the project are theoretically consistent, and I @got confused.@@ '
+@@or it would be more reasonable to first design a subset of the markup, {which was context- free, and should encompass Markdown with Kramdown}.@@ _
+@@at this stage I would convert the source to Markdown, and generate via Jekyll.@@ _
+@@then when I @had a better grasp of computation theory, I would finish the rest of grammar, {which might be recursively enumerable}.@@ _
+@@when that was &done, I would stop using Markdown and Jekyll altogether.@@ _
+@@still, I @didn’t know how to show rigorously <that the two parts of the project are theoretically consistent>,@@
+@@and I @got confused.@@ '
 ===
 
 ===
 %%August 12%% '
 
-@@tested CSS-span-fractions, okay.@@ _
-@@discovered CSS grids, {which might be superior to@@ ++table++@@}.@@ _
-@@came up with the artificial square brackets made of@@ ++span++@@.@@ '
+@@ @came up with the artificial square brackets made of HTML spans.@@ '
 ===
 
 ///
@@ -80,23 +77,36 @@ _ _ ++<span class="v"> x+y+z </span>++ '
 ///
 
 ===
+@@ @discovered CSS grids, {which might be superior to HTML tables}.@@ _
+===
+
+===
 %%August 14:%% '
 
-@@realized <that an expression was really a tree>.@@ _
-@@if I @chose prefix form always, there would be no parsiing problem, like Lisp does.@@ _
-@@later today, my friend Authur Lin coincidentally posted a link talking about prefix-infix-postfix transformation, because I @brought up the topic of obelus sign.@@ _
-@@this helped me further clarify the tree image, and came up with a interpretation of the transformation.@@ _
-@@the design of esoteric language Jelly (inspired by J and APL in turn) was very instructive in its tacit function notation.@@ '
+@@ @realized <that an expression was really a tree>.@@ _
+@@if I @chose prefix form always, there would be no parsing problem, as in Lisp.@@ _
+@@later today, Facebook friend Dingqi coincidentally @posted a link on prefix- infix- postfix transformation, because I @brought up the topic of obelus sign.@@ _
+@@this @helped me further clarify the tree picture@@ _
+@@the design of esoteric language Jelly, and its precursor J and APL, might become instructive as a reference of parser implementation.@@ '
 ===
 
 ~~~
 
 ===
-%%late August, 2020.%%
+@@🙙@@ %%late August, 2020%%
 ===
 
-=== ##References## ===
+=== ##references## ===
 
 ===
-@@A grammar for HTML5@@ \\http://trevorjim.com/a-grammar-for-html5\\
+@@Sebastian Boldt,@@ @@‹Jelly›@@
+   \\https://github.com/SebastianBoldt/Jelly\\ '
+@@Trevor Jim,@@ @@‹A grammar for HTML5›@@
+   \\http://trevorjim.com/a-grammar-for-html5\\ '
+@@John MacFarlane et al,@@ @@CommonMark Spec@@
+   \\https://spec.commonmark.org/\\ '
+@@MDN Web Docs,@@ @@‹grid›@@
+   \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
+@@in Stack Overflow,@@ @@‹How to display classic built- up fractions with an horizontal line›@@
+   \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ '
 ===

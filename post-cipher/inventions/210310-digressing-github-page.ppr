@@ -9,68 +9,76 @@
 
 @@let me recount these considerations, to recapitulate and partly to organize my own thought.@@ _
 @@the easiest choice was just sticking to Mathjax in Markdown.@@ _
-@@however, one $has to use Javascript preprocessing to effectively introduce macros, {which wasn’t flexible}.@@ _
-@@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflict HTML,@@
-@@and there was no unicode characters beyond standard LaTeX.@@ _
+@@however, one @had to use Javascript preprocessing to effectively introduce macros, {which wasn’t flexible}.@@ _
+@@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflicted HTML,@@
+@@and there were no unicode characters beyond those in standard LaTeX.@@ _
 @@moreover, the latest version didn’t break long expressions.@@ '
 
-@@or it seems to be the best <that I abandon Jekyll altogether>,@@
+@@or it @seemed to be the best <that I abandon Jekyll altogether>,@@
+@@but I might not be capable of writing a system equivalent to Jekyll.@@ '
 @@I could use CSS to typeset fractions, vectors, and matrices,@@
 @@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@could be simulated by different fonts.@@ _
 @@superscripts and subscripts were inherent in HTML, though recursive applications might not look nice.@@ _
-@@for example, a double superscript was traditionally smaller than a single superscript, {which has to be modified by a class}.@@ _
-@@these tasks were possible, but not easy.@@ _
-@@I might not be capable of writing a system equivalent to Jekyll.@@ '
+@@for example, a double superscript was traditionally smaller than a single superscript, {which probably had to be specified by a CSS class}.@@ _
+@@these tasks sounded possible, but not easy.@@ _
 
 @@there were other options, after extensive search, such as invoking MathML or save everything as images.@@ _
-@@quickly I @realized <that directly input MathML was highly verbose>.@@ _
-@@saving images would soon reach the limit of Github page, {which is@@ ^^.1^^ @@GB}.@@ '
+@@quickly I @realized <that directly inputting MathML was highly verbose>.@@ _
+@@saving images in the repository would soon reach the limit of Github page, {which is@@ ^^.1^^ @@GB}.@@ '
 
 @@lastly, for some time, perhaps by middle of December 2020, I actually @considered completely abandoning traditional mathematical notation,@@
 @@and I @entertained the possibility of designing a new language expressed entirely in ASCII characters.@@ _
-@@the@@ ++ + ++@@,@@ ++-++@@,@@ ++*++@@,@@ ++/++@@,@@ ++^++ @@continue to mean basic operations,@@
+@@the symbols@@ ++ + ++@@,@@ ++-++@@,@@ ++*++@@,@@ ++/++@@,@@ ++^++ @@continue to mean basic operations,@@
 @@and more complicated ones were to be represented by words@@ ++integration++@@,@@ ++differentiation++@@,@@ @@as in Mathematica.@@ _
-@@the downside was <that I wouldn’t be able to communicate with other people>.@@ _
-@@even if I @linked every post to a summary of convention, the probability <that people insist to finish a post> was %diminishing.@@ '
+@@the downside was <that I wouldn’t be able to communicate with other people without additional effort>.@@ _
+@@even if I @linked every post to a summary of convention, the probability <that people @managed to finish a post> was %diminishing.@@ '
 ===
 
 === ##rethinking proof presentation## ===
 
 ===
-@@what’s more, between these months, I @kept wondering what an ideal proof presentation would be.@@ _
+@@largely inspired by such contemplation on mathematical notation, between these months I @kept wondering <what an ideal proof presentation would be>.@@ _
 @@I @had the independent awareness <that the traditional style of proof was in many ways inadequate>.@@ _
-@@about the middle of August, I @came across the Wikipedia post of Curry- Howard isomorphism,
-and that truly @changed my worldview.@@ _
+@@about the middle of August, I @came across the Wikipedia post of Curry- Howard isomorphism,@@
+@@and that truly @changed my worldview1@@ _
 @@I @searched widely to learn more about logic, mathematical foundation, intuitionistic mathematics, constructivism, type theory, and interactive theorem provers.@@ _
-@@since this narrative isn’t &centered about, so to say, these new mathematics, I shall continue my train of thought about the GitHub pages without explaining these fancy terms.@@ '
+@@since this narrative isn’t &centered about, so to say, these sorts of new mathematics, I would continue my train of thought without explaining these fancy terms.@@ '
 
-@@in short, I @had the urge to present classical mathematics in a more type theoretical style.@@ _
-@@a thorough approach might be designing a pseudo code for proof assistant, such as Coq,@@
-@@so that besides checking mentally, it was easy to rewrite in a way it could be checked via Coq too.@@ _
-@@additionally it was perhaps more aesthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
+@@in short, I @had the urge to present classical mathematics in a more constructive manner.@@ _
+@@a thorough approach might be designing a pseudo code for a proof assistant, such as Coq,@@
+@@so that besides checking mentally as we usually did, it was easy to rewrite the presentation in a {way it could be checked via Coq too}.@@ _
+@@by the way, it was perhaps more aesthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
 
 @@January, February, and March soon passed,@@
-@@and it occurred to me classical mathematics hadn’t missed much, if few little changes were &made.@@ _
-@@just to be sure that I wasn’t missing much, I @took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
-@@most importantly, I #suggest <that statements {which weren’t identity nor partial orders}, shouldn’t be &buried in paragraphs, but should occupy a lone line and be &numbered as equations>.@@ _
-@@another suggestion was <that the reasons of a proposition should go just above the equation>, and <that these reasons should be &ordered according to the order of substitution>.@@ _
+@@and it occurred to me instead <that classical mathematics was mostly fine, if few little changes were &made>.@@ _
+@@just to be sure <that I wasn’t missing much>, I @took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
+@@most importantly, my suggestion was <that statements {which weren’t identity nor partial orders}, shouldn’t be &buried in paragraphs, but should occupy a lone line and be &numbered as equations>.@@ _
+@@moreover, the reasons of a proposition should go just above the equation, and that these reasons should be &ordered according to the order of substitution.@@ _
 @@finally, application of law of excluded middle and nonconstructive axiom of choice should be &announced every time.@@ _
 @@these conventions could make it easier to recover the Curry- Howard isomorphism.@@ '
-
-@@most simply put, I @realized <that classical mathematics was fine, as long as I @had a strong type theoretical inclination>.@@ _
-@@a balance between constructiveness and convention was therefore feasible.@@ _
-@@I could be very well content with more strictly natural deduction style presentation, to have a more reasonable scope of project.@@ '
+@@a balance between constructive inclination and tradition did appear to be feasible, making the scope of my project more reasonable.@@ '
 
 @@it simply $remains to design a markup {which $describes normal text and mathematics, and $outputs HTML}.@@ _
 @@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _
 @@moreover, there $has to be a mark {which $denotes the beginning and end of a math mode},@@
 @@so I am free to rename the symbols as I wish.@@ _
-@@the code in the math mode, in turn, is to be converted to standard LaTeX,@@
+@@the code in the math mode, in turn, is to be converted to standard LaTeX.@@ _
 @@I am ready to code.@@ '
 ===
 
 ~~~
 
 ===
-%%June 23, 2021.%%
+@@🙙@@ %%June 23, 2021%%
+===
+
+=== ##references## ===
+
+===
+@@Coq team,@@ @@‹Typing rules›@@
+   \\https://coq.inria.fr/refman/language/cic.html\\ '
+@@T Coquand and G Huet, ‹The Calculus of Constructions›, ‹Information and Computation›, 1988@@ '
+@@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism»@@ '
+@@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
+   \\https://homotopytypetheory.org/book\\ '
 ===

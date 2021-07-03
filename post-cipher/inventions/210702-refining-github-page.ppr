@@ -2,7 +2,7 @@
 %%June 3, 2021:%% '
 
 @@ @created repository for the website.@@'
-@@it was &named “Photoluminescence”, with the allusion to light, since this word was respectively &derived from Greek and Latin roots for “light”.@@ '
+@@it was &named “Photoluminescence”, with the allusion to light, since this word was respectively &derived from Greek and Latin roots for ‘light’.@@ '
 @@the Photoluminescence repository was to be copied by a bash script into the GitHub Page repository, whenever I updated the former.@@ _
 @@this way, I could make little changes as I @wanted to, without polluting the GitHub Page repository.@@ _
 
@@ -13,7 +13,7 @@
 ===
 
 ===
-%%June 5, 2021:%% '
+%%June 5:%% '
 
 @@ @sketched a Python script playing the role similar to a makefile.@@ _
 @@first, it @searched the Porphyrin markup in a directory, and @converted them into HTML.@@ _
@@ -31,7 +31,75 @@
 %%June 10:%% '
 
 @@interpretation @succeeded!@@ '
+
+@@different CSS classes accounted for normal, italic, bold texts.@@ _
+@@I could also set up indentation, alignment, separating line, and colored categories.@@ '
+@@the image links in the footer for social media was more difficult.@@ '
+@@a solution is using the background rule,@@
+@@and remember to adjust its width and height to avoid unwanted blank space.@@ _
 ===
+
+///
+++.icon-gmail {++ '
+_ ++  background: url("/asset/icon-gmail.png") no-repeat;++ '
+_ ++  display: inline-block;++ '
+_ ++  background-size: contain;++ '
+++}++ '
+///
+
+===
+%%June 15:%% '
+
+@@as an easter egg, the quote in the footer was to be chosen randomly by a Javascript script.@@ _
+@@suppose the quote element had ID@@ ++#quote++ @@,@@ @@then the following scripts would do the job.
+===
+
+///
+++var texts= [`The first quote`, `The second quote`, `The second quote`];++ '
+++var choice = Math.floor(Math.random() * texts.length);++ '
+++document.getElementById("quote").innerHTML = texts[choice];++ '
+///
+
+===
+%%June 16:%% '
+
+@@CSS colors could be called by semantic names, {which was a lot more readable than HEX codes}.@@ '
+===
+
+===
+%%June 17:%% '
+
+@@enhanced responsive design.@@ _
+@@I learnt that font sizes, among other thins, may be adapted with respect to screen width, as shown in the code below.@@ _
+===
+
+///
+++body { font-size: 24px; }++ '
+++@media screen and (max-width: 600px) {++ '
+_ ++body { font-size: 20px; }++ '
+++}++ '
+++@media screen and (max-width: 400px) {++ '
+_ ++body { font-size: 16px; }++ '
+++}++ '
+///
+
+~~~
+
+===
+@@🙙@@ %%July 2, 2021%%
+===
+
+=== ##references## ===
+
+===
+@@MDN web Docs,@@ @@‹Colors›@@
+   \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
+@@MDN web Docs,@@ @@‹Specificity›@@
+   \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
+@@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
+   \\https://validator.w3.org\\ '
+===
+
 
 <<<<
 
@@ -148,35 +216,5 @@ Author: Raven I. Pilot <violapterin@gmail.com>
 Date:   Thu Jun 10 03:35:27 2021 +0800
 
     Delete irrelevant CSS classes
-
-commit b6ef673bddddb273291fdb336644465429f101b8
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 10 02:33:44 2021 +0800
-
-    Make site: Interpretation accepted
-
-commit 58aeabb140b49d782dafaab79d7980587a555f55
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Sun Jun 6 19:05:35 2021 +0800
-
-    Change format of entries
-
-commit 0093a6d3bc3b8311a751c03e275009c8e1a45ea7
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Sat Jun 5 02:58:13 2021 +0800
-
-    Sketch `make-post.py`
-
-commit 796e77a788bcae7bb2542dc7829418561fd8b970
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Fri Jun 4 04:57:29 2021 +0800
-
-    Do not distinguish a private site
-
-commit f4ddc0e1b4d5b1abd6956030a59e0cda69d6d481
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 3 03:05:54 2021 +0800
-
-    Create repository
 
 >>>>

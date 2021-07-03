@@ -516,7 +516,7 @@ class Math_tuple(Leaf):
          many_content.append(sink_tissue + "\\\\")
       many_content.append(AID.write_latex("\\end", "matrix"))
       content = AID.unite(many_content, cut = '\n')
-      sink = self.write_math_outside()
+      sink = self.write_math_outside(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
