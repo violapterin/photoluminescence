@@ -12,6 +12,7 @@
 ## Humanities writings
 
 | code | A | B | C | D | E |
+| --- | --- | --- | --- | --- | --- |
 | class | notes | reading | expositions | comments | quests |
 | content | matter of fact | summary of book and longer paper | common knowledge | opinions, academic or life | original |
 | originality | low | low | mid | low | high |
@@ -21,7 +22,7 @@
 ## Autobiographical writings
 
 | code | A | B | C | D | E | F |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | genre | memory | memory | fiction | fiction | memory | memory |
 | time | before 2020 | before 2020 | after 2017 | before 2017 | after 2020 | after 2020 |
 | priority | high | high | mid | mid | low | low |
@@ -33,9 +34,8 @@
 
 | | protagonist | senior | junior, remote | junior, close |
 | --- | --- | --- | --- | --- |
-| A | I, Ziyu | formal title, Chinese given name (pinyin) | title Chinese | surname (pinyin) | Chinese given name (pinyin), the feature |
-| B | "the protagonist" | formal title, Chinese surname (pinyin) | title Chinese, given name (pinyin) | English name, the feature |
+| A, E, F | I, Dziyu | formal title, Chinese given name | informal title, Chinese surname | English name, the feature |
+| B | “the protagonist” | formal title, Chinese surname | informal title, Chinese given name | Chinese given name, the feature |
 | C | various | Chinese surname | Chinese given name | Chinese given name |
-| E, F | I, Dzuyu | formal title, Chinese surname (custom) | title, Chinese given name (custom) | English name, the feature |
 
 

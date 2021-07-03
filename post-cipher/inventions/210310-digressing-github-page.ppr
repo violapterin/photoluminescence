@@ -1,26 +1,26 @@
-=== ##Final decision on the framework## ===
+=== ##the final plan## ===
 
 ===
 @@as of this part, I @didn’t take detailed notes from time to time.@@ _
-@@in fact, I was not sure where this project was %going.@@ _
+@@in fact, I wasn’t sure where this project was %going.@@ _
 @@as I @said, in writing mathematical posts, I was hard to please.@@ _
 @@I @wanted a more succinct, readable, and precise source, {which Markdown was not}.@@ _
 @@and I @wanted typography features, {which Markdown couldn’t express}.@@ '
 
 @@let me recount these considerations, to recapitulate and partly to organize my own thought.@@ _
 @@the easiest choice was just sticking to Mathjax in Markdown.@@ _
-@@however, one $has to use Javascript preprocessing to effectively introduce macros, {which was not flexible}.@@ _
+@@however, one $has to use Javascript preprocessing to effectively introduce macros, {which wasn’t flexible}.@@ _
 @@some characters, such as@@ ++<++ @@and@@ ++>++@@,@@ @@conflict HTML,@@
 @@and there was no unicode characters beyond standard LaTeX.@@ _
-@@moreover, the latest version does not break long expressions.@@ '
+@@moreover, the latest version didn’t break long expressions.@@ '
 
 @@or it seems to be the best <that I abandon Jekyll altogether>,@@
-@@I may use CSS to typeset fractions, vectors, and matrices,@@
+@@I could use CSS to typeset fractions, vectors, and matrices,@@
 @@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@could be simulated by different fonts.@@ _
-@@superscripts and subscripts were inherent in HTML, though recursive applications may not look nice.@@ _
+@@superscripts and subscripts were inherent in HTML, though recursive applications might not look nice.@@ _
 @@for example, a double superscript was traditionally smaller than a single superscript, {which has to be modified by a class}.@@ _
 @@these tasks were possible, but not easy.@@ _
-@@I may not be capable of writing a system equivalent to Jekyll.@@ '
+@@I might not be capable of writing a system equivalent to Jekyll.@@ '
 
 @@there were other options, after extensive search, such as invoking MathML or save everything as images.@@ _
 @@quickly I @realized <that directly input MathML was highly verbose>.@@ _
@@ -34,7 +34,7 @@
 @@even if I @linked every post to a summary of convention, the probability <that people insist to finish a post> was %diminishing.@@ '
 ===
 
-=== ##Thoughts on proof presentation## ===
+=== ##rethinking proof presentation## ===
 
 ===
 @@what’s more, between these months, I @kept wondering what an ideal proof presentation would be.@@ _
@@ -42,7 +42,7 @@
 @@about the middle of August, I @came across the Wikipedia post of Curry- Howard isomorphism,
 and that truly @changed my worldview.@@ _
 @@I @searched widely to learn more about logic, mathematical foundation, intuitionistic mathematics, constructivism, type theory, and interactive theorem provers.@@ _
-@@since this narrative is not &centered about, so to say, these new mathematics, I shall continue my train of thought about the GitHub pages without explaining these fancy terms.@@ '
+@@since this narrative isn’t &centered about, so to say, these new mathematics, I shall continue my train of thought about the GitHub pages without explaining these fancy terms.@@ '
 
 @@in short, I @had the urge to present classical mathematics in a more type theoretical style.@@ _
 @@a thorough approach might be designing a pseudo code for proof assistant, such as Coq,@@
@@ -50,16 +50,16 @@ and that truly @changed my worldview.@@ _
 @@additionally it was perhaps more aesthetically %appealing to me to have a syntax comprising only of ASCII.@@ '
 
 @@January, February, and March soon passed,@@
-@@and it occurs to me classical mathematics has not missed much, if few little changes were &made.@@ _
+@@and it occurred to me classical mathematics hadn’t missed much, if few little changes were &made.@@ _
 @@just to be sure that I wasn’t missing much, I @took a look at several proposed mathematical foundation, such as the introduction and appendix of homotopy type theory, and the original papers of calculus of constructions.@@ _
-@@most importantly, I #suggest <that statements {which were not identity nor partial orders}, should not be buried in paragraphs, but should occupy a lone line and be numbered as equations>.@@ _
-@@another suggestion was <that the reasons of a proposition should go just above the equation>, and <that these reasons should be ordered according to the order of substitution>.@@ _
-@@finally, application of law of excluded middle and nonconstructive axiom of choice should be announced every time.@@ _
-@@this way, it became likely to recover the Curry- Howard isomorphism.@@ '
+@@most importantly, I #suggest <that statements {which weren’t identity nor partial orders}, shouldn’t be &buried in paragraphs, but should occupy a lone line and be &numbered as equations>.@@ _
+@@another suggestion was <that the reasons of a proposition should go just above the equation>, and <that these reasons should be &ordered according to the order of substitution>.@@ _
+@@finally, application of law of excluded middle and nonconstructive axiom of choice should be &announced every time.@@ _
+@@these conventions could make it easier to recover the Curry- Howard isomorphism.@@ '
 
 @@most simply put, I @realized <that classical mathematics was fine, as long as I @had a strong type theoretical inclination>.@@ _
 @@a balance between constructiveness and convention was therefore feasible.@@ _
-@@I may be very well content with more strictly natural deduction style presentation, to have a more reasonable scope of project.@@ '
+@@I could be very well content with more strictly natural deduction style presentation, to have a more reasonable scope of project.@@ '
 
 @@it simply $remains to design a markup {which $describes normal text and mathematics, and $outputs HTML}.@@ _
 @@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _

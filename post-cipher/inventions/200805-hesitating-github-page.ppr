@@ -2,7 +2,7 @@
 %%August 5, 2020:%% '
 
 @@this was %embarassing:@@ _
-@@I @learned what I should have known by day one: I could totally disable Jekyll to make it a static site.@@ _
+@@I @learned what I should have &known by day one: I could totally disable Jekyll to make it a static site.@@ _
 @@I @knew <that when Jekyll was &run, GitHub automatically generated the site again in the server end>.@@ _
 @@but I @didn’t know if there was a empty file@@ ++.nojekyll++@@,@@ @@GitHub no longer ran Jekyll, but it simply recognized@@ ++index.html++@@,@@ @@and serve the site accordingly.@@ _
 @@it suddenly looked feasible to design a custom format, and generate HTML- with- LaTeX myself.@@ '
@@ -25,9 +25,9 @@
 %%August 7%% '
 
 @@important realization!@@ _
-@@HTML@@ ++<p>++ @@may contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
-@@moreover, the CSS@@ ++border-left++@@,@@ ++border-right++@@,@@ ++border-top++@@,@@ @@and@@ ++border-bottom++ @@may serve as traditional mathematical brackets.@@ _
-@@they may be colored, scaled, or thickened as I @wished, by a suitable class.@@ _
+@@HTML@@ ++<p>++ @@could contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
+@@moreover, the CSS@@ ++border-left++@@,@@ ++border-right++@@,@@ ++border-top++@@,@@ @@and@@ ++border-bottom++ @@could serve as traditional mathematical brackets.@@ _
+@@they could be &colored, &scaled, or &thickened as I @wished, by a suitable class.@@ _
 @@this would perhaps suffice for my revolution of notation.@@ '
 ===
 
@@ -36,15 +36,15 @@
 
 @@implementing a Markdown parser will not be an easy task, as to me, Markdown wasn’t an elegant markup.@@ _
 @@the earliest proposal of Markdown by John Gruber was sometimes ambiguous.@@ _
-@@for example,@@ ++*italic __bold*__++ @@can be either a italic or a bold, depending on the precedence.@@ _
+@@for example,@@ ++*italic __bold*__++ @@could be either a italic or a bold, depending on the precedence.@@ _
 @@afterwards John MacFarlane proposed CommonMark, and implemented a PEG grammar.@@ _
-@@to make things more complicated, I wasn’t sure whether GitHub- Flavored Markdown had a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
+@@to complicate matters, I wasn’t sure whether GitHub- Flavored Markdown @had a PEG (parsing expression grammar) or a BNF (Backus–Naur form).@@ _
 @@recall <that it was well &known <that whether a language was unambiguous was undecidable>, in general>.@@ '
 
-@@or it may be more reasonable to first design a subset of the markup, {which was context- free}.@@ _
+@@or it would be more reasonable to first design a subset of the markup, {which was context- free}.@@ _
 @@it should encompass Markdown with Kramdown.@@ _
 @@at this stage I @converted the source to Markdown, and generate via Jekyll.@@ _
-@@then when I had a better grasp of computation theory, I @finished the rest {which was recursively enumerable}, perhaps as strong as HTML5.@@ _
+@@then when I @had a better grasp of computation theory, I @finished the rest {which was recursively enumerable}, perhaps as strong as HTML5.@@ _
 @@when that was &done, I @stopped using Markdown and Jekyll altogether.@@ _
 @@still, I @didn’t know how to show rigorously the two parts of the project are theoretically consistent, and I @got confused.@@ '
 ===

@@ -41,7 +41,7 @@
 
 @@the text was to be preprocessed before it was &put into a HTML span.@@ _
 @@most importantly,@@ ++&++ @@,@@ ++<++ @@,@@ ++>++ @@,@@ ++"++ @@,@@ @@and@@ ++'++ @@had to be escaped in HTML.@@ _
-@@additionally, strings may be trimmed of leading and trailing whitespaces.@@ _
+@@additionally, strings could be trimmed of leading and trailing whitespaces.@@ _
 @@I could even have several forbidden characters automatically removed, but used in the source as syntactic sugar to guide myself.@@ '
 
 @@for instance, suppose <that@@ ++===++ @@$denotes the beginning and end of a section>,@@
@@ -87,7 +87,7 @@ _ ++<p><span>Who am I?</span></p>++ '
 
 @@this $becomes the HTML:@@ '
 
-++<a href="https://en.wikipedia.org">Wikipedia</a>++ '
+++<a href="https://en.wikipedia.org">English Wikipedia</a>++ '
 ===
 
 ===
@@ -98,7 +98,7 @@ _ ++<p><span>Who am I?</span></p>++ '
 @@should the method immediately call the paragraph constructor?@@ _
 @@if so, how @did the loop @knew the next position in the section source to look?@@ _
 @@or should the function return the snipped fragment and the mark only,@@
-@@so the new position may be calculated?@@ _
+@@so the new position could be calculated?@@ _
 @@if so, in the loop the section was &obliged to construct the paragraph according to the enclosing mark,@@
 @@and there would be more repetitive code.@@ _
 @@in the end, I @returned both the paragraph and next position, getting the best of both solutions.@@ '
