@@ -1,19 +1,9 @@
 ===
-@@consider equation@@ '
-^^
-  .a [.2:.x:] .+ .b .x .+ .c
-  .= .0
-^^
-@@Babylonians already knew that@@ ^^.x^^ @@$has the solution@@ '
-^^
-  .x
-  .= (.-.b +0 $R.([.2:.b:] .- .4.a.c.), .2.a)
-^^
-@@isn’t that amazing?@@ '
-===
-
-===
+@@Babylonians already knew that@@ ^^.a [.2:.x:] .+ .b .x .+ .c .= .0^^ @@$has solution:@@ '
+^^ .x
+  .= (.-.b +0 $R.([.2:.b:] .- .4.a.c.), .2.a) ^^ '
 @@by the property of Vandermonde matrix:@@ '
-^^ .[{.1; .1; .1} {.a; .b; .c} {[.2: .a:]; [.2: .b:]; [.2: .c:]}.]
-   .= .(.a .- .b.) .(.b .- .c.) .(.a .- .c.) ^^
+^^ .[{.1.,; .1.,; .1.,} {.a.,; .b.,; .c.,} {[.2: .a:]; [.2: .b:]; [.2: .c:]}.]
+   .= .(.a .- .b.) .(.b .- .c.) .(.a .- .c.)
+   `for` .a., .b., .c.^^ '
 ===

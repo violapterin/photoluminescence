@@ -113,9 +113,9 @@
 @@see TeXbook (p 178) for more explanation, and its implementation in Appendix B (p 360):@@ '
 
 ++\def \smash{\relax++ '
-_ _ ++\ifmmode \def \next{\mathpalette \mathsm@sh}++ '
-_ _ ++\else \let \next \makesm@sh++ '
-_ _ ++\fi \next}++ '
+_ ++\ifmmode \def \next{\mathpalette \mathsm@sh}++ '
+_ ++\else \let \next \makesm@sh++ '
+_ ++\fi \next}++ '
 
 @@instantly I @applied@@ ++\smash++ @@to my@@ ++\unicode++ @@containing macro,@@
 @@and the letters @did look normal!@@ _
@@ -145,18 +145,18 @@ _ _ ++\fi \next}++ '
 === ##references## ===
 
 ===
-@@GitHub,@@ @@‹A Jekyll template›@@
+@@🙙@@ @@GitHub,@@ @@‹A Jekyll template›@@
    \\https://github.com/jekyll/example\\ '
-@@GitHub,@@ @@‹Managing a custom domain for your github pages site@@
+@@🙙@@ @@GitHub,@@ @@‹Managing a custom domain for your github pages site@@
    \\https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site\\ '
-@@Google,@@ @@‹Getting started›@@
+@@🙙@@ @@Google,@@ @@‹Getting started›@@
    \\https://developers.google.com/fonts/docs/getting_started\\ '
-@@Jonathan McGlone, ‹Guide on GitHub Pages›@@
+@@🙙@@ @@Jonathan McGlone, ‹Guide on GitHub Pages›@@
    \\https://jmcglone.com/guides/github-pages\\ '
-@@Mathjax,@@ @@‹API Changes›@@
+@@🙙@@ @@Mathjax,@@ @@‹API Changes›@@
    \\https://docs.mathjax.org/en/latest/upgrading/v2.html#v2-api-changes\\ '
-@@in Stack Exchange,@@ @@‹Vertical spacing of underset and other tweaks›@@
+@@🙙@@ @@in Stack Exchange,@@ @@‹Vertical spacing of underset and other tweaks›@@
    \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\ '
-@@WordPress- com,@@ @@‹Domain management›@@
+@@🙙@@ @@WordPress- com,@@ @@‹Domain management›@@
    \\https://wordpress.com/domains/manage\\ '
 ===

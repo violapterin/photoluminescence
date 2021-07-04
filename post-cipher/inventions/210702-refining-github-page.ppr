@@ -41,9 +41,9 @@
 
 ///
 ++.icon-gmail {++ '
-_ ++  background: url("/asset/icon-gmail.png") no-repeat;++ '
-_ ++  display: inline-block;++ '
-_ ++  background-size: contain;++ '
+_ ++background: url("/asset/icon-gmail.png") no-repeat;++ '
+_ ++display: inline-block;++ '
+_ ++background-size: contain;++ '
 ++}++ '
 ///
 
@@ -92,11 +92,11 @@ _ ++body { font-size: 16px; }++ '
 === ##references## ===
 
 ===
-@@MDN web Docs,@@ @@‹Colors›@@
+@@🙙@@ @@MDN web Docs,@@ @@‹Colors›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
-@@MDN web Docs,@@ @@‹Specificity›@@
+@@🙙@@ @@MDN web Docs,@@ @@‹Specificity›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
-@@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
+@@🙙@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '
 ===
 

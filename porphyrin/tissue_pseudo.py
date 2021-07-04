@@ -105,7 +105,7 @@ class Pseudo_letter(Leaf):
       tail = self.source[1]
       content = many_letter.get(tail)
       if not content:
-         data = self.give_data()
+         data = self.give_data(0, len(self.source) - 1)
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
       if many_letter:
@@ -180,7 +180,7 @@ class Pseudo_sign(Leaf):
          table_sign = AID.get_table_sign(many_sign)
          sign = table_sign.get(tail)
       if not content:
-         data = self.give_data()
+         data = self.give_data(0, len(self.source) - 1)
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
       sink = write_element(

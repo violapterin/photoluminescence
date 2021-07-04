@@ -515,7 +515,8 @@ class Math_tuple(Leaf):
          sink_tissue = AID.unite([tissue.write() for tissue in box])
          many_content.append(sink_tissue + "\\\\")
       many_content.append(AID.write_latex("\\end", "matrix"))
-      content = AID.unite(many_content, cut = '\n')
+      content = AID.unite(many_content, cut = '')
+      content = AID.insert_space_wide_latex(content)
       sink = self.write_math_outside(content)
       return sink
 
@@ -577,11 +578,13 @@ class Math_serif(Leaf):
 
    def write(self):
       command = "\\mathrm"
-      if not isalnum(self.source):
-         data = self.give_data()
-         from .caution import Allowing_only_many_alphabet as creator
+      if not self.source.isalnum():
+         data = self.give_data(0, len(self.source) - 1)
+         from .caution import Allowing_only_alphabet as creator
          creator(**data).panic()
-      sink = AID.write_latex(command, self.source)
+      content = AID.write_latex(command, self.source)
+      content = AID.insert_space_narrow_latex(content)
+      sink = self.write_math_outside(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -596,11 +599,13 @@ class Math_sans(Leaf):
 
    def write(self):
       command = "\\mathsf"
-      if not isalnum(self.source):
-         data = self.give_data()
-         from .caution import Allowing_only_many_alphabet as creator
+      if not self.source.isalnum():
+         data = self.give_data(0, len(self.source) - 1)
+         from .caution import Allowing_only_alphabet as creator
          creator(**data).panic()
-      sink = AID.write_latex(command, self.source)
+      content = AID.write_latex(command, self.source)
+      content = AID.insert_space_narrow_latex(content)
+      sink = self.write_math_outside(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -615,11 +620,13 @@ class Math_mono(Leaf):
 
    def write(self):
       command = "\\mathtt"
-      if not isalnum(self.source):
-         data = self.give_data()
-         from .caution import Allowing_only_many_alphabet as creator
+      if not self.source.isalnum():
+         data = self.give_data(0, len(self.source) - 1)
+         from .caution import Allowing_only_alphabet as creator
          creator(**data).panic()
-      sink = AID.write_latex(command, self.source)
+      content = AID.write_latex(command, self.source)
+      content = AID.insert_space_wide_latex(content)
+      sink = self.write_math_outside(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

@@ -145,6 +145,14 @@ class Organ(object):
       return head_right
 
    def find_balanced(self, mark_left, mark_right, head_left):
+      head_right = head_left
+      if (mark_left == mark_right):
+         head_right = self.find_single(mark_left, head_left)
+      else:
+         head_right = self.find_double(mark_left, mark_right, head_left)
+      return head_right
+
+   def find_double(self, mark_left, mark_right, head_left):
       probe_right = head_left
       count = 0
       interval = range(len(self.source) - len(mark_right) + 1)
@@ -156,6 +164,20 @@ class Organ(object):
          elif (mark_probe == mark_right):
             count -= 1
          if (count == 0):
+            break
+         probe_right += 1
+      return head_right
+
+   def find_single(self, mark, head_left):
+      probe_right = head_left
+      count = 0
+      interval = range(len(self.source) - len(mark) + 1)
+      while (probe_right in interval):
+         head_right = probe_right + len(mark)
+         mark_probe = self.source[probe_right: head_right]
+         if (mark_probe == mark):
+            count += 1
+         if (count == 2):
             break
          probe_right += 1
       return head_right

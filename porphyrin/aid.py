@@ -99,7 +99,6 @@ def get_mark_right(mark_left):
    if not be_start_asymmetry(label_left):
       mark_right = mark_left
       return mark_left
-
    mark_right = mark_left
    if (label_left == "DEFINITION_LEFT"):
       tip_right = get_tip("DEFINITION_RIGHT")
@@ -107,7 +106,6 @@ def get_mark_right(mark_left):
       tip_right = get_tip("COMMENT_RIGHT")
    mark_right = mark_left.replace(tip_left, tip_right)
    return mark_right
-
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -350,7 +348,7 @@ def replace_token(many_token_out, source):
    return sink
 
 def give_wide_space():
-   return "<span class=\"phrase\">&nbsp;</span>"
+   return "<span class=\"phrase\">&ensp;</span>"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -491,6 +489,16 @@ def write_latex(command, *many_option):
    for option in many_option:
       many_sink.append('{' + option + '}')
    sink = unite(many_sink)
+   return sink
+
+def insert_space_narrow_latex(content):
+   space = "\\,"
+   sink = space + content + space
+   return sink
+
+def insert_space_wide_latex(content):
+   space = "\\;"
+   sink = space + content + space
    return sink
 
 def give_many_alphabet_upper():

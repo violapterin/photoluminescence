@@ -52,12 +52,13 @@
 %%August 12%% '
 
 @@ @came up with the artificial square brackets made of HTML spans.@@ '
+@@nevertheless, CSS grids, {which to me was superior to HTML tables}, might be even more suited for this job.@@ _
 ===
 
 ///
 ++.v, .v-b, .v-l, .v-r, .v-l-r {++ '
-_ _ ++display: inline-block;++ '
-_ _ ++vertical-align: middle;++ '
+_ ++display: inline-block;++ '
+_ ++vertical-align: middle;++ '
 ++}++ '
 ++.v-b { border-bottom: thin dotted black;}++ '
 ++.v-l { border-left: thin dotted black;}++ '
@@ -65,20 +66,16 @@ _ _ ++vertical-align: middle;++ '
 ++.v-l-r { border-left: thin dotted black; border-right: thin dotted black;}++ '
 '
 ++<span class="v-l-r">++ '
-_ _ ++<span class="v-b">++ '
-_ _ _ _ ++<span class="v-r">++ '
-_ _ _ _ _ _ ++<span class="v-b"> a </span> <br>++ '
-_ _ _ _ _ _ ++<span class="v"> b </span>++ '
-_ _ _ _ ++</span>++ '
-_ _ _ _ ++- <span class="v"> cd </span>++ '
-_ _ ++</span> <br>++ '
-_ _ ++<span class="v"> x+y+z </span>++ '
+_ ++<span class="v-b">++ '
+_ _ ++<span class="v-r">++ '
+_ _ _ ++<span class="v-b"> a </span> <br>++ '
+_ _ _ ++<span class="v"> b </span>++ '
+_ _ ++</span>++ '
+_ _ ++- <span class="v"> cd </span>++ '
+_ ++</span> <br>++ '
+_ ++<span class="v"> x+y+z </span>++ '
 ++</span>++ '
 ///
-
-===
-@@ @discovered CSS grids, {which might be superior to HTML tables}.@@ _
-===
 
 ===
 %%August 14:%% '
@@ -99,14 +96,14 @@ _ _ ++<span class="v"> x+y+z </span>++ '
 === ##references## ===
 
 ===
-@@Sebastian Boldt,@@ @@‹Jelly›@@
+@@🙙@@ @@Sebastian Boldt,@@ @@‹Jelly›@@
    \\https://github.com/SebastianBoldt/Jelly\\ '
-@@Trevor Jim,@@ @@‹A grammar for HTML5›@@
+@@🙙@@ @@Trevor Jim,@@ @@‹A grammar for HTML5›@@
    \\http://trevorjim.com/a-grammar-for-html5\\ '
-@@John MacFarlane et al,@@ @@CommonMark Spec@@
+@@🙙@@ @@John MacFarlane et al,@@ @@CommonMark Spec@@
    \\https://spec.commonmark.org/\\ '
-@@MDN Web Docs,@@ @@‹grid›@@
+@@🙙@@ @@MDN Web Docs,@@ @@‹grid›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
-@@in Stack Overflow,@@ @@‹How to display classic built- up fractions with an horizontal line›@@
+@@🙙@@ @@in Stack Overflow,@@ @@‹How to display classic built- up fractions with an horizontal line›@@
    \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ '
 ===

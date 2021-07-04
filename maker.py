@@ -1,11 +1,9 @@
-#! /usr/bin/env python3
-
 import os
 import json
 
 import porphyrin.aid as AID
 
-def main():
+def main(whether_new):
    # Load constants.
    folder_this = os.path.dirname(__file__)
    folder_cipher = os.path.join(folder_this, "post-cipher")
@@ -19,8 +17,10 @@ def main():
 
    # # # # # # # # # # # # # # # #
    # # Convert posts into HTML article.
-   # AID.make_all(folder_cipher, folder_plain) # XXX
-   AID.make_new(folder_cipher, folder_plain)
+   if whether_new:
+      AID.make_new(folder_cipher, folder_plain)
+   else:
+      AID.make_all(folder_cipher, folder_plain)
 
    # # # # # # # # # # # # # # # #
    # # Write posts.
@@ -483,9 +483,3 @@ def check_group(member):
    else:
       group = [member]
    return group
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-main()
