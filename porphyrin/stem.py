@@ -387,18 +387,22 @@ class Phrase(Stem):
       self.explain()
       self.parse()
       for leaf in self.many_sink:
-         if not AID.be_literary(leaf.KIND):
-            continue
-         leaf.capitalize()
-         break
+         if AID.be_literary(leaf.KIND):
+            leaf.capitalize()
+            break
+      kind_last = ''
       for leaf in self.many_sink:
+         whether_glue = False
          if AID.be_literary(leaf.KIND):
             punctuations = {',', ':', ';', '.', '?', '!'}
             if leaf.source[0] in punctuations:
-               last = many_content.pop()
-               many_content.append(last + leaf.write())
-               continue
-         many_content.append(leaf.write())
+               whether_glue = True
+         if whether_glue:
+            last = many_content.pop()
+            many_content.append(last + leaf.write())
+         else:
+            many_content.append(leaf.write())
+         kind_last = leaf.KIND
       content = AID.unite(many_content)
       if not content:
          return AID.give_wide_space()

@@ -34,7 +34,7 @@ def main(whether_new):
       AID.output_file(path_post, whole)
 
    # # # # # # # # # # # # # # # #
-   # # Update many_catalog.
+   # # Update catalogs.
    many_catalog_stamp = {}
    for record in many_record:
       stamp = record.get("stamp")
@@ -191,11 +191,13 @@ def write_catalog(matter, many_catalog, folder_post, heading):
       many_whole.append("<p class=\"title-catalog\">")
       many_whole.append(display)
       many_whole.append("</p>")
+      '''
       for record in catalog:
          stamp = record.get("stamp")
          name_post = search_path_post(folder_post, stamp)
          display = write_entry(entry, record, name_post)
          many_whole.append(display)
+      '''
    many_whole.append(footer)
    many_whole.append("</body>")
    many_whole.append("</html>")

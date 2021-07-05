@@ -501,6 +501,13 @@ def insert_space_wide_latex(content):
    sink = space + content + space
    return sink
 
+def surround_tuple_with_affix(affix, thing_tuple):
+   thing_list = []
+   for thing in thing_tuple:
+      thing_list.append(affix + thing + affix)
+   result = tuple(thing_list)
+   return result
+
 def give_many_alphabet_upper():
    many_alphabet = (
       'A', 'B', 'C',
@@ -647,8 +654,8 @@ def be_stop_asymmetry_math(label):
       "STOP_PAIR",
       "STOP_TRIPLET",
       "STOP_TUPLE",
-      "ARROW_LEFT",
-      "ORDER_LEFT",
+      "ARROW_RIGHT",
+      "ORDER_RIGHT",
    }
    return (label in many_label)
 

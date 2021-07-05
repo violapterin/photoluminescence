@@ -89,7 +89,6 @@ class Mono(Leaf):
 
    def write(self):
       content = AID.tune_code(self.source)
-      print("mono", content)
       if content:
          sink = self.write_text(content)
       return sink
@@ -160,11 +159,10 @@ class Math(Leaf):
       while (head < len(self.source)):
          tissue, head = self.snip_tissue_math(head)
          if tissue:
-            # # XXX comment out this line when debugging:
             tissue.OUTSIDE = True
             many_content.append(tissue.write())
          head = self.move_right(0, head)
-      content = AID.unite(many_content)
+      content = AID.unite(many_content, cut = '')
       sink = AID.write_element(
             cut = '',
             content = content,

@@ -57,7 +57,7 @@ class Math_letter(Leaf):
       elif (label_tip == "GREEK"):
          uppers = (
             "\\@", "\\infty", "\\Xi",
-            "\\Delta", "\\&",
+            "\\Delta", "\\&amp;",
             "\\Phi", "\\Gamma", "\\hslash",
             "\\bot", "\\top", "\\S",
             "\\Lambda", "\\mho", "\\nabla",
@@ -130,6 +130,7 @@ class Math_sign(Leaf):
             "\\spadesuit", "\\heartsuit",
             "\\diamondsuit", "\\clubsuit", 
          )
+         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
       elif (label_tip == "OPERATION_TWO"):
          many_sign = (
             "\\mp", "\\ominus", "\\cap",
@@ -137,12 +138,14 @@ class Math_sign(Leaf):
             "\\neg", "\\angle",
             "\\square", "\\blacksquare",
          )
+         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
       elif (label_tip == "OPERATION_THREE"):
          many_sign = (
             "\\times", "\\odot", "\\otimes",
             "\\bullet", "\\circ", "\\star",
             "\\ltimes", "\\rtimes", "\\div", "\\oslash", 
          )
+         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
          many_sign = (
@@ -177,6 +180,7 @@ class Math_sign(Leaf):
             "\\Leftrightarrow", "\\not\\Leftrightarrow",
             "\\leftrightsquigarrow", "\\not\\leftrightsquigarrow",
          )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "EQUIVALENCE_TWO"):
          self.LATERAL = False
          many_sign = (
@@ -184,20 +188,23 @@ class Math_sign(Leaf):
             "\\propto", "\\asymp", "\\gtreqless", "\\lesseqgtr"
             "\\leftrightararray", "\\rightleftararray",
          )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ORDER_LEFT"):
          self.LATERAL = False
          many_sign = (
-            "\\leq", "<", "\\ll", "\\lesssim",
+            "\\leq", "&lt;", "\\ll", "\\lesssim",
             "\\subseteq", "\\subsetneq", "\\in",
             "\\preceq", "\\precneqq", "\\dashv",
          )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ORDER_RIGHT"):
          self.LATERAL = False
          many_sign = (
-            "\\geq", ">", "\\gtrsim", "\\gg",
+            "\\geq", "&gt;", "\\gtrsim", "\\gg",
             "\\supseteq", "\\supsetneq", "\\notin",
             "\\succeq", "\\succneqq", "\\vdash",
          )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ABSTRACTION"):
          many_sign = (
             "\\sum", "\\prod", "\\int", "\\oint",
@@ -249,11 +256,11 @@ class Math_plain(Leaf):
             #
             "ABSTRACTION": "\\wp",
             "LINE": '/',
-            "OPERATION_ONE": '+',
-            "OPERATION_TWO": '-',
+            "OPERATION_ONE": '\\,+\\,',
+            "OPERATION_TWO": '\\,-\\,',
             "OPERATION_THREE": "\\cdot",
-            "EQUIVALENCE_ONE": '=',
-            "EQUIVALENCE_TWO": "\\sim",
+            "EQUIVALENCE_ONE": '\\:=\\:',
+            "EQUIVALENCE_TWO": "\\:\\sim\\:",
             "ARROW_MIDDLE": "\\uparrow",
             "ARROW_LEFT": "\\leftarrow",
             "ARROW_RIGHT": "\\rightarrow",
@@ -571,7 +578,7 @@ class Math_check(Leaf):
 class Math_serif(Leaf):
 
    KIND = "math-serif"
-   LATERAL = True
+   LATERAL = False
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -592,7 +599,7 @@ class Math_serif(Leaf):
 class Math_sans(Leaf):
 
    KIND = "math-sans"
-   LATERAL = True
+   LATERAL = False
 
    def __init__(self, **data):
       self.fill_basic(**data)
@@ -613,7 +620,7 @@ class Math_sans(Leaf):
 class Math_mono(Leaf):
 
    KIND = "math-mono"
-   LATERAL = True
+   LATERAL = False
 
    def __init__(self, **data):
       self.fill_basic(**data)

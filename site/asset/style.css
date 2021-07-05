@@ -26,7 +26,7 @@ body
 @media screen and (max-width: 900px) {
   body { width: 600px; font-size: 22px; }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 750px) {
   body { width: 540px; font-size: 20px; }
 }
 @media screen and (max-width: 600px) {
@@ -109,6 +109,27 @@ body, header
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+table tr th, table tr td
+{
+  background-color: mediumseagreen;
+}
+
+table tr:nth-child(2n)
+{
+  background-color: mediumaquamarine;
+}
+
+table tr th,
+table tr td
+{
+  border: 1px solid #606060;
+  padding: 6px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 main, header,
 p, div, table,
 span, em, b
@@ -165,45 +186,35 @@ code,
 }
 
 .serif-italic, .serif-bold,
-.sans-roman, .sans-bold
-.mono, .math, .pseudo
+.sans-roman, .sans-bold, .mono
+.math, .pseudo
 {
+  margin: 0px;
   padding: 0px;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.math, .pseudo
+{
+  margin: 6px 0px;
+  padding: 0px;
+}
 
 .document a
 {
-  color: dodgerblue;
+  color: deepskyblue;
+  text-decoration: underline;
 }
 
 .document a :visited
 {
-  color: mediumslateblue;
+  color: lightsteelblue;
+  text-decoration: underline;
 }
 
 .document a :hover
 {
-  color: midnightblue;
+  color: mediumslateblue;
   text-decoration: underline;
-}
-
-table tr th, table tr td
-{
-  background-color: mediumseagreen;
-}
-
-table tr:nth-child(2n)
-{
-  background-color: mediumaquamarine;
-}
-
-table tr th,
-table tr td
-{
-  border: 1px solid #606060;
-  padding: 6px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -216,24 +227,29 @@ table tr td
   padding: 0px 60px;
   text-align: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   #header-banner #name-site, #header-banner #menu
   { margin: 6px 8px; padding: 0px 40px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   #header-banner #name-site, #header-banner #menu
   { margin: 6px 4px; padding: 0px 20px; }
+}
+
+#header-banner
+{
+  border-bottom: 3px lightgray solid;
 }
 
 #name-site .title-site
 {
   font-size: 30px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   #name-site .title-site
   { font-size: 24px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   #name-site .title-site
   { font-size: 18px; }
 }
@@ -242,11 +258,11 @@ table tr td
 {
   font-size: 18px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   #name-site .tagline-site
   { font-size: 16px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   #name-site .tagline-site
   { font-size: 14px; }
 }
@@ -255,11 +271,11 @@ table tr td
 {
   font-size: 18px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   #menu .button-menu, #menu .dingbat-menu
   { font-size: 16px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   #menu .button-menu, #menu .dingbat-menu
   { font-size: 14px; }
 }
@@ -312,11 +328,6 @@ table tr td
   text-decoration: underline;
 }
 
-#header-banner
-{
-  border-bottom: 3px lightgray solid;
-}
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 header #header-post, header #header-page
@@ -325,88 +336,89 @@ header #header-post, header #header-page
   padding: 0px;
 }
 
-.entry
+.entry,
+.title-catalog
 {
-  padding: 0px 48px;
+  margin: 12px 0px;
+  padding: 0px 36px;
+}
+@media screen and (max-width: 750px) {
+  .entry
+  { padding: 0px 24px; }
 }
 @media screen and (max-width: 600px) {
   .entry
-  { padding: 0px 32px; }
-}
-@media screen and (max-width: 420px) {
-  .entry
-  { padding: 0px 16px; }
+  { padding: 0px 12px; }
 }
 
-#header-post > .heading-post .heading,
-#header-page > .heading-page .display
+#header-post .heading-post .heading,
+#header-page .heading-page .display
 {
   margin: 12px 30px;
-  font-size: 30px;
+  font-size: 32px;
 }
-@media screen and (max-width: 720px) {
-  #header-post > .heading-post .heading,
-  #header-page > .heading-page .display
+@media screen and (max-width: 750px) {
+  #header-post .heading-post .heading,
+  #header-page .heading-page .display
   { margin: 8px 24px; font-size: 24px; }
 }
 @media screen and (max-width: 600px) {
-  #header-post > .heading-post .heading,
-  #header-page > .heading-page .display
-  { margin: 4px 18px; font-size: 18px; }
+  #header-post .heading-post .heading,
+  #header-page .heading-page .display
+  { margin: 4px 18px; font-size: 20px; }
 }
 
 .title-catalog .display
 {
   margin: 6px 48px;
-  font-size: 30px;
+  font-size: 26px;
   font-style: italic;
   font-weight: 500;
+  color: royalblue;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .title-catalog .display
   { margin: 6px 32px; font-size: 24px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .title-catalog .display
-  { margin: 6px 16px; font-size: 18px; }
+  { margin: 6px 16px; font-size: 22px; }
 }
 
 .entry .title-entry
 {
   font-size: 24px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
   .entry .title-entry
   { font-size: 20px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .entry .title-entry
   { font-size: 16px; }
 }
 
-#header-page > .heading-page,
-#header-post > .heading-post
+#header-page .heading-page,
+#header-post .heading-post
 {
   margin: 12px 36px;
   font-size: 36px;
 }
-@media screen and (max-width: 720px) {
-  #header-page > .heading-page,
-  #header-post > .heading-post
+@media screen and (max-width: 750px) {
+  #header-page .heading-page,
+  #header-post .heading-post
   { margin: 8px 30px; font-size: 30px; }
 }
 @media screen and (max-width: 600px) {
-  #header-page > .heading-page,
-  #header-post > .heading-post
+  #header-page .heading-page,
+  #header-post .heading-post
   { margin: 6px 24px; font-size: 24px; }
 }
 @media screen and (max-width: 420px) {
-  #header-page > .heading-page,
-  #header-post > .heading-post
+  #header-page .heading-page,
+  #header-post .heading-post
   { margin: 4px 18px; font-size: 18px; }
 }
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #header-post .heading-post .heading,
 #header-page .heading-page .display,
@@ -417,7 +429,12 @@ header #header-post, header #header-page
 
 .heading
 {
-  color: maroon
+  color: maroon;
+}
+
+.display
+{
+  color: midnightblue;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -626,8 +643,8 @@ header #header-post, header #header-page
   background: url("/asset/icon-license.png") no-repeat;
 }
 
-
-
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @font-face
