@@ -27,16 +27,16 @@
 | time | before 2020 | before 2020 | after 2017 | before 2017 | after 2020 | after 2020 |
 | priority | high | high | mid | mid | low | low |
 | accuracy | high | high | low | low | mid | mid |
-| type | facebook, list | article, travel | novel | diary, report, speech | diary in addressing voice | therapeutic dialogue |
+| type | facebook, list | article | story | diary, report, speech | article | therapeutic dialogue |
 | person | 1 | 3 | 1, 3 | 1, 2, 3 | 1 | 1, 2 |
 
 ## Naming scheme
 
 | | protagonist | senior | junior, remote | junior, close |
 | --- | --- | --- | --- | --- |
-| A, E, F | I, Ziyu | formal title, Chinese given name or English surname | informal title, Chinese given name or English surname | Chinese given name or English surname, the feature |
-| B | “the protagonist”, Zheng | formal title, Chinese surname or English name | informal title, Chinese surname or English name | Chinese surname or English name, the feature |
-| C | various | Chinese or English surname | Chinese or English given name | Chinese or English given name |
+| A, F | I, Ziyu | formal title, Chinese given name or English surname | informal title, Chinese given name or English surname | Chinese given name or English surname, the feature |
+| B, E | “the protagonist”, Zheng | formal title, Chinese surname or English name | informal title, Chinese surname or English name | Chinese surname or English name, the feature |
+| C, D | various | Chinese or English surname | Chinese or English given name | Chinese or English given name |
 
 ## Transliteration
 
