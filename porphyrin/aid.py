@@ -295,39 +295,6 @@ def tune_hypertext(source):
       index += step
    return sink
 
-def tune_address(source):
-   many_escape = {
-      '!': "%21",
-      '\"': "%22",
-      '#': "%23",
-      '$': "%24",
-      '%': "%25",
-      '&': "%26",
-      '\'': "%27",
-      '(': "%28",
-      ')': "%29",
-      '*': "%2A",
-      '+': "%2B",
-      ',': "%2C",
-      '-': "%2D",
-      '.': "%2E",
-      '/': "%2F",
-   }
-   sink = source
-   index = 0
-   while True:
-      if (index >= len(sink)):
-         break
-      for glyph, escape in many_escape.items():
-         if (index >= len(sink)):
-            break
-         if (sink[index] == glyph):
-            sink = sink[:index] + escape + sink[index + 1:]
-            index += len(escape)
-            continue
-      index += 1
-   return sink
-
 def remove_token(many_token, source):
    sink = source
    for token in many_token:
@@ -381,33 +348,48 @@ def prune_space(source):
    return sink
 
 def be_ideograph(glyph):
+   if be_punctuation(glyph):
+      return False
    if (u'\u4e00' <= glyph <= u'\u9fff'):
       return True # CJK Unified Ideographs
-   if (u'\u3400' <= glyph <= u'\u4dbf'):
+   elif (u'\u3400' <= glyph <= u'\u4dbf'):
       return True # CJK Unified Ideographs Extension A
-   if (u'\u00020000' <= glyph <= u'\u0002a6df'):
+   elif (u'\u00020000' <= glyph <= u'\u0002a6df'):
       return True # CJK Unified Ideographs Extension B
-   if (u'\u0002a700' <= glyph <= u'\u0002b73f'):
+   elif (u'\u0002a700' <= glyph <= u'\u0002b73f'):
       return True # CJK Unified Ideographs Extension C
-   if (u'\u0002b740' <= glyph <= u'\u0002b81f'):
+   elif (u'\u0002b740' <= glyph <= u'\u0002b81f'):
       return True # CJK Unified Ideographs Extension D
-   if (glyph in "。，、；：「」『』（）？！─…‥《》〈〉．"):
-      return True # Fullwidth forms
    return False
 
 def be_latin(glyph):
-   if (glyph in {' ', '\t', '\n'}):
+   if be_punctuation(glyph):
       return False
    if (u'\u0000' <= glyph <= u'\u007F'):
       return True # Basic Latin
-   if (u'\u0080' <= glyph <= u'\u00FF'):
+   elif (u'\u0080' <= glyph <= u'\u00FF'):
       return True # Latin-1 Supplement
-   if (u'\u0100' <= glyph <= u'\u017F'):
+   elif (u'\u0100' <= glyph <= u'\u017F'):
       return True # Latin Extended-A
-   if (u'\u0180' <= glyph <= u'\u024F'):
+   elif (u'\u0180' <= glyph <= u'\u024F'):
       return True # Latin Extended-B
-   if (u'\u0250' <= glyph <= u'\u02AF'):
+   elif (u'\u0250' <= glyph <= u'\u02AF'):
       return True # IPA Extensions
+   return False
+
+def be_punctuation(glyph):
+   many_punctuation = {
+      # halfwidth
+      ' ', '\t', '\n', '–', '–', '—',
+      ',', ':', ';', '.', '?', '!', '(', ')', '[', ']',
+      '“', '”', '‘', '’', '«', '»', '‹', '›',
+      # fullwidth
+      '。', '，', '、', '；', '：', '？', '！',
+      '─', '…', '‥', '．', '（', '）',
+      '「', '」', '『', '』', '《', '》', '〈', '〉',
+   }
+   if glyph in many_punctuation:
+      return True
    return False
 
 def normalize_percentage(many_weight):
@@ -676,17 +658,6 @@ def be_cut_math(label):
       "CUT_PAIR",
       "CUT_TRIPLET",
       "CUT_TUPLE",
-   }
-   return (label in many_label)
-
-def be_not_lateral_math(label):
-   many_label = {
-      "BOLD",
-      "BLACK",
-      "CURSIVE",
-      "GREEK",
-      "EQUIVALENCE_ONE",
-      "EQUIVALENCE_TWO",
    }
    return (label in many_label)
 

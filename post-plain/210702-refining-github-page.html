@@ -1,44 +1,13 @@
 <main class="document">
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">June 3, 2021:</em></span>
+<span class="phrase"><em class="serif-italic">June 10, 2021:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Created repository for the website.</span></span>
+<span class="phrase"><span class="serif-roman">Interpretation of the generation of “Photoluminescence” succeeded!</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">It was named “Photoluminescence”, with the allusion to light, since this word was respectively derived from Greek and Latin roots for ‘light’.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">The Photoluminescence repository was to be copied by a bash script into the GitHub Page repository, whenever I updated the former.</span></span> <span class="phrase"><span class="serif-roman">This way, I could make little changes as I wanted to, without polluting the GitHub Page repository.</span></span> <span class="phrase"><span class="serif-roman">The directories was so organized, that posts were collected into a dedicated directory, and pages into another.</span></span> <span class="phrase"><span class="serif-roman">Here, posts were standalone articles.</span></span> <span class="phrase"><span class="serif-roman">Pages, including</span> <code class="mono">index.html</code><span class="serif-roman">,</span> <span class="serif-roman">displayed linked post titles organized under the same category.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">A category was either a date, genre, series, or a tag.</span></span>
-</p>
-</div>
-<div class="section">
-<p class="paragraph">
-<span class="phrase"><em class="serif-italic">June 5:</em></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Sketched a Python script playing the role similar to a makefile.</span></span> <span class="phrase"><span class="serif-roman">First, it searched the Porphyrin markup in a directory, and converted them into HTML.</span></span> <span class="phrase"><span class="serif-roman">Second, it combined the head, the header, and the footer with the main text of every post.</span></span> <span class="phrase"><span class="serif-roman">Third, it wrote category pages, which either displayed linked posts, or itself listed other categories.</span></span> <span class="phrase"><span class="serif-roman">A JSON file, which Python could read with module</span> <code class="mono">json</code> <span class="serif-roman">,</span> <span class="serif-roman">was to be curated.</span></span> <span class="phrase"><span class="serif-roman">When a category page was being written, data from the JSON file helped the program to map the category name to the path to that page.</span></span> <span class="phrase"><span class="serif-roman">Special consideration was necessary for strings of dates, since they were grouped by month.</span></span> <span class="phrase"><span class="serif-roman">For example, the category “June 2021” was a tag, and the page</span> <code class="mono">/page/june-2021.html</code> <span class="serif-roman">was to be updated constantly.</span></span> <span class="phrase"><span class="serif-roman">To simplify matters, I mandated that every post should have a unique date, saved as six digits (two for each of year, month, and day), from which a function got the month and the corresponding path.</span></span>
-</p>
-</div>
-<div class="section">
-<p class="paragraph">
-<span class="phrase"><em class="serif-italic">June 10:</em></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Interpretation succeeded!</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Different CSS classes accounted for normal, italic, bold texts.</span></span> <span class="phrase"><span class="serif-roman">I could also set up indentation, alignment, separating line, and colored categories.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">The image links in the footer for social media was more difficult.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">A solution is using the background rule,</span> <span class="serif-roman">and remember to adjust its width and height to avoid unwanted blank space.</span></span>
+<span class="phrase"><span class="serif-roman">Different CSS classes accounted for normal, italic, bold texts.</span></span> <span class="phrase"><span class="serif-roman">I could also set up indentation, alignment, separating line, and colored background for category names.</span></span> <span class="phrase"><span class="serif-roman">The image links in the footer for social media was more difficult to achieve.</span></span> <span class="phrase"><span class="serif-roman">A solution is the CSS background rule,</span> <span class="serif-roman">and we had to remember to adjust its width and height to avoid unwanted blank space.</span></span>
 </p>
 </div>
 <div class="stanza">
@@ -63,12 +32,12 @@
 <span class="phrase"><em class="serif-italic">June 15:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">As an easter egg, the quote in the footer was to be chosen randomly by a Javascript script.</span></span> <span class="phrase"><span class="serif-roman">Suppose the quote element had ID</span> <code class="mono">#quote</code><span class="serif-roman">,</span> <span class="serif-roman">then the following scripts would do the job.</span></span>
+<span class="phrase"><span class="serif-roman">As an easter egg, the quote in the footer was to be chosen randomly by a script.</span></span> <span class="phrase"><span class="serif-roman">Suppose the quote element had ID</span> <code class="mono">#quote</code><span class="serif-roman">,</span> <span class="serif-roman">then the following script would do the job.</span></span>
 </p>
 </div>
 <div class="stanza">
 <p class="line">
-<span class="verse"><code class="mono">var texts= [`The first quote`, `The second quote`, `The second quote`];</code></span>
+<span class="verse"><code class="mono">var texts= [`The first quote`, `The second quote`, `The third quote`];</code></span>
 </p>
 <p class="line">
 <span class="verse"><code class="mono">var choice = Math.floor(Math.random() * texts.length);</code></span>
@@ -82,7 +51,7 @@
 <span class="phrase"><em class="serif-italic">June 16:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">CSS colors could be called by semantic names, which was a lot more readable than HEX codes.</span></span>
+<span class="phrase"><span class="serif-roman">CSS colors could be called by semantic names, like</span> <code class="mono">mediumaquamarine</code> <span class="serif-roman">and</span> <code class="mono">midnightblue</code><span class="serif-roman">,</span> <span class="serif-roman">which was a lot more readable than HEX color codes.</span></span>
 </p>
 </div>
 <div class="section">
@@ -90,7 +59,7 @@
 <span class="phrase"><em class="serif-italic">June 17:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Enhanced responsive design.</span></span> <span class="phrase"><span class="serif-roman">I learnt that font sizes, among other thins, may be adapted with respect to screen width, as shown in the code below.</span></span>
+<span class="phrase"><span class="serif-roman">Enhanced responsive design.</span></span> <span class="phrase"><span class="serif-roman">I learnt that font sizes, among other things, could be adapted with respect to the screen width, as shown in the code below.</span></span>
 </p>
 </div>
 <div class="stanza">
@@ -116,12 +85,69 @@
 <span class="verse"><code class="mono">}</code></span>
 </p>
 </div>
-<div class="break">
-<span class="phrase">&emsp;</span> <span class="phrase">🙠</span> <span class="phrase">&emsp;</span> <span class="phrase">🙠</span> <span class="phrase">&emsp;</span> <span class="phrase">🙠</span>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 4:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">While the Mathjax 3 documentation isn’t yet very refined, it is instructive now to copy what configuration worked for me.</span></span> <span class="phrase"><span class="serif-roman">We could choose to render math in SVG, which is saved in image, or CHTML, which calls web fonts.</span></span> <span class="phrase"><span class="serif-roman">Moreover, we could specify precisely those CSS classes in which Mathjax is called.</span></span>
+</p>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">MathJax = {</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">loader: {</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="phrase">&ensp;</span> <span class="verse"><code class="mono">load: [&#39;input/tex&#39;, &#39;output/svg&#39;]</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">},</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">tex: {</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="phrase">&ensp;</span> <span class="verse"><code class="mono">inlineMath: [[&#39;\\(&#39;, &#39;\\)&#39;]],</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="phrase">&ensp;</span> <span class="verse"><code class="mono">displayMath: [[&#39;\\[&#39;, &#39;\\]&#39;]]</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">},</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">options: {</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="phrase">&ensp;</span> <span class="verse"><code class="mono">processHtmlClass: [&quot;math&quot;],</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="phrase">&ensp;</span> <span class="verse"><code class="mono">ignoreHtmlClass: [&quot;body&quot;]</code></span>
+</p>
+<p class="line">
+<span class="phrase">&ensp;</span> <span class="verse"><code class="mono">}</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">};</code></span>
+</p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">🙙</span> <em class="serif-italic">July 2, 2021</em></span>
+<span class="phrase"><em class="serif-italic">July 6:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Previously, I decided to break math expressions into individual spans when parsing them, since Mathjax 3 had no word break.</span></span> <span class="phrase"><span class="serif-roman">The spacing wasn’t quite right.</span></span> <span class="phrase"><span class="serif-roman">My workaround was to add</span> <code class="mono">\,</code><span class="serif-roman">,</span> <code class="mono">\:</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">\;</code><span class="serif-roman">,</span> <span class="serif-roman">in the LaTeX source, and to remove whitespace between these spans.</span></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">🙤</span> <span class="phrase">&emsp;</span> <span class="phrase">🙤</span> <span class="phrase">&emsp;</span> <span class="phrase">🙤</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">🙝</span> <em class="serif-italic">July 2, 2021</em></span>
 </p>
 </div>
 <div class="section">
@@ -131,13 +157,13 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">🙙</span> <span class="serif-roman">MDN web Docs,</span> <a class="serif-roman" href="https:%2F/developer%2Emozilla%2Eorg%2Fen%2DUS%2Fdocs%2FWeb%2FCSS%2Fcolor_value">‹Colors›</a></span>
+<span class="phrase"><span class="serif-roman">🙨</span> <span class="serif-roman">MDN web Docs,</span> <a class="serif-roman" href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">‹Colors›</a></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">🙙</span> <span class="serif-roman">MDN web Docs,</span> <a class="serif-roman" href="https:%2F/developer%2Emozilla%2Eorg%2Fen%2DUS%2Fdocs%2FWeb%2FCSS%2FSpecificity">‹Specificity›</a></span>
+<span class="phrase"><span class="serif-roman">🙨</span> <span class="serif-roman">MDN web Docs,</span> <a class="serif-roman" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity">‹Specificity›</a></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">🙙</span> <span class="serif-roman">World Wide Web Consortium,</span> <a class="serif-roman" href="https:%2F/validator%2Ew3%2Eorg">‹Markup Validation Service›</a></span>
+<span class="phrase"><span class="serif-roman">🙨</span> <span class="serif-roman">World Wide Web Consortium,</span> <a class="serif-roman" href="https://validator.w3.org">‹Markup Validation Service›</a></span>
 </p>
 </div>
 </main>

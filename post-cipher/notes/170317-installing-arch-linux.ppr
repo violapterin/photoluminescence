@@ -252,7 +252,7 @@
 @@put these lines in@@ ++~/.bashrc++ @@:@@ '
 
 ++if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then++ '
-_ _ ++exec startx++ '
+_ ++exec startx++ '
 ++fi++ '
 
 @@this $means {that we #start the X server, if the display variable is not null, and if there is more than one terminal instance}.@@ '
@@ -263,14 +263,14 @@ _ _ ++exec startx++ '
 ~~~
 
 ===
-@@🙙@@ %%March 17, 2017.%% _
-%%revised June 24, 2021.%% '
+@@🙝@@ %%March 17, 2017;%%
+%%revised June 24, 2021%% '
 ===
 
 === ##references## ===
 
 ===
-@@🙙@@ @@Arch Linux Wiki,@@ @@‹Installation Guide›@@ \\https://wiki.archlinux.org/title/Installation_guide\\ '
-@@🙙@@ @@Arch Linux Wiki,@@ @@‹List of applications›@@ \\https://wiki.archlinux.org/title/List_of_applications\\ '
-@@🙙@@ @@Arch Linux Wiki,@@ @@‹Desktop environment›@@ \\https://wiki.archlinux.org/title/desktop_environment\\ '
+@@🙨@@ @@Arch Linux Wiki,@@ @@‹Installation Guide›@@ \\https://wiki.archlinux.org/title/Installation_guide\\ '
+@@🙨@@ @@Arch Linux Wiki,@@ @@‹List of applications›@@ \\https://wiki.archlinux.org/title/List_of_applications\\ '
+@@🙨@@ @@Arch Linux Wiki,@@ @@‹Desktop environment›@@ \\https://wiki.archlinux.org/title/desktop_environment\\ '
 ===

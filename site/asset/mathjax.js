@@ -1,6 +1,6 @@
 MathJax = {
    loader: {
-      load: ['input/tex', 'output/svg']
+      load: ['input/tex', 'output/chtml']
    },
    tex: {
       inlineMath: [['\\(', '\\)']],
@@ -11,9 +11,8 @@ MathJax = {
          '[+]': ['color']
       },
    },
-   svg: {
-      fontCache: 'local',
-      scale: 1
+   chtml: {
+      scale: 0.85
    },
    options: {
       processHtmlClass: [
@@ -21,9 +20,9 @@ MathJax = {
          "math-bracket-round", "math-bracket-square", "math-bracket-curly",
          "math-bracket-angle", "math-bracket-line",
          "math-pair", "math-triplet", "math-tuple",
-         "math-serif", "math-sans", "math-mono",
+         "math-serif", "math-sans", "math-mono", "math-void"
       ],
-      ignoreHtmlClass: "body"
+      ignoreHtmlClass: ["body"]
    }
 };
 

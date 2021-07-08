@@ -1,42 +1,13 @@
 ===
-%%June 3, 2021:%% '
+%%June 10, 2021:%% '
 
-@@ @created repository for the website.@@'
-@@it was &named “Photoluminescence”, with the allusion to light, since this word was respectively &derived from Greek and Latin roots for ‘light’.@@ '
-@@the Photoluminescence repository was to be copied by a bash script into the GitHub Page repository, whenever I updated the former.@@ _
-@@this way, I could make little changes as I @wanted to, without polluting the GitHub Page repository.@@ _
-
-@@the directories was so &organized, <that posts were &collected into a dedicated directory, and pages into another>.@@ _
-@@here, posts were standalone articles.@@ _
-@@pages, including@@ ++index.html++ @@,@@ @@&displayed linked post titles organized under the same category.@@ '
-@@a category was either a date, genre, series, or a tag.@@ '
-===
-
-===
-%%June 5:%% '
-
-@@ @sketched a Python script playing the role similar to a makefile.@@ _
-@@first, it @searched the Porphyrin markup in a directory, and @converted them into HTML.@@ _
-@@second, it @combined the head, the header, and the footer with the main text of every post.@@ _
-@@third, it @wrote category pages, {which either @displayed linked posts, or itself @listed other categories}.@@ _
-
-@@a JSON file, {which Python could read with module@@ ++json++ @@},@@ @@was to be curated.@@ _
-@@when a category page was being &written, data from the JSON file @helped the program to map the category name to the path to that page.@@ _
-@@special consideration was necessary for strings of dates, since they were &grouped by month.@@ _
-@@for example, the category “June 2021” was a tag, and the page@@ ++/page/june-2021.html++ @@was to be updated constantly.@@ _
-@@to simplify matters, I @mandated <that every post should have a unique date, saved as six digits (two for each of year, month, and day), {from which a function got the month and the corresponding path}>.@@ '
-===
-
-===
-%%June 10:%% '
-
-@@interpretation @succeeded!@@ '
+@@interpretation of the generation of “Photoluminescence” @succeeded!@@ '
 
 @@different CSS classes accounted for normal, italic, bold texts.@@ _
-@@I could also set up indentation, alignment, separating line, and colored categories.@@ '
-@@the image links in the footer for social media was more difficult.@@ '
-@@a solution is using the background rule,@@
-@@and remember to adjust its width and height to avoid unwanted blank space.@@ _
+@@I could also set up indentation, alignment, separating line, and colored background for category names.@@ _
+@@the image links in the footer for social media was more difficult to achieve.@@ _
+@@a solution is the CSS background rule,@@
+@@and we @had to remember to adjust its width and height to avoid unwanted blank space.@@ _
 ===
 
 ///
@@ -50,12 +21,12 @@ _ ++background-size: contain;++ '
 ===
 %%June 15:%% '
 
-@@as an easter egg, the quote in the footer was to be chosen randomly by a Javascript script.@@ _
-@@suppose the quote element had ID@@ ++#quote++ @@,@@ @@then the following scripts would do the job.
+@@as an easter egg, the quote in the footer was to be chosen randomly by a script.@@ _
+@@suppose the quote element @had ID@@ ++#quote++ @@,@@ @@then the following script would do the job.
 ===
 
 ///
-++var texts= [`The first quote`, `The second quote`, `The second quote`];++ '
+++var texts= [`The first quote`, `The second quote`, `The third quote`];++ '
 ++var choice = Math.floor(Math.random() * texts.length);++ '
 ++document.getElementById("quote").innerHTML = texts[choice];++ '
 ///
@@ -63,14 +34,14 @@ _ ++background-size: contain;++ '
 ===
 %%June 16:%% '
 
-@@CSS colors could be called by semantic names, {which was a lot more readable than HEX codes}.@@ '
+@@CSS colors could be called by semantic names, like@@ ++mediumaquamarine++ @@and@@ ++midnightblue++ @@,@@ @@{which was a lot more readable than HEX color codes}.@@ '
 ===
 
 ===
 %%June 17:%% '
 
-@@enhanced responsive design.@@ _
-@@I learnt that font sizes, among other thins, may be adapted with respect to screen width, as shown in the code below.@@ _
+@@ @enhanced responsive design.@@ _
+@@I @learnt <that font sizes, among other things, could be adapted with respect to the screen width>, as shown in the code below.@@ _
 ===
 
 ///
@@ -83,138 +54,51 @@ _ ++body { font-size: 16px; }++ '
 ++}++ '
 ///
 
+===
+%%July 4:%% '
+
+@@while the Mathjax 3 documentation isn’t yet very &refined, it is instructive now to copy <what configuration @worked for me>.@@ _
+@@we could choose to render math in SVG, {which is &saved in image}, or CHTML, {which $calls web fonts}.@@ _
+@@moreover, we could specify precisely those CSS classes {in which Mathjax is &called}.@@ _
+===
+
+///
+++MathJax = {++ '
+_ ++loader: {++ '
+_ _ ++load: ['input/tex', 'output/svg']++ '
+_ ++},++ '
+_ ++tex: {++ '
+_ _ ++inlineMath: [['\\(', '\\)']],++ '
+_ _ ++displayMath: [['\\[', '\\]']]++ '
+_ ++},++ '
+_ ++options: {++ '
+_ _ ++processHtmlClass: ["math"],++ '
+_ _ ++ignoreHtmlClass: ["body"]++ '
+_ ++}++ '
+++};++ '
+///
+
+===
+%%July 6:%% '
+
+@@previously, I @decided to break math expressions into individual spans when parsing them, since Mathjax 3 @had no word break.@@ _
+@@the spacing wasn’t quite right.@@ _
+@@my workaround was to add@@ ++\,++ @@,@@ ++\:++ @@,@@ @@and@@ ++\;++ @@,@@ @@in the LaTeX source, and to remove whitespace between these spans.@@ _
+===
+
 ~~~
 
 ===
-@@🙙@@ %%July 2, 2021%%
+@@🙝@@ %%July 2, 2021%%
 ===
 
 === ##references## ===
 
 ===
-@@🙙@@ @@MDN web Docs,@@ @@‹Colors›@@
+@@🙨@@ @@MDN web Docs,@@ @@‹Colors›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
-@@🙙@@ @@MDN web Docs,@@ @@‹Specificity›@@
+@@🙨@@ @@MDN web Docs,@@ @@‹Specificity›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
-@@🙙@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
+@@🙨@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '
 ===
-
-
-<<<<
-
-commit 58e8ccd788908b1abf06fb0c3400b44ef9e4f4e5
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 22 04:33:53 2021 +0800
-
-    Align text by justifying
-
-commit 3b34cc417e208cade8b6bf8811c7adb179713744
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 17 05:21:58 2021 +0800
-
-    Enhance responsive design
-
-commit 0776bf2e2a491be510f6b5f15676375c749102d0
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 17 03:08:09 2021 +0800
-
-    Adjust height of footer
-
-commit 3bd6a447f0355fe150bf55ca3d5a8fe0338eba17
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 17 01:21:22 2021 +0800
-
-    Tune margins and paddings
-
-commit 971f5400a35560c4d77f295bf3a6de0af783db3f
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Wed Jun 16 04:18:11 2021 +0800
-
-    Pick colors
-
-commit 3f3eb7e87e41598d6d6aa2038a8093609a14a6a9
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 15 22:43:05 2021 +0800
-
-    Run random quote successfully
-
-commit 24975c5f695e18aab011026780c443661499a48a
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 15 21:39:08 2021 +0800
-
-    Change form of date to day, month, year
-
-commit 9f566741c77a8942d7b32bdbff6ce4a45803768e
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 15 21:05:53 2021 +0800
-
-    Avoid `p` or `div` inside `p`
-
-commit fe09e64fef8694828b24ee7c1280effe3b150210
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 15 04:47:16 2021 +0800
-
-    Correctly link catalogs
-
-commit 37171a14df87f7271e4e237b2675f9bd22502d29
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Tue Jun 15 03:36:57 2021 +0800
-
-    Write catalogs
-
-commit 8cd46f2e275af97eabc9844cdb044e5302ab1253
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Mon Jun 14 04:16:30 2021 +0800
-
-    Sketch: update catalog
-
-commit bf173f63e10129f0ef408656beb05dbd65a6fa3c
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Mon Jun 14 01:46:24 2021 +0800
-
-    Save: rename variables
-
-commit ca0f2aef35ce5ad8ec54550dcd034b6507ab961a
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Sun Jun 13 05:05:58 2021 +0800
-
-    Sketch: write index page
-
-commit 4c7e05a55de375a9c51540d75ba39a1311885f2d
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Sun Jun 13 03:26:05 2021 +0800
-
-    Save: Produce data of post separately
-
-commit b30ab31e620fc2f809077e67e63ee1c98e9c0318
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Sat Jun 12 16:32:29 2021 +0800
-
-    Save: Link every post data
-
-commit 2b4b453ec705cea3e58499e0b054e93aea1fbd58
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Fri Jun 11 05:00:16 2021 +0800
-
-    Adjust margin and padding in footer
-
-commit dbabe7916e51e2ff854033d1650bcaadab559b35
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 10 23:18:52 2021 +0800
-
-    Adjust body width by media query
-
-commit 4fc7e4b8d267e8210bb9754ae905a416e9e5e02c
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 10 20:38:19 2021 +0800
-
-    Apply CSS for texts
-
-commit 87941b075ab26b1454cbd3634047f8e16ee47fa9
-Author: Raven I. Pilot <violapterin@gmail.com>
-Date:   Thu Jun 10 03:35:27 2021 +0800
-
-    Delete irrelevant CSS classes
-
->>>>

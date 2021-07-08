@@ -1,0 +1,97 @@
+=== ##the obelus in the elementary education## ===
+
+===
+@@in Taiwan, as I #remember, elementary school instructors and textbooks #notate division as@@ ^^.a *8 .b^^ @@,@@ @@{which is &known as the obelus}.@@ _
+@@even as a kid, I @learnt myself, from more advanced math books, <that people @used@@ ^^.a ./ .b^^ @@,@@ @@the solidus, or slash, to denote division>.@@ _
+@@strangely, when I was about in the 7th grade, the math textbook @announced, if I am not &mistaken, <that from now on, the obelus was to be &discouraged>, just as@@ ^^*0^^ @@was replaced by@@ ^^.*^^ @@.@@ _
+@@it @maintained <that we would always use fraction>, and <that when the space didn’t allow, we would use a solidus>.@@ _
+@@except in textbooks and exercise books in basic arithmetic, and on some calculators, I have never &seen the obelus anywhere else, in analysis, algebra, geometry, nor in any scientific publication.@@ _
+@@actually, the ISO 80000-2 standard for mathematical notation $recommends only the solidus or fraction bar for division, saying <that the obelus “should not be used” for division>.@@ '
+===
+
+=== ##origin of the obelus## ===
+
+===
+@@why is the obelus &taught to kids, though it virtually never $occurs elsewhere?@@ _
+@@I #see no advantage in first teaching them a very rare notation, the obelus, and later abandoning it and enforcing the use of another one, the solidus.@@ _
+@@it is also mysterious <why obelus $stands for division>, {which Wikipedia $doesn’t say}.@@ _
+@@on the contrary, a solidus is a fraction “lying down” due to limited space, {which $appears rather intuitive}.@@ '
+
+@@allow me here back up a quote from Wikipedia,@@ @@‹Obelus›@@ \\https://en.wikipedia.org/wiki/Obelus\\ @@:@@ '
+
+%%although previously used for subtraction, the obelus was first &used as a symbol for division in 1659 in the algebra book Teutsche Algebra by Johann Rahn.%% _
+%%some #think <that John Pell, {who @edited the book}, may have been responsible for this use of the symbol>.%% '
+
+@@maybe before the presence of the solidus, the obelus was first &used for division.@@ _
+@@(by then, the convention of algebra equations was still being &formed,@@
+@@and equations in «Principia Mathematica» were mainly &written verbally.)@@ _
+@@afterwards, the solidus probably @grew more pervasive,@@
+@@but elementary school textbooks, somehow, @didn’t follow the trend, leaving the relic of old notation.@@ _ '
+===
+
+=== ##obelus versus solidus## ===
+
+===
+@@at least I so @concluded myself.@@ _
+@@then, after I @asked this on Facebook [in Aug 2017], I realized <that, quite to my surprise, some people still use the obelus in their life, and consider <that they are somehow different>.@@ _
+@@Facebook friend Xinbo @held <that@@ ^^.8./.6^^ @@was intended for@@ ^^.1^^ @@with remainder@@ ^^.2^^ @@,@@ @@and such division with remainder was to be &deprecated later curriculum.>@@ _
+@@instructor Suli @suggested <that there is some purpose in using a more verbose notation, as kids might confuse@@ ^^./^^ @@with@@ ^^.1^^ @@.>@@ _
+@@this does suggest people perceive the obelus and the solidus differently.@@ '
+
+@@actually, some time after, there was a internet meme weirdly relevant to the present topic, asking the smart reader to vote <what among the precedence below were correct>, {which @went like}@@
+@@(I am %making up numbers now):@@ '
+
+^^`obelus_eager`.: .8 *8 .(.4 .+ .2.) *0 .3 .= .4^^ '
+^^`obelus_lazy`.: .8 *8 .(.4 .+ .2.) *0 .3 .= (.4, .9)^^ '
+^^`solidus_eager`.: .8 ./ .(.4 .+ .2.) .* .3 .= .4^^ '
+^^`solidus_lazy`.: .8 ./ .(.4 .+ .2.) .* .3 .= (.4, .9)^^ '
+^^`fraction_eager`.: (.8, .4 .+ .2) *0 .3 .= .4^^ '
+^^`fraction_lazy`.: (.8, .4 .+ .2) *0 .3 .= (.4, .9)^^ '
+
+@@certainly,@@ ++fraction_eager++ @@is right, and@@ ++fraction_lazy++ @@was unanimously &rejected,@@
+@@and it is &displayed here just for comparison.@@ _
+@@however, for the rest, it is not so clear.@@ _
+@@while I absolutely @took it for granted <that@@ ++obelus_lazy++ @@and@@ ++solidus_lazy++ @@were correct>, the consensus @seemed to be@@ ++obelus_eager++ @@and@@ ++solidus_lazy++ @@.@@ _
+@@it $appears therefore <that people #equate the solidus with the fraction, but not with the obelus>;@@
+@@that is to say, people #regard@@ ^^.a./.b^^ @@the same as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
+
+@@why #spend so much time writing on such trivial matter?@@ _
+@@as I @said, it is curious <how the choice of notation $has some bearing on the perception of precedence>,@@
+@@and the underlying human psychology is worthy of examination.@@ '
+===
+
+===
+%%June 3:%% '
+
+@@ @created repository for the website.@@'
+@@it was &named “Photoluminescence”, with the allusion to light, since this word was respectively &derived from Greek and Latin roots for ‘light’.@@ '
+@@the Photoluminescence repository was to be copied by a bash script into the GitHub Page repository, whenever I updated the former.@@ _
+@@this way, I could make little changes as I @wanted to, without polluting the GitHub Page repository.@@ _
+
+@@the directories was so &organized, <that posts were &collected into a dedicated directory, and pages into another>.@@ _
+@@here, posts were standalone articles.@@ _
+@@pages, including@@ ++index.html++ @@,@@ @@&displayed linked post titles organized under the same category.@@ '
+@@a category was either a date, genre, series, or a tag.@@ '
+===
+
+===
+%%June 5:%% '
+
+@@ @sketched a Python script playing the role similar to a makefile.@@ _
+@@first, it @searched the Porphyrin markup in a directory, and @converted them into HTML.@@ _
+@@second, it @combined the head, the header, and the footer with the main text of every post.@@ _
+@@third, it @wrote category pages, {which either @displayed linked posts, or itself @listed other categories}.@@ _
+
+@@a JSON file, {which Python could read with module@@ ++json++ @@},@@ @@was to be curated.@@ _
+@@when a category page was being &written, data from the JSON file @helped the program to map the category name to the path to that page.@@ _
+@@special consideration was necessary for strings of dates, since they were &grouped by month.@@ _
+@@for example, the category “June 2021” was a tag, and the page@@ ++/page/june-2021.html++ @@was to be updated constantly.@@ _
+@@to simplify matters, I @mandated <that every post should have a unique date, saved as six digits (two for each of year, month, and day), {from which a function got the month and the corresponding path}>.@@ '
+===
+
+~~~
+
+===
+@@🙝@@ %%August 9, 2017;%%
+%%appended July 7, 2021%% '
+===

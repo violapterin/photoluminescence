@@ -103,7 +103,7 @@ class Link(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      return AID.tune_address(self.source)
+      return AID.tune_hypertext(self.source)
 
 class Newline(Leaf):
 

@@ -257,15 +257,15 @@ class Stem(Organ):
          return None, head_right
       if (label == "SECTION"):
          bough = STEM.Section(**data)
-      if (label == "STANZA"):
+      elif (label == "STANZA"):
          bough = STEM.Stanza(**data)
-      if (label == "ARRAY"):
+      elif (label == "ARRAY"):
          bough = STEM.Array(**data)
-      if (label == "graph"):
+      elif (label == "graph"):
          bough = STEM.Graph(**data)
-      if (label == "BREAK"):
+      elif (label == "BREAK"):
          bough = STEM.Break(**data)
-      if (label == "COMMENT_LEFT"):
+      elif (label == "COMMENT_LEFT"):
          bough = None
       return bough, head_right
 
@@ -290,7 +290,7 @@ class Stem(Organ):
          if (label == "SPACE"):
             leaf = LEAF.Space(**data)
             return leaf, head_right
-         if (label == "NEWLINE"):
+         elif (label == "NEWLINE"):
             leaf = LEAF.Newline(**data)
             return leaf, head_right
 
@@ -312,23 +312,23 @@ class Stem(Organ):
          return None, head_right
       if (label == "SERIF_ROMAN"):
          leaf = LEAF.Serif_roman(**data)
-      if (label == "SERIF_ITALIC"):
+      elif (label == "SERIF_ITALIC"):
          leaf = LEAF.Serif_italic(**data)
-      if (label == "SERIF_BOLD"):
+      elif (label == "SERIF_BOLD"):
          leaf = LEAF.Serif_bold(**data)
-      if (label == "SANS_ROMAN"):
+      elif (label == "SANS_ROMAN"):
          leaf = LEAF.Sans_roman(**data)
-      if (label == "SANS_BOLD"):
+      elif (label == "SANS_BOLD"):
          leaf = LEAF.Sans_bold(**data)
-      if (label == "MONO"):
+      elif (label == "MONO"):
          leaf = LEAF.Mono(**data)
-      if (label == "PSEUDO"):
+      elif (label == "PSEUDO"):
          leaf = LEAF.Pseudo(**data)
-      if (label == "MATH"):
+      elif (label == "MATH"):
          leaf = LEAF.Math(**data)
-      if (label == "LINK"):
+      elif (label == "LINK"):
          leaf = LEAF.Link(**data)
-      if (label == "COMMENT_LEFT"):
+      elif (label == "COMMENT_LEFT"):
          leaf = None
       return leaf, head_right
 
@@ -514,17 +514,17 @@ class Leaf(Organ):
             return tissue, head_right
          if (label_left == "START_PAIR"):
             tissue = TISSUE.Math_pair(**data)
-         if (label_left == "START_TRIPLET"):
+         elif (label_left == "START_TRIPLET"):
             tissue = TISSUE.Math_triplet(**data)
-         if (label_left == "START_TUPLE"):
+         elif (label_left == "START_TUPLE"):
             tissue = TISSUE.Math_tuple(**data)
-         if (label_left == "SERIF"):
+         elif (label_left == "SERIF"):
             tissue = TISSUE.Math_serif(**data)
-         if (label_left == "SANS"):
+         elif (label_left == "SANS"):
             tissue = TISSUE.Math_sans(**data)
-         if (label_left == "MONO"):
+         elif (label_left == "MONO"):
             tissue = TISSUE.Math_mono(**data)
-         if (label_left == "CHECK"):
+         elif (label_left == "CHECK"):
             tissue = TISSUE.Math_void()
          return tissue, head_right
 
@@ -548,13 +548,13 @@ class Leaf(Organ):
                return tissue, head_right
             if (label_after == "START_PAIR"):
                tissue = TISSUE.Math_bracket_round(**data)
-            if (label_after == "START_TRIPLET"):
+            elif (label_after == "START_TRIPLET"):
                tissue = TISSUE.Math_bracket_square(**data)
-            if (label_after == "START_TUPLE"):
+            elif (label_after == "START_TUPLE"):
                tissue = TISSUE.Math_bracket_curly(**data)
-            if (label_after == "ORDER_LEFT"):
+            elif (label_after == "ORDER_LEFT"):
                tissue = TISSUE.Math_bracket_angle(**data)
-            if (label_after == "ARROW_LEFT"):
+            elif (label_after == "ARROW_LEFT"):
                tissue = TISSUE.Math_bracket_line(**data)
       return tissue, head_right
 
@@ -616,19 +616,19 @@ class Leaf(Organ):
             return tissue, head_right
          if (label_left == "START_ROUND"):
             tissue = TISSUE.Pseudo_bracket_round(**data)
-         if (label_left == "START_SQUARE"):
+         elif (label_left == "START_SQUARE"):
             tissue = TISSUE.Pseudo_bracket_square(**data)
-         if (label_left == "START_CURLY"):
+         elif (label_left == "START_CURLY"):
             tissue = TISSUE.Pseudo_bracket_curly(**data)
-         if (label_left == "START_REMARK"):
+         elif (label_left == "START_REMARK"):
             tissue = TISSUE.Pseudo_remark(**data)
-         if (label_left == "SERIF"):
+         elif (label_left == "SERIF"):
             tissue = TISSUE.Pseudo_serif(**data)
-         if (label_left == "SANS"):
+         elif (label_left == "SANS"):
             tissue = TISSUE.Pseudo_sans(**data)
-         if (label_left == "MONO"):
+         elif (label_left == "MONO"):
             tissue = TISSUE.Pseudo_mono(**data)
-         if (label_left == "CHECK"):
+         elif (label_left == "CHECK"):
             tissue = TISSUE.Pseudo_void()
       return tissue, head_right
 

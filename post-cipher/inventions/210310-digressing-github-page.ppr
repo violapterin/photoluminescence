@@ -69,16 +69,16 @@
 ~~~
 
 ===
-@@🙙@@ %%June 23, 2021%%
+@@🙝@@ %%June 23, 2021%%
 ===
 
 === ##references## ===
 
 ===
-@@🙙@@ @@Coq team,@@ @@‹Typing rules›@@
+@@🙨@@ @@Coq,@@ @@‹Typing rules›@@
    \\https://coq.inria.fr/refman/language/cic.html\\ '
-@@🙙@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›, ‹Information and Computation›, 1988@@ '
-@@🙙@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism»@@ '
-@@🙙@@ @@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
+@@🙨@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›, ‹Information and Computation›, 1988@@ '
+@@🙨@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism»@@ '
+@@🙨@@ @@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
    \\https://homotopytypetheory.org/book\\ '
 ===

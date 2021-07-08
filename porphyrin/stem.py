@@ -90,8 +90,8 @@ class Break(Stem):
       self.many_sink = []
 
    def parse(self):
+      dingbat = "<span class=\"phrase\">🙤</span>"
       space = "<span class=\"phrase\">&emsp;</span>"
-      dingbat = "<span class=\"phrase\">🙠</span>"
       repeat = 3
       for _ in range(repeat):
          self.many_sink.append(space)
@@ -394,8 +394,8 @@ class Phrase(Stem):
       for leaf in self.many_sink:
          whether_glue = False
          if AID.be_literary(leaf.KIND):
-            punctuations = {',', ':', ';', '.', '?', '!'}
-            if leaf.source[0] in punctuations:
+            many_stop = {',', ':', ';', '.', '?', '!'}
+            if leaf.source[0] in many_stop:
                whether_glue = True
          if whether_glue:
             last = many_content.pop()

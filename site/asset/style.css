@@ -56,7 +56,7 @@ body, header
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 @media screen and (min-width: 600px) {
-  .stanza { border-left: 8px lemonchiffon solid; }
+  .stanza { border-left: 12px lemonchiffon solid; }
 }
 
 .stanza, .array
@@ -71,11 +71,18 @@ body, header
   padding: 0px;
 }
 
-.break, .graph
+.graph
 {
   margin: 24px auto;
-  padding: 0px 12px;
+  padding: 0px 24px;
   width: 90%;
+  text-align: center;
+}
+
+.break
+{
+  margin: 24px auto;
+  padding: 0px 0px 12px 0px;
   text-align: center;
 }
 
@@ -83,6 +90,10 @@ body, header
 {
   margin: 0px;
   padding: 0px;
+}
+
+.paragraph
+{
   text-indent: 18px;
   text-align: justify;
 }
@@ -187,7 +198,6 @@ code,
 
 .serif-italic, .serif-bold,
 .sans-roman, .sans-bold, .mono
-.math, .pseudo
 {
   margin: 0px;
   padding: 0px;

@@ -127,7 +127,7 @@ _ ++<p><span>Who am I?</span></p>++ '
 ===
 %%May 26:%% '
 
-@@interpretation @succeeded for the first time!@@ '
+@@interpretation of “Porphyrin” @succeeded for the first time!@@ '
 ===
 
 ===
@@ -138,8 +138,37 @@ _ ++<p><span>Who am I?</span></p>++ '
 @@after much consideration, I @found <that there just @had to be a function {which @found the very next non- whitespace character}>.@@ '
 ===
 
+===
+%%June 3:%% '
+
+@@ @created repository for the website.@@'
+@@it was &named “Photoluminescence”, with the allusion to light, since this word was respectively &derived from Greek and Latin roots for ‘light’.@@ '
+@@the Photoluminescence repository was to be copied by a bash script into the GitHub Page repository, whenever I updated the former.@@ _
+@@this way, I could make little changes as I @wanted to, without polluting the GitHub Page repository.@@ _
+
+@@the directories was so &organized, <that posts were &collected into a dedicated directory, and pages into another>.@@ _
+@@here, posts were standalone articles.@@ _
+@@pages, including@@ ++index.html++ @@,@@ @@&displayed linked post titles organized under the same category.@@ '
+@@a category was either a date, genre, series, or a tag.@@ '
+===
+
+===
+%%June 5:%% '
+
+@@ @sketched a Python script playing the role similar to a makefile.@@ _
+@@first, it @searched the Porphyrin markup in a directory, and @converted them into HTML.@@ _
+@@second, it @combined the head, the header, and the footer with the main text of every post.@@ _
+@@third, it @wrote category pages, {which itself @listed other categories}.@@ _
+
+@@a JSON file, {which Python could read with module@@ ++json++ @@},@@ @@was to be curated.@@ _
+@@when a category page was being &written, data from the JSON file @helped the program to map the category name to the path to that page.@@ _
+@@special consideration was necessary for strings of dates, since they were &supposed to be grouped by month.@@ _
+@@for example, the category “June 2021” was a tag, and the page@@ ++/page/june-2021.html++ @@was to be updated constantly.@@ _
+@@to simplify matters, I @mandated <that every post should have a unique date, saved as six digits (two for each of year, month, and day), {from which a function @returned the month and the corresponding path}>.@@ '
+===
+
 ~~~
 
 ===
-@@🙙@@ %%June 27, 2021%%
+@@🙝@@ %%June 27, 2021%%
 ===
