@@ -1,16 +1,4 @@
 [
-
-{"stamp": "201009", "genre": "notes",
-    "tag": ["Family", "Death", "Illness"],
-    "title": "Uncle was ill"},
-{"stamp": "190314", "genre": "notes",
-    "tag": ["Age", "General mathematics"],
-    "title": "The young man’s game"},
-{"stamp": "201115", "genre": "memories",
-    "tag": ["Friends", "Music composition"],
-    "title": "Sending the red envelope"},
-
-
 {"stamp": "210702", "genre": "inventions", "series": "GitHub Page progress report",
     "tag": ["Technology", "Coding", "Meta"],
     "title": "Refining: GitHub Page progress report, part 5"},
@@ -33,6 +21,12 @@
 {"stamp": "201119", "genre": "notes",
     "tag": ["Cooking", "Cuisine", "Translation"],
     "title": "Nanmen Market"},
+{"stamp": "201115", "genre": "memories",
+    "tag": ["Friends", "Music composition"],
+    "title": "Sending the red envelope"},
+{"stamp": "201009", "genre": "notes",
+    "tag": ["Family", "Death", "Illness"],
+    "title": "Uncle was ill"},
 {"stamp": "200805", "genre": "inventions", "series": "GitHub Page progress report",
     "tag": ["Technology", "Coding", "Meta"],
     "title": "Hesitating: GitHub Page progress report, part 2"},
@@ -43,9 +37,15 @@
     "tag": ["Technology", "Coding", "Meta"],
     "title": "Exploring: GitHub Page progress report, part 1"},
 
+{"stamp": "190711", "genre": "notes",
+    "tag": ["Age", "General mathematics"],
+    "title": "Shuri Castle and vacation in Okinawa, day 4"},
 {"stamp": "190515", "genre": "comments",
     "tag": ["Probability", "Statistical physics"],
     "title": "Macroscopic and microscopic randomness"},
+{"stamp": "190314", "genre": "notes",
+    "tag": ["Age", "General mathematics"],
+    "title": "The young man’s game"},
 
 {"stamp": "170809", "genre": "notes",
     "tag": ["Notation", "Elementary math"],
@@ -53,5 +53,6 @@
 {"stamp": "170317", "genre": "notes",
     "tag": ["Technology"],
     "title": "Installing Arch Linux"},
+
 null
 ]
