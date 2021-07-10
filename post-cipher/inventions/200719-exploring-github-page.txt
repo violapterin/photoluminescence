@@ -25,9 +25,8 @@
 @@finally, no matter <what fancy thing I might want to do>, as long as I @converted the piece to standard HTML and CSS, it would be fine.@@ '
 ===
 
-|||
-\\/image/200719-repo.png\\
-|||
+||| \\/image/200719-repo.jpg\\ |||
+=== %%Figure: Creating the first repository on GitHub.%% ' ===
 
 ===
 %%July 19:%% '

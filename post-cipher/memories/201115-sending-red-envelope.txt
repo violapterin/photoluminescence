@@ -1,5 +1,5 @@
 ===
-@@our protagonist $has this series of (objectively boring) events happening today, as follows.@@ _
+@@our protagonist @had this series of (objectively boring) events happening today, as follows.@@ _
 @@they nevertheless @made him happy,@@
 @@but he wasn’t sure why.@@ '
 
@@ -58,7 +58,7 @@
 
 @@this was <how the protagonist, somehow, @reconnected four friends, within one day>.@@ _
 @@these were trivial matters,@@
-@@and they @made him laugh, in the same way {you earnestly @believed a flaw to be grave but it might very well be immaterial, or an air to be serious, but be lighthearted}, as when a cook in IKEA @gave you eleven meatballs instead of ten, or a stapler @failed to penetrate the last page.@@ _
+@@and they @made him laugh, the same way {you earnestly @believed a flaw to be grave but it might very well be immaterial, or an air to be serious, but be lighthearted}, as when a cook in IKEA @gave you eleven meatballs instead of ten, or a stapler @failed to penetrate the last page.@@ _
 @@it was like this {that he was %having this unfounded epiphany on the street, in the rush hour in the evening, in a warm wintry breeze}.@@ _
 @@things, at least some of the times, were %going to be okay.@@ _
 @@it was a common shortfall of ours to forget happy times when we were sad, {which we nevertheless must try}— as sad times when happy.@@ '

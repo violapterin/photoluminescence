@@ -73,10 +73,10 @@ body, header
 
 .graph
 {
-  margin: 24px auto;
-  padding: 0px 24px;
+  margin: 12px auto;
+  padding: 0px;
   width: 90%;
-  text-align: center;
+  display: block;
 }
 
 .break
