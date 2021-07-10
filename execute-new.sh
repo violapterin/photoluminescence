@@ -2,5 +2,5 @@
 
 THIS=$(dirname "$0")
 clear
-$(dirname "$0")/make-new.py
+${THIS}/make-post-new.py
 python3 -m http.server -d ${THIS}/site

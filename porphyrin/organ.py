@@ -261,7 +261,7 @@ class Stem(Organ):
          bough = STEM.Stanza(**data)
       elif (label == "ARRAY"):
          bough = STEM.Array(**data)
-      elif (label == "graph"):
+      elif (label == "GRAPH"):
          bough = STEM.Graph(**data)
       elif (label == "BREAK"):
          bough = STEM.Break(**data)

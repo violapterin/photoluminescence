@@ -25,6 +25,10 @@
 @@finally, no matter <what fancy thing I might want to do>, as long as I @converted the piece to standard HTML and CSS, it would be fine.@@ '
 ===
 
+|||
+\\/image/200719-repo.png\\
+|||
+
 ===
 %%July 19:%% '
 
@@ -44,9 +48,7 @@
 
 @@ @tried to call Mathjax, with no avail.@@ _
 @@it was &pointed out <that Mathjax seemed to have difficulty recognizing@@ ++$$++ @@>.@@ _
-@@then, I @did to apply the snippet on the official document@@ @@“Changes in the Mathjax API”@@ 
-   \\http://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api\\
-   @@,@@ @@{which @solved everything}.@@ '
+@@then, I @did to apply the snippet on the official document “Changes in the Mathjax API”, {which @solved everything}.@@ '
 ===
 
 ===

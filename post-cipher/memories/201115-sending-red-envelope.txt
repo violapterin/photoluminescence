@@ -8,7 +8,7 @@
 @@and Mr Jiang @worked in Google now.@@ _
 @@he wasn’t in the mood of attending the wedding banquet, because he was afraid of all the small talks on his future plan.@@ _
 @@but the first message {he @received today} saved him;@@
-@@a second friend of mine, Tina the erhu player, @asked him <whether he @wanted to go to a concert for free in place of her>, since she couldn’t go:@@
+@@a second friend of his, Tina the erhu player, @asked him <whether he @wanted to go to a concert for free in place of her>, since she couldn’t go:@@
 @@she @had to attend an awards ceremony.@@ '
 
 @@he nevertheless @wanted to send the “red envelope”, or money gift, to Mr Jiang;@@
@@ -27,7 +27,7 @@
 @@and the vision @seemed so distant and vague to him, in the darkness in the concert hall, in front of the spotlight.@@ '
 
 @@the concert @ended,@@
-@@and Tina @messaged him <whether he @enjoyed it>.@@ _
+@@and Tina @messaged the protagonist <whether he @enjoyed it>.@@ _
 @@“I #prefer a more modern style than a strictly pentatonic one.” he @wrote.@@ '
 
 @@“have you &been composing music lately?” she asked.@@ _
@@ -46,11 +46,11 @@
 @@months ago, intending to bring up the matter, he wrote some melodies and @messaged them to her,@@
 @@and she didn’t reply.@@ '
 
-@@then, Mr Jiang @messaged him to thank him for my envelope.@@ _
+@@then, Mr Jiang @messaged the protagonist to thank him for his envelope.@@ _
 @@“I will perhaps ask you, some time, how it is like to work at Google.” he @wrote.@@ _
 @@anytime, he @replied.@@ '
 
-@@later, a fourth friend of his, Cassandra the pianist, @messaged him, remarking <that she was %getting married (too)>, and @invited him to watch the live stream on Twitch, on which Melanie, their common friend, was also &invited.@@ _
+@@later, a fourth friend of his, Cassandra the pianist, also @messaged the protagonist, remarking <that she was %getting married (too)>, and @invited him to watch the live stream on Twitch, on which Melanie, their common friend, was also &invited.@@ _
 @@amused, he @messaged Melanie, mentioning the flute sonata.@@ _
 @@she @replied instantly, to his surprise, urging him to complete the piece.@@ _
 @@he @wished to dedicate the piece to her, he @wrote, if it would indeed be done.@@ _
@@ -65,5 +65,5 @@
 ===
 
 ===
-%%Nov 15, 2020;%%
+@@🙝@@ %%November 15, 2020%%
 ===
