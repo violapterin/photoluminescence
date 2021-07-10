@@ -1,0 +1,84 @@
+===
+@@in September 2018, Michael Atiyah, renowned mathematician and Fields Medal winner, @claimed <that he @had simple proof of the Riemann Hypothesis>.@@ _
+@@Atiyah said, in an interview with New Scientist,@@
+@@“Nobody $believes any proof of the Riemann Hypothesis,@@
+@@let alone a proof by someone who’s 90.@@ _
+@@People #say ‘we #know <mathematicians do all their best work before they’re 40>’.@@ _
+@@I’m %trying to show them <that they’re wrong>.@@ _
+@@<That I can do something when I’m 90>.”@@ '
+
+@@I @searched about him,@@
+@@and it was &said on Math Overflow <that he had &published some crackpot papers, like a shortened proof of Feit- Thompson theorem and nonexistence of complex 6- sphere>.@@ _
+@@(although, to be honest, the first time {I heard of Atiyah} was the reference to Atiyah- Singer index theorem in «Not Even Wrong» by Peter Woit.)@@ '
+
+@@I @saw the whole video,@@
+@@and I wasn’t &prepared for this.@@ _
+@@this wasn’t only crackpot,@@
+@@but it @verged on insanity.@@ _
+@@Atiyah @talked for about an hour,@@
+@@but there was only one slide {which was relatively substantial},@@
+@@and most of it @didn’t make sense.@@ _
+@@the audience was silent when Atiyah @finished talking and @asked them <whether they @had questions>.@@ '
+
+@@Atiyah @died in January 2019, 4 months later the speech,@@
+@@and he probably @died thinking <he had &resolved a problem even greater than the index theorem>.@@ '
+===
+
+===
+@@there is the long held notion that truly substantial creation in mathematics can only be done by young people.@@ _
+@@this, for brevity, let us call the “juvenile thesis”.@@ _
+@@the view is most famously &expressed in «Apology of a Mathematician» by Hardy, {where he @wrote, “No mathematician should ever allow himself to forget that mathematics, more than any other art or science, is a young man’s game.”}@@ _
+@@in addition, the play «Proof» (and its film adaptation), {which I value highly}, $connects mathematics genius not only to the young age, but also to madness, strengthening the perception of the general public.@@ '
+
+@@out of curiosity I @attempted to look up relevant studies supporting and opposing the “juvenile thesis”.@@ _
+@@it $appears <there are few decisive quantitative researches>,@@
+@@and the question $does look too broad to settle.@@ _
+@@I am not able to write a survey,@@
+@@but I can share my guess in possible underlying reasons.@@ '
+===
+
+===
+@@obviously mathematics requires concentration, memory, association, and more,@@
+@@and hence they definitely #have something to do with physical health, {which $declines gradually with age}.@@ _
+@@but the “juvenile thesis” seems to have mistaken quantity with quality.@@ _
+@@that is to say, people #put it the way <that once you are past 40 you are &doomed, and you are never %going to do any decent research ever.@@ _
+@@this is absurd:@@
+@@the journey of life isn’t a step function.@@ _
+@@if some calculation takes a 20- year- old 5 minute, it might take a 60- year- old 15 minute,@@
+@@but the 60- year- old can still do it, once his or her mental faculty is intact.@@ _
+@@the same, I believe, can be said of other creative professions.@@ '
+
+@@or it may just be <that middle aged people #have more obligations than young people #have>,@@
+@@and these #distract them from their research.@@ _
+@@until the recent change in social norm, only men, not women, were &allowed to pursue an academic career.@@ _
+@@without saying, female mathematicians like Sofya Kovalevskaya and Emmy Noether obviously @underwent lots of pressure.@@ _
+@@(the reader may want to read ‹Too Much Happiness› by Alice Munro for Kovalevskaya’s story.)@@ _
+@@moreover, men were &thought to be responsible for family income.@@ _
+@@male mathematicians {who @didn’t made progress in their research for some time}, may be forced to turn to something more profitable.@@ _
+@@therefore, both women and men in their middle age had &been under immense social pressure {that @discouraged them from undertaking creative work without much compensation, like mathematics}.@@ _
+@@this further $agrees the impression (as Hardy would have said) <that young people are more willing to take risks by considering difficult fields of research>.@@ _
+@@furthermore, full time professors are sometimes &occupied with administrative tasks and teaching, making it more daunting to attack tough problems.@@ '
+
+@@so this is my take on the “juvenile thesis”.@@ _
+@@the old age may somehow reduce creativity, but only quantitatively rather than qualitatively.@@ _
+@@social and family obligations too may be a distraction, if not a restriction.@@ _
+@@we should keep in mind, though, <that youthful vigor won’t forever be with us, and every day should be spent wisely>.@@ '
+===
+
+~~~
+
+===
+@@🙝@@ %%March 14, 2019;%%
+%%rewritten July 9, 2021%% '
+===
+
+=== ##references## ===
+
+===
+@@🙨@@ @@S Cole, ‹Age and scientific performance›. «American Journal of Sociology», 1979@@ '
+@@🙨@@ @@R Crowell,@@ @@‹On Michael Atiyah and the Riemann Hypothesis›@@
+   \\https://blogs.ams.org/blogonmathblogs/2018/10/01/on-michael-atiyah-and-the-riemann-hypothesis/\\ @@.@@
+   @@In AMS blogs, 2008@@ '
+@@🙨@@ @@R Hersh, ‹Mathematical menopause, or, a young man’s game?›. «The Mathematical Intelligencer», 2001@@ '
+@@🙨@@ @@N Stern, ‹Age and achievement in mathematics: A case-study in the sociology of science›. «Social Studies of Science», 1978@@ '
+===

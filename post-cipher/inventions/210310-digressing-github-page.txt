@@ -1,5 +1,3 @@
-=== ##the final plan## ===
-
 ===
 @@as of this part, I @didn’t take detailed notes from time to time.@@ _
 @@in fact, I wasn’t sure where this project was %going.@@ _
@@ -34,8 +32,6 @@
 @@even if I @linked every post to a summary of convention, the probability <that people @managed to finish a post> was %diminishing.@@ '
 ===
 
-=== ##rethinking proof presentation## ===
-
 ===
 @@largely inspired by such contemplation on mathematical notation, between these months I @kept wondering <what an ideal proof presentation would be>.@@ _
 @@I @had the independent awareness <that the traditional style of proof was in many ways inadequate>.@@ _
@@ -57,7 +53,9 @@
 @@finally, application of law of excluded middle and nonconstructive axiom of choice should be &announced every time.@@ _
 @@these conventions could make it easier to recover the Curry- Howard isomorphism.@@ '
 @@a balance between constructive inclination and tradition did appear to be feasible, making the scope of my project more reasonable.@@ '
+===
 
+===
 @@it simply $remains to design a markup {which $describes normal text and mathematics, and $outputs HTML}.@@ _
 @@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _
 @@moreover, there $has to be a mark {which $denotes the beginning and end of a math mode},@@
@@ -77,8 +75,8 @@
 ===
 @@🙨@@ @@Coq,@@ @@‹Typing rules›@@
    \\https://coq.inria.fr/refman/language/cic.html\\ '
-@@🙨@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›, ‹Information and Computation›, 1988@@ '
-@@🙨@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism»@@ '
+@@🙨@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›. «Information and Computation», 1988@@ '
+@@🙨@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism». Elsevier, 2006@@ '
 @@🙨@@ @@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
    \\https://homotopytypetheory.org/book\\ '
 ===

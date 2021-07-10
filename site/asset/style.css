@@ -82,7 +82,7 @@ body, header
 .break
 {
   margin: 24px auto;
-  padding: 0px 0px 12px 0px;
+  padding: 6px 0px;
   text-align: center;
 }
 
@@ -94,28 +94,19 @@ body, header
 
 .paragraph
 {
-  text-indent: 18px;
+  text-indent: 36px;
   text-align: justify;
+}
+
+.stanza
+{
+  text-indent: 18px;
 }
 
 .phrase, .verse, .cell
 {
   padding: 0px;
-}
-
-.phrase
-{
   margin: 0px 4px;
-}
-
-.verse
-{
-  margin: 0px 4px 0px 12px;
-}
-
-.cell
-{
-  margin: 0px 12px 0px 12px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -211,20 +202,20 @@ code,
 
 .document a
 {
-  color: deepskyblue;
-  text-decoration: underline;
+  color: cornflowerblue;
+  text-decoration: none;
 }
 
-.document a :visited
+.document a:hover
 {
   color: lightsteelblue;
   text-decoration: underline;
 }
 
-.document a :hover
+.document a:visited
 {
   color: mediumslateblue;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -330,10 +321,11 @@ code,
 {
   font-weight: 500;
   color: darkmagenta;
+  text-decoration: none;
 }
 
-#menu .button-menu :hover
-#name-site .title-site :hover
+#name-site .title-site:hover,
+#menu .button-menu:hover
 {
   text-decoration: underline;
 }
@@ -491,14 +483,14 @@ header #header-post, header #header-page
 {
   margin: 6px 6px;
   padding: 0px 6px;
-  text-decoration: underline;
   color: darkslategray;
+  text-decoration: none;
 }
 
-.data-post .data-stamp :hover, .data-entry.data-stamp :hover,
-.data-post .data-genre :hover, .data-entry .data-genre :hover,
-.data-post .data-series :hover, .data-entry .data-series :hover,
-.data-post .data-tag :hover .data-entry .data-tag :hover
+.data-post .data-stamp:hover, .data-entry.data-stamp:hover,
+.data-post .data-genre:hover, .data-entry .data-genre:hover,
+.data-post .data-series:hover, .data-entry .data-series:hover,
+.data-post .data-tag:hover, .data-entry .data-tag:hover
 {
   text-decoration: underline;
   color: dimgray;
@@ -516,7 +508,7 @@ header #header-post, header #header-page
 
 .data-post .data-series, .data-entry .data-series
 {
-  background-color: palegreen;
+  background-color: yellowgreen;
 }
 
 .data-post .data-tag, .data-entry .data-tag

@@ -405,7 +405,7 @@ class Phrase(Stem):
          kind_last = leaf.KIND
       content = AID.unite(many_content)
       if not content:
-         return AID.give_wide_space()
+         return AID.give_wide_space(self.KIND)
       result = AID.write_element(
             cut = '',
             content = content,
@@ -448,7 +448,7 @@ class Verse(Stem):
          many_content.append(leaf.write())
       content = AID.unite(many_content)
       if not content:
-         return AID.give_wide_space()
+         return AID.give_wide_space(self.KIND)
       result = AID.write_element(
             cut = '',
             content = content,
@@ -491,7 +491,7 @@ class Cell(Stem):
          many_content.append(leaf.write())
       content = AID.unite(many_content)
       if not content:
-         return AID.give_wide_space()
+         return AID.give_wide_space(self.KIND)
       result = AID.write_element(
             cut = '',
             content = content,

@@ -95,9 +95,9 @@ _ ++}++ '
 === ##references## ===
 
 ===
-@@🙨@@ @@MDN web Docs,@@ @@‹Colors›@@
+@@🙨@@ @@MDN Web Docs,@@ @@‹Colors›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
-@@🙨@@ @@MDN web Docs,@@ @@‹Specificity›@@
+@@🙨@@ @@MDN Web Docs,@@ @@‹Specificity›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
 @@🙨@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '

@@ -10,7 +10,7 @@ def make_new(folder_in, folder_out):
    make(whether_all, folder_in, folder_out)
 
 def make(whether_all, folder_in, folder_out):
-   suffix_in = ".ppr"
+   suffix_in = ".txt"
    suffix_out = ".html"
    many_thing_in = os.scandir(folder_in)
    for thing in many_thing_in:
@@ -314,8 +314,9 @@ def replace_token(many_token_out, source):
       sink = sink.replace(token_in, many_token_out[token_in])
    return sink
 
-def give_wide_space():
-   return "<span class=\"phrase\">&ensp;</span>"
+def give_wide_space(kind):
+   sink = f"<span class=\"{kind}\">&ensp;</span>"
+   return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
