@@ -71,18 +71,20 @@ body, header
   padding: 0px;
 }
 
-.graph
+.graph, .break
 {
   margin: 12px auto;
   padding: 0px;
+}
+
+.graph
+{
   width: 90%;
   display: block;
 }
 
 .break
 {
-  margin: 24px auto;
-  padding: 6px 0px;
   text-align: center;
 }
 

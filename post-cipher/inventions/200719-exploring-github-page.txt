@@ -47,7 +47,8 @@
 
 @@ @tried to call Mathjax, with no avail.@@ _
 @@it was &pointed out <that Mathjax seemed to have difficulty recognizing@@ ++$$++ @@>.@@ _
-@@then, I @did to apply the snippet on the official document “Changes in the Mathjax API”, {which @solved everything}.@@ '
+@@then, I @found relevant sections in the Mathjax documentation on changes in API;@@
+@@there was an example code for properly setting the Mathjax object in Javascript, {which @solved everything}.@@ '
 ===
 
 ===

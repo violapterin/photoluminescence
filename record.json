@@ -37,9 +37,12 @@
     "tag": ["Technology", "Coding", "Meta"],
     "title": "Exploring: GitHub Page progress report, part 1"},
 
-{"stamp": "190711", "genre": "notes",
+{"stamp": "190711", "genre": "memories", "series": "Vacation in Okinawa",
     "tag": ["Travel", "Japan", "Okinawa"],
     "title": "Shuri Castle: Vacation in Okinawa, day 4"},
+{"stamp": "190710", "genre": "memories", "series": "Vacation in Okinawa",
+    "tag": ["Travel", "Japan", "Okinawa"],
+    "title": "American Village: Vacation in Okinawa, day 3"},
 {"stamp": "190515", "genre": "comments",
     "tag": ["Probability", "Statistical physics"],
     "title": "Macroscopic and microscopic randomness"},
