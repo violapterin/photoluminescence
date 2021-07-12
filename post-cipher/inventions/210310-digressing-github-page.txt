@@ -73,10 +73,10 @@
 === ##references## ===
 
 ===
-@@🙨@@ @@Coq,@@ @@‹Typing rules›@@
-   \\https://coq.inria.fr/refman/language/cic.html\\ '
 @@🙨@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›. «Information and Computation», 1988@@ '
 @@🙨@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism». Elsevier, 2006@@ '
 @@🙨@@ @@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
    \\https://homotopytypetheory.org/book\\ '
+@@🙨@@ @@Coq,@@ @@‹Typing rules›@@
+   \\https://coq.inria.fr/refman/language/cic.html\\ '
 ===

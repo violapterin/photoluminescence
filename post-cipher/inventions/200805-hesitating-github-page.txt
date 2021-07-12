@@ -96,9 +96,9 @@ _ ++<span class="v"> x+y+z </span>++ '
 === ##references## ===
 
 ===
-@@🙨@@ @@Sebastian Boldt,@@ @@‹Jelly›@@
+@@🙨@@ @@S Boldt,@@ @@‹Jelly›@@
    \\https://github.com/SebastianBoldt/Jelly\\ '
-@@🙨@@ @@John MacFarlane et al,@@ @@CommonMark Spec@@
+@@🙨@@ @@J MacFarlane et al,@@ @@CommonMark Spec@@
    \\https://spec.commonmark.org/\\ '
 @@🙨@@ @@MDN Web Docs,@@ @@‹grid›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
