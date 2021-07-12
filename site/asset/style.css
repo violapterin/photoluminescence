@@ -20,17 +20,17 @@
 
 body
 {
-  width: 750px; 
+  width: 760px; 
   font-size: 24px;
 }
-@media screen and (max-width: 900px) {
-  body { width: 600px; font-size: 22px; }
+@media screen and (max-width: 960px) {
+  body { width: 640px; font-size: 22px; }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   body { width: 540px; font-size: 20px; }
 }
 @media screen and (max-width: 600px) {
-  body { width: 450px; font-size: 18px; }
+  body { width: 460px; font-size: 18px; }
 }
 @media screen and (max-width: 500px) {
   body { width: 400px; font-size: 16px; }
@@ -230,7 +230,7 @@ code,
   padding: 0px 60px;
   text-align: center;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #header-banner #name-site, #header-banner #menu
   { margin: 6px 8px; padding: 0px 40px; }
 }
@@ -248,7 +248,7 @@ code,
 {
   font-size: 30px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #name-site .title-site
   { font-size: 24px; }
 }
@@ -261,7 +261,7 @@ code,
 {
   font-size: 18px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #name-site .tagline-site
   { font-size: 16px; }
 }
@@ -274,7 +274,7 @@ code,
 {
   font-size: 18px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #menu .button-menu, #menu .dingbat-menu
   { font-size: 16px; }
 }
@@ -346,7 +346,7 @@ header #header-post, header #header-page
   margin: 12px 0px;
   padding: 0px 36px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   .entry
   { padding: 0px 24px; }
 }
@@ -361,7 +361,7 @@ header #header-post, header #header-page
   margin: 12px 30px;
   font-size: 32px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #header-post .heading-post .heading,
   #header-page .heading-page .display
   { margin: 8px 24px; font-size: 24px; }
@@ -380,7 +380,7 @@ header #header-post, header #header-page
   font-weight: 500;
   color: royalblue;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   .title-catalog .display
   { margin: 6px 32px; font-size: 24px; }
 }
@@ -393,7 +393,7 @@ header #header-post, header #header-page
 {
   font-size: 24px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   .entry .title-entry
   { font-size: 20px; }
 }
@@ -408,7 +408,7 @@ header #header-post, header #header-page
   margin: 12px 36px;
   font-size: 36px;
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 760px) {
   #header-page .heading-page,
   #header-post .heading-post
   { margin: 8px 30px; font-size: 30px; }

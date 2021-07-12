@@ -96,7 +96,7 @@ def main(whether_new):
    
    # # # # # # # # # # # # # # # #
    # # Write pages.
-   number_post_max = 16
+   number_post_max = 12
    number_post_shown = min(number_post_max, len(many_record))
    many_record_index = many_record[:number_post_shown]
    heading = "Latest"
