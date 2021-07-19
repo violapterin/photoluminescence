@@ -12,7 +12,7 @@ MathJax = {
       },
    },
    chtml: {
-      scale: 0.85
+      scale: 0.9
    },
    options: {
       processHtmlClass: [

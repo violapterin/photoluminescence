@@ -255,10 +255,10 @@ class Math_plain(Leaf):
             "GREEK": "\\exists",
             "ABSTRACTION": "\\wp",
             #
-            "LINE": ("\\," + "/" + "\\,"),
-            "OPERATION_ONE": ("\\," + "+" + "\\,"),
-            "OPERATION_TWO": ("\\," + "-" + "\\,"),
-            "OPERATION_THREE": ("\\," + "\\cdot" + "\\,"),
+            "LINE": "/",
+            "OPERATION_ONE": "+",
+            "OPERATION_TWO": "-",
+            "OPERATION_THREE": "\\cdot",
             #
             "CUT_PAIR": ("," + "\\,"),
             "CUT_TRIPLET": (":" + "\\,"),

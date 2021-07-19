@@ -83,6 +83,8 @@
 ||| \\/image/190710-beach.jpg\\ |||
 === %%Figure: A beach near the American Village.%% ' ===
 
+~~~
+
 ===
 @@🙝@@ %%July 10, 2019;%%
 %%revised July 12, 2021%%

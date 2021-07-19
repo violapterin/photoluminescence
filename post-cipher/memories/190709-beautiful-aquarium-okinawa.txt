@@ -23,7 +23,7 @@
 
 ===
 @@with the 1850 yen ticket, one @got into the building crowded with people;@@
-@@many were downright excited kids, some of them speaking Mandarin.@@ _
+@@many were downright excited kids, some of them speaking Chinese.@@ _
 @@in the first room one could touch the sea stars and sea urchins, if done gently.@@ _
 @@there was a big fish tank with wall made of magnifying glass,@@
 @@so <that a variety of fish could be closely examined>.@@ _
@@ -97,7 +97,7 @@
 @@and there crow caw could be heard.@@ '
 
 @@the plant garden @didn’t seem as impressive as the Aquarium was.@@ _
-@@fearing <that the bus time might be unpredictable>, I @decided, by almost 4 o’clock, <that I go back to wait for the returning bus>.@@ _
+@@fearing <that the bus time might be unpredictable>, I @decided, by almost 4pm, <that I go back to wait for the returning bus>.@@ _
 @@the bus soon @came, {which was the next- to- last one},@@
 @@and I @called it a day.@@ '
 ===
@@ -135,6 +135,8 @@
 
 ||| \\/image/190709-stew.jpg\\ |||
 === %%Figure: A fish stew.%% ' ===
+
+~~~
 
 ===
 @@🙝@@ %%July 9, 2019;%%

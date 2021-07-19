@@ -1,10 +1,10 @@
 ===
-@@the protagonist was aware <that his uncle Xitai, his mother’s eldest brother, @had cancer>, only after it was %getting serious.@@ _
+@@the protagonist was aware <that his uncle, his mother’s eldest brother, @had cancer>, only after it was %getting serious.@@ _
 @@the ominous but commonplace fact gradually @sank into his cognitive capacity, by the time {it was &mentioned two or three times}, starting from a worried call picked up by Mother in perhaps June, concluding with an announcement <that he was &admitted into palliative care>.@@ _
 @@Uncle and his family @lived in the US, and the protagonist had only &seen him twice,@@
 @@and hence he @didn’t feel much sadness, but merely emptiness {that @emerged every time he knew <people was &dying>}.@@ '
 @@Mother @didn’t appear to be weeping, though, and he @didn’t bring up the matter.@@ _
-@@and he could only imagine <how &devastated Xitai’s wife was>, from the broken English (even having &stayed in the US for decades) {she @wrote on Line to repeatedly ask the Lord for his blessing}.@@ _
+@@and he could only imagine <how &devastated Uncle’s wife was>, from the broken English (even having &stayed in the US for decades) {she @wrote on Line to repeatedly ask the Lord for his blessing}.@@ _
 
 @@he was a anesthesiologist, and was attentive of his health;@@
 @@he was frugal with money and hard working.@@ _
@@ -51,6 +51,8 @@
 @@some 6 hours later, as he @woke up, Father @read the messages on Line announcing that Uncle had &passed away.@@ _
 @@he was 74, not at all old to modern eyes.@@ '
 ===
+
+~~~
 
 ===
 @@🙝@@ %%October 9, 2020;%%

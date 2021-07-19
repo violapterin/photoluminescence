@@ -334,6 +334,7 @@ def prune_space(source):
          sink = sink[:spot + 1] + sink[spot + 2:]
          continue
       spot += 1
+
    spot = 0
    while (True):
       if (spot >= len(sink) - 1):
@@ -346,14 +347,30 @@ def prune_space(source):
          spot += 2
          continue
       spot += 1
+
+   spot = 0
+   many_line = {'-', '–', '—'}
+   while (True):
+      if (spot >= len(sink) - 2):
+         break
+      if (sink[spot] in many_line and sink[spot + 1] == ' '):
+         sink = sink[:spot + 1] + sink[spot + 2:]
+         spot += 1
+         continue
+      spot += 1
    return sink
 
 def be_ideograph(glyph):
    if be_punctuation(glyph):
       return False
-   if (u'\u4e00' <= glyph <= u'\u9fff'):
+   elif (u'\u4e00' <= glyph <= u'\u9fff'):
       return True # CJK Unified Ideographs
-   elif (u'\u3400' <= glyph <= u'\u4dbf'):
+   elif (u'\u3040' <= glyph <= u'\u309f'):
+      return True # hiragana
+   elif (u'\u30a0' <= glyph <= u'\u30ff'):
+      return True # katakana
+
+   if (u'\u3400' <= glyph <= u'\u4dbf'):
       return True # CJK Unified Ideographs Extension A
    elif (u'\u00020000' <= glyph <= u'\u0002a6df'):
       return True # CJK Unified Ideographs Extension B

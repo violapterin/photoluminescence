@@ -548,6 +548,8 @@ header #header-post, header #header-page
   padding: 8px;
   width: 320px;
   height: auto;
+  display: flex;
+  text-align: center;
 }
 
 #footer-quote
