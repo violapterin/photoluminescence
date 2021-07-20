@@ -383,7 +383,7 @@ header #header-post, header #header-page
   font-size: 26px;
   font-style: italic;
   font-weight: 500;
-  color: royalblue;
+  color: cornflowerblue;
 }
 @media screen and (max-width: 760px) {
   .title-catalog .display
@@ -448,7 +448,7 @@ header #header-post, header #header-page
 
 .entry .title-entry .heading
 {
-  color: cornflowerblue;
+  color: royalblue;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

@@ -45,8 +45,8 @@ def main(whether_new):
          many_catalog_stamp[month] = [record]
          continue
       many_catalog_stamp[month].append(record)
-   heading = "By date"
-   whole = write_catalog_long(matter, many_catalog_stamp, folder_post, heading)
+   information = (matter, folder_post, "By date", many_catalog_stamp)
+   whole = write_catalog_long(*information)
    path_stamp = os.path.join(folder_site, "stamp.html")
    AID.output_file(path_stamp, whole)
 
@@ -60,8 +60,8 @@ def main(whether_new):
          many_catalog_genre[genre] = [record]
          continue
       many_catalog_genre[genre].append(record)
-   heading = "By genre"
-   whole = write_catalog_short(matter, many_catalog_genre, folder_post, heading)
+   information = (matter, folder_post, "By genre", many_catalog_genre)
+   whole = write_catalog_short(*information)
    path_genre = os.path.join(folder_site, "genre.html")
    AID.output_file(path_genre, whole)
 
@@ -75,8 +75,8 @@ def main(whether_new):
             many_catalog_tag[tag] = [record]
             continue
          many_catalog_tag[tag].append(record)
-   heading = "By tag"
-   whole = write_catalog_long(matter, many_catalog_tag, folder_post, heading)
+   information = (matter, folder_post, "By tag", many_catalog_tag)
+   whole = write_catalog_long(*information)
    path_tag = os.path.join(folder_site, "tag.html")
    AID.output_file(path_tag, whole)
 
@@ -89,8 +89,8 @@ def main(whether_new):
          many_catalog_series[series] = [record]
          continue
       many_catalog_series[series].append(record)
-   heading = "By series"
-   whole = write_catalog_short(matter, many_catalog_series, folder_post, heading)
+   information = (matter, folder_post, "By series", many_catalog_series)
+   whole = write_catalog_short(*information)
    path_series = os.path.join(folder_site, "series.html")
    AID.output_file(path_series, whole)
    
@@ -100,35 +100,35 @@ def main(whether_new):
    number_post_shown = min(number_post_max, len(many_record))
    many_record_index = many_record[:number_post_shown]
    heading = "Latest"
-   whole = write_page(matter, many_record_index, folder_post, heading)
+   whole = write_page(matter, folder_post, heading, many_record_index)
    path_index = os.path.join(folder_site, "index.html")
    AID.output_file(path_index, whole)
 
    for month, catalog in many_catalog_stamp.items():
       heading = month
       name = unify_name(month) + ".html"
-      whole = write_page(matter, catalog, folder_post, heading)
+      whole = write_page(matter, folder_post, heading, catalog)
       path_stamp = os.path.join(folder_page, name)
       AID.output_file(path_stamp, whole)
 
    for genre, catalog in many_catalog_genre.items():
       heading = genre
       name = unify_name(genre) + ".html"
-      whole = write_page(matter, catalog, folder_post, heading)
+      whole = write_page(matter, folder_post, heading, catalog)
       path_genre = os.path.join(folder_page, name)
       AID.output_file(path_genre, whole)
 
    for tag, catalog in many_catalog_tag.items():
       heading = tag
       name = unify_name(tag) + ".html"
-      whole = write_page(matter, catalog, folder_post, heading)
+      whole = write_page(matter, folder_post, heading, catalog)
       path_tag = os.path.join(folder_page, name)
       AID.output_file(path_tag, whole)
 
    for series, catalog in many_catalog_series.items():
       heading = series
       name = unify_name(series) + ".html"
-      whole = write_page(matter, catalog, folder_post, heading)
+      whole = write_page(matter, folder_post, heading, catalog)
       path_series = os.path.join(folder_page, name)
       AID.output_file(path_series, whole)
 
@@ -169,13 +169,13 @@ def load_record(folder_this):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-def write_catalog_short(matter, many_catalog, folder_post, heading):
-   return write_catalog(True, matter, many_catalog, folder_post, heading)
+def write_catalog_short(matter, folder_post, heading, many_catalog):
+   return write_catalog(True, matter, folder_post, heading, many_catalog)
 
-def write_catalog_long(matter, many_catalog, folder_post, heading):
-   return write_catalog(False, matter, many_catalog, folder_post, heading)
+def write_catalog_long(matter, folder_post, heading, many_catalog):
+   return write_catalog(False, matter, folder_post, heading, many_catalog)
 
-def write_catalog(whether_short, matter, many_catalog, folder_post, heading):
+def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    many_whole = []
    head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
@@ -220,7 +220,7 @@ def write_catalog(whether_short, matter, many_catalog, folder_post, heading):
    whole = '\n\n'.join(many_whole)
    return whole
 
-def write_page(matter, many_record, folder_post, heading):
+def write_page(matter, folder_post, heading, many_record):
    many_whole = []
    head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]

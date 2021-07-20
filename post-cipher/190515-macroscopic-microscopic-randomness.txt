@@ -1,31 +1,31 @@
 <Macroscopic and microscopic randomness>
 ===
-@@Random variables, it would seem, #arise in two contexts.@@ _
-@@According to quantum mechanics, the collapse of wave function $produces truly random outcomes, since Bell’s inequality $disallows any hidden variable theory.@@ _
-@@Let us call for convenience <that quantum systems are first kind random>.@@ _
-'
-@@But what is the nature of macroscopic random events?@@ _
-@@Let us say we roll a die.@@ _
-@@The angle by which the die rotates, the slightest perturbation of dust, the rough surface it lands on, are all random variables, and they are so random that the point of die follows the uniform distribution.@@ _
-@@Still, it is possible to consider the system as completely deterministic.@@ _
-@@In fact, classical mechanics describes the evolution of system in the phase space.@@ _
-@@Then chaos theory explains the mystery of randomness, that deterministic systems may be able to produce seemingly random results.@@ _
-@@Let us call them second kind random.@@ _
-@@It is then inevitable to conclude that, strangely, somehow the first kind randomness generates the second-kind-randomness.@@ _
-@@The reason might be the central limit theorem and law of large numbers.@@ _
-'
-@@On the other hand, the second-kind-randomness in turn simulates the first-kind-randomness.@@ _
-@@As an example, the distribution of prime numbers is deterministic, yet they resemble a normal distribution in a certain sense.@@ _
-@@In fact, this is what I think mathematics only does.@@ _
-@@The probability theory does not rule out a completely static interpretation.@@ _
-@@The event space is just a static collection of outcomes, and the expectation is just an integration.@@ _
-@@The theory of probability is no doubt rigorous in derivation, but the very core concept that lies in it, the probability, lies only in our heart.@@ _
-@@We have defined everything except the most crucial one: what randomness is.@@ _
-@@Can it be that we shall never know?@@ _
-@@Are they something we see everyday, but cannot be said?@@ _
-'
-@@This is what urged me to learn about Bayes theory and algorithmic randomness.@@ _
-@@More on the matter to come.@@ _
+@@random variables, it would seem, #arise in two contexts.@@ _
+@@according to quantum mechanics, the collapse of wave function $produces truly random outcomes, since Bell’s inequality $disallows any hidden variable theory.@@ _
+@@let us call for convenience <that quantum systems are first kind random>.@@ '
+
+@@but what is the nature of macroscopic random events?@@ _
+@@let us say we roll a die.@@ _
+@@the angle by which the die rotates, the slightest perturbation of dust, the rough surface it lands on, are all random variables, and they are so random that the point of die follows the uniform distribution.@@ _
+@@still, it is possible to consider the system as completely deterministic.@@ _
+@@in fact, classical mechanics describes the evolution of system in the phase space.@@ _
+@@then chaos theory explains the mystery of randomness, that deterministic systems may be able to produce seemingly random results.@@ _
+@@let us call them second kind random.@@ _
+@@it is then inevitable to conclude that, strangely, somehow the first kind randomness generates the second-kind-randomness.@@ _
+@@the reason might be the central limit theorem and law of large numbers.@@ '
+
+@@on the other hand, the second-kind-randomness in turn simulates the first-kind-randomness.@@ _
+@@as an example, the distribution of prime numbers is deterministic, yet they resemble a normal distribution in a certain sense.@@ _
+@@in fact, this is what I think mathematics only does.@@ _
+@@the probability theory does not rule out a completely static interpretation.@@ _
+@@the event space is just a static collection of outcomes, and the expectation is just an integration.@@ _
+@@the theory of probability is no doubt rigorous in derivation, but the very core concept that lies in it, the probability, lies only in our heart.@@ _
+@@we have defined everything except the most crucial one: what randomness is.@@ _
+@@can it be that we shall never know?@@ _
+@@are they something we see everyday, but cannot be said?@@ '
+
+@@this is what urged me to learn about Bayes theory and algorithmic randomness.@@ _
+@@more on the matter to come.@@ '
 ===
 
 ~~~
