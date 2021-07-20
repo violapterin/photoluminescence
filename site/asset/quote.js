@@ -1,29 +1,28 @@
-var texts= [
+const texts= [
    `Wherefore is light given to him that is in misery,<br>
    and life unto the bitter in soul;<br>
    Which long for death, but it cometh not;<br>
    and dig for it more than for hid treasures?`,
    // // // // // // // //
-   `We're not doomed.
-   In the grand scheme of things,
-   we're just tiny specks that will one day be forgotten.
-   The only thing that matters is right now.
-   This one spectacular moment we are sharing together.
-   Right, Sarah Lynn?`,
+   `&emsp;We're not doomed. In the grand scheme of<br>
+   things, we're just tiny specks that will one day<br>
+   be forgotten. The only thing that matters is right<br>
+   now. This one spectacular moment we are sharing<br>
+   together. Right, Sarah Lynn?`,
    // // // // // // // //
-   `O ihr Menschen, die ihr mich für feindselig,
-   störrisch oder misanthropisch haltet oder erkläret,
-   wie unrecht tut ihr mir!`,
+   `&emsp;O ihr Menschen, die ihr mich für<br>
+   feindselig, störrisch oder misanthropisch<br>
+   haltet oder erkläret, wie unrecht tut ihr mir!`,
    // // // // // // // //
-   `Fame is a bee.<br>
-   It has a song—<br>
-   It has a sting—<br>
-   Ah, too, it has a wing.`,
+   `&emsp;&emsp;&emsp;&emsp;Fame is a bee.<br>
+   &emsp;&emsp;&emsp;&emsp;It has a song—<br>
+   &emsp;&emsp;&emsp;&emsp;It has a sting—<br>
+   &emsp;&emsp;&emsp;&emsp;Ah, too, it has a wing.`,
    // // // // // // // //
-   `Now—for a breath I tarry<br>
-   Nor yet disperse apart—<br>
-   Take my hand quick and tell me,<br>
-   What have you in your heart.`,
+   `&emsp;&emsp;&emsp;Now—for a breath I tarry<br>
+   &emsp;&emsp;&emsp;Nor yet disperse apart—<br>
+   &emsp;&emsp;&emsp;Take my hand quick and tell me,<br>
+   &emsp;&emsp;&emsp;What have you in your heart.`,
    // // // // // // // //
 ];
 var choice = Math.floor(Math.random() * texts.length);

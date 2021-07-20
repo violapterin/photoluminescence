@@ -202,9 +202,14 @@ code,
   padding: 0px;
 }
 
+.document
+{
+  border-bottom: 3px lightgray solid;
+}
+
 .document a
 {
-  color: cornflowerblue;
+  color: dodgerblue;
   text-decoration: none;
 }
 
@@ -374,7 +379,7 @@ header #header-post, header #header-page
 
 .title-catalog .display
 {
-  margin: 6px 48px;
+  margin: 6px 12px;
   font-size: 26px;
   font-style: italic;
   font-weight: 500;
@@ -382,11 +387,11 @@ header #header-post, header #header-page
 }
 @media screen and (max-width: 760px) {
   .title-catalog .display
-  { margin: 6px 32px; font-size: 24px; }
+  { margin: 6px 9px; font-size: 24px; }
 }
 @media screen and (max-width: 600px) {
   .title-catalog .display
-  { margin: 6px 16px; font-size: 22px; }
+  { margin: 6px 6px; font-size: 22px; }
 }
 
 .entry .title-entry
@@ -431,14 +436,19 @@ header #header-post, header #header-page
   font-weight: 700;
 }
 
-.heading
+#header-post .heading-post .heading
 {
   color: maroon;
 }
 
-.display
+#header-page .heading-page .display
 {
   color: midnightblue;
+}
+
+.entry .title-entry .heading
+{
+  color: cornflowerblue;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -489,12 +499,20 @@ header #header-post, header #header-page
   text-decoration: none;
 }
 
-.data-post .data-stamp:hover, .data-entry.data-stamp:hover,
+.data-post .data-stamp:hover, .data-entry .data-stamp:hover,
 .data-post .data-genre:hover, .data-entry .data-genre:hover,
 .data-post .data-series:hover, .data-entry .data-series:hover,
 .data-post .data-tag:hover, .data-entry .data-tag:hover
 {
   text-decoration: underline;
+  color: lightslategray;
+}
+
+.data-post .data-stamp:visited, .data-entry .data-stamp:visited,
+.data-post .data-genre:visited, .data-entry .data-genre:visited,
+.data-post .data-series:visited, .data-entry .data-series:visited,
+.data-post .data-tag:visited, .data-entry .data-tag:visited
+{
   color: dimgray;
 }
 
@@ -523,38 +541,46 @@ header #header-post, header #header-page
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#footer-whole
+#footer-quote
 {
-  font-size: 18px;
+  font-size: 16px;
 }
 @media screen and (max-width: 600px) {
-  #footer-whole
-  { font-size: 16px; }
+  #footer-quote
+  { font-size: 15px; }
 }
 @media screen and (max-width: 420px) {
-  #footer-whole
+  #footer-quote
   { font-size: 14px; }
 }
 
 #footer-whole
 {
   margin: 18px auto;
-  border-top: 3px lightgray solid;
+  padding: 0px;
+  width: 320px;
 }
 
 #footer-signature, #footer-quote
 {
   margin: auto;
-  padding: 8px;
-  width: 320px;
   height: auto;
-  display: flex;
-  text-align: center;
 }
 
 #footer-quote
 {
+  padding-left: 12px;
+  padding-right: 0px;
   color: dimgray;
+  text-align: left;
+  display: inline-block;
+}
+
+#footer-signature
+{
+  font-size: 18px;
+  padding: 0px;
+  text-align: left;
 }
 
 #footer-quote,

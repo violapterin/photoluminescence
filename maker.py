@@ -46,7 +46,7 @@ def main(whether_new):
          continue
       many_catalog_stamp[month].append(record)
    heading = "By date"
-   whole = write_catalog(matter, many_catalog_stamp, folder_post, heading)
+   whole = write_catalog_long(matter, many_catalog_stamp, folder_post, heading)
    path_stamp = os.path.join(folder_site, "stamp.html")
    AID.output_file(path_stamp, whole)
 
@@ -61,7 +61,7 @@ def main(whether_new):
          continue
       many_catalog_genre[genre].append(record)
    heading = "By genre"
-   whole = write_catalog(matter, many_catalog_genre, folder_post, heading)
+   whole = write_catalog_short(matter, many_catalog_genre, folder_post, heading)
    path_genre = os.path.join(folder_site, "genre.html")
    AID.output_file(path_genre, whole)
 
@@ -76,7 +76,7 @@ def main(whether_new):
             continue
          many_catalog_tag[tag].append(record)
    heading = "By tag"
-   whole = write_catalog(matter, many_catalog_tag, folder_post, heading)
+   whole = write_catalog_long(matter, many_catalog_tag, folder_post, heading)
    path_tag = os.path.join(folder_site, "tag.html")
    AID.output_file(path_tag, whole)
 
@@ -90,7 +90,7 @@ def main(whether_new):
          continue
       many_catalog_series[series].append(record)
    heading = "By series"
-   whole = write_catalog(matter, many_catalog_series, folder_post, heading)
+   whole = write_catalog_short(matter, many_catalog_series, folder_post, heading)
    path_series = os.path.join(folder_site, "series.html")
    AID.output_file(path_series, whole)
    
@@ -169,7 +169,13 @@ def load_record(folder_this):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-def write_catalog(matter, many_catalog, folder_post, heading):
+def write_catalog_short(matter, many_catalog, folder_post, heading):
+   return write_catalog(True, matter, many_catalog, folder_post, heading)
+
+def write_catalog_long(matter, many_catalog, folder_post, heading):
+   return write_catalog(False, matter, many_catalog, folder_post, heading)
+
+def write_catalog(whether_short, matter, many_catalog, folder_post, heading):
    many_whole = []
    head = matter["head"].replace("$TITLE", write_title(heading))
    header_banner = matter["header_banner"]
@@ -186,18 +192,28 @@ def write_catalog(matter, many_catalog, folder_post, heading):
    many_whole.append("<body>")
    many_whole.append(header_banner)
    many_whole.append(header_page)
+
+   bound_symbol = 32
+   count_symbol = 0
+   entity = "<p class=\"title-catalog\">"
+   many_whole.append("<main class=\"document\">")
    for kind, catalog in many_catalog.items():
-      display = write_element_display(kind, unify_name(kind))
-      many_whole.append("<p class=\"title-catalog\">")
-      many_whole.append(display)
-      many_whole.append("</p>")
-      '''
-      for record in catalog:
-         stamp = record.get("stamp")
-         name_post = search_path_post(folder_post, stamp)
-         display = write_entry(entry, record, name_post)
-         many_whole.append(display)
-      '''
+      unified = unify_name(kind)
+      count_symbol += len(unified)
+      display = write_element_display(kind, unified)
+      entity += display
+      whether_return = False
+      if whether_short:
+         whether_return = True
+      else:
+         if (count_symbol > bound_symbol):
+            whether_return = True
+            count_symbol = 0
+      if whether_return:
+         entity += "</p>"
+         many_whole.append(entity)
+         entity = "<p class=\"title-catalog\">"
+   many_whole.append("</main>")
    many_whole.append(footer)
    many_whole.append("</body>")
    many_whole.append("</html>")
@@ -221,11 +237,13 @@ def write_page(matter, many_record, folder_post, heading):
    many_whole.append("<body>")
    many_whole.append(header_banner)
    many_whole.append(header_page)
+   many_whole.append("<main class=\"document\">")
    for record in many_record:
       stamp = record.get("stamp")
       name_post = search_path_post(folder_post, stamp)
       display = write_entry(entry, record, name_post)
       many_whole.append(display)
+   many_whole.append("</main>")
    many_whole.append(footer)
    many_whole.append("</body>")
    many_whole.append("</html>")
