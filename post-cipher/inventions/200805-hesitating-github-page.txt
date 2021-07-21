@@ -90,19 +90,19 @@ _ ++<span class="v"> x+y+z </span>++ '
 ~~~
 
 ===
-@@🙝@@ %%late August, 2020%%
+@@❧@@ %%late August, 2020%%
 ===
 
 === ##references## ===
 
 ===
-@@🙨@@ @@S Boldt,@@ @@‹Jelly›@@
+@@❉@@ @@S Boldt,@@ @@‹Jelly›@@
    \\https://github.com/SebastianBoldt/Jelly\\ '
-@@🙨@@ @@J MacFarlane et al,@@ @@CommonMark Spec@@
+@@❉@@ @@J MacFarlane et al,@@ @@CommonMark Spec@@
    \\https://spec.commonmark.org/\\ '
-@@🙨@@ @@MDN Web Docs,@@ @@‹grid›@@
+@@❉@@ @@MDN Web Docs,@@ @@‹grid›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
-@@🙨@@ @@‹How to display classic built- up fractions with an horizontal line›@@
+@@❉@@ @@‹How to display classic built- up fractions with an horizontal line›@@
    \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ @@.@@ 
    @@In Stack Overflow@@ '
 ===

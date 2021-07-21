@@ -1,12 +1,12 @@
 ===
-@@🙝@@ @@Babylonians already knew that@@ ^^.a [.2:.x:] .+ .b .x .+ .c .= .0^^ @@$has solution:@@ '
+@@❉@@ @@Babylonians already knew that@@ ^^.a [.2:.x:] .+ .b .x .+ .c .= .0^^ @@$has solution:@@ '
 ^^ .x
   .= (.-.b +0 $R.([.2:.b:] .- .4.a.c.), .2.a) ^^ '
-@@🙝@@ @@By the property of Vandermonde matrix:@@ '
+@@❉@@ @@By the property of Vandermonde matrix:@@ '
 ^^ .[{.1.,; .1.,; .1.,} {.a.,; .b.,; .c.,} {[.2: .a:]; [.2: .b:]; [.2: .c:]}.]
    .= .(.a .- .b.) .(.b .- .c.) .(.a .- .c.)
    `for` .a., .b., .c.^^ '
-@@🙝@@ @@Stirling formula states:@@ '
+@@❉@@ @@Stirling formula states:@@ '
 ^^ $R.(.2$p.) [.n .+ .1 ./ .2: .n:]
    [.-.n: .e:] [.1 ./ .(.1.2.n .+ .1.): .e:]
    <1 $G.[.n.]
@@ -16,7 +16,7 @@
    <1 $R.(.2$p.) [.n .+ .1 ./ .2: .n:]
    [.-.n: .e:] [.1 ./ .1.2.n: .e:]
    `for` .n^^ '
-@@🙝@@ @@By Taylor series expanded around@@ ^^$p ./ .2^^ @@:@@ '
+@@❉@@ @@By Taylor series expanded around@@ ^^$p ./ .2^^ @@:@@ '
 ^^ [: 'lim': .x .| $B] .([.2: .x:] .('atan' .x .- (.p, .2).) .+ .x.)
    .= .0^^ '
 ===
@@ -24,5 +24,5 @@
 ~~~
 
 ===
-@@🙝@@ %%early July 2021%% '
+@@❧@@ %%early July 2021%% '
 ===

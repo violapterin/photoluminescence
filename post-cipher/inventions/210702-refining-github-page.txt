@@ -89,16 +89,16 @@ _ ++}++ '
 ~~~
 
 ===
-@@🙝@@ %%July 2, 2021%%
+@@❧@@ %%July 2, 2021%%
 ===
 
 === ##references## ===
 
 ===
-@@🙨@@ @@MDN Web Docs,@@ @@‹Colors›@@
+@@❉@@ @@MDN Web Docs,@@ @@‹Colors›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
-@@🙨@@ @@MDN Web Docs,@@ @@‹Specificity›@@
+@@❉@@ @@MDN Web Docs,@@ @@‹Specificity›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
-@@🙨@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
+@@❉@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '
 ===

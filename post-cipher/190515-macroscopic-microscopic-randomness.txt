@@ -1,4 +1,3 @@
-<Macroscopic and microscopic randomness>
 ===
 @@random variables, it would seem, #arise in two contexts.@@ _
 @@according to quantum mechanics, the collapse of wave function $produces truly random outcomes, since Bell’s inequality $disallows any hidden variable theory.@@ _
@@ -31,5 +30,5 @@
 ~~~
 
 ===
-@@🙝@@ %%May 15, 2019%% '
+@@❧@@ %%May 15, 2019%% '
 ===

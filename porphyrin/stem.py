@@ -90,7 +90,7 @@ class Break(Stem):
       self.many_sink = []
 
    def parse(self):
-      dingbat = "<span class=\"phrase\">🙤</span>"
+      dingbat = "<span class=\"phrase\">❦</span>"
       space = "<span class=\"phrase\">&emsp;</span>"
       repeat = 3
       for _ in range(repeat):

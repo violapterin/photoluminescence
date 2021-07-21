@@ -47,8 +47,7 @@ body, header
 #footer-whole
 {
   margin: auto;
-  height: auto;
-  padding: 12px;
+  padding: 0px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -231,7 +230,7 @@ code,
 
 #header-banner #name-site, #header-banner #menu
 {
-  margin: 12px 12px;
+  margin: 6px 12px;
   padding: 0px 60px;
   text-align: center;
 }
@@ -383,8 +382,8 @@ header #header-post, header #header-page
 {
   margin: 16px 12px;
   padding: 0px;
-  text-indent: 12px;
-  line-height: 80%;
+  text-indent: 18px;
+  line-height: 90%;
 }
 @media screen and (max-width: 760px) {
   .entry .title-entry,
@@ -403,38 +402,43 @@ header #header-post, header #header-page
   margin: 12px 0px;
   padding: 0px;
   font-size: 36px;
-  line-height: 80%;
+  line-height: 90%;
 }
 @media screen and (max-width: 760px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 10px 0px; font-size: 30px; }
+  { margin: 10px 0px; font-size: 32px; }
 }
 @media screen and (max-width: 600px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 8px 0px; font-size: 24px; }
+  { margin: 8px 0px; font-size: 28px; }
 }
 @media screen and (max-width: 420px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 6px 0px; font-size: 18px; }
+  { margin: 6px 0px; font-size: 24px; }
 }
 
 .title-catalog .display
 {
   margin: 0px 12px;
   padding: 0px;
-  font-size: 30px;
+  font-size: 32px;
   font-style: italic;
 }
 @media screen and (max-width: 760px) {
   .title-catalog .display
-  { margin: 0px 8px; font-size: 24px; }
+  { margin: 0px 10px; font-size: 28px; }
 }
 @media screen and (max-width: 600px) {
   .title-catalog .display
-  { margin: 0px 4px; font-size: 18px; }
+  { margin: 0px 8px; font-size: 24px; }
+}
+@media screen and (max-width: 420px) {
+  #header-page .heading-page .display,
+  #header-post .heading-post .heading
+  { margin: 6px 6px; font-size: 20px; }
 }
 
 .entry .title-entry .heading
