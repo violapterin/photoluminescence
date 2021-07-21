@@ -349,7 +349,7 @@ def write_element_heading(title, name):
       sink = (
          "<a class=\"heading\"" + ' '
          + "href=\"/post/{}\">".format(name)
-         + "{}</a>".format(title) + ' ' + "</span>"
+         + "{}</a>".format(title)
       )
    return sink
 
