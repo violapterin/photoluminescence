@@ -193,7 +193,7 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    many_whole.append(header_banner)
    many_whole.append(header_page)
 
-   bound_symbol = 32
+   bound_symbol = 24
    count_symbol = 0
    entity = "<p class=\"title-catalog\">"
    many_whole.append("<main class=\"document\">")

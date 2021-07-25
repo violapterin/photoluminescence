@@ -27,6 +27,9 @@
 {"stamp": "201115", "genre": "memories",
     "tag": ["Friends", "Music composition"],
     "title": "Sending the red envelope"},
+{"stamp": "201027", "genre": "readings",
+    "tag": ["Family", "Short story", "Munro"],
+    "title": "‹Deep-Holes›"},
 {"stamp": "201009", "genre": "notes",
     "tag": ["Family", "Death", "Illness"],
     "title": "Uncle was ill"},
@@ -35,7 +38,7 @@
     "title": "Hesitating: GitHub Page progress report, part 2"},
 {"stamp": "200730", "genre": "data",
     "tag": ["Test", "Meta"],
-    "title": "Test page for Math"},
+    "title": "Test page for MathJax"},
 {"stamp": "200719", "genre": "inventions", "series": "GitHub Page progress report",
     "tag": ["Technology", "Coding", "Meta"],
     "title": "Exploring: GitHub Page progress report, part 1"},
@@ -63,11 +66,14 @@
     "title": "The young man’s game"},
 
 {"stamp": "170809", "genre": "notes",
-    "tag": ["Notation", "Elementary math"],
+    "tag": ["Notation", "General mathematics"],
     "title": "The obelus notation for division"},
 {"stamp": "170317", "genre": "notes",
-    "tag": ["Technology"],
+    "tag": ["Technology", "Linux"],
     "title": "Installing Arch Linux"},
+{"stamp": "170119", "genre": "notes",
+    "tag": ["Technology", "Shell"],
+    "title": "Difference between bashrc and bash profile"},
 
 null
 ]

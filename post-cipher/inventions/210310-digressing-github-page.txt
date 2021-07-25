@@ -59,9 +59,9 @@
 @@it simply $remains to design a markup {which $describes normal text and mathematics, and $outputs HTML}.@@ _
 @@this markup, as Markdown $does, $distinguishes italic and bold texts, and so on.@@ _
 @@moreover, there $has to be a mark {which $denotes the beginning and end of a math mode},@@
-@@so I am free to rename the symbols as I wish.@@ _
+@@so I’m free to rename the symbols as I wish.@@ _
 @@the code in the math mode, in turn, is to be converted to standard LaTeX.@@ _
-@@I am ready to code.@@ '
+@@I’m ready to code.@@ '
 ===
 
 ~~~

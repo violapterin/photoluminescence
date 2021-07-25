@@ -1,23 +1,13 @@
 # Guidelines
 
-## Scientific writing
+## Nonfictional writings
 
 | code | A | B | C | D | E |
 | --- | --- | --- | --- | --- | --- |
 | class | notes | reading | expositions | comments | quests |
-| content | paper survey | summary of book and longer paper | undergraduate or graduate | research level remarks, with opinion | original |
+| content | facts | summary | introduction | opinionated remarks | original research |
 | presentation | informal, traditional | informal, traditional | almost natural deduction | informal, traditional | almost type theoretical |
 | originality | low | low | mid | low | high |
-
-## Humanities writing
-
-| code | A | B | C | D | E |
-| --- | --- | --- | --- | --- | --- |
-| class | notes | reading | expositions | comments | quests |
-| content | matter of fact | summary of book and longer paper | common knowledge | opinions, academic or life | original |
-| originality | low | low | mid | low | high |
-
-
 
 ## Autobiographical writings
 
@@ -42,7 +32,7 @@
 
 | | Romance orthography | other orthography | phonology | sense |
 | --- | --- | --- | --- | --- |
-| in fictions | normal, without diacritics | phonological, all capital | not applicable | in single quotes |
 | in linguistic discussions | normal, bold | official orthography | in brackets | italic |
-| elsewhere | normal | official orthography, italic | all capital  | in single quotes  |
+| in fictions | normal, no diacritics | distinguish vowel length, no diacritics | all capital | in single quotes |
+| elsewhere | normal | official orthography, no diacritics | all capital  | in single quotes  |
 

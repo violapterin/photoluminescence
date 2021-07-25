@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1"/>
+  <title>Difference between bashrc and bash profile</title>
+  <link rel="shortcut icon" href="/asset/favicon.ico"/>
+  <link rel="stylesheet" href="/asset/style.css"/>
+
+  <!-- Google fonts -->
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,500,500i,700,900"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:600"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700"/>
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700"/>
+
+  <!-- Mathjax configuration -->
+  <script src="/asset/mathjax.js" defer>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer>
+  </script>
+
+  <!-- random quotes -->
+  <script src="/asset/quote.js" defer>
+  </script>
+</head>
+
+
+
+<body>
+
+<header>
+  <div id="header-banner">
+    <h1 id="name-site">
+      <a class="title-site" href="/">Photoluminescence</a>
+      <span class="tagline-site">Math, Machines, and Music</span>
+    </h1>
+    <nav id="menu">
+      <a class="button-menu" href="/stamp.html">by date</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/genre.html">by genre</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/series.html">by series</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/tag.html">by tag</a>
+    </nav>
+    <img id="banner" src="/asset/banner.png" alt="banner">
+  </div>
+</header>
+
+<header>
+  <div id="header-post">
+    <h2 class="heading-post">
+      <span class="heading">Difference between bashrc and bash profile</span>
+    </h2>
+    <p class="data-post">
+      <a class="data-stamp" href="/page/january-2017.html">19 January 2017</a>
+      <a class="data-genre" href="/page/notes.html">Negligible notes</a>
+      
+      <a class="data-tag" href="/page/technology.html">Technology</a>
+<a class="data-tag" href="/page/shell.html">Shell</a>
+    </p>
+  </div>
+</header>
+
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">The settings</span> <code class="mono">.bash_profile</code> <span class="serif-roman">or</span> <code class="mono">.bashrc</code> <span class="serif-roman">have both similar roles and certain differences.</span></span> <span class="phrase"><span class="serif-roman">To understand this, we note that a shell can be either interactive or noninteractive, and that it can be either a login shell or a nonlogin shell.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">In an interactive shell, the user may type commands into it, execute them, and see the output.</span></span> <span class="phrase"><span class="serif-roman">A noninteractive shell doesn’t allow so.</span></span> <span class="phrase"><span class="serif-roman">When we enter the terminal app in Mac or Ubuntu, we are using an interactive shell.</span></span> <span class="phrase"><span class="serif-roman">When we run a shell script, however, a noninteractive shell is started to run it until the script finishes.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">A login shell requires the user to type username and password to log in,</span> <span class="serif-roman">but a nonlogin shell does not.</span></span> <span class="phrase"><span class="serif-roman">Therefore a login shell must be interactive.</span></span> <span class="phrase"><span class="serif-roman">Certainly, the shell explicitly created by logging in, in a terminal app instance, is a login shell.</span></span> <span class="phrase"><span class="serif-roman">Since the terminal app automatically logs in when starting up, it is a login shell.</span></span> <span class="phrase"><span class="serif-roman">Meanwhile, nonlogin shells include the new Bash instance the user invokes by calling</span> <code class="mono">/bin/bash</code> <span class="serif-roman">,</span> <span class="serif-roman">or another kind of shell, like Zsh.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Now, an interactive login shell reads</span> <code class="mono">.bash_profile</code><span class="serif-roman">,</span> <span class="serif-roman">while an interactive nonlogin shell reads</span> <code class="mono">.bashrc</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Default paths of</span> <code class="mono">.bash_profile</code> <span class="serif-roman">and</span> <code class="mono">.bashrc</code> <span class="serif-roman">are both the user’s home.</span></span> <span class="phrase"><span class="serif-roman">On the other hand, a noninteractive shell reads neither of them.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Actually there are</span> <code class="mono">/etc/profile</code><span class="serif-roman">,</span> <code class="mono">/etc/bash.bashrc</code><span class="serif-roman">,</span> <code class="mono">BASH_ENV</code><span class="serif-roman">,</span> <code class="mono">~/.bash_login</code><span class="serif-roman">,</span> <code class="mono">~/.bash_logout</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">~/.profile</code><span class="serif-roman">,</span> <span class="serif-roman">each with subtle differences due to historical reasons.</span></span> <span class="phrase"><span class="serif-roman">To me, the most reliable solution is that we put all settings into</span> <code class="mono">~/.bashrc</code><span class="serif-roman">,</span> <span class="serif-roman">and require</span> <code class="mono">~/.bash_profile</code> <span class="serif-roman">to source</span> <code class="mono">~/.bashrc</code> <span class="serif-roman">.</span></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">January 19, 2017</em></span>
+</p>
+</div>
+</main>
+
+<footer>
+  <div id="footer-whole">
+    <p id="footer-quote"></p>
+
+    <div id="footer-signature">
+      <div id="footer-left">
+        <p class="footer-author">violapterin</p>
+        <p class="footer-motto">VOLO NON FUGIA</p>
+        <p class="footer-icon">
+          <a class="icon-gmail" href="mailto:violapterin@gmail.com">
+          </a>
+          <a class="icon-github" href="http://github.com/violapterin/">
+          </a>
+          <a class="icon-facebook" href="http://facebook.com/violapterin/">
+          </a>
+          <a class="icon-twitter" href="http://twitter.com/violapterin/">
+          </a>
+        </p>
+        <p class="footer-license">
+          <a class="icon-license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+          </a>
+        </p>
+      </div>
+
+
+      <div id="footer-right">
+        <img class="footer-profile" src="/asset/profile.png" alt="profile">
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+
+</html>

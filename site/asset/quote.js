@@ -19,10 +19,13 @@ const texts= [
    &emsp;&emsp;&emsp;&emsp;It has a sting—<br>
    &emsp;&emsp;&emsp;&emsp;Ah, too, it has a wing.`,
    // // // // // // // //
-   `&emsp;&emsp;&emsp;Now—for a breath I tarry<br>
-   &emsp;&emsp;&emsp;Nor yet disperse apart—<br>
-   &emsp;&emsp;&emsp;Take my hand quick and tell me,<br>
-   &emsp;&emsp;&emsp;What have you in your heart.`,
+   `&emsp;Things fall apart; the centre cannot hold;<br>
+   &emsp;Mere anarchy is loosed upon the world.`,
+   // // // // // // // //
+   `&emsp;&emsp;Now—for a breath I tarry<br>
+   &emsp;&emsp;Nor yet disperse apart—<br>
+   &emsp;&emsp;Take my hand quick and tell me,<br>
+   &emsp;&emsp;What have you in your heart.`,
    // // // // // // // //
 ];
 var choice = Math.floor(Math.random() * texts.length);
