@@ -1,0 +1,322 @@
+# Installing Arch Linux
+
+*Mar. 17, 2017*
+
+This note is the summary of the steps I followed to successfully install Arch Linux. Explanations will be absolutely minimal. Nor will I cover an alternative way, for brevity, when one possible way is already mentioned. If the reader still finds something unclear, or want more information, see references cited in the end of this note.
+
+Despite brevity, I have provided reason, as correct as how I understand it, for whatever task I cover here. Because I am new to the world of Linux, I appreciate the reader to point out any error herein.
+
+## Prepare a bootable USB stick 
+
+Download the [Arch Linux ISO](https://www.archlinux.org/download/). Choose any mirror close to your physical location to facilitate download. The direct download is named `archlinux-yyyy.mm.dd-dual.iso ` (according to the date compiled), about 470MB.
+
+In the past, the default is to prepare a bootable CD-ROM. This is straightforward because an ISO is already written in the data structure of an optical disk, and such tool for burning is prevalent. 
+
+However, since USB is prevalent these days, it can emulate the structure of an ISO. To make a bootable USB, on a Windows computer, for example, download [Rufus](https://rufus.akeo.ie/). Just drag Arch Linux ISO upon the Rufus window, and click start. Its GUI is very straightforward, and I will not elaborate on this.
+
+It is more convoluted to do the same in Mac. We have to format the USB first, and copy ISO into it using `dd` utility. I shall not cover the matter in this note.
+
+## Enter the firmware interface
+
+A firmware interface, stored in the ROM, is a bridge between software and hardware. Indeed we boot the computer with help of it. 
+
+While the computer is turned off, plug the bootable USB in. Please stare carefully on the screen. Before the computer boots, there will be a moment the screen is shown with direction to enter the firmware interface. In the ASUS computer I am using, a notice that reads
+
+    Please press DEL or F2 to enter UEFI BIOS setting
+
+Do that immediately, or the computer with boot with default OS as before!
+
+Now, you will see a temporary `zsh` shell, with prompt being `root@archiso ~ #`. From now on, only `#` will be shown for clarity; please don't type it.
+
+## Partition of the Hard Disk
+
+First list the disk blocks.
+
+    # lsblk
+
+The largest block shall be your hard disk, which is likely listed `sda`. A smaller one is the bootable USB we are using. A still smaller one shall the ROM (read-only memory where firmware is saved).
+
+To partition the hard disk, invoke the CLI environment of utility `parted`.
+
+    # parted /dev/sda
+
+From now on, the prompt `(parted)` will be shown for clarity. (Don't type that.)
+
+Create a partition table with the MSDOS (MBR) standard.
+
+    (parted) mklabel msdos
+
+Meanwhile, UEFI/GPT partition is a newer standard, but not every motherboard supports. UEFI/GPT's partitioning commands are similar; see cited notes.
+
+Since the PC in which I am installing has 1TB, I will generously allocate 40GB for `/` (the root directory except for the user's home), 2GB for swap memory, and the rest for `/home/` (the user's home). Now that the present day computers usually have a large RAM (mine has 4GB), 2GB of swap memory shall be more than enough.
+
+First create partition for the root directory except for home.
+
+    (parted) mkpart primary ext4 1MiB 40GiB
+
+Here the boot flag shall be set.
+
+    (parted) set 1 boot on
+
+Then create the partition for swap memory.
+
+    (parted) mkpart primary linux-swap 40GiB 42GiB
+
+Finally the partition for the root's home, making up the rest of the hard disk.
+
+    (parted) mkpart primary ext4 42GiB 100%
+
+In the aformentioned steps, if the requested partition cannot be made exactly as such, an alternative sugestion will be prompted, and if it is reasonable, say yes. You might also be asked again of the point of start and end, and again of the file system. I just typed enter to apply the default, since I don't know what the valid format of the answers are; I hope it is okay. In addition, you may be warned that “The resulting partition is not properly aligned for best performance.” The Arch Linux Wiki suggest that we just say “ignore”.
+
+Print a summary of each partition to check whether the division is desired.
+
+    (parted) print
+
+The result I saw reports that `sda1` is the root directory except home, being used as booting process; `sda2`, as desired, is the swap memory; and `sda3` the root's home.
+
+Quit if everything seems to be fine.
+
+    (parted) quit
+
+## Mounting partitions
+
+Formatting partitions made just for root directory.
+
+    # mkfs.ext4 /dev/sda1
+
+Mount the root directory.
+
+    # mount /dev/sda1 /mnt
+
+To mount the home, we have to first create the directory, then mount it.
+
+    # mkdir /mnt/home
+    # mount /dev/sda3 /mnt/home
+
+## Installation of system files
+
+We will download packages, so Internet connection is required. The best situation is that you are using a PC with ethernet automatically connected. If not, you have to set it manually in CLI; it is not covered here.
+
+Nor is establishment of wireless connection covered; see cited notes. But beware that to access the Internet wirelessly later after reboot, all packages must be installed at this stage!
+
+Assuming connection is established, send test packets to (for example) Google three times to test whether connection is fine. This is the job of utility `ping`.
+
+    # ping -c 3 www.google.com
+
+Edit list of mirrors, so that the servers physically closer to you are prior to ones further. You may also use `nano` if you are unfamiliar with `vi`.
+
+    # vi /etc/pacman.d/mirrorlist
+
+Install the base packages. This will take quite a while, about twenty minutes in my case.
+
+    # pacstrap -i /mnt base base-devel
+
+Generate the `fstab` file that specifies information about mounted partitions, and write it into the appropriate configuration file.
+
+    # genfstab -U /mnt > /mnt/etc/fstab
+
+## Choosing languages and installation of input methods
+
+In completing the remaining tasks, temporarily view `/mnt` as the root directory, which is the target partition where Arch Linux is to be installed.
+
+    # arch-chroot /mnt
+
+I use English interface, but need to display and type Chinese. I thus choose American English for default of system display, but furthermore install Chinese input methods.
+
+First edit the languages being enabled. (Use `nano` if you like.)
+
+    # vi /etc/locale.gen
+
+I shall uncomment (delete the `#`) before the line `en_US.UTF-8 UTF-8` and `zh_TW.UTF-8 UTF-8`. Also uncomment other languages you will be using.
+
+Then generate necessary information, save them, and export to terminal settings. Here `locale-gen` shall all necessary information that enables the use of languages just allowed, while `locale.conf` need only contain the language for system's display.
+
+    # locale-gen
+    # echo "LANG=en_US.UTF-8" > /etc/locale.conf
+    # export LANG=en_US.UTF-8
+
+Next install the input method framework `ibus`, and the input method “Rime”.
+
+    # pacman -S ibus
+    # pacman -S ibus-rime
+
+To initiate it at startup, add these lines in `~/.xinitrc`:
+
+    export GTK_IM_MODULE=ibus
+    export XMODIFIERS=@im=ibus
+    export QT_IM_MODULE=ibus
+    ibus-daemon -drx
+
+## Choosing a location
+
+Select the time zone.
+
+    # tzselect
+
+In my case this is `4) Asia`, and `43) Taiwan` (The very existence of this item is a reassurance), and confirm by `1) Yes`.
+
+Create a symlink from the shared directory to the system configuration directory.
+
+    # ln -s /usr/share/zoneinfo/Asia/Taiwan > /etc/localtime
+
+Set the hardware clock.
+
+    # hwclock --systohc --utc
+
+## Setting a boot manager
+
+For MBR users (see above), download a boot manager and an OS-detector (possibly for the sake of dual boot).
+
+    # pacman -S grub
+    # pacman -S os-prober
+
+Set up the boot loader `grub` on the booted partition, and prepare configuration file read at when booting. All the same, replace `sda` with your partition name.
+
+    # grub-install --recheck --force --target=i386-pc /dev/sda
+    # grub-mkconfig -o /boot/grub/grub.cfg
+
+At this point, I encountered the error `Failed to connect to lvmetad`. The cause is the `lvmetad` service that improves performance of LVM, the Logical Volume Manager (which manages disk drives and other mass-storage devices). To disable it,
+
+    # vi /etc/lvm/lvm.conf
+
+and write `use_lvmetad = 0` instead of the original `use_lvmetad = 1`.
+
+## Setting a host name
+
+Set the host name for the system, written into the relevant configuration file. (Replace `TYJ-Arch-Linux` with your host name.)
+
+    # echo "TYJ-Arch-Linux" > /etc/hostname
+
+Set the root's password. You will be prompted to enter the password twice to confirm it.
+
+    # passwd
+
+Leave the `chroot`-ed environment (which was set to the target partition), unmount that partition, and schedule shutdown. Wait for about two minutes for the computer to shut down.
+
+    # exit
+    # umount -R /mnt
+    # shutdown
+
+Unplug the USB, which is no longer needed, and start the computer now. After reboot is done, when you login, login as `root`. Keep in mind that now you are the root. 
+
+## Establishment of Internet connection
+
+Assuming a wired connection is available, now we set up DHCP (Dynamic Host Configuration Protocol) that requests an IP address in the present Ethernet network.
+
+    # ip link
+
+The output includes several items. The first one is, in my case,
+
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisk noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+
+Start the DHCP service not only for now, but also whenever the system boots.
+
+    # systemctl start dhcpcd@_______.service
+    # systemctl enable dhcpcd@_______.service
+
+Replace the underscore with the name of wired device just seen above. In my case, that is `lo`.
+
+The method for obtaining wireless connection is not covered in this note; please see cited notes.
+
+## Configuring the daily user's account
+
+Add the user account to be used on a daily basis into the wheel group, which is endowed with additional special system privileges.
+
+    # useradd -m -G wheel,users -s /bin/bash amino
+
+    # passwd amino
+
+Set the daily user's password. Again, you will be prompted to enter the password twice to confirm it.
+
+Download the `sudo` package so that we are able to perform the superuser-do feature.
+
+    # pacman -S sudo
+
+Edit the sudoers file so that the daily user can do administrator's tasks.  (Use nano if you like.)
+
+    # EDITOR=vi visudo
+
+Uncomment this line in the file (by deleting `#` in front of them), which is then
+
+    %wheel ALL=(ALL) ALL
+
+## Downloading all stable packages
+
+Make stable repositories available to package manager `pacman`, by opening: (Use nano if you like.)
+
+    # vi /etc/pacman.conf
+
+and uncomment these lines (by deleting `#` in front of them), which are then
+
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
+
+Afterwards update `pacman`; many now-allowed packages will be installed.
+
+    # pacman -Sy
+
+(Every time we use `pacman`, it is best to run this (`-Sy`) to update pacman first.) If system updates are also intended, use instead
+
+    # sudo pacman –Syu
+
+A comprehensive list of packages is provided [here](https://wiki.archlinux.org/index.php/list_of_applications), classified according to usage, and it is completely straightforward to download packages just as the manner shown above. I thus will not spend space explaining detailed steps of installation for each of them.
+
+## Setting up the graphical interface
+
+However, the guide to a working desktop warrants mention. To own a graphical interface, a graphical driver must exist. We shall use the X-server.
+
+    # pacman -S xorg-server
+    # pacman -S xorg-server-utils
+
+To learn which graphic card the current system is using, run
+
+    # lspci -v
+
+And I see that my computer has an Intel GPU. (I don't know what the output for other graphic cards looks like, but I assume it is easy enough to distinguish.) In my case, install
+
+    # pacman -S xf86-video-intel
+
+For other kinds of graphic cards, see cited notes.
+
+Now we are ready to install a desktop environment. See [Desktop environment](https://wiki.archlinux.org/index.php/desktop_environment) for a list of available desktops. To install KDE, for example, use
+
+    # pacman -S plasma
+
+To install utilities that come with KDE, use
+
+    # pacman -S kde-applications
+
+Again this will take quite a while, nearly thirty minutes in my case.
+
+Also there is another package called `plasma-meta`, which seems to be a superset of `plasma`, and is said to provide some grouping of packages that facilitates managing, but it is not clear to me what their exact differences are.
+
+Similar is said of `kde-applications-meta` and `kde-applications`.
+
+After that, configure `.xinitrc` that calls KDE. First, log in as the daily user's account, and write
+
+    # echo "exec startkde" > ~/.xinitrc
+
+Note that `.xinitrc` must be saved in the daily user's home so as to be found and read.
+
+But even with this, KDE will only be started after `startx` command is run. To start KDE immediately after logged in, we need
+
+    # pacman -S xorg-xinit
+
+And then put in `~/.bashrc`
+
+    if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+       exec startx
+    fi
+
+Translated, this means that start the X server, if the display variable is not a null string, and if the virtual terminal number of the X desktop group is not empty and is one (which is true when there is only one terminal instance).
+
+There are many things I did not cover, but still this guide ends here, because, in the presence of a beautiful GUI instead of the scary black-and-white console, everything becomes absolutely familiar and hence reassuring. And the reader will surely figure out how to download relevant packages with a working internet connection and the well-written Arch Linux Wiki.
+
+## References
+
+* The [Arch Linux Wiki](https://www.archlinux.org/download/) is well-written, but terse.
+
+* Mr. Swapnil Bhartiya wrote a step-by-step [guide](http://www.bhartiya.io/always-updated-arch-linux-tutorial/30411), which I relied heavily in preparing this note.
+
+* If you prefer to read Chinese, see [Arch Linux: 安裝系統](http://www.wlintmp.net) by Wei-Hsun Lin (signed as thus).
