@@ -1,5 +1,6 @@
 import os
 import json
+import copy
 
 import porphyrin.aid as AID
 
@@ -12,8 +13,9 @@ def main(whether_new):
    folder_site = os.path.join(folder_this, "site")
    folder_post = os.path.join(folder_site, "post")
    folder_page = os.path.join(folder_site, "page")
-   many_record = load_record(folder_this)
    matter = load_matter(folder_matter)
+   many_record = load_record(folder_this)
+   many_record_numbered = number_record(many_record)
 
    # # # # # # # # # # # # # # # #
    # # Convert posts into HTML article.
@@ -36,7 +38,7 @@ def main(whether_new):
    # # # # # # # # # # # # # # # #
    # # Update catalogs.
    many_catalog_stamp = {}
-   for record in many_record:
+   for record in many_record_numbered:
       stamp = record.get("stamp")
       month = get_month(stamp)
       if not month:
@@ -51,7 +53,7 @@ def main(whether_new):
    AID.output_file(path_stamp, whole)
 
    many_catalog_genre = {}
-   for record in many_record:
+   for record in many_record_numbered:
       elision = record.get("genre")
       genre = get_genre(elision)
       if not genre:
@@ -66,7 +68,7 @@ def main(whether_new):
    AID.output_file(path_genre, whole)
 
    many_catalog_tag = {}
-   for record in many_record:
+   for record in many_record_numbered:
       many_tag = check_group(record.get("tag"))
       for tag in many_tag:
          if not tag:
@@ -81,7 +83,7 @@ def main(whether_new):
    AID.output_file(path_tag, whole)
 
    many_catalog_series = {}
-   for record in many_record:
+   for record in many_record_numbered:
       series = record.get("series")
       if not series:
          continue
@@ -98,7 +100,7 @@ def main(whether_new):
    # # Write pages.
    number_post_max = 12
    number_post_shown = min(number_post_max, len(many_record))
-   many_record_index = many_record[:number_post_shown]
+   many_record_index = many_record_numbered[:number_post_shown]
    heading = "Latest"
    whole = write_page(matter, folder_post, heading, many_record_index)
    path_index = os.path.join(folder_site, "index.html")
@@ -503,3 +505,12 @@ def check_group(member):
    else:
       group = [member]
    return group
+
+def number_record(many_antique):
+   many_novel = copy.deepcopy(many_antique)
+   count = len(many_antique)
+   for record in many_novel:
+      title = str(count) + '.' + ' ' + record.get("title")
+      record["title"] = title
+      count -= 1
+   return many_novel
