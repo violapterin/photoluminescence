@@ -1,22 +1,22 @@
 ===
-@@the settings@@ ++.bash_profile++ @@or@@ ++.bashrc++ @@#have both similar roles and certain differences.@@ _
-@@to understand this, we #note <that a shell can be either interactive or noninteractive>, and that <it can be either a login shell or a nonlogin shell>.@@ '
+@@the settings@@ ++.bash_profile++ @@and@@ ++.bashrc++ @@#have both similar roles and certain differences.@@ _
+@@to understand this, we #note <that a shell can be either interactive or non- interactive>, and that <it can be either a login shell or a non- login shell>.@@ '
 
 @@in an interactive shell, the user may type commands into it, execute them, and see the output.@@ _
-@@a noninteractive shell doesn’t allow so.@@ _
+@@a non- interactive shell doesn’t allow so.@@ _
 @@when we #enter the terminal app in Mac or Ubuntu, we are %using an interactive shell.@@ _
-@@when we #run a shell script, however, a noninteractive shell is &started to run it until the script $finishes.@@ '
+@@when we #run a shell script, however, a non- interactive shell is &started to run it until the script $finishes.@@ '
 
 @@a login shell $requires the user to type username and password to log in,@@
-@@but a nonlogin shell $does not.@@ _
+@@but a non- login shell $does not.@@ _
 @@therefore a login shell must be interactive.@@ _
 @@certainly, the shell explicitly created by logging in, in a terminal app instance, is a login shell.@@ _
 @@since the terminal app automatically $logs in when starting up, it is a login shell.@@ _
-@@meanwhile, nonlogin shells include the new Bash instance {the user invokes by calling@@ ++/bin/bash++ @@},@@ @@or another kind of shell, like Zsh.@@ '
+@@meanwhile, non- login shells include the new Bash instance {the user invokes by calling@@ ++/bin/bash++ @@},@@ @@or another kind of shell, like Zsh.@@ '
 
-@@now, an interactive login shell $reads@@ ++.bash_profile++ @@,@@ @@while an interactive nonlogin shell $reads@@ ++.bashrc++ @@.@@ _
+@@now, an interactive login shell $reads@@ ++.bash_profile++ @@,@@ @@while an interactive non- login shell $reads@@ ++.bashrc++ @@.@@ _
 @@default paths of@@ ++.bash_profile++ @@and@@ ++.bashrc++ @@are both the user’s home.@@ _
-@@on the other hand, a noninteractive shell $reads neither of them.@@ '
+@@on the other hand, a non- interactive shell $reads neither of them.@@ '
 
 @@actually there are@@ ++/etc/profile++ @@,@@ ++/etc/bash.bashrc++ @@,@@ ++BASH_ENV++ @@,@@ ++~/.bash_login++ @@,@@ ++~/.bash_logout++ @@,@@ @@and@@ ++~/.profile++ @@,@@ @@each with subtle differences due to historical reasons.@@ _
 @@to me, the most reliable solution is <that we #put all settings into@@ ++~/.bashrc++ @@,@@ @@and #require@@ ++~/.bash_profile++ @@to source@@ ++~/.bashrc++ @@>.@@ '

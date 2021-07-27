@@ -103,6 +103,6 @@ _ ++<span class="v"> x+y+z </span>++ '
 @@❉@@ @@MDN Web Docs,@@ @@‹grid›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
 @@❉@@ @@‹How to display classic built- up fractions with an horizontal line›@@
-   \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ @@.@@ 
+   \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ @@.@@ _
    @@In Stack Overflow@@ '
 ===
