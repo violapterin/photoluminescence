@@ -211,17 +211,17 @@ code, .mono
 
 #header-banner #name-site, #header-banner #menu
 {
-  margin: 6px 12px;
+  margin: 0px 12px;
   padding: 0px 60px;
   text-align: center;
 }
 @media screen and (max-width: 760px) {
   #header-banner #name-site, #header-banner #menu
-  { margin: 6px 8px; padding: 0px 40px; }
+  { margin: 0px 8px; padding: 0px 40px; }
 }
 @media screen and (max-width: 600px) {
   #header-banner #name-site, #header-banner #menu
-  { margin: 6px 4px; padding: 0px 20px; }
+  { margin: 0px 4px; padding: 0px 20px; }
 }
 
 #header-banner
@@ -277,9 +277,9 @@ code, .mono
 
 #header-banner #banner
 {
-  margin: 18px auto;
-  width: 90%;
+  margin: 0px auto;
   display: block;
+  width: 90%;
 }
 
 #name-site .title-site, #name-site .tagline-site,
@@ -329,17 +329,17 @@ code, .mono
 
 header #header-post, header #header-page
 {
-  margin: 24px 24px;
+  margin: 0px 24px;
   padding: 0px;
   font-size: 36px;
 }
 @media screen and (max-width: 760px) {
   header #header-post, header #header-page
-  { margin: 16px 16px; }
+  { margin: 0px 16px; }
 }
 @media screen and (max-width: 600px) {
   header #header-post, header #header-page
-  { margin: 8px 8px; }
+  { margin: 0px 8px; }
 }
 
 .entry, .title-catalog
@@ -360,7 +360,7 @@ header #header-post, header #header-page
 .entry .title-entry,
 #header-post .heading-post, #header-page .heading-page
 {
-  margin: 16px 12px;
+  margin: 12px 12px;
   padding: 0px;
   text-indent: 18px;
   line-height: 90%;
@@ -368,36 +368,36 @@ header #header-post, header #header-page
 @media screen and (max-width: 760px) {
   .entry .title-entry,
   #header-post .heading-post, #header-page .heading-page
-  { margin: 12px 9px; text-indent: 9px; }
+  { text-indent: 9px; }
 }
 @media screen and (max-width: 600px) {
   .entry .title-entry,
   #header-post .heading-post, #header-page .heading-page
-  { margin: 8px 6px; text-indent: 6px; }
+  { text-indent: 6px; }
 }
 
 #header-page .heading-page .display,
 #header-post .heading-post .heading
 {
-  margin: 12px 0px;
+  margin: 0px;
   padding: 0px;
-  font-size: 32px;
   line-height: 90%;
+  font-size: 32px;
 }
 @media screen and (max-width: 760px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 10px 0px; font-size: 28px; }
+  { font-size: 28px; }
 }
 @media screen and (max-width: 600px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 8px 0px; font-size: 24px; }
+  { font-size: 24px; }
 }
 @media screen and (max-width: 420px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
-  { margin: 6px 0px; font-size: 20px; }
+  { font-size: 20px; }
 }
 
 .title-catalog .display
@@ -484,22 +484,22 @@ header #header-post, header #header-page
 
 .data-post, .data-entry
 {
-  margin: 0px 12px;
+  margin: 6px 12px;
   padding: 0px;
   font-size: 18px;
   font-weight: 500;
   line-height: 200%;
 }
 @media screen and (max-width: 760px) {
-  .data-post
+  .data-post, .data-entry
   { padding: 0px 10px; font-size: 16px; }
 }
 @media screen and (max-width: 600px) {
-  .data-post
+  .data-post, .data-entry
   { padding: 0px 8px; font-size: 14px; }
 }
 @media screen and (max-width: 420px) {
-  .data-post
+  .data-post, .data-entry
   { padding: 0px 6px; font-size: 12px; }
 }
 
@@ -580,8 +580,8 @@ header #header-post, header #header-page
 
 #footer-quote
 {
-  padding-left: 12px;
-  padding-right: 0px;
+  margin: 0px;
+  padding-right: 0px 12px;
   color: dimgray;
   text-align: left;
   display: inline-block;
@@ -589,7 +589,7 @@ header #header-post, header #header-page
 
 #footer-signature
 {
-  font-size: 18px;
+  font-size: 16px;
   padding: 0px;
   text-align: left;
 }
@@ -603,8 +603,8 @@ header #header-post, header #header-page
 
 #footer-left, #footer-right
 {
-  margin: 0px;
-  padding: 3px;
+  margin: 3px;
+  padding: 0px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -624,7 +624,7 @@ header #header-post, header #header-page
 .footer-author, .footer-motto, .footer-icon,
 .footer-profile
 {
-  margin: 6px 3px;
+  margin: 3px 6px;
   padding: 0px;
 }
 
@@ -637,7 +637,7 @@ header #header-post, header #header-page
 
 .footer-profile
 {
-  width: 160px;
+  width: 144px;
   height: auto;
 }
 

@@ -1,0 +1,134 @@
+# The "Solarized" and other color schemes for Vim
+
+%%January 7, 2017%%
+
+===
+in July 2016 I started to use Vim;
+by then, I mainly use a MacBook Air, and open Vim in a terminal, usually within iTerm2 (instead of gVim or MacVim).
+one of the exciting stuff is the various color schemes available in Vim.
+after discovering the ‘Solarized’ by Ethan Schoonover, recommended much in Stack Overflow, I do find particularly pleasing to the eyes too.
+
+surprisingly, the installation was far more cumbersome than I @assumed,
+and sometimes it does not show correctly.
+thus I ended up using other derived color schemes.
+what makes “Solarized” so difficult to install?
+===
+
+===
+to highlight text, Vim parse parsed it with rules according to its file extension,
+text are separated as syntax items {which match a certain pre-defined pattern}.
+afterwards syntax items are classified into 16 syntax groups, each highlighted by one color.
+for example, in a cpp file the syntax item ++new++ belongs to the syntax group “Statement”.
+when an item is ignored, it is mapped to the “Normal” group.
+how the groups are colored is specified in the color scheme by a hex color code.
+for example, `#ffff00` should be shown correctly as yellow on a monitor.
+
+in a GUI, all hex colors can be displayed,
+and we are done.
+but in a terminal, what follows is split into two cases.
+
+If ++termguicolors++ is set true (by ++set termguicolors++ and so on), terminal colors, specified by variables ++guifg++ and ++guibg++ are &used.
+ideally, they can be assigned all possible hex colors.
+nevertheless, iTerm2 and Mac’s native Terminal app can only display 256 hex colors.
+a degradation function must be applied to map all invalid hex colors to the palette colors.
+
+if ++termguicolors++ is set false (with `set notermguicolors`), palette colors, specified by ++ctermfg++ and ++ctermbg++ are used,
+and each color is coded by a nonnegative integer.
+if ++t_Co++ $equals 16, they ranges from 0 to 15, and is mapped to a ANSI palette of hex colors.
+if ++t_Co++ $equals 256, they ranges from 0 to 255, and is mapped to a Xterm palette of hex color.
+the 16- color ANSI palette is specified by the present terminal preference,
+and the 256- color Xterm palette is &fixed by the standard.
+
+Solarized attempts to realize a collection of painstakingly chosen colors to highlight the syntax groups.
+when ANSI palette colors are used, Solarized colors are given by the corresponding Solarized theme, which iTerm2 fortunately $provides.
+meanwhile, when the Xterm palette colors are used, none of the Solarized colors is valid.
+if the degradation function isn’t provided, the terminal is forced to guess the colors,
+and the result is horrible.
+therefore, these can go wrong in a terminal Vim, and it isn’t easy to specify all that information consistently in the Vimrc.
+
+currently, Solarized isn’t frequently maintained,
+and the die hard fans of Vim may want to check out some successors.
+some successors, in addition to Solarized, 
+are:
+
+Solarized, ++altercation/vim-colors-solarized++
+Flattened, ++romainl/flattened++
+Gruvbox, ++morhetz/gruvbox++
+Tomorrow, ++chriskempson/tomorrow-theme++
+Molokai, `tomasr/molokai`
+
+Flattened is faithfully based on Solarized, 
+in January 2017, I @spent quite some time researching about all this,
+and I back up dotfiles on GitHub.
+
+in September 2019, I began to use VS Code,
+and the experience is so smooth.
+
+therefore, Romain Lafourcade prepared a more robust version, named “Flattened”.
+when using true colors, it $assigns hex colors same as Solarized.
+furthermore, when using terminal colors, furthermore $defines degradation function in case true colors are not feasible*.
+and when using palette colors, it *assigns a number within the already standardized 256 xterm palette*, ensuring they are all valid, irrespective of the ANSI palette the terminal theme provides.
+
+
+Similar can be said of all other schemes I listed.
+For direct assignation, they either *simply assign a hex triplets of a valid color, or assign an invalid triplet but specify degradation method themselves*.
+For palette assignation, it *directly assigns a valid color in the xterm palette*, which must be valid.
+They all work (though very slightly differently) with either palette or direct assignation.
+
+
+I suppose it is fair to say that the original "Solarized", though carefully researched and customized, is ill-designed.
+
+
+## On Highlighting TeX and Markdown
+
+I don't deem myself having obsessive–compulsive personality disorder, but none of the color schemes is completely satisfactory.
+In particular, I shall remark on two file formats not strictly being programming languages: LaTeX (`.tex`) and Markdown (`.md`).
+Both, I use a lot—I write in LaTeX reports or notes containing mathematics, and in Markdown personal and creative writings.
+Unfortunately, their recognition seems to be less well-prepared.
+
+As I observe it, in a `.tex` file two syntax items are most frequently parsed: the enclosing delimiters (like `{}`), and backslash-appended commands (like `\lambda`).
+For one thing, "Solarized" (or, following it, "Flattened") recognizes both nontrivially.
+But "Gruvbox", "Molokai", and all of Vim's native schemes recognize only delimiters nontrivially.
+And each of "Tomorrow"'s variants recognizes both trivially.
+
+
+In addition, among five schemes I listed, only "Gruvbox" recognizes `.md` nontrivially.
+It then seems that in general "Gruvbox" best recognizes syntax.
+
+
+## On their Assigned Colors
+
+with these endeavor, it is now easy to modify the color schemes.
+for instance, I find colors that Gruvbox assigned is bright and easier to see, but are a bit too close and too identically "warm".
+And those of "Solarized" are much more vivid, and bluish-green background may be good for the eyes, but most colors are dim.
+In particular, the `Ignored` item in the `Normal` group (see `:h syntax`) is difficult to read except with screen set to be the brightest.
+
+
+Since "Solarized" is the first I tried, intending to fix this, I found the file "solarized.vim" long and cryptic, and not obvious where and how the `Normal` group is defined.
+And my attempts to set normal text in brighter by virtue of simply override in `.vimrc`, all failed.
+
+Afterwards I discovered "Flattened", which applies easier method to mix colors.
+In `flattened_dark.vim`, I chose a brighter grey, and set
+
+    hi Normal guifg=#bac3c4
+
+To choose the triplet, one may want to see 256 native colors of the present terminal.
+Scripts such as `mgedmin/show-all-256-colors.py` in GitHub Gist is handy.
+
+
+Lastly, "Solarized" theme also makes console output too dim, as is the case of normal text in Vim.
+To change it, in `~/.bash_profile`, to the line `export PS1=` which sets you personal prompt, please append `\[\033[1;37m\]` (escape sequence for pure white in the ANSI palette) at the end.
+
+At this point, I am more than satisfied.
+
+In short, copy `flattened.vim` into `~/.vim/colors/` folder, and in the file, substitute for `hi Normal guifg` a hex color code of brighter grey.
+after that, enjoy writing and coding in the lovely Vim for the rest of your life.
+what lesson that it is better to design a product with reasonably good quality but reliable, like "Flattened", rather than one extremely fine-tuned but hardly works, like "Solarized".
+
+
+Several popular schemes I found were, in order of discovery: (listing GitHub repos)
+
+## "Solarized" and its Issues
+
+
+rewritten July 28, 2021
