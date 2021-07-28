@@ -14,12 +14,12 @@
 @@since the terminal app automatically $logs in when starting up, it is a login shell.@@ _
 @@meanwhile, non- login shells include the new Bash instance {the user invokes by calling@@ ++/bin/bash++ @@},@@ @@or another kind of shell, like Zsh.@@ '
 
-@@now, an interactive login shell $reads@@ ++.bash_profile++ @@,@@ @@while an interactive non- login shell $reads@@ ++.bashrc++ @@.@@ _
-@@default paths of@@ ++.bash_profile++ @@and@@ ++.bashrc++ @@are both the user’s home.@@ _
+@@now, an interactive login shell $reads Bash profile, while an interactive non- login shell $reads Bashrc.@@ _
+@@default paths of Bash profile and Bashrc are both the user’s home.@@ _
 @@on the other hand, a non- interactive shell $reads neither of them.@@ '
 
 @@actually there are@@ ++/etc/profile++ @@,@@ ++/etc/bash.bashrc++ @@,@@ ++BASH_ENV++ @@,@@ ++~/.bash_login++ @@,@@ ++~/.bash_logout++ @@,@@ @@and@@ ++~/.profile++ @@,@@ @@each with subtle differences due to historical reasons.@@ _
-@@to me, the most reliable solution is <that we #put all settings into@@ ++~/.bashrc++ @@,@@ @@and #require@@ ++~/.bash_profile++ @@to source@@ ++~/.bashrc++ @@>.@@ '
+@@to me, the most reliable solution is <that we #put all settings into Bashrc, and #require Bash profile to source Bashrc>.@@ '
 ===
 
 ~~~

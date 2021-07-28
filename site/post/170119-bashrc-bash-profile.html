@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width initial-scale=1"/>
-  <title>Difference between bashrc and bash profile</title>
+  <title>Difference between Bashrc and Bash profile</title>
   <link rel="shortcut icon" href="/asset/favicon.ico"/>
   <link rel="stylesheet" href="/asset/style.css"/>
 
@@ -62,13 +62,13 @@
 <header>
   <div id="header-post">
     <h2 class="heading-post">
-      <span class="heading">Difference between bashrc and bash profile</span>
+      <span class="heading">Difference between Bashrc and Bash profile</span>
     </h2>
     <p class="data-post">
       <a class="data-stamp" href="/page/january-2017.html">19 January 2017</a>
       <a class="data-genre" href="/page/notes.html">Negligible notes</a>
       
-      <a class="data-tag" href="/page/technology.html">Technology</a>
+      <a class="data-tag" href="/page/linux.html">Linux</a>
 <a class="data-tag" href="/page/shell.html">Shell</a>
     </p>
   </div>
@@ -86,10 +86,10 @@
 <span class="phrase"><span class="serif-roman">A login shell requires the user to type username and password to log in,</span> <span class="serif-roman">but a non-login shell does not.</span></span> <span class="phrase"><span class="serif-roman">Therefore a login shell must be interactive.</span></span> <span class="phrase"><span class="serif-roman">Certainly, the shell explicitly created by logging in, in a terminal app instance, is a login shell.</span></span> <span class="phrase"><span class="serif-roman">Since the terminal app automatically logs in when starting up, it is a login shell.</span></span> <span class="phrase"><span class="serif-roman">Meanwhile, non-login shells include the new Bash instance the user invokes by calling</span> <code class="mono">/bin/bash</code> <span class="serif-roman">,</span> <span class="serif-roman">or another kind of shell, like Zsh.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Now, an interactive login shell reads</span> <code class="mono">.bash_profile</code><span class="serif-roman">,</span> <span class="serif-roman">while an interactive non-login shell reads</span> <code class="mono">.bashrc</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Default paths of</span> <code class="mono">.bash_profile</code> <span class="serif-roman">and</span> <code class="mono">.bashrc</code> <span class="serif-roman">are both the user’s home.</span></span> <span class="phrase"><span class="serif-roman">On the other hand, a non-interactive shell reads neither of them.</span></span>
+<span class="phrase"><span class="serif-roman">Now, an interactive login shell reads Bash profile, while an interactive non-login shell reads Bashrc.</span></span> <span class="phrase"><span class="serif-roman">Default paths of Bash profile and Bashrc are both the user’s home.</span></span> <span class="phrase"><span class="serif-roman">On the other hand, a non-interactive shell reads neither of them.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Actually there are</span> <code class="mono">/etc/profile</code><span class="serif-roman">,</span> <code class="mono">/etc/bash.bashrc</code><span class="serif-roman">,</span> <code class="mono">BASH_ENV</code><span class="serif-roman">,</span> <code class="mono">~/.bash_login</code><span class="serif-roman">,</span> <code class="mono">~/.bash_logout</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">~/.profile</code><span class="serif-roman">,</span> <span class="serif-roman">each with subtle differences due to historical reasons.</span></span> <span class="phrase"><span class="serif-roman">To me, the most reliable solution is that we put all settings into</span> <code class="mono">~/.bashrc</code><span class="serif-roman">,</span> <span class="serif-roman">and require</span> <code class="mono">~/.bash_profile</code> <span class="serif-roman">to source</span> <code class="mono">~/.bashrc</code> <span class="serif-roman">.</span></span>
+<span class="phrase"><span class="serif-roman">Actually there are</span> <code class="mono">/etc/profile</code><span class="serif-roman">,</span> <code class="mono">/etc/bash.bashrc</code><span class="serif-roman">,</span> <code class="mono">BASH_ENV</code><span class="serif-roman">,</span> <code class="mono">~/.bash_login</code><span class="serif-roman">,</span> <code class="mono">~/.bash_logout</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">~/.profile</code><span class="serif-roman">,</span> <span class="serif-roman">each with subtle differences due to historical reasons.</span></span> <span class="phrase"><span class="serif-roman">To me, the most reliable solution is that we put all settings into Bashrc, and require Bash profile to source Bashrc.</span></span>
 </p>
 </div>
 <div class="break">

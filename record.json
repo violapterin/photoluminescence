@@ -22,7 +22,7 @@
     "title": "“I used to think that I had better die,”"},
 
 {"stamp": "201119", "genre": "notes",
-    "tag": ["Cooking", "Cuisine", "Translation"],
+    "tag": ["Food", "Translation"],
     "title": "Nanmen Market"},
 {"stamp": "201115", "genre": "memories",
     "tag": ["Friends", "Music composition"],
@@ -61,7 +61,7 @@
 {"stamp": "190515", "genre": "comments",
     "tag": ["Probability", "Statistical physics"],
     "title": "Macroscopic and microscopic randomness"},
-{"stamp": "190314", "genre": "notes",
+{"stamp": "190314", "genre": "comments",
     "tag": ["Age", "General mathematics"],
     "title": "The young man’s game"},
 
@@ -71,9 +71,15 @@
 {"stamp": "170317", "genre": "notes",
     "tag": ["Technology", "Linux"],
     "title": "Installing Arch Linux"},
+{"stamp": "170121", "genre": "notes",
+    "tag": ["Writing", "Vim"],
+    "title": "Writing prose with Vim"},
 {"stamp": "170119", "genre": "notes",
-    "tag": ["Technology", "Shell"],
-    "title": "Difference between bashrc and bash profile"},
+    "tag": ["Linux", "Shell"],
+    "title": "Difference between Bashrc and Bash profile"},
+{"stamp": "170107", "genre": "notes",
+    "tag": ["Shell", "Vim"],
+    "title": "Solarized and other color schemes for Vim"},
 
 null
 ]

@@ -1,0 +1,81 @@
+===
+@@in July 2016 I @started to use Vim;@@
+@@by then, I mainly @used a MacBook Air, and @opened Vim in a terminal, usually within iTerm2 (instead of gVim or MacVim).@@ _
+@@one of the exciting stuff was the various color schemes available in Vim.@@ _
+@@after discovering the ‘Solarized’ by Ethan Schoonover, recommended much in Stack Overflow, I @agreed <that it was particularly %pleasing to the eyes.@@ '
+
+@@surprisingly, the installation was far more cumbersome {than I @assumed},@@
+@@and sometimes it @didn’t work.@@ _
+@@what @prevented Solarized to properly function?@@ '
+===
+
+===
+@@to highlight text, Vim $parses it with rules according to present file extension.@@ _
+@@the text is &separated as syntax items {which #match a certain pattern}.@@ _
+@@afterwards, syntax items are &classified into 16 syntax groups, each highlighted by one color.@@ _
+@@for example, in a cpp file the syntax item@@ ++new++ @@$belongs to the syntax group “Statement”.@@ _
+@@when an item is &ignored, it is &mapped to the ‘Normal’ group.@@ _
+@@every group is &associated with a hex color code, like@@ ++#ffff00++ @@{which should appear yellow on a monitor}.@@ '
+
+@@in a GUI, all hex colors can be displayed,@@
+@@and we are &done.@@ _
+@@but in a terminal, {what $follows} is &split into two cases.@@ '
+
+@@if@@ ++termguicolors++ @@is &set true (with@@ ++set termguicolors++ @@),@@ @@terminal colors, specified by variables ++guifg++ and ++guibg++, are &called.@@ _
+@@ideally, they may be assigned all possible hex colors.@@ _
+@@nevertheless, iTerm2 and Mac’s native Terminal app can only display 256 hex colors.@@ _
+@@a degradation function therefore must be applied to map all invalid hex colors to valid ones.@@ '
+
+@@if ++termguicolors++ is &set false (with@@ ++set notermguicolors++ @@),@@ @@palette colors, specified by ++ctermfg++ and ++ctermbg++, are &called.@@ _
+@@they are &encoded by a nonnegative integer.@@ _
+@@if ++t_Co++ $equals 16, the integers #range from 0 to 15, and is &mapped to a ANSI palette of hex colors.@@ _
+@@if ++t_Co++ $equals 256, the integers #range from 0 to 255, and is &mapped to a Xterm palette of hex color, as remarked above.@@ _
+@@the 16- color ANSI palette is &specified by the present terminal preference,@@
+@@and the 256- color Xterm palette is &fixed by the standard.@@ '
+
+@@Solarized@@ \\https://github.com/altercation/vim-colors-solarized\\
+   @@$attempts to realize a collection of painstakingly- chosen colors to highlight the syntax groups.@@ _
+@@when ANSI palette colors are &used, Solarized colors are &given by the corresponding Solarized theme of the terminal, {which iTerm2 fortunately $provides}.@@ _
+@@without the corresponding palette, Solarized colors won’t be displayed properly.@@ _
+@@meanwhile, when Xterm palette colors are &used, none of the Solarized colors is a valid color.@@ _
+@@if a degradation function isn’t &provided, the terminal is &forced to guess the colors,@@
+@@and the result is horrible.@@ _
+@@thus a lot can go wrong for Solarized in a terminal Vim,@@
+@@and it isn’t easy to reliably specify all these information in the Vimrc for all devices and Vim variants.@@ '
+
+@@currently, Solarized isn’t frequently &maintained,@@
+@@some successors, in addition to Solarized, are:@@ _
+   @@‘Flattened’@@ \\https://github.com/romainl/flattened\\
+   @@‘Gruvbox’@@ \\https://github.com/morhetz/gruvbox\\
+   @@‘Tomorrow’@@ \\https://github.com/chriskempson/tomorrow-theme\\
+   @@‘Molokai’@@ \\https://github.com/tomasr/molokai\\ @@.@@
+@@Flattened is faithfully &based on Solarized, and is still &maintained.@@ '
+
+@@in January 2017, I @spent quite some time researching about all this.@@ _
+@@on GitHub, I @backed up color schemes copied into@@ ++~/.vim/colors/++ @@.@@ _
+@@that way, it wasn’t hard to modify the hex colors in the file.@@ _
+@@for example, I @think the ‘Normal’ group is in a dim gray hard to read.@@ _
+@@to override that value in@@ ++flattened_dark.vim++ @@,@@ @@I @decided to set:@@ '
+
+++hi Normal guifg=#bac3c4++ '
+===
+
+===
+@@time @passed,@@
+@@and in September 2019, I @began to use VS Code;@@
+@@it @worked like a charm.@@ _
+@@the VS Code market $has a variety of extensions, all to be installed with one click.@@ _
+@@there are a Vim emulator, colors schemes, spelling checkers, and whatnot.@@ _
+@@moreover, the GUI is able to show all hex colors.@@ _
+@@I #use Gruvbox now,@@
+@@and previous research about Solarized $looks entirely irrelevant.@@ '
+
+@@if any, the lesson {we #learn} is <that simple and robust designs, rather than intricate but fragile ones, often #remain to have its life in ever- changing new frameworks.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%January 7, 2017;%%
+%%rewritten July 28, 2021%%
+===
