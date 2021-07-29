@@ -21,15 +21,15 @@
 @@and we are &done.@@ _
 @@but in a terminal, {what $follows} is &split into two cases.@@ '
 
-@@if@@ ++termguicolors++ @@is &set true (with@@ ++set termguicolors++ @@),@@ @@terminal colors, specified by variables ++guifg++ and ++guibg++, are &called.@@ _
+@@if@@ ++termguicolors++ @@is &set true (with@@ ++set termguicolors++ @@),@@ @@terminal colors, specified by variables@@ ++guifg++ @@and@@ ++guibg++ @@,@@ @@are &called.@@ _
 @@ideally, they may be assigned all possible hex colors.@@ _
 @@nevertheless, iTerm2 and Mac’s native Terminal app can only display 256 hex colors.@@ _
 @@a degradation function therefore must be applied to map all invalid hex colors to valid ones.@@ '
 
-@@if ++termguicolors++ is &set false (with@@ ++set notermguicolors++ @@),@@ @@palette colors, specified by ++ctermfg++ and ++ctermbg++, are &called.@@ _
+@@if@@ ++termguicolors++ @@is &set false (with@@ ++set notermguicolors++ @@),@@ @@palette colors, specified by@@ ++ctermfg++ @@and@@ ++ctermbg++ @@,@@ @@are &called.@@ _
 @@they are &encoded by a nonnegative integer.@@ _
-@@if ++t_Co++ $equals 16, the integers #range from 0 to 15, and is &mapped to a ANSI palette of hex colors.@@ _
-@@if ++t_Co++ $equals 256, the integers #range from 0 to 255, and is &mapped to a Xterm palette of hex color, as remarked above.@@ _
+@@if@@ ++t_Co++ @@$equals 16, the integers #range from 0 to 15, and is &mapped to a ANSI palette of hex colors.@@ _
+@@if@@ ++t_Co++ @@$equals 256, the integers #range from 0 to 255, and is &mapped to a Xterm palette of hex color, as remarked above.@@ _
 @@the 16- color ANSI palette is &specified by the present terminal preference,@@
 @@and the 256- color Xterm palette is &fixed by the standard.@@ '
 
@@ -77,5 +77,5 @@
 
 ===
 @@❧@@ %%January 7, 2017;%%
-%%rewritten July 28, 2021%%
+%%shortened and rewritten July 28, 2021%% '
 ===

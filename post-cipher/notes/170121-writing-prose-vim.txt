@@ -1,0 +1,148 @@
+=== ##the problem of wrapping## ===
+
+===
+@@starting from July 2016, I #use Vim to edit my past writings.@@ _
+@@when editing human- readable text, rather than computer code, text wrapping can be a problem in Vim, because Vim isn’t &intended to show long lines.@@ '
+
+@@there are two choices of wrapping, both having its problems.@@ _
+@@for convenience, I #say <that a physical line is a line delimited by newline characters>,@@
+@@and <that an apparent line is a line displayed as in the current window>.@@ _
+@@and I say <that a text file is softly- wrapped if physical lines are &allowed to be longer than current window width,@@
+@@and <that a text file is hard- wrapped if every physical lines are &broken to agree apparent lines.@@ _
+@@in other words, soft wrapping $keeps the paragraph intact,@@
+@@and hard wrapping $inserts newlines to format it on the screen>.@@ _
+@@which will you use when writing prose, soft or hard wrapping?@@ '
+===
+
+=== ##soft wrapping## ===
+
+===
+@@supporters of soft wrapping #hold <that the source should be easy to read, {which is the original mindset of Markdown}>.@@ _
+@@if Markdown source visually $resembles the output, we no longer #need to see compiled pdf on the facing side when working on it, like when we #use TeXstudio to edit LaTeX sources.@@ _
+@@besides, hard wrapping isn’t something {that laypeople spontaneously do},@@
+@@and thus it makes no semantic sense.@@ '
+
+@@now, the irritation is <that, the remaining space in the current window isn’t enough for the next physical line.@@ _
+@@if so, the next line isn’t shown,@@
+@@and the remaining space is wasted.@@ _
+@@a partial workaround is to toggle between displaying part of the next line as much as possible:@@ '
+
+++noremap <silent> <leader>\ :call ToggleDisplayLastLine()<cr>++ '
+
+@@and we define@@ ++ToggleDisplayLastLine()++ @@as thus:@@ '
+
+++function! ToggleDisplayLastLine()++ '
+_ ++if (&display=='')++ '
+_ _ ++let &display='truncate'++ '
+_ ++else++ '
+_ _ ++let &display=''++ '
+_ ++endif++ '
+++endfunction++ '
+
+@@still, scrolling is awkward.@@ _
+@@especially, as I scroll a whole frame@@ @@(@@ ++<ctrl>f++ @@and@@ ++<ctrl>b++ @@),@@ @@Vim reserves 2 lines, repeated both in the previous and the present frame.@@ _
+@@to stop it from reserving lines, I have mapped as thus:@@ '
+
+++nnoremap <c-f> <c-f><c-e><c-e>M++ '
+++nnoremap <c-b> <c-b><c-y><c-y>M++ '
+
+@@moreover, the line numbering can be problematic too.@@ _
+@@line numbers are crucial in navigating in Vim, but it is really twice of the paragraph number,@@
+@@and such information isn’t helpful.@@ _
+@@ironically, in Microsoft Word, apparent line numbers may be shown.@@ _
+@@in Microsoft Word or TextEdit for example, this need not be the case,@@
+@@but sometimes the first apparent line in the new frame may start from anywhere in the previous paragraph.@@ '
+
+@@these solutions aren’t ideal in the presence of long paragraphs,@@
+@@but long paragraphs shouldn’t be the norm either,@@
+@@I will probably write paragraph as long as this very seldom @@ _
+@@(unless I wish to write a continuation of «In Search of Lost Time», or of the last chapter of «Ulysses»).@@ '
+===
+
+=== ##hard wrapping## ===
+
+===
+@@instead, many Vim users #incline to hard wrap.@@ _
+@@supporters might maintain <that it isn’t the source {that matters}, but the output>.@@ _
+@@and so we are free to manipulate the source to facilitate editing.@@ '
+
+@@in Vim, newlines may be inserted automatically with (say):@@ '
+
+++set textwidth=74++ '
+
+@@see@@ ++formatoptions++ @@in the help for relevant settings.@@ _
+@@the default is@@ ++tcq++ @@,@@ @@meaning respectively automatic wrapping, wrapping code comments, and allowing formatting of comments.@@ '
+
+@@unfortunately, when I #rearrange material, the physical lines #become uneven, making it hard to count the words in the present paragraph.@@ '
+
+@@to make lines even, there is an automatically reformatting command@@ ++gqap++ @@,@@
+@@but it only $applies to the current paragraph.@@ _
+@@while we may define a shortcut, reformatting when typing can be a distraction.@@ '
+
+@@more problematically, automatic reformat $doesn’t work for Chinese characters,@@
+@@or I #don’t know <how to do that in Vimscript>.@@ _
+@@besides, <what if I #want to copy and paste the hard- wrapped prose into somewhere else, like WordPress or Facebook>?@@ '
+
+@@someone@@ @@$recommends@@ \\https://www.terminally-incoherent.com/blog/2013/06/17/using-vim-for-writing-prose\\ @@:@@ ++:%norm vipJ++ @@,@@
+@@but the result isn’t reliable.@@ _
+@@indented code blocks sometimes #get merged with preceding and following paragraphs, even if delimited with a blank line,@@
+@@and shorter paragraphs are &swallowed.@@ '
+===
+
+=== ##newline sensitivity## ===
+
+===
+@@apart from the debate of wrapping, there $seems to be some controversy on whether newlines should be rendered by Markdown compilers.@@ _
+@@in the source, some compilers #render every single newline as line break,@@
+@@and some #render only two or more newlines.@@ _
+@@I #call them respectively newline- sensitive and newline- insensitive.@@ _
+@@(in comparison, LaTeX compilers are always newline- insensitive.)@@ _
+@@thus there are 4 cases,@@
+@@and only when the text is hard &wrapped, and the compiler is newline- sensitive, do we get incorrect results.@@ '
+
+@@actually, Gruber’s@@
+   @@original specification@@ \\https://daringfireball.net/projects/markdown/syntax\\
+   @@ @didn’t resolve parsing issue unambiguously;@@
+@@such disorder @motivated@@ @@CommonMark@@ \\https://commonmark.org\\ @@,@@ @@an attempt to standardize Markdown.@@ _
+@@nevertheless,@@
+   @@GitHub@@ \\https://github.github.com/gfm\\ @@,@@
+   @@Pandoc@@ \\https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html\\ @@,@@
+   @@Stack Overflow@@ \\https://stackoverflow.com/editing-help\\ @@,@@
+   @@and@@ @@CommonMark Spec@@ \\https://spec.commonmark.org/0.30\\
+   @@are all newline- insensitive.@@ _
+@@the Wikipedia interpreter, though different from Markdown, is also newline- insensitive.@@ _
+@@in contrast,@@
+   @@WordPress@@ \\https://en.support.wordpress.com/markdown-quick-reference\\
+   @@is newline- sensitive.@@ _
+@@there is also a@@
+   @@debate@@ \\https://meta.stackexchange.com/questions/26011/should-the-markdown-renderer-treat-a-single-line-break-as-br\\
+   @@on Meta Stack Exchange about this,@@
+   @@and it $seems newline- insensitiveness is the consensus.@@ '
+===
+
+=== ##halway wrapping## ===
+
+===
+@@a compromise is always breaking at every end of sentence;@@
+@@I #call this halfway wrapping.@@ _
+@@this way, every physical line is a meaningful entity,@@
+@@and it $makes sense to go up, go down, cut, or paste an entire line.@@ _
+@@again, newlines can be removed by@@ ++J++ @@.@@ '
+
+@@halfway wrapping also $produces uneven apparent lines, making it hard to count words,@@
+@@but it is better than soft wrapping.@@ '
+
+@@after a long contemplation on the matter, I #think halfway wrapping really is the way to go.@@ _
+@@I will always halfway- wrap TeX and Markdown sources.@@ '
+
+@@however, to me the best scenario is <that Markdown be universally newline- insensitive>, and <that Vim show apparent line numbers, rather than physical line numbers, and <that we always soft- wrap>.@@ _
+@@though understandably Vim is a line editor, I hope <a future version will include this feature>.@@ _
+@@to cater both code-writers and prose-writers, there can even be a setting that toggles line number style between them.@@ '
+===
+
+~~~
+
+===
+%%January 21, 2017;%%
+%%shortened and rewritten July 29, 2021%% '
+===

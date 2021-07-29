@@ -10,10 +10,10 @@
 @@in fact, classical mechanics describes the evolution of system in the phase space.@@ _
 @@then chaos theory explains the mystery of randomness, that deterministic systems may be able to produce seemingly random results.@@ _
 @@let us call them second kind random.@@ _
-@@it is then inevitable to conclude that, strangely, somehow the first kind randomness generates the second-kind-randomness.@@ _
+@@it is then inevitable to conclude that, strangely, somehow the first kind randomness generates the second- kind randomness.@@ _
 @@the reason might be the central limit theorem and law of large numbers.@@ '
 
-@@on the other hand, the second-kind-randomness in turn simulates the first-kind-randomness.@@ _
+@@on the other hand, the second- kind randomness in turn simulates the first- kind randomness.@@ _
 @@as an example, the distribution of prime numbers is deterministic, yet they resemble a normal distribution in a certain sense.@@ _
 @@in fact, this is what I think mathematics only does.@@ _
 @@the probability theory does not rule out a completely static interpretation.@@ _
