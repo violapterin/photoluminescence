@@ -1,0 +1,174 @@
+=== ##terminology## ===
+
+===
+@@Git, created by Linus Torvalds in 2005, is a software for tracking changes in different versions of a project consisting of plain text.@@ _
+@@I #find Git commands hard to remember, partly because it use text to describe the interaction of multiple components of the project, namely the working tree, the local branch, and the remote.@@ _
+@@anyway, I #try to give succinct and correct descriptions.@@ '
+
+@@a working tree is the directory {where your project is}.@@ _
+@@a local repository (local repo) is a subdirectory in the working tree named@@ ++.git/++ @@;@@
+@@everything Git needs is &saved in it.@@ _
+@@a remote repository (remote repo) $stores the corresponding content in a hosting service, like GitHub.@@ '
+
+@@when you #commit, you #create a commit object including relevant information in the working tree, along with a hash generated with respect to the author, time stamp, and file contents.@@ _
+@@commits are &linked to each other, making up a commit history.@@ _
+@@a stash is a commit object not yet committed.@@ '
+
+@@when you #clone a remote repo, you #create a copy in the local device.@@ _
+@@when you #fork a repo, you clone it and modify it, generating diverging histories.@@ _
+@@when you #pull, you #download files from the remote to the local.@@ _
+@@when you #push, you #upload files from the local to the remote.@@ '
+===
+
+=== ##creating a repo## ===
+
+===
+@@we #use the convention <that a@@ ++$++ @@$indicates a command prompt>.@@ _
+@@to create a local repo,@@ ++cd++ @@into the top directory of your project, and run:@@ '
+
+++$ git init++ '
+
+@@remember that nothing affects the remote repo unless you #push.@@ _
+@@therefore, if you have &screwed up something and #want to restart from scratch, you may consider deleting the whole@@ ++.git/++ @@and using@@ ++git init++ @@again.@@ '
+===
+
+===
+@@to create a new remote repo, sign up a Git service provider.@@ _
+@@the most popular choices are@@ @@GitHub@@ \\https://github.com\\ @@and@@ @@Bitbucket@@ \\https://bitbucket.org\\ @@.@@ _
+@@the remote url may either be set with respect to HTTPS or SSH protocol.@@ _
+@@in the web interface of a GitHub repo, there is a HTTPS url {that looks like}:@@ '
+
+++https://github.com/violapterin/photoluminescence.git++ '
+
+@@and a SSH url {that $looks like}:@@ '
+
+++git@github.com:violapterin/photoluminescence.git++ '
+
+@@to set the remote url under SSH protocol:@@ '
+
+++$ git remote add origin git@github.com:violapterin/photoluminescence.git++ '
+
+@@to change url later:@@ '
+
+++$ git remote set-url origin git@github.com:violapterin/photoluminescence.git++ '
+
+@@to list all remote urls added:@@ '
+
+++$ git remote -v++ '
+
+@@the result should look like:@@ '
+
+++origin  git@github.com:violapterin/computer-notes.git (fetch)++ '
+++origin  git@github.com:violapterin/computer-notes.git (push)++ '
+
+@@to see more information about the remote:@@ '
+
+++$ git remote show origin++ '
+===
+
+=== ##ignoring certain files## ===
+
+===
+@@it isn’t Git’s original purpose to track binary files.@@ _
+@@binary files cannot be compared effectively,@@
+@@nor can it be merged or rebased normally.@@ '
+
+@@generally, to tell Git to ignore specified files, create a file named@@ ++.gitignore++ @@in the top directory.@@ _
+@@as an illustration:@@ '
+
+++.log++ '
+++*.pdf++ '
+++/__pycache__/++ '
+
+@@here,@@ ++*++ @@is a wildcard.@@ _
+@@this way,@@ ++.log++ @@in the top directory, all@@ ++.pdf++ @@files anywhere, and everything in the subdirectory@@ ++/__pycache__/++ @@of the top directory, will be ignored.@@ '
+===
+
+===
+@@after@@ ++.gitignore++ @@is &modified, those files tracked before but intended to be ignored, are still tracked.@@ _
+@@to truly stop tracking them, remove all the cache by@@ '
+
+++$ git rm -r --cached .++ '
+===
+
+=== ##configuring Git## ===
+
+===
+@@in general, to configure something in Git, run:@@ _
+@@(use@@ ++--global++ @@to set it in all repos.)@@ '
+
+++$ git config class.attribute value++ '
+
+@@alternatively, append the following line, in@@ ++~/.gitconfig++ @@:@@ _
+@@(the second line should start with a tab.)@@
+
+++[class]++ '
+_ ++attribute = value++ '
+===
+
+===
+@@for example, to fill in username and email, set:@@ '
+
+++$ git config user.name "Raven I. Pilot"++ '
+++$ git config user.email "violapterin@gmail.com"++ '
+===
+
+===
+@@as another example, the default editor for commit message is Vi.@@ _
+@@to change it to Vim, set:@@ '
+
+++$ git config core.editor "vim"++ '
+===
+
+===
+@@or to color Git’s terminal output whenever possible, set:@@ '
+
+++$ git config color.ui auto++ '
+===
+
+===
+@@as a last example, by default non- ASCII characters such as Chinese characters are backslash- escaped with character codes in commit record;@@
+@@for instance,@@ @@我@@ @@$becomes@@ ++\346\210\221++ @@.@@
+@@to show them as verbatim, set:@@ '
+
+++$ git config core.quotepath false++ '
+===
+
+===##using SSH keys## ===
+
+===
+@@GitHub $offers the choice to authenticate with HTTPS or SSH.@@ _
+@@in general, SSH is more secure, but sometimes it $gets blocked by a firewall.@@ _
+@@some older guides might recommend RSA, but in 2020 the GitHub official guide @changed that to ED25519.@@ _
+@@ED25519 public keys are evidently shorter and considerably stronger.@@ '
+
+@@to generate an ED25519 key, run:@@ '
+
+++$ ssh-keygen -t ed25519 -C "violapterin@gmail.com"++ '
+
+@@you will be asked for destination path, and a passphrase.@@ _
+@@with an SSH agent you have only to type the passphrase once.@@ _
+@@remember, a passphrase should be reasonably long, like 6- word.@@ _
+@@not only are nonalphanumeric ASCII characters &allowed,@@
+@@but they are actually &encouraged.@@ '
+
+@@if you #have several keys, you may rename the public keys (with extension@@ ++.pub++ @@)@@ @@and private keys (without extension), as long as they #share the same name without extension, say@@ ++Ed25519_GitHub.pub++ @@and@@ ++Ed25519_GitHub.pub++ @@.@@ '
+===
+
+===
+@@in the web interface of GitHub, in “personal settings”, and in “SSH and GPG keys”, copy and paste the public key.@@ '
+
+@@under SSH protocol, authentication of SSH Key is easily &managed by an SSH agent.@@ _
+@@(under HTTPS, the user may also use a credential manager, {which I haven’t &tried}.)@@ _
+@@when you #commit, run the SSH agent to activate your key, by:@@ '
+
+++$ eval "$(ssh-agent -s)"++ '
+++$ ssh-add ~/.ssh/Ed25519_github++ '
+===
+
+~~~
+
+===
+@@❧@@ %%January 25, 2017;%%
+%%revised July 30, 2021%% '
+===

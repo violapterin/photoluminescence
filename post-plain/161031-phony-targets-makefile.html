@@ -1,0 +1,148 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">GNU Make is a utility used to manage the building process.</span></span> <span class="phrase"><span class="serif-roman">To specify its dependency, a target is separated by a colon</span> <code class="mono">:</code> <span class="serif-roman">from its prerequisites.</span></span> <span class="phrase"><span class="serif-roman">Only when one of the prerequisite in the right side has a last modified date later than the target in the left side, will the recipe be executed.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">However, people often define a special target</span> <code class="mono">clean</code> <span class="serif-roman">with recipe:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">.PHONY: clean</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">This target cleans all the compiled files, by, for example:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">clean:</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">rm -rf ./*.pdf</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">What does</span> <code class="mono">.PHONY</code> <span class="serif-roman">mean here?</span></span> <span class="phrase"><span class="serif-roman">While</span> <code class="mono">clean</code> <span class="serif-roman">isn’t a real object, but an action, if there is a file named</span> <code class="mono">clean</code> <span class="serif-roman">on the same directory (certainly not a good name to choose), than Make won’t execute the recipe of</span> <code class="mono">clean</code><span class="serif-roman">,</span> <span class="serif-roman">thinking it is up to date.</span></span> <span class="phrase"><span class="serif-roman">But if we declare it phony, or fake, its recipe no longer depends on actual files.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">While this scenario assumes that clean has no prerequisites,</span></span> <span class="phrase"><span class="serif-roman">What is it like when</span> <code class="mono">clean</code> <span class="serif-roman">has its own prerequisites?</span></span> <span class="phrase"><span class="serif-roman">Since a phony target doesn’t even have a last modified date, is the recipe still always executed?</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">all: alice bob</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">@echo recipe \&#39;all\&#39; executed.</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">alice:</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">bob:</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">.PHONY: all</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">recipe &#39;all&#39; executed.</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">recipe &#39;all&#39; executed.</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">recipe &#39;all&#39; executed.</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ touch all</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">make: &#39;all&#39; is up to date.</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Now add this line in the end of the makefile:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">.PHONY: all</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">recipe &#39;all&#39; executed.</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ touch all</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ make</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">recipe &#39;all&#39; executed.</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">In conclusion, if a target is the prerequisite of the</span> <code class="mono">.PHONY</code> <span class="serif-roman">target, then its recipe will always be executed.</span></span> <span class="phrase"><span class="serif-roman">Of course, before executing the recipe, its own prerequisites must exist and up to date as usual.</span></span> <span class="phrase"><span class="serif-roman">A phony target is therefore considered older than everything, a “file as old as time”.</span></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">Chinese version written October 31, 2016;</em> <em class="serif-italic">English version translated January 31, 2017;</em> <em class="serif-italic">revised July 31, 2021</em></span>
+</p>
+</div>
+</main>

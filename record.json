@@ -71,7 +71,7 @@
 {"stamp": "170317", "genre": "notes",
     "tag": ["Technology", "Linux"],
     "title": "Installing Arch Linux"},
-{"stamp": "170125", "genre": "notes",
+{"stamp": "170125", "genre": "notes", "series": "Learning Git",
     "tag": ["Git", "GitHub", "Coding"],
     "title": "Setting up Git"},
 {"stamp": "170121", "genre": "notes",
@@ -83,6 +83,10 @@
 {"stamp": "170107", "genre": "notes",
     "tag": ["Shell", "Vim"],
     "title": "Solarized and other color schemes for Vim"},
+
+{"stamp": "161031", "genre": "notes",
+    "tag": ["Makefile", "Coding"],
+    "title": "Phony in Makefile"},
 
 null
 ]

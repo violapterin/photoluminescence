@@ -1,0 +1,88 @@
+===
+@@GNU Make is a utility used to manage the building process.@@ _
+@@to specify its dependency, a target is &separated by a colon@@ ++:++ @@from its prerequisites.@@ _
+@@only when one of the prerequisite in the right side has a last modified date later than the target in the left side, will the recipe be executed.@@ '
+
+@@however, people often #define a special target@@ ++clean++ @@with recipe:@@ '
+
+++.PHONY: clean++ '
+
+@@this target $cleans all the compiled files, by, for example:@@ '
+
+++clean:++ '
+_ ++rm -rf ./*.pdf++ '
+
+@@what $does@@ ++.PHONY++ @@mean here?@@ _
+@@while@@ ++clean++ @@isn’t a real object, but an action, if there is a file named@@ ++clean++ @@on the same directory (certainly not a good name to choose), than Make won’t execute the recipe of@@ ++clean++ @@,@@ @@thinking it is up to date.@@ _
+@@but if we #declare it phony, or fake, its recipe no longer $depends on actual files.@@ '
+
+@@while this scenario $assumes <that@@ ++clean++ @@has no prerequisites>, @@ _
+@@what is it like when it has?@@ _
+@@since a phony target doesn’t even have a last modified date, is the recipe still always &executed?@@ '
+===
+
+===
+@@out of curiosity, I @conducted some experiments.@@ _
+@@consider the makefile:@@
+@@(Recall <that a recipe should be indented by a tab>.)@@ '
+
+++all: alice bob++ '
+_ ++@echo recipe \'all\' executed.++ '
+++alice:++ '
+_ ++touch alice++ '
+++bob:++ '
+_ ++touch bob++ '
+===
+
+===
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+
+++$ make++ '
+_ ++touch alice++ '
+_ ++touch bob++ '
+_ ++recipe 'all' executed.++ '
+++$ make++ '
+_ ++recipe 'all' executed.++ '
+===
+
+===
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+
+++$ make++ '
+_ ++touch alice++ '
+_ ++touch bob++ '
+_ ++recipe 'all' executed.++ '
+++$ touch all++ '
+++$ make++ '
+_ ++make: 'all' is up to date.++ '
+===
+
+===
+@@now add this line in the end of the makefile:@@ '
+
+++.PHONY: all++ '
+
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+
+++$ make++ '
+_ ++touch alice++ '
+_ ++touch bob++ '
+_ ++recipe 'all' executed.++ '
+++$ touch all++ '
+++$ make++ '
+_ ++recipe 'all' executed.++ '
+===
+
+===
+@@in conclusion, if a target is the prerequisite of the@@ ++.PHONY++ @@target, then its recipe will always be executed.@@ _
+@@of course, before executing the recipe, its own prerequisites must exist and up to date as usual.@@ _
+@@a phony target is therefore &considered older than everything, a “file as old as time”.@@ '
+===
+
+~~~
+
+===
+%%Chinese version written October 31, 2016;%%
+%%English version translated January 31, 2017;%%
+%%revised July 31, 2021%% '
+===

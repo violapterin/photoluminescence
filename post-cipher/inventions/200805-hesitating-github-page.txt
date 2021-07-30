@@ -9,7 +9,7 @@
 ===
 
 ===
-%%August 6%% '
+%%August 6:%% '
 
 @@surprisingly, as I @tested for several simple cases, most browsers @didn’t support MathML, including even Chrome and Safari.@@ _
 @@that crossed out MathML as the framework for my new notation.@@ '
@@ -21,7 +21,7 @@
 ===
 
 ===
-%%August 7%% '
+%%August 7:%% '
 
 @@important realization!@@ _
 @@HTML@@ ++<p>++ @@could contain several lines separated by@@ ++<br>++ @@and stacked vertically, if grouped by a@@ ++<span>++@@.@@ _
@@ -31,7 +31,7 @@
 ===
 
 ===
-%%August 8%% '
+%%August 8:%% '
 
 @@implementing a Markdown parser wouldn’t be an easy task, since to me, Markdown wasn’t an elegant markup.@@ _
 @@the earliest version of Markdown by John Gruber was sometimes ambiguous.@@ _
@@ -49,7 +49,7 @@
 ===
 
 ===
-%%August 12%% '
+%%August 12:%% '
 
 @@ @came up with the artificial square brackets made of HTML spans.@@ '
 @@nevertheless, CSS grids, {which to me was superior to HTML tables}, might be even more suited for this job.@@ _
