@@ -1,0 +1,72 @@
+=== ##duplication: branch## ===
+
+===
+@@when the project $gets bigger, people create more than one branch to hold more versions in parallel.@@ _
+@@branches get forked and merged, leading to immensely complicated operations.@@ _
+
+@@to create a new branch at the current commit:@@ _
+
+++$ git branch <new_branch>++ '
+
+@@to switch to another branch, thus modifying files in the working tree:@@ _
+
+++$ git checkout -b <another_branch>++ '
+
+@@you had better commit new changes before checking out another branch, to prevent current work to be lost.@@ _
+
+@@to list all branches, with the current one highlighted with a asterisk:@@ _
+
+++$ git branch++ '
+
+=== ##combination: merge## ===
+
+@@to merge two branches into one:@@ _
+
+++$ git merge <merged_branch>++ '
+
+@@if there are conflicts, there will be an error message telling you so.@@ _
+@@Git overwrites the conflicting parts of the file, adding text like this:@@ _
+
+   <<<<<<<
+   (text excerpts from to the chief branch being merged into)
+   |||||||
+   (text excerpts from to the common ancestor)
+   =======
+   (text excerpts from to the feature branch merging into the chief branch)
+   >>>>>>>
+
+@@you should replace these lines with <what you #want>.@@ _
+@@after all conflicts are resolved, add the changes and commit again.@@ _
+
+=== ##replay: rebase, cherry- pick## ===
+
+@@to apply a rebase, in order to replay respective commits from the current branch onto another branch:@@ _
+
+++$ git rebase <branch_being_merged_into>++ '
+
+@@with option@@ ++-i++ @@,@@ @@you may edit <whether and how the each commit is used>.@@ _
+
+@@for concreteness:@@ _
+@@let us say <you want to combine the last commits to be one>.@@ _
+@@apply an interactive rebase:@@ _
+
+git rebase -i HEAD~3
+
+@@an editor should open, showing@@ _
+
+pick 12345ab third commit
+pick 23456cd second commit
+pick 34567ef first commit
+
+@@squash the first and second commit, by modifying as thus:@@
+
+pick 12345ab third commit
+squash 23456cd second commit
+squash 34567ef first commit
+
+@@when you #close the file, another editor would open just as in ++commit --amend++ @@,@@ @@where you may edit your message for the new commits.@@
+
+alternatively, ++cherry-pick++ allows us to choose one commit of a certain branch only, and apply the change from the branching node up to itself, on the current commit.
+that is, doing the same as `rebase` only on certain commits, instead of all of them of that branch.
+
+++$ git cherry-pick <commit_being_picked>++ '

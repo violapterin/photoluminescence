@@ -98,12 +98,12 @@
 <span class="phrase"><span class="serif-roman">What does</span> <code class="mono">.PHONY</code> <span class="serif-roman">mean here?</span></span> <span class="phrase"><span class="serif-roman">While</span> <code class="mono">clean</code> <span class="serif-roman">isn’t a real object, but an action, if there is a file named</span> <code class="mono">clean</code> <span class="serif-roman">on the same directory (certainly not a good name to choose), than Make won’t execute the recipe of</span> <code class="mono">clean</code><span class="serif-roman">,</span> <span class="serif-roman">thinking it is up to date.</span></span> <span class="phrase"><span class="serif-roman">But if we declare it phony, or fake, its recipe no longer depends on actual files.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">While this scenario assumes that clean has no prerequisites,</span></span> <span class="phrase"><span class="serif-roman">What is it like when</span> <code class="mono">clean</code> <span class="serif-roman">has its own prerequisites?</span></span> <span class="phrase"><span class="serif-roman">Since a phony target doesn’t even have a last modified date, is the recipe still always executed?</span></span>
+<span class="phrase"><span class="serif-roman">While this scenario assumes that</span> <code class="mono">clean</code> <span class="serif-roman">has no prerequisites,</span></span> <span class="phrase"><span class="serif-roman">What is it like when it has?</span></span> <span class="phrase"><span class="serif-roman">Since a phony target doesn’t even have a last modified date, is the recipe still always executed?</span></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile</span></span>
+<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile:</span> <span class="serif-roman">(Recall that a recipe should be indented by a tab.)</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">all: alice bob</code></span>
@@ -122,9 +122,6 @@
 </p>
 <p class="paragraph">
 <span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">.PHONY: all</code></span>
 </p>
 </div>
 <div class="section">
