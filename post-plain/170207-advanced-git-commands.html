@@ -1,0 +1,137 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><b class="serif-bold">Duplication: branch</b></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">When the project gets bigger, people create more than one branch to hold more versions in parallel.</span></span> <span class="phrase"><span class="serif-roman">Branches get forked and merged, leading to immensely complicated operations.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">To create a new branch at the current commit:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git branch &lt;new_branch&gt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">To switch to another branch, thus modifying files in the working tree:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git checkout -b &lt;another_branch&gt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">You had better commit new changes before checking out another branch, to prevent current work to be lost.</span></span> <span class="phrase"><span class="serif-roman">To list all branches, with the current one highlighted with a asterisk:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git branch</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><b class="serif-bold">Combination: merge</b></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">To merge two branches into one:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git merge &lt;merged_branch&gt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">If there are conflicts, there will be an error message telling you so.</span></span> <span class="phrase"><span class="serif-roman">Git overwrites the conflicting parts of the file, adding text like this:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">(text excerpts from to the chief branch being merged into)</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">|||||||</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">(text excerpts from to the common ancestor)</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">=======</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">(text excerpts from to the feature branch merging into the chief branch)</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">You should replace these lines with what you want.</span></span> <span class="phrase"><span class="serif-roman">After all conflicts are resolved, add the changes and commit again.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><b class="serif-bold">Replay: rebase, cherry-pick</b></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">To apply a rebase, in order to replay commits from the current branch onto another branch:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git rebase &lt;branch_being_merged_into&gt;</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">With option</span> <code class="mono">-i</code><span class="serif-roman">,</span> <span class="serif-roman">you may edit whether and how the each commit is used.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">For concreteness:</span></span> <span class="phrase"><span class="serif-roman">Let us say you want to combine the last commits to be one.</span></span> <span class="phrase"><span class="serif-roman">Apply an interactive rebase:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git rebase -i HEAD~3</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">An editor should open, showing:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">pick 12345ab third commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">pick 23456cd second commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">pick 34567ef first commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Squash the first and second commit, by modifying as thus:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">pick 12345ab third commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">squash 23456cd second commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">squash 34567ef first commit</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">When you close the file, another editor would open just as in</span> <code class="mono">commit --amend</code><span class="serif-roman">,</span> <span class="serif-roman">where you may edit your message for the new commits.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">On the contrary,</span> <code class="mono">cherry-pick</code> <span class="serif-roman">allows us to choose one commit of another branch, and replay commits from the branching node, onto the current commit.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git cherry-pick &lt;commit_being_picked&gt;</code></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">February 6, 2017;</em> <em class="serif-italic">revised August 1, 2021</em></span>
+</p>
+</div>
+</main>
