@@ -58,25 +58,23 @@ body, header
 
 .stanza
 {
-  margin: 24px 8px;
-  padding: 0px 6px;
-  text-indent: 18px;
+  margin: 24px 0px;
+  padding: 0px;
 }
 
 .array
 {
-  margin: 16px 16px;
-  padding: 0px 6px;
-  text-indent: 18px;
+  margin: 16px 0px;
+  padding: 0px;
 }
 
 .graph
 {
-  margin: 16px auto;
-  padding: 0px;
-  width: 90%;
+  margin: 12px auto;
+  padding: 0px 6px;
+  width: 92%;
   display: block;
-  border-left: 12px lightblue solid;
+  border-left: 12px lightcyan solid;
 }
 
 .break
@@ -94,13 +92,23 @@ body, header
   padding: 0px;
   text-indent: 36px;
   text-align: justify;
+  text-justify: inter-word;
+  overflow-wrap: anywhere;
+}
+@media screen and (max-width: 600px) {
+  .paragraph
+  { text-align: left; }
 }
 
 .line
 {
   margin: 2px;
-  padding: 0px;
+  padding: 0px 6px;
   border-left: 12px lemonchiffon solid;
+  text-indent: 18px;
+  text-align: left;
+  text-justify: none;
+  overflow-wrap: anywhere;
 }
 
 .row
@@ -163,7 +171,7 @@ code, .mono
     "Courier New", monospace;
   font-size: 0.8em;
   font-weight: 600;
-  white-space: pre-wrap;
+  white-space: break-spaces;
   word-break: keep-all;
 }
 

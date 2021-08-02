@@ -207,9 +207,16 @@ class Math_sign(Leaf):
          many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ABSTRACTION"):
          many_sign = (
-            "\\sum", "\\prod", "\\int", "\\oint",
-            "\\bigoplus", "\\bigodot", "\\bigotimes",
-            "\\bigcup", "\\bigcap", "\\bigsqcup",
+            "\\displaystyle\\sum\\limits",
+            "\\displaystyle\\prod\\limits",
+            "\\displaystyle\\int\\limits",
+            "\\displaystyle\\oint\\limits",
+            "\\displaystyle\\bigoplus\\limits",
+            "\\displaystyle\\bigodot\\limits",
+            "\\displaystyle\\bigotimes\\limits",
+            "\\displaystyle\\bigcup\\limits",
+            "\\displaystyle\\bigcap\\limits",
+            "\\displaystyle\\bigsqcup\\limits",
          )
 
       if many_sign:
@@ -490,7 +497,7 @@ class Math_triplet(Leaf):
       if (whether_lateral):
          many_content = []
          if main:
-            many_content.append(AID.write_latex('', main))
+            many_content.append(main)
          else:
             many_content.append('\\;')
          if top:

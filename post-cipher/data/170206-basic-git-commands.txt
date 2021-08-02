@@ -1,29 +1,28 @@
 === ##classifying Git actions## ===
 
 ===
-@@here is a slowly growing summary of Git commands I find helpful, with short explanations to the dear reader.@@ _
+@@here is a slowly growing summary of Git commands I find helpful, addressed the dear reader.@@ _
 @@again, I appreciate anyone to correct my misunderstandings, if any.@@ '
 
 @@Git is a gigantic beast,@@
-@@and I #try to group actions by their point of departure and arrival.@@ _
-@@indeed, interactions #occur between the working tree, the local, and remote repo.@@ _
+@@and I #try to group various actions by their point of departure and arrival.@@ _
+@@indeed, Git actions #occur between the working tree, the local, and remote repo.@@ _
 @@commands@@ ++add++ @@,@@ ++commit++ @@,@@ @@and@@ ++push++ @@,@@ @@among others, transfer data from the local end to the remote end.@@ _
 @@commands@@ ++clone++ @@,@@ ++fetch++ @@,@@ ++pull++ @@,@@ @@and@@ ++reset++ @@,@@ @@among others, transfer data from the remote end to the local end.@@ '
 
 @@by convention, commands meant to be run in a Bash shell is &prefixed with a@@ ++$++ @@,@@
-@@and terms enclosed in@@ ++<>++ @@are not verbatim.@@ _
-@@remember <that Git commands #accept the working directory to be either the top directory ({which we #assume}) or any of its subdirectory, except@@ ++.git/++ @@,@@ @@the local repo itself>.@@ _
-@@(There are workarounds, but I guess it is safer to follow it.)@@ _
+@@and terms enclosed in@@ ++<>++ @@aren’t verbatim.@@ _
+@@remember <that Git commands #accept the working directory to be either the top directory ({which we #assume}) or any of its subdirectory, except@@ ++.git/++ @@,@@ @@the local repo itself>.@@ '
 ===
 
 ===
-@@Git man pages can be called by, say:@@ '
+@@for more information, Git man pages can be called by:@@ '
 
-++$ git help fetch++ '
+++$ git help <command>++ '
 
 @@or equivalently:@@ '
 
-++$ git fetch --help++ '
+++$ git <command> --help++ '
 ===
 
 === ##from the tree to the local: add## ===
@@ -33,12 +32,6 @@
 @@to add everything— new, modified, and deleted files:@@ '
 
 ++$ git add .++ '
-===
-
-===
-@@to view a list of all tracked files:@@ '
-
-++$ git ls-tree -r <branch> --name-only++ '
 ===
 
 ===
@@ -60,7 +53,7 @@
 
 ++$ git diff <commit> <certain_file>++ '
 
-@@there will be a new page {that summarizes the modification}.@@ _
+@@there will be a new page {that $summarizes the modification}.@@ _
 @@navigation commands are identical to@@ ++less++ @@,@@ @@and similar to Vim.@@ _
 @@hit@@ ++j++ @@or@@ ++e++ @@to forward one line,@@
 @@and@@ ++k++ @@or@@ ++y++ @@to backward one line.@@ _
@@ -68,17 +61,13 @@
 @@and@@ ++b++ @@to backward one window.@@ _
 @@hit@@ ++d++ @@to forward one-half window,@@
 @@and@@ ++u++ @@to backward one-half window.@@ _
-@@hit@@ ++q++ @@to quit.@@ _
+@@finally, hit@@ ++q++ @@to quit.@@ '
 ===
 
 === ##from the tree to the local: commit## ===
 
 ===
-@@to commit your present files from the stash to the local repo:@@ '
-
-++$ git commit++ '
-
-@@however, a commit message is strongly &recommended:@@ '
+@@to commit your present files from the stash to the local repo, with a commit message:@@ '
 
 ++$ git commit -m "<Commit message>"++ '
 
@@ -86,32 +75,28 @@
 @@if you can’t, you should probably split your work into more than one commits.@@ _
 @@to save space, it is conventional to use verbs in its base form, without period in the end.@@ '
 
-@@you can modify your commit message even after you commit, with@@ '
+@@you may modify your commit message even after you #commit, with:@@ '
 
 ++$ git commit --amend++ '
 
 @@an editor should open, showing the commit message and the status.@@ _
 @@this file is &saved as@@ ++.git/COMMIT_EDITMSG++ @@.@@ _
-@@I find it useful to edit the commit message this way, because I don’t have to backslash- escape special characters.@@ _
-@@we may also add more explanatory lines below, separated from the commit message with a blank line.@@ _
+@@I #find it useful to edit the commit message this way, because I #don’t have to backslash- escape special characters.@@ _
+@@you may also add more explanatory lines below, separated from the commit message with a blank line.@@ '
 ===
 
 ===
 @@sometimes we #add a tag to single out more significant commits, especially when a commit is &released to the public.@@ _
-a tag can be added when you have &modified the working tree. _
+@@a tag can be added when you have &modified the working tree.@@ _
 @@to add a tag to the latest commit:@@ '
 
-++$ git tag -a "<tag_number>"++ '
+++$ git tag -a <tag_number>++ '
 
 @@to simply list all tags:@@ '
 
 ++$ git tag++ '
 
-@@to see <what commit is being pointed to>:@@ '
-
-++$ git rev-list -1 "<tag_number>"++ '
-
-@@to push tags, you #have to do:@@ '
+@@to push tags to the remote, you #have to do:@@ '
 
 ++$ git push --tags origin++ '
 ===
@@ -130,7 +115,7 @@ a tag can be added when you have &modified the working tree. _
 @@to retrieve its ancestors, two operators could be used.@@ _
 @@pointer@@ ++HEAD~2++ @@refers to the eldest parent of the parent of the head.@@ _
 @@pointer@@ ++HEAD^3++ @@means its third- to- last eldest parent of the head, and so on.@@ _
-@@the two operators may be composed, for instance as@@ ++HEAD^3~2++ @@.@@ _
+@@the two operators may be composed, for instance as@@ ++HEAD^3~2++ @@.@@ '
 ===
 
 === ##from the local repo to the remote repo: push## ===
@@ -138,60 +123,58 @@ a tag can be added when you have &modified the working tree. _
 ===
 @@to push all consistent commits from the local repo to the remote repo:@@ '
 
-++$ git push origin <branch_name>++ '
+++$ git push origin <branch>++ '
 
-@@if option@@ ++-u++ @@or@@ ++--set-upstream++ @@is added,@@ @@we set up a tracking reference so <that we can type only@@ ++git push++ @@or@@ ++git pull++ @@and so on>.@@ '
+@@if flag@@ ++-u++ @@or@@ ++--set-upstream++ @@is &added,@@ @@you #set up a tracking reference so <that you can type only@@ ++git push++ @@or@@ ++git pull++ @@and so on>.@@ '
 
-@@if you have inconsistent commits, causing Git $refuses to push,@@
-@@you add the flag@@ ++-f++ @@or@@ ++--force++ @@:@@ _
-@@this forces every local commit to overwrite its remote counterpart,@@
+@@if you #have inconsistent commits, causing Git $refuses to push,@@
+@@you #add the flag@@ ++-f++ @@or@@ ++--force++ @@.@@ _
+@@this $forces every local commit to overwrite its remote counterpart,@@
 @@and it may cause the remote repo to lose data.@@ _
-@@think twice before using it!@@ _
+@@think twice before using it!@@ '
 ===
 
 === ##from the remote to the local : clone, fetch, pull## ===
 
 ===
-@@to clone everything from the remote repo into a new subdirectory of the current working directory (where the repo for the blog is taken for instance):@@ '
+@@to clone everything from the remote repo into a new subdirectory of the current working directory (where the repo for the blog is &taken for instance):@@ '
 
-++$ git clone git@github.com:violapterinblog/violapterinblog.github.io.git++ '
+++$ git clone <remote_url>++ '
 ===
 
 ===
 @@fetching $creates a local copy of a remote branch in the local repo only, not affecting the working tree nor the head.@@ _
 @@to fetch everything from the remote repo to the working tree:@@ '
 
-++$ git fetch origin <branch_name>++ '
+++$ git fetch origin <branch>++ '
 ===
 
 ===
 @@meanwhile, pulling not only $fetches all remote branches as said, but also $merges all conflicts into the specified branch.@@ _
 @@to pull from origin to a branch:@@ '
 
-++$ git pull origin <branch_name>++ '
+++$ git pull origin <branch>++ '
 
-@@it is more straightforward, I #think, to fetch and merge explicitly, than just to pull.@@ _
+@@it is more straightforward, I #think, to fetch and merge explicitly, than just to pull.@@ '
 ===
 
 === ##from the local to the tree: reset, revert## ===
 
 ===
-@@you may reset the working tree to a previous state.@@ '
+@@you may reset the working tree to a previous state, by:@@ '
 
 ++$ git reset HEAD~2++ '
 
 @@flag@@ ++--soft++ @@rewrites changes not committed, leaving staged changes.@@ _
 @@flag@@ ++--mixed++ @@rewrites changes not committed or not staged, leaving changes in the working tree.@@ _
-@@flag@@ ++--hard++ @@rewrites changes not committed or not staged, and the working tree.@@ _
+@@flag@@ ++--hard++ @@rewrites changes not committed or not staged, and the working tree.@@ '
 ===
 
 ===
-@@meanwhile, to revert to previous commit,@@
+@@meanwhile, to revert to commit,@@ '
+@@to restore the working tree to a previous  commit, but creating a new commit, without rewriting the history:@@ '
 
 ++$ git revert <commit_pointer>++ '
-
-@@this $restores the working tree to that commit,@@
-@@but it $creates a new commit, not rewriting the history.@@ _
 ===
 
 ===
@@ -200,28 +183,29 @@ a tag can be added when you have &modified the working tree. _
 
 ++$ git reset --soft HEAD~5++ '
 
-@@afterwards, commit.@@ _
+@@afterwards, commit.@@ '
 ===
 
 ~~~
 
 ===
-%%February 6, 2017;%%
+@@❧@@ %%February 6, 2017;%%
 %%revised July 30, 2021%% '
 ===
 
 === ##references## ===
 
 ===
-@@Git,@@
+@@❉@@ @@Git,@@
    @@Documentation@@ \\https://git-scm.com/documentation\\ '
-
-@@❉@@ @@R E Silverman, «Git Pocket Guide».@@ _
-@@O’Reilly Media, 2013.@@ '
 
 @@❉@@ @@S Puisungnoen,@@
    @@Git— the simple guide@@ \\http://up1.github.io/git-guide/index.html\\ '
 
-@@❉@@ @@Git cheatsheet@@ \\http://www.ndpsoftware.com/git-cheatsheet.html\\ '
+@@❉@@ @@R E Silverman, «Git Pocket Guide».@@ _
+   @@O’Reilly Media, 2013.@@ '
+
+@@❉@@ @@NDP Software,@@
+   @@Git cheatsheet@@ \\http://www.ndpsoftware.com/git-cheatsheet.html\\ '
 ===
 

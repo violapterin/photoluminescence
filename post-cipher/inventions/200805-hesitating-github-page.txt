@@ -51,7 +51,9 @@
 ===
 %%August 12:%% '
 
-@@ @came up with the artificial square brackets made of HTML spans.@@ '
+@@ @came up with the artificial square brackets made of HTML spans.@@ _
+@@one Stack Overflow post@@ \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\
+   @@ @explained <that it could indeed be done>.@@ _
 @@nevertheless, CSS grids, {which to me was superior to HTML tables}, might be even more suited for this job.@@ _
 ===
 
@@ -102,7 +104,4 @@ _ ++<span class="v"> x+y+z </span>++ '
    \\https://spec.commonmark.org/\\ '
 @@❉@@ @@MDN Web Docs,@@ @@‹grid›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/grid\\ '
-@@❉@@ @@‹How to display classic built- up fractions with an horizontal line›@@
-   \\https://stackoverflow.com/questions/13878772/how-to-display-classic-built-up-fractions-with-an-horizontal-line-in-css-jav\\ @@.@@ _
-   @@In Stack Overflow@@ '
 ===

@@ -135,10 +135,10 @@ std::vector<int> convert_digit(int width, int pattern)
    return many_digit;
 }
 
-int modulo(int natural)
+int modulo(int number)
 {
    int characteristic = 1000000007;
-   int result = natural % characteristic;
+   int result = number % characteristic;
    return result;
 }
 

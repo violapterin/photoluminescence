@@ -1,0 +1,37 @@
+===
+@@the more I #learn higher mathematics, the more I #wonder <how little benefit the elementary mathematics education has &brought to children>.@@ _
+@@in light of the advance in computers, they are borderline useless and not indicative of the innate talent of the students.@@ '
+
+@@children #spend a lot of time in school learning arithmetic, chiefly the four operations on real numbers, solution of linear systems, and calculation involving polynomials.@@ _
+@@as the level $progresses, some of them #struggle,@@
+@@and others #appear good at it.@@ _
+@@consequently, they either choose or abandon mathematics- related majors or occupations.@@ '
+
+@@however, in a broader perspective, these actions are some straightforward algorithms in disguise.@@ _
+@@the students are really implementing a system of lambda calculus or an automata with their brain.@@ _
+@@people capable of basic programming #know <that while it may be tedious to implement, from scratch, operations on a field, changing basis for a matrix, Euclid algorithm on a polynomial ring, and so on, they are in fact nothing more than a rigid realization of rules.@@ _
+@@today these are what computers should do,@@
+@@and there is a lot more to explore in mathematics than these.@@ _
+@@what difference does it make <that someone is slightly faster and more accurate in such basic calculations that another, as long as they can do correctly under sufficient time>?@@ '
+
+@@unfortunately, children surely don’t know <they are considered machines when they take an exam>,@@
+@@and undoubtedly, they won’t before they are &exposed to concrete objects.@@ '
+@@still, what $troubles me is <that we practically require the children to invoke their vague intuition on computation>.@@ _
+@@those who return more correct answers in exams, win.@@ _
+@@what’s the big deal about that?@@
+@@the reason that some children are doing well is simply that they are quicker to realize, implicitly, the way to run a program with their brain;@@
+@@and the reason that some are not doing well, that they are slower.@@ _
+@@for the latter, they will never be revealed of the mystery, and will probably remain to think mathematics as an enigma.@@ '
+
+@@the elementary mathematics education is in dire need of reformation,@@
+@@and what can we do about the situation?@@ _
+@@there, I #hope, might be a way to somehow introduce children of the concept of computation,@@
+@@so <that they are self-aware when they do it,@@
+@@and it might turn out <that how we presently #classify students’ inclination is the very opposite of unleashing their gifts.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%September 19, 2020%% '
+===

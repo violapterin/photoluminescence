@@ -86,10 +86,46 @@ _ ++}++ '
 @@my workaround was to add@@ ++\,++ @@,@@ ++\:++ @@,@@ @@and@@ ++\;++ @@,@@ @@in the LaTeX source, and to remove whitespace between these spans.@@ _
 ===
 
+===
+%%July 27:%% '
+
+@@ @numbered all posts with respect to the stamp.@@ _
+@@it simply @amounted to copy the list of posts, and add a counter in each title.@@ _
+@@now the slowly increasing numbering @made me proud.@@ '
+===
+
+===
+%%July 28:%% '
+
+@@the original profile and the banner picture has oxygen to be blue, and nitrogen red.@@ _
+@@Leyi @told me <that according to CPK coloring, {which is a chemistry standard}, oxygen should be red, and nitrogen blue>.@@ _
+@@I @redrew the profile following such coloring,@@
+@@and @redesigned the banner picture altogether.@@ _
+@@now on the banner were mostly colored, aromatic chemicals, hinting the title “Photoluminescence”.@@ '
+===
+
+===
+%%July 28:%% '
+
+@@word break had &been a serious problem in web designing.@@ _
+@@it was the tradition in typography to justify text,@@
+@@but it was generally &discouraged to do so in web programming.@@ _
+@@the reason is <that web browsers couldn’t reliably break words in real time>,@@
+@@and if we #insist justification of text, spaces could be too big.@@ '
+
+@@after a long thought, I @maintained to justify, as I really @liked the lofty look of a justified text.@@ _
+@@to alleviate the problem, I @used a media query to switch to left alignment when the screen is less than 600 px.@@ _
+@@furthermore, word breaking opportunity,@@ ++<wbr>++ @@,@@ @@would be inserted.@@ _
+@@to do so for text, I @singled out a word, and @broke at punctuation whenever possible;@@
+@@if not possible, I @broke at vowels;@@
+@@if not possible either, I simply @broke at the middle of the word.@@ _
+@@the same is &done for code, except for breaking at alphabets.@@ '
+===
+
 ~~~
 
 ===
-@@❧@@ %%July 2, 2021%% '
+@@❧@@ %%started July 2, 2021%% '
 ===
 
 === ##references## ===

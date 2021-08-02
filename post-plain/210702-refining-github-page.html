@@ -43,7 +43,7 @@
 <span class="verse"><code class="mono">var choice = Math.floor(Math.random() * texts.length);</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">document.getElementById(&quot;quote&quot;).innerHTML = texts[choice];</code></span>
+<span class="verse"><code class="mono">document.getElementById(&lt;wbr&gt;&quot;quote&quot;).innerHTML = texts[choice];</code></span>
 </p>
 </div>
 <div class="section">
@@ -142,12 +142,39 @@
 <span class="phrase"><span class="serif-roman">Previously, I decided to break math expressions into individual spans when parsing them, since Mathjax 3 had no word break.</span></span> <span class="phrase"><span class="serif-roman">The spacing wasn’t quite right.</span></span> <span class="phrase"><span class="serif-roman">My workaround was to add</span> <code class="mono">\,</code><span class="serif-roman">,</span> <code class="mono">\:</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">\;</code><span class="serif-roman">,</span> <span class="serif-roman">in the LaTeX source, and to remove whitespace between these spans.</span></span>
 </p>
 </div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 27:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Numbered all posts with respect to the stamp.</span></span> <span class="phrase"><span class="serif-roman">It simply amounted to copy the list of posts, and add a counter in each title.</span></span> <span class="phrase"><span class="serif-roman">Now the slowly increasing numbering made me proud.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 28:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">The original profile and the banner picture has oxygen to be blue, and nitrogen red.</span></span> <span class="phrase"><span class="serif-roman">Leyi told me that according to CPK coloring, which is a chemistry standard, oxygen should be red, and nitrogen blue.</span></span> <span class="phrase"><span class="serif-roman">I redrew the profile following such coloring,</span> <span class="serif-roman">and redesigned the banner picture altogether.</span></span> <span class="phrase"><span class="serif-roman">Now on the banner were mostly colored, aromatic chemicals, hinting the title “Photoluminescence”.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 28:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Word break had been a serious problem in web designing.</span></span> <span class="phrase"><span class="serif-roman">It was the tradition in typography to justify text,</span> <span class="serif-roman">but it was generally discouraged to do so in web programming.</span></span> <span class="phrase"><span class="serif-roman">The reason is that web browsers couldn’t reliably break words in real time,</span> <span class="serif-roman">and if we insist justification of text, spaces could be too big.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">After a long thought, I maintained to justify, as I really liked the lofty look of a justified text.</span></span> <span class="phrase"><span class="serif-roman">To alleviate the problem, I used a media query to switch to left alignment when the screen is less than 600 px.</span></span> <span class="phrase"><span class="serif-roman">Furthermore, word breaking opportunity,</span> <code class="mono">&lt;wbr&gt;</code><span class="serif-roman">,</span> <span class="serif-roman">would be inserted.</span></span> <span class="phrase"><span class="serif-roman">To do so for text, I singled out a word, and broke at punctuation whenever possible;</span> <span class="serif-roman">if not possible, I broke at vowels;</span> <span class="serif-roman">if not possible either, I simply broke at the middle of the word.</span></span> <span class="phrase"><span class="serif-roman">The same is done for code, except for breaking at alphabets.</span></span>
+</p>
+</div>
 <div class="break">
 <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">July 2, 2021</em></span>
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">started July 2, 2021</em></span>
 </p>
 </div>
 <div class="section">

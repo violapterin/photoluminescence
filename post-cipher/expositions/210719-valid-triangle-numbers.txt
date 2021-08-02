@@ -1,0 +1,164 @@
+
+===
+@@given a ordered set@@ ^^.C^^ @@of integers, return the number of such triplets
+chosen from@@ ^^.C^^ @@{that can make up triangles, if we #take them
+as lengths of the side}.@@ '
+
+@@Constraints:@@ '
+
+^^.1 <0 'size' .[.C.] <0 .1.0.0.0.;^^ '
+^^.0 <0 [: .C: .[.i.]] <0 .1.0.0.0.;^^ '
+===
+
+===
+@@suppose@@ ^^.N =1 'size' .[.C.]^^ @@.@@ _
+@@we #want to find@@ ^^.f .[.C.]^^ @@,@@ @@the number of valid triples of triangle number.@@ _
+@@to slightly abuse notation, we may consider@@ ^^.C^^ @@to be an unordered set, when the order of elements doesn’t matter.@@ _
+@@the brute- force approach would be exhausting all triplets in@@ ^^.C^^ @@,@@ @@with complexity@@
+   ^^.O.[[.3: .N:].]^^ @@.@@ '
+
+@@how can we do better?@@ _
+@@let@@ ^^.C^^ @@be sorted, {which #takes@@ ^^.O.[.N 'log' .N.]^^ @@}.@@ _
+@@without loss of generality, let the triplet be@@ ^^.<.x., .y., .z.>^^ @@with@@ ^^.x <0 .y <0 .z^^ @@.@@ _
+@@we only #have to check:@@ '
+^^.x .+ .y >1 .z.;^^ '
+
+@@split cases of whether the biggest component@@ ^^.z <6 .C^^ @@ is chosen.@@ _
+@@call@@ ^^.D =1 .C /2 .{.z.}^^ @@.@@ _
+@@if@@ ^^.g .[.z., .D.]^^ @@is the number of valid triples, {in which@@ ^^.z^^ @@must be chosen}, then:@@ '
+
+^^.f .[.C.] .= .g .[.z., .D.] .+ .f .[.D.]^^ '
+
+@@we #see <that@@ ^^.g .[.z., .D.]^^ @@$has complexity@@ ^^.O.[.N.]^^ @@>.@@ _
+@@indeed, fix@@ ^^.z^^ @@,@@ @@for any@@ ^^.x^^ @@,@@ @@we #have@@ ^^.y >1 .z .- .x^^ @@.@@ _
+@@here@@ ^^.r .[.z .- .x.]^^ @@,@@ @@the number of such@@ ^^.y^^ @@,@@ @@may be found with a table, filled before the recursion.@@ _
+@@hence,@@ ^^.g .[.z., .D.]^^ @@may be so defined:@@ '
+
+^^.g .[.z., .D.] .= [: %0: .x <6 .C] .r .[.z .- .x.].;^^ '
+
+@@the complexity of calling@@ ^^.g^^ @@is@@ ^^.O.[.N.]^^ @@,@@
+@@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^.O.[.N.]^^ @@.@@ _
+@@the complexity of recursively calling@@ ^^.g^^ @@is@@ ^^.O.[[.2: .N:].]^^ @@,@@ @@{which $overwhelms the complexity of sorting}.@@ _
+@@the overall complexity is therefore@@ ^^.O.[[.2: .N:].]^^ @@.@@ '
+===
+
+///
++++// 611. Valid Triangle Number [medium]+++ '
++++// Accepted July 19, 2021+++ '
++++#include <iostream>+++ '
++++#include <vector>+++ '
++++#include <map>+++ '
++++#include <algorithm>+++ '
++++typedef std::vector<int> Choice;+++ '
++++typedef std::map<int, int> Record;+++ '
++++int count_triangle_number(Choice&);+++ '
++++int count_various(Record&, Choice&);+++ '
++++int count_fixed(Record&, int, Choice&);+++ '
++++void push_distinct(Choice&, int);+++ '
++++int pick_two(int);+++ '
++++int pick_three(int);+++ '
+'
+
++++int main()+++ '
++++{+++ '
+_ +++Choice choice = {0, 1, 1, 1};+++ '
+_ +++//Choice choice = {2, 2, 3, 4};+++ '
+_ +++int count = count_triangle_number(choice);+++ '
+_ +++std::cout << count << std::endl;+++ '
+_ +++// "3"+++ '
+_ +++/* (2,3,4), (2,3,4), (2,2,3) */+++ '
++++}+++ '
+'
+
++++int count_triangle_number(Choice& choice)+++ '
++++{+++ '
+_ +++std::sort(choice.begin(), choice.end());+++ '
+_ +++Choice distinct;+++ '
+_ +++Record record;+++ '
+_ +++int key = 0;+++ '
+_ +++int cumulative = 0;+++ '
+_ +++for (auto value_ = choice.begin(); value_ != choice.end(); value_++)+++ '
+_ +++{+++ '
+_ _ +++if (*value_ == 0) { continue; }+++ '
+_ _ +++push_distinct(distinct, *value_);+++ '
+_ _ +++while (key < *value_)+++ '
+_ _ +++{+++ '
+_ _ _ +++record[key] = cumulative;+++ '
+_ _ _ +++key += 1;+++ '
+_ _ +++}+++ '
+_ _ +++cumulative += 1;+++ '
+_ _ +++record[key] = cumulative;+++ '
+_ +++}+++ '
+_ +++if (distinct.empty()) { return 0; }+++ '
+_ +++while (key < distinct.back() * 2)+++ '
+_ +++{+++ '
+_ _ +++record[key] = cumulative;+++ '
+_ _ +++key += 1;+++ '
+_ +++}+++ '
+_ +++int number = count_various(record, distinct);+++ '
+_ +++return number;+++ '
++++}+++ '
+'
+
++++int count_various(Record& record, Choice& distinct)+++ '
++++{+++ '
+_ +++if (distinct.empty()) { return 0; }+++ '
+_ +++int small = distinct[0];+++ '
+_ +++distinct.erase(distinct.begin());+++ '
+_ +++int number_fixed = count_fixed(record, small, distinct);+++ '
+_ +++int number_partial = count_various(record, distinct);+++ '
+_ +++int number = number_fixed + number_partial;+++ '
+_ +++return number;+++ '
++++}+++ '
+'
+
++++int count_fixed(Record& record, int small, Choice& distinct)+++ '
++++{+++ '
+_ +++int number = 0;+++ '
+_ +++int novel_small = record[small] - record[small - 1];+++ '
+_ +++number += pick_three(novel_small);+++ '
+_ +++if (distinct.empty()) { return number; }+++ '
+_ +++number += (record[small * 2 - 1] - record[small]) * pick_two(novel_small);+++ '
+_ +++for (auto value_ = distinct.begin(); value_ != distinct.end(); value_++)+++ '
+_ +++{+++ '
+_ _ +++int bound = *value_ + small - 1;+++ '
+_ _ +++int novel_medium = record[*value_] - record[*value_ - 1];+++ '
+_ _ +++if (novel_medium == 0) { continue; }+++ '
+_ _ +++int total_above = record[bound] - record[*value_];+++ '
+_ _ +++int add_distinct = total_above * novel_medium;+++ '
+_ _ +++int add_pair_medium = novel_medium * (novel_medium - 1) / 2;+++ '
+_ _ +++number += novel_small * (add_distinct + add_pair_medium);+++ '
+_ +++}+++ '
+_ +++return number;+++ '
++++}+++ '
+'
+
++++void push_distinct(Choice& choice, int value)+++ '
++++{+++ '
+_ +++bool whether_update = false;+++ '
+_ +++if (choice.empty()) { whether_update = true; }+++ '
+_ +++else if (choice.back() < value) { whether_update = true; }+++ '
+_ +++if (whether_update) { choice.push_back(value); }+++ '
++++}+++ '
+'
++++int pick_two(int number)+++ '
++++{+++ '
+_ +++if (number < 2) { return 0; }+++ '
+_ +++return number * (number - 1) / 2;+++ '
++++}+++ '
+'
+
++++int pick_three(int number)+++ '
++++{+++ '
+_ +++if (number < 3) { return 0; }+++ '
+_ +++return number * (number - 1) * (number - 2) / 6;+++ '
++++}+++ '
+///
+
+~~~
+
+===
+@@❧@@ %%code accepted July 19, 2021;%%
+%%explained August 2, 2021%% '
+===
+

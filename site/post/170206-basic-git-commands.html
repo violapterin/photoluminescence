@@ -66,7 +66,7 @@
     </h2>
     <p class="data-post">
       <a class="data-stamp" href="/page/february-2017.html">6 February 2017</a>
-      <a class="data-genre" href="/page/notes.html">Negligible notes</a>
+      <a class="data-genre" href="/page/data.html">Detailed data</a>
       <a class="data-series" href="/page/learning-git.html">Learning Git</a>
       <a class="data-tag" href="/page/git.html">Git</a>
 <a class="data-tag" href="/page/github.html">GitHub</a>
@@ -83,27 +83,27 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Here is a slowly growing summary of Git commands I find helpful, with short explanations to the dear reader.</span></span> <span class="phrase"><span class="serif-roman">Again, I appreciate anyone to correct my misunderstandings, if any.</span></span>
+<span class="phrase"><span class="serif-roman">Here is a slowly growing summary of Git commands I find helpful, addressed the dear reader.</span></span> <span class="phrase"><span class="serif-roman">Again, I appreciate anyone to correct my misunderstandings, if any.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Git is a convoluted beast,</span> <span class="serif-roman">and I try to group actions by their point of departure and arrival.</span></span> <span class="phrase"><span class="serif-roman">Indeed, interactions occur between the working tree, the local, and remote repo.</span></span> <span class="phrase"><span class="serif-roman">Commands</span> <code class="mono">add</code><span class="serif-roman">,</span> <code class="mono">commit</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">push</code><span class="serif-roman">,</span> <span class="serif-roman">among others, transfer data from the local end to the remote end.</span></span> <span class="phrase"><span class="serif-roman">Commands</span> <code class="mono">clone</code><span class="serif-roman">,</span> <code class="mono">fetch</code><span class="serif-roman">,</span> <code class="mono">pull</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">reset</code><span class="serif-roman">,</span> <span class="serif-roman">among others, transfer data from the remote end to the local end.</span></span>
+<span class="phrase"><span class="serif-roman">Git is a gigantic beast,</span> <span class="serif-roman">and I try to group various actions by their point of departure and arrival.</span></span> <span class="phrase"><span class="serif-roman">Indeed, Git actions occur between the working tree, the local, and remote repo.</span></span> <span class="phrase"><span class="serif-roman">Commands</span> <code class="mono">add</code><span class="serif-roman">,</span> <code class="mono">commit</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">push</code><span class="serif-roman">,</span> <span class="serif-roman">among others, transfer data from the local end to the remote end.</span></span> <span class="phrase"><span class="serif-roman">Commands</span> <code class="mono">clone</code><span class="serif-roman">,</span> <code class="mono">fetch</code><span class="serif-roman">,</span> <code class="mono">pull</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">reset</code><span class="serif-roman">,</span> <span class="serif-roman">among others, transfer data from the remote end to the local end.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">By convention, commands meant to be run in a Bash shell is prefixed with a</span> <code class="mono">$</code><span class="serif-roman">,</span> <span class="serif-roman">and terms enclosed in ++++ are not verbatim.</span></span> <span class="phrase"><span class="serif-roman">Remember that Git commands accept the working directory to be either the top directory (which we assume) or any of its subdirectory, except ++.git/++, the local repo itself.</span></span> <span class="phrase"><span class="serif-roman">(There are workarounds, but I guess it is safer to follow it.)</span></span>
+<span class="phrase"><span class="serif-roman">By convention, commands meant to be run in a Bash shell is prefixed with a</span> <code class="mono">$</code><span class="serif-roman">,</span> <span class="serif-roman">and terms enclosed in</span> <code class="mono">&lt;&gt;</code> <span class="serif-roman">aren’t verbatim.</span></span> <span class="phrase"><span class="serif-roman">Remember that Git commands accept the working directory to be either the top directory (which we assume) or any of its subdirectory, except</span> <code class="mono">.git/</code><span class="serif-roman">,</span> <span class="serif-roman">the local repo itself.</span></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Git man pages can be called by, say:</span></span>
+<span class="phrase"><span class="serif-roman">For more information, Git man pages can be called by:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git help fetch</code></span>
+<span class="phrase"><code class="mono">$ git help &lt;command&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Or equivalently:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git fetch --help</code></span>
+<span class="phrase"><code class="mono">$ git &lt;command&gt; --help</code></span>
 </p>
 </div>
 <div class="section">
@@ -113,7 +113,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">With</span> <code class="mono">add</code><span class="serif-roman">,</span> <span class="serif-roman">changes in the working tree are added to the stash.</span></span> <span class="phrase"><span class="serif-roman">To stage everything—new, modified, and deleted files—in the working tree:</span></span>
+<span class="phrase"><span class="serif-roman">Action of adding stages changes in the working tree to the stash.</span></span> <span class="phrase"><span class="serif-roman">To add everything—new, modified, and deleted files:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git add .</code></span>
@@ -121,15 +121,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">To view a list of all tracked files:</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">$ git ls-tree -r &lt;branch&gt; --name-only</code></span>
-</p>
-</div>
-<div class="section">
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Before committing, it is helpful to see a summary of new changes, with:</span></span>
+<span class="phrase"><span class="serif-roman">To see a summary of staged changes:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git status</code></span>
@@ -137,13 +129,13 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">To show modification in the working tree not added to the index:</span></span>
+<span class="phrase"><span class="serif-roman">To show changes in the working tree not added:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git diff</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Or you can compare the indexed files with the latest commit:</span></span>
+<span class="phrase"><span class="serif-roman">To compare the indexed files with the latest commit:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git diff --staged</code></span>
@@ -155,7 +147,7 @@
 <span class="phrase"><code class="mono">$ git diff &lt;commit&gt; &lt;certain_file&gt;</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">There will be a new page that summarizes the modification.</span></span> <span class="phrase"><span class="serif-roman">Navigation commands are identical to</span> <code class="mono">less</code><span class="serif-roman">,</span> <span class="serif-roman">and similar to Vim.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">j</code> <span class="serif-roman">or</span> <code class="mono">e</code> <span class="serif-roman">to forward one line,</span> <span class="serif-roman">and</span> <code class="mono">k</code> <span class="serif-roman">or</span> <code class="mono">y</code> <span class="serif-roman">to backward one line.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">f</code> <span class="serif-roman">to forward one window,</span> <span class="serif-roman">and</span> <code class="mono">b</code> <span class="serif-roman">to backward one window.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">d</code> <span class="serif-roman">to forward one-half window,</span> <span class="serif-roman">and</span> <code class="mono">u</code> <span class="serif-roman">to backward one-half window.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">q</code> <span class="serif-roman">to quit.</span></span>
+<span class="phrase"><span class="serif-roman">There will be a new page that summarizes the modification.</span></span> <span class="phrase"><span class="serif-roman">Navigation commands are identical to</span> <code class="mono">less</code><span class="serif-roman">,</span> <span class="serif-roman">and similar to Vim.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">j</code> <span class="serif-roman">or</span> <code class="mono">e</code> <span class="serif-roman">to forward one line,</span> <span class="serif-roman">and</span> <code class="mono">k</code> <span class="serif-roman">or</span> <code class="mono">y</code> <span class="serif-roman">to backward one line.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">f</code> <span class="serif-roman">to forward one window,</span> <span class="serif-roman">and</span> <code class="mono">b</code> <span class="serif-roman">to backward one window.</span></span> <span class="phrase"><span class="serif-roman">Hit</span> <code class="mono">d</code> <span class="serif-roman">to forward one-half window,</span> <span class="serif-roman">and</span> <code class="mono">u</code> <span class="serif-roman">to backward one-half window.</span></span> <span class="phrase"><span class="serif-roman">Finally, hit</span> <code class="mono">q</code> <span class="serif-roman">to quit.</span></span>
 </p>
 </div>
 <div class="section">
@@ -165,54 +157,42 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">To commit your present files from the stash to the local repo:</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">$ git commit</code></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">However, a commit message is strongly recommended:</span></span>
+<span class="phrase"><span class="serif-roman">To commit your present files from the stash to the local repo, with a commit message:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git commit -m &quot;&lt;Commit message&gt;&quot;</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">A commit message should summarize the new work concisely, within 70 characters.</span></span> <span class="phrase"><span class="serif-roman">If you cannot do this, you should probably split your work into more than one commits.</span></span> <span class="phrase"><span class="serif-roman">To save space, it is the tradition to use verbs in base form are used, and no period in the end.</span></span>
+<span class="phrase"><span class="serif-roman">A commit message should summarize the new work concisely, within 70 characters.</span></span> <span class="phrase"><span class="serif-roman">If you can’t, you should probably split your work into more than one commits.</span></span> <span class="phrase"><span class="serif-roman">To save space, it is conventional to use verbs in its base form, without period in the end.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">You can modify your commit message even after you commit, with</span></span>
+<span class="phrase"><span class="serif-roman">You may modify your commit message even after you commit, with:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git commit --amend</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">An editor should open, showing the commit message and the status.</span></span> <span class="phrase"><span class="serif-roman">This file is saved as</span> <code class="mono">.git/COMMIT_EDITMSG</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">I find it useful to edit the commit message this way, because I don’t have to backslash-escape special characters.</span></span> <span class="phrase"><span class="serif-roman">We may also add more explanatory lines below, separated from the commit message with a blank line.</span></span>
+<span class="phrase"><span class="serif-roman">An editor should open, showing the commit message and the status.</span></span> <span class="phrase"><span class="serif-roman">This file is saved as</span> <code class="mono">.git/COMMIT_EDITMSG</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">I find it useful to edit the commit message this way, because I don’t have to backslash-escape special characters.</span></span> <span class="phrase"><span class="serif-roman">You may also add more explanatory lines below, separated from the commit message with a blank line.</span></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Sometimes we add a tag to single out more significant commits, especially when a commit is released to the public.</span></span> <span class="phrase"><span class="serif-roman">To add a tag to the latest commit (even when you have modified the working tree after committing), use</span></span>
+<span class="phrase"><span class="serif-roman">Sometimes we add a tag to single out more significant commits, especially when a commit is released to the public.</span></span> <span class="phrase"><span class="serif-roman">A tag can be added when you have modified the working tree.</span></span> <span class="phrase"><span class="serif-roman">To add a tag to the latest commit:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git tag -a &quot;&lt;tag_number&gt;&quot; -m &quot;&lt;Commit_message&gt;&quot;</code></span>
+<span class="phrase"><code class="mono">$ git tag -a &lt;tag_number&gt;</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">To simply list all tag names:</span></span>
+<span class="phrase"><span class="serif-roman">To simply list all tags:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git tag</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">To see what commit is being pointed to:</span></span>
+<span class="phrase"><span class="serif-roman">To push tags to the remote, you have to do:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git rev-list -1 &quot;&lt;tag_number&gt;&quot;</code></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">A ++git push++</span> <span class="serif-roman">don&#39;t automatically push a tag, but you have to do:</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">$ git push origin &quot;&lt;tag_number&gt;&quot;</code></span>
+<span class="phrase"><code class="mono">$ git push --tags origin</code></span>
 </p>
 </div>
 <div class="section">
@@ -229,7 +209,7 @@
 <span class="phrase"><code class="mono">$ git log --all --decorate --oneline --graph</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Pointer ++HEAD++</span> <span class="serif-roman">refers to the current commit.</span></span> <span class="phrase"><span class="serif-roman">To retrieve its ancestors, two operators could be used.</span></span> <span class="phrase"><span class="serif-roman">Pointer ++HEAD~2++</span> <span class="serif-roman">refers to the eldest parent of the parent of the head.</span></span> <span class="phrase"><span class="serif-roman">Pointer ++HEAD^3++</span> <span class="serif-roman">means its third-to-last eldest parent of the head, and so on.</span></span> <span class="phrase"><span class="serif-roman">The two operators may be composed, for instance as</span> <code class="mono">HEAD^3~2</code><span class="serif-roman">.</span></span>
+<span class="phrase"><span class="serif-roman">Pointer</span> <code class="mono">HEAD</code> <span class="serif-roman">refers to the current commit.</span></span> <span class="phrase"><span class="serif-roman">To retrieve its ancestors, two operators could be used.</span></span> <span class="phrase"><span class="serif-roman">Pointer</span> <code class="mono">HEAD~2</code> <span class="serif-roman">refers to the eldest parent of the parent of the head.</span></span> <span class="phrase"><span class="serif-roman">Pointer</span> <code class="mono">HEAD^3</code> <span class="serif-roman">means its third-to-last eldest parent of the head, and so on.</span></span> <span class="phrase"><span class="serif-roman">The two operators may be composed, for instance as</span> <code class="mono">HEAD^3~2</code><span class="serif-roman">.</span></span>
 </p>
 </div>
 <div class="section">
@@ -242,13 +222,13 @@
 <span class="phrase"><span class="serif-roman">To push all consistent commits from the local repo to the remote repo:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git push origin &lt;branch_name&gt;</code></span>
+<span class="phrase"><code class="mono">$ git push origin &lt;branch&gt;</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">If option</span> <code class="mono">-u</code> <span class="serif-roman">or</span> <code class="mono">--set-upstream</code> <span class="serif-roman">is added,</span> <span class="serif-roman">we set up a tracking reference so that we can type only</span> <code class="mono">git push</code> <span class="serif-roman">or</span> <code class="mono">git pull</code> <span class="serif-roman">and so on.</span></span>
+<span class="phrase"><span class="serif-roman">If flag</span> <code class="mono">-u</code> <span class="serif-roman">or</span> <code class="mono">--set-upstream</code> <span class="serif-roman">is added,</span> <span class="serif-roman">you set up a tracking reference so that you can type only</span> <code class="mono">git push</code> <span class="serif-roman">or</span> <code class="mono">git pull</code> <span class="serif-roman">and so on.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">If you have inconsistent commits, so Git refuses to push, you may try the flag ++-f++ or ++--force++:</span></span> <span class="phrase"><span class="serif-roman">This forces every local commit to overwrite its remote counterpart,</span> <span class="serif-roman">and it may cause the remote repo to lose data.</span></span> <span class="phrase"><span class="serif-roman">Think twice before using it!</span></span>
+<span class="phrase"><span class="serif-roman">If you have inconsistent commits, causing Git refuses to push,</span> <span class="serif-roman">you add the flag</span> <code class="mono">-f</code> <span class="serif-roman">or</span> <code class="mono">--force</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">This forces every local commit to overwrite its remote counterpart,</span> <span class="serif-roman">and it may cause the remote repo to lose data.</span></span> <span class="phrase"><span class="serif-roman">Think twice before using it!</span></span>
 </p>
 </div>
 <div class="section">
@@ -261,7 +241,7 @@
 <span class="phrase"><span class="serif-roman">To clone everything from the remote repo into a new subdirectory of the current working directory (where the repo for the blog is taken for instance):</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git clone git@github.com:violapterinblog/violapterinblog.github.io.git</code></span>
+<span class="phrase"><code class="mono">$ git clone &lt;remote_url&gt;</code></span>
 </p>
 </div>
 <div class="section">
@@ -269,7 +249,7 @@
 <span class="phrase"><span class="serif-roman">Fetching creates a local copy of a remote branch in the local repo only, not affecting the working tree nor the head.</span></span> <span class="phrase"><span class="serif-roman">To fetch everything from the remote repo to the working tree:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git fetch origin &lt;branch_name&gt;</code></span>
+<span class="phrase"><code class="mono">$ git fetch origin &lt;branch&gt;</code></span>
 </p>
 </div>
 <div class="section">
@@ -277,7 +257,7 @@
 <span class="phrase"><span class="serif-roman">Meanwhile, pulling not only fetches all remote branches as said, but also merges all conflicts into the specified branch.</span></span> <span class="phrase"><span class="serif-roman">To pull from origin to a branch:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git pull origin &lt;branch_name&gt;</code></span>
+<span class="phrase"><code class="mono">$ git pull origin &lt;branch&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">It is more straightforward, I think, to fetch and merge explicitly, than just to pull.</span></span>
@@ -290,40 +270,29 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">You may reset the working tree to a previous state.</span></span>
+<span class="phrase"><span class="serif-roman">You may reset the working tree to a previous state, by:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git reset HEAD~2</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Flag ++--soft++ rewrites changes not committed, leaving staged changes.</span></span> <span class="phrase"><span class="serif-roman">Flag ++--mixed++ rewrites changes not committed or unstaged, leaving changes in the working tree.</span></span> <span class="phrase"><span class="serif-roman">Flag ++--hard++ rewrites changes not committed or unstaged and the working tree.</span></span>
+<span class="phrase"><span class="serif-roman">Flag</span> <code class="mono">--soft</code> <span class="serif-roman">rewrites changes not committed, leaving staged changes.</span></span> <span class="phrase"><span class="serif-roman">Flag</span> <code class="mono">--mixed</code> <span class="serif-roman">rewrites changes not committed or not staged, leaving changes in the working tree.</span></span> <span class="phrase"><span class="serif-roman">Flag</span> <code class="mono">--hard</code> <span class="serif-roman">rewrites changes not committed or not staged, and the working tree.</span></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Meanwhile, to revert to previous commit,</span> <code class="mono">$ git revert &lt;commit_pointer&gt;</code></span>
+<span class="phrase"><span class="serif-roman">Meanwhile, to revert to commit,</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">This restores the working tree to that commit,</span> <span class="serif-roman">but it creates a new commit, not rewriting the history.</span></span>
+<span class="phrase"><span class="serif-roman">To restore the working tree to a previous  commit, but creating a new commit, without rewriting the history:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git revert &lt;commit_pointer&gt;</code></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Sometimes you want to rewrite the history, to combine several commits as one.</span></span> <span class="phrase"><span class="serif-roman">To combine the last 5 commits as one:</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">$ git reset --hard HEAD~5</code></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">$ git merge --squash HEAD@{1}</code></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">The first command resets the head to the commit just before the last 5 commits,</span> <span class="serif-roman">and the second command combines these N commits.</span></span> <span class="phrase"><span class="serif-roman">Here, HEAD1 is the position of the head just before the previous command.</span></span> <span class="phrase"><span class="serif-roman">Afterwards, commit.</span></span>
-</p>
-</div>
-<div class="section">
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Or more simply, to do the same:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git reset --soft HEAD~5</code></span>
@@ -337,7 +306,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">February 6, 2017;</em> <em class="serif-italic">revised July 30, 2021</em></span>
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">February 6, 2017;</em> <em class="serif-italic">revised July 30, 2021</em></span>
 </p>
 </div>
 <div class="section">
@@ -347,16 +316,16 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Git,</span> <a class="serif-roman" href="https://git-scm.com/documentation">Documentation</a></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">❉</span> <span class="serif-roman">R E Silverman, «Git Pocket Guide».</span></span> <span class="phrase"><span class="serif-roman">O’Reilly Media, 2013.</span></span>
+<span class="phrase"><span class="serif-roman">❉</span> <span class="serif-roman">Git,</span> <a class="serif-roman" href="https://git-scm.com/documentation">Documentation</a></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">❉</span> <span class="serif-roman">S Puisungnoen,</span> <a class="serif-roman" href="http://up1.github.io/git-guide/index.html">Git—the simple guide</a></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">❉</span> <a class="serif-roman" href="http://www.ndpsoftware.com/git-cheatsheet.html">Git cheatsheet</a></span>
+<span class="phrase"><span class="serif-roman">❉</span> <span class="serif-roman">R E Silverman, «Git Pocket Guide».</span></span> <span class="phrase"><span class="serif-roman">O’Reilly Media, 2013.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❉</span> <span class="serif-roman">NDP Software,</span> <a class="serif-roman" href="http://www.ndpsoftware.com/git-cheatsheet.html">Git cheatsheet</a></span>
 </p>
 </div>
 </main>

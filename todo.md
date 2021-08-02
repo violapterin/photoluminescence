@@ -1,14 +1,24 @@
 # Todo List
 
+## Notes
+
+1. Speech of Linshan Li
+
+## Comments
+
+1. Skepticism on math education
+
+1. English modal verbs
+
+1. Technological unemployment
+
+1. Cyrillic alphabets in math
+
+1. Macroscopic and microscopic randomness
+
 ## Expositions
 
 1. Achievability of memoryless binary erasure channel
-
-## Quests
-
-1. Concentration inequalities
-
-## Inventions
 
 1. Trapping rainwater
 
@@ -16,23 +26,21 @@
 
 1. Queen puzzle
 
+## Quests
+
+1. Concentration inequalities
+
+## Data
+
+1. German irregular verbs
+
+## Inventions
+
 ## Fictions
-
-## Notes
-
-1. Setting up Git
-
-1. Basic Git commands
-
-1. Speech of Linshan Li
 
 ## Meta
 
-1. Do not convert text files not in the record
-
-1. Redraw the profile and banner with CPK coloring for atoms
+1. Insert word break opportunity
 
 1. Save the Porphyrin cheat sheet
-
-1. Give a overall numbering to posts
 

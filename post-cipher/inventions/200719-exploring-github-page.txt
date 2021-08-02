@@ -106,7 +106,9 @@
 @@but I wasn’t optimistic, since I @felt <that this didn’t quite agree the spirit of TeX’s design>.@@ '
 
 @@meanwhile, I was &troubled by the ugliness of the unicode letters with accents.@@ _
-@@then, when searching Stack Overflow about usage of@@ ++\overset++ @@and@@ ++\underset++ @@,@@ @@I @saw several posts explaining the plain TeX control sequence@@ ++\smash++ @@.@@ _
+@@then, when searching Stack Overflow about usage of@@ ++\overset++ @@and@@ ++\underset++ @@,@@ @@I @saw@@
+   @@a post@@ \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\
+   @@explaining the plain TeX control sequence@@ ++\smash++ @@.@@ _
 @@its name alone @sounded like <what I was after>,@@
 @@and @turned out <it was>!@@ '
 
@@ -159,7 +161,4 @@ _ ++\fi \next}++ '
    \\https://docs.mathjax.org/en/latest/upgrading/v2.html#v2-api-changes\\ '
 @@❉@@ @@WordPress- com,@@ @@‹Domain management›@@
    \\https://wordpress.com/domains/manage\\ '
-@@❉@@ @@‹Vertical spacing of underset and other tweaks›@@
-   \\https://tex.stackexchange.com/questions/302830/vertical-spacing-of-underset-and-other-tweaks\\ @@.@@ _
-   @@In TeX Stack Exchange@@ '
 ===

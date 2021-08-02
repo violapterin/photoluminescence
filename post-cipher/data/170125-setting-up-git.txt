@@ -36,23 +36,24 @@
 @@to create a new remote repo, sign up a Git service provider.@@ _
 @@the most popular choices are@@ @@GitHub@@ \\https://github.com\\ @@and@@ @@Bitbucket@@ \\https://bitbucket.org\\ @@.@@ _
 @@the remote url may either be set with respect to HTTPS or SSH protocol.@@ _
-@@in the web interface of a GitHub repo, there is a HTTPS url {that looks like}:@@ '
+@@in the web interface of a GitHub repo, there is a HTTPS URL {that looks like}:@@ '
 
 ++https://github.com/violapterin/photoluminescence.git++ '
 
-@@and a SSH url {that $looks like}:@@ '
+@@and a SSH URL {that $looks like}:@@ '
 
 ++git@github.com:violapterin/photoluminescence.git++ '
 
-@@to set the remote url under SSH protocol:@@ '
+@@in Git, origin is a default name or the remote repo, {which you can change if you #want}.@@
+@@to set the remote url of origin under SSH protocol:@@ '
 
-++$ git remote add origin git@github.com:violapterin/photoluminescence.git++ '
+++$ git remote add origin <remote_url>++ '
 
-@@to change url later:@@ '
+@@to change its url later:@@ '
 
-++$ git remote set-url origin git@github.com:violapterin/photoluminescence.git++ '
+++$ git remote set-url origin <remote_url>++ '
 
-@@to list all remote urls added:@@ '
+@@to list all remote repos added:@@ '
 
 ++$ git remote -v++ '
 

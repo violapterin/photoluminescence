@@ -251,6 +251,7 @@ def tune_text(source):
    sink = remove_token(many_glyph_mark, sink)
    sink = erase_token(many_glyph_space, sink)
    sink = prune_space(sink)
+   sink = chop_word_text(sink)
    sink = tune_hypertext(sink)
    return sink
 
@@ -258,6 +259,7 @@ def tune_code(source):
    many_glyph_space = set([' ', '\t', '\n'])
    sink = source
    sink = erase_token(many_glyph_space, sink)
+   sink = chop_word_code(sink)
    sink = tune_hypertext(sink)
    return sink
 
@@ -320,6 +322,76 @@ def give_wide_space(kind):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+def chop_word_text(source):
+   bound = 24
+   many_cut = list("aeiou")
+   sink = chop_word(many_cut, bound, source)
+   return sink
+
+def chop_word_code(source):
+   bound = 32
+   many_cut = list(
+      "~`!@#$%^&*()-_=+"
+      + "[{]}\|"
+      + ";:\'\""
+      + ",<.>/?"
+   )
+   sink = chop_word(many_cut, bound, source)
+   return sink
+
+def chop_word(many_cut, bound, source):
+   head_left = 0
+   head_right = 0
+   head = 0
+   whether_run_last = False
+   whether_run_next = False
+   many_wound = []
+   while (True):
+      if (head < len(source)):
+         glyph = source[head]
+         whether_deal = False
+         whether_run_next = be_halfwidth(glyph)
+         if (not whether_run_last) and whether_run_next:
+            head_left = head
+         if whether_run_last and (not whether_run_next):
+            whether_deal = True
+         whether_run_last = whether_run_next
+         head_right = head
+      else:
+         whether_deal = True
+      if whether_deal and (head_right - head_left >= bound):
+         piece = source[head_left: head_right]
+         print("piece", piece)
+         wound = head_left + find_wound(many_cut, piece)
+         many_wound.append(wound)
+      if (head >= len(source)):
+         break
+      head += 1
+   sink = insert_chop("<wbr>", many_wound, source)
+   return sink
+
+def find_wound(many_cut, source):
+   half = int(len(source) / 2)
+   for head in range(half + 1):
+      head_left = half - head
+      head_right = half + head
+      if (head_left > 0):
+         if (source[head_left] in many_cut):
+            return head_left
+      if (head_right < len(source)):
+         if (source[head_right] in many_cut):
+            return head_right
+   return half
+
+def insert_chop(chop, many_wound, source):
+   sink = source
+   many_wound.sort(reverse = True)
+   for wound in many_wound:
+      sink = sink[:wound + 1] + chop + sink[wound + 1:]
+   return sink
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 def prune_space(source):
    sink = source
    spot = 0
@@ -328,7 +400,7 @@ def prune_space(source):
          break
       if (
          be_ideograph(sink[spot])
-         and (sink[spot + 1] == ' ') 
+         and be_space(sink[spot + 1])
          and be_ideograph(sink[spot + 2])
       ):
          sink = sink[:spot + 1] + sink[spot + 2:]
@@ -353,15 +425,31 @@ def prune_space(source):
    while (True):
       if (spot >= len(sink) - 2):
          break
-      if (sink[spot] in many_line and sink[spot + 1] == ' '):
+      if (sink[spot] in many_line and be_space(sink[spot + 1])):
          sink = sink[:spot + 1] + sink[spot + 2:]
          spot += 1
          continue
       spot += 1
    return sink
 
+def be_halfwidth(glyph):
+   if be_latin(glyph):
+      return True
+   elif be_punctuation_halfwidth(glyph):
+      return True
+   return False
+
+def be_fullwidth(glyph):
+   if be_ideograph(glyph):
+      return True
+   elif be_punctuation_fullwidth(glyph):
+      return True
+   return False
+
 def be_ideograph(glyph):
-   if be_punctuation(glyph):
+   if be_space(glyph):
+      return False
+   elif be_punctuation(glyph):
       return False
    elif (u'\u4e00' <= glyph <= u'\u9fff'):
       return True # CJK Unified Ideographs
@@ -369,8 +457,7 @@ def be_ideograph(glyph):
       return True # hiragana
    elif (u'\u30a0' <= glyph <= u'\u30ff'):
       return True # katakana
-
-   if (u'\u3400' <= glyph <= u'\u4dbf'):
+   elif (u'\u3400' <= glyph <= u'\u4dbf'):
       return True # CJK Unified Ideographs Extension A
    elif (u'\u00020000' <= glyph <= u'\u0002a6df'):
       return True # CJK Unified Ideographs Extension B
@@ -381,9 +468,11 @@ def be_ideograph(glyph):
    return False
 
 def be_latin(glyph):
-   if be_punctuation(glyph):
+   if be_space(glyph):
       return False
-   if (u'\u0000' <= glyph <= u'\u007F'):
+   elif be_punctuation(glyph):
+      return False
+   elif (u'\u0000' <= glyph <= u'\u007F'):
       return True # Basic Latin
    elif (u'\u0080' <= glyph <= u'\u00FF'):
       return True # Latin-1 Supplement
@@ -396,12 +485,29 @@ def be_latin(glyph):
    return False
 
 def be_punctuation(glyph):
+   if be_space(glyph):
+      return False
+   elif be_punctuation_fullwidth(glyph):
+      return True
+   elif be_punctuation_halfwidth(glyph):
+      return True
+   return False
+
+def be_punctuation_halfwidth(glyph):
    many_punctuation = {
-      # halfwidth
-      ' ', '\t', '\n', '–', '–', '—',
-      ',', ':', ';', '.', '?', '!', '(', ')', '[', ']',
+      ',', ':', ';', '.', '?', '!',
+      '–', '–', '—', '_', '\\', '|', '/',
+      '(', ')', '[', ']', '{', '}', '\'', '\"', '`',
       '“', '”', '‘', '’', '«', '»', '‹', '›',
-      # fullwidth
+      '=', '+', '*', '^', '~', '<', '>',
+      '@', '#', '$', '%', '&',
+   }
+   if glyph in many_punctuation:
+      return True
+   return False
+
+def be_punctuation_fullwidth(glyph):
+   many_punctuation = {
       '。', '，', '、', '；', '：', '？', '！',
       '─', '…', '‥', '．', '（', '）',
       '「', '」', '『', '』', '《', '》', '〈', '〉',
@@ -409,6 +515,14 @@ def be_punctuation(glyph):
    if glyph in many_punctuation:
       return True
    return False
+
+def be_space(glyph):
+   many_space = {' ', '\t', '\n'}
+   if glyph in many_space:
+      return True
+   return False
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 def normalize_percentage(many_weight):
    many_percentage = []
