@@ -42,5 +42,7 @@
 
 1. Insert word break opportunity
 
+1. Show, in bracket, number of posts in a category
+
 1. Save the Porphyrin cheat sheet
 

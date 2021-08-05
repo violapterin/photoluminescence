@@ -101,7 +101,7 @@
 <span class="phrase"><span class="serif-roman">Now, the irritation is that, the remaining space in the current window isn’t enough for the next physical line.</span></span> <span class="phrase"><span class="serif-roman">If so, the next line isn’t shown,</span> <span class="serif-roman">and the remaining space is wasted.</span></span> <span class="phrase"><span class="serif-roman">A partial workaround is to toggle between displaying part of the next line as much as possible:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">noremap &lt;silent&gt; &lt;leader&gt;\ :call ToggleDisplayLastLine()&lt;cr&gt;</code></span>
+<span class="phrase"><code class="mono">noremap &lt;silent&gt; &lt;leader&gt;\ :call ToggleDisplayLastLine(<wbr>)&lt;cr&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">And we define</span> <code class="mono">ToggleDisplayLastLine()</code> <span class="serif-roman">as thus:</span></span>
@@ -131,10 +131,10 @@
 <span class="phrase"><span class="serif-roman">Still, scrolling is awkward.</span></span> <span class="phrase"><span class="serif-roman">Especially, as I scroll a whole frame</span> <span class="serif-roman">(</span> <code class="mono">&lt;ctrl&gt;f</code> <span class="serif-roman">and</span> <code class="mono">&lt;ctrl&gt;b</code> <span class="serif-roman">),</span> <span class="serif-roman">Vim reserves 2 lines, repeated both in the previous and the present frame.</span></span> <span class="phrase"><span class="serif-roman">To stop it from reserving lines, I have mapped as thus:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">nnoremap &lt;c-f&gt; &lt;c-f&gt;&lt;c-e&gt;&lt;c-e&gt;M</code></span>
+<span class="phrase"><code class="mono">nnoremap &lt;c-f&gt; &lt;c-f&gt;&lt;<wbr>c-e&gt;&lt;c-e&gt;M</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">nnoremap &lt;c-b&gt; &lt;c-b&gt;&lt;c-y&gt;&lt;c-y&gt;M</code></span>
+<span class="phrase"><code class="mono">nnoremap &lt;c-b&gt; &lt;c-b&gt;&lt;<wbr>c-y&gt;&lt;c-y&gt;M</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Moreover, the line numbering can be problematic too.</span></span> <span class="phrase"><span class="serif-roman">Line numbers are crucial in navigating in Vim, but it is really twice of the paragraph number,</span> <span class="serif-roman">and such information isn’t helpful.</span></span> <span class="phrase"><span class="serif-roman">Ironically, in Microsoft Word, apparent line numbers may be shown.</span></span> <span class="phrase"><span class="serif-roman">In Microsoft Word or TextEdit for example, this need not be the case,</span> <span class="serif-roman">but sometimes the first apparent line in the new frame may start from anywhere in the previous paragraph.</span></span>

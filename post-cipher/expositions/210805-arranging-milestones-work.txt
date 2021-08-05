@@ -1,0 +1,50 @@
+===
+@@you are &given an ordered set@@ ^^.M^^ @@of milestones, with size@@ ^^.N^^ @@,@@ @@{where@@ ^^[: .M: .[.i.]]^^ @@is the number of milestones of project@@ ^^.i^^ @@}.@@ _
+@@every week, you #finish exactly one milestone of one project.@@ _
+@@you must work every week.@@ _
+@@you can’t work on two milestones from the same project for two consecutive weeks.@@ '
+
+@@once all the milestones of all projects are &finished, or if it must violate the rules to work on the remaining milestones, you will stop working.@@ _
+@@return the maximum number of weeks, {for which you can work without violating the rules}.@@ '
+
+@@constraints:@@ '
+
+^^.1 <0 .N <0 [.5: .1.0:].;^^ '
+^^.1 <0 [: .M: .[.i.]] <0 [.9: .1.0:].;^^ '
+===
+
+///
+++#! /usr/bin/env python3++ '
+'
+++# 1953. Maximum Number of Weeks for Which You Can Work [medium]++ '
+++# Accepted August 5, 2021++ '
+'
+++import typing as TYPE++ '
+'
+++def main():++ '
+_ ++bound = [5, 2, 1]++ '
+_ ++solution = Solution()++ '
+_ ++number = solution.find_number_round(bound)++ '
+_ ++print("There are", number, "weeks.")++ '
+_ ++# 7++ '
+'
+++class Solution:++ '
+'
+_ ++def find_number_round(self, array: TYPE.List[int]) -> int:++ '
+_ _ ++total = sum(array)++ '
+_ _ ++big = max(array)++ '
+_ _ ++remain = total - big++ '
+_ _ ++if (remain < big): return (total + remain - big + 1)++ '
+_ _ ++return total++ '
+'
+++# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #++ '
+'
+++main()++ '
+///
+
+~~~
+
+===
+@@❧@@ %%code accepted August 5, 2021%%
+===
+

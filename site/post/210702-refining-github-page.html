@@ -92,7 +92,7 @@
 <span class="verse"><code class="mono">.icon-gmail {</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">background: url(&quot;/asset/icon-gmail.png&quot;) no-repeat;</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">background: url(&quot;/asset/icon-gmail.<wbr>png&quot;) no-repeat;</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">display: inline-block;</code></span>
@@ -120,7 +120,7 @@
 <span class="verse"><code class="mono">var choice = Math.floor(Math.random() * texts.length);</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">document.getElementById(&lt;wbr&gt;&quot;quote&quot;).innerHTML = texts[choice];</code></span>
+<span class="verse"><code class="mono">document.getElementById(<wbr>&quot;quote&quot;).innerHTML = texts[choice];</code></span>
 </p>
 </div>
 <div class="section">
@@ -243,7 +243,7 @@
 <span class="phrase"><span class="serif-roman">Word break had been a serious problem in web designing.</span></span> <span class="phrase"><span class="serif-roman">It was the tradition in typography to justify text,</span> <span class="serif-roman">but it was generally discouraged to do so in web programming.</span></span> <span class="phrase"><span class="serif-roman">The reason is that web browsers couldn’t reliably break words in real time,</span> <span class="serif-roman">and if we insist justification of text, spaces could be too big.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">After a long thought, I maintained to justify, as I really liked the lofty look of a justified text.</span></span> <span class="phrase"><span class="serif-roman">To alleviate the problem, I used a media query to switch to left alignment when the screen is less than 600 px.</span></span> <span class="phrase"><span class="serif-roman">Furthermore, word breaking opportunity,</span> <code class="mono">&lt;wbr&gt;</code><span class="serif-roman">,</span> <span class="serif-roman">would be inserted.</span></span> <span class="phrase"><span class="serif-roman">To do so for text, I singled out a word, and broke at punctuation whenever possible;</span> <span class="serif-roman">if not possible, I broke at vowels;</span> <span class="serif-roman">if not possible either, I simply broke at the middle of the word.</span></span> <span class="phrase"><span class="serif-roman">The same is done for code, except for breaking at alphabets.</span></span>
+<span class="phrase"><span class="serif-roman">After a long thought, I maintained to justify, as I really liked the lofty look of a justified text.</span></span> <span class="phrase"><span class="serif-roman">To alleviate the problem, I used a media query to switch to left alignment when the screen is less than 600 px.</span></span> <span class="phrase"><span class="serif-roman">Furthermore, word breaking opportunity,</span> <code class="mono">&lt;wbr&gt;</code><span class="serif-roman">,</span> <span class="serif-roman">would be inserted.</span></span> <span class="phrase"><span class="serif-roman">To do so for text, we could single out a word, and broke at punctuations whenever possible;</span> <span class="serif-roman">if not possible, we broke at vowels;</span> <span class="serif-roman">if not possible either, we simply broke at the middle of the word.</span></span> <span class="phrase"><span class="serif-roman">Do the same for code, except for breaking at alphabets.</span></span> <span class="phrase"><span class="serif-roman">We could look up a list of characters, at which words might be broken, ordered in decreasing priority.</span></span> <span class="phrase"><span class="serif-roman">For instance, it was better to break at period</span> <code class="mono">.</code> <span class="serif-roman">than at hyphen</span> <code class="mono">-</code><span class="serif-roman">.</span></span>
 </p>
 </div>
 <div class="break">

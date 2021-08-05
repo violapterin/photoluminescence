@@ -1,4 +1,10 @@
 [
+{"stamp": "210805", "genre": "expositions",
+    "tag": ["Programming", "LeetCode", "Algorithm"],
+    "title": "Arranging milestones for work"},
+{"stamp": "210726", "genre": "comments",
+    "tag": ["Programming", "Life hack", "Algorithm"],
+    "title": "Comparing discount plans"},
 {"stamp": "210719", "genre": "expositions",
     "tag": ["Programming", "LeetCode", "Algorithm"],
     "title": "Valid triangle numbers"},

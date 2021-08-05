@@ -116,10 +116,12 @@ _ ++}++ '
 @@after a long thought, I @maintained to justify, as I really @liked the lofty look of a justified text.@@ _
 @@to alleviate the problem, I @used a media query to switch to left alignment when the screen is less than 600 px.@@ _
 @@furthermore, word breaking opportunity,@@ ++<wbr>++ @@,@@ @@would be inserted.@@ _
-@@to do so for text, I @singled out a word, and @broke at punctuation whenever possible;@@
-@@if not possible, I @broke at vowels;@@
-@@if not possible either, I simply @broke at the middle of the word.@@ _
-@@the same is &done for code, except for breaking at alphabets.@@ '
+@@to do so for text, we could single out a word, and @broke at punctuations whenever possible;@@
+@@if not possible, we #broke at vowels;@@
+@@if not possible either, we simply #broke at the middle of the word.@@ _
+@@do the same for code, except for breaking at alphabets.@@ _
+@@we could look up a list of characters, {at which words might be broken}, ordered in decreasing priority.@@ _
+@@for instance, it was better to break at period@@ ++.++ @@than at hyphen@@ ++-++ @@.@@ 
 ===
 
 ~~~

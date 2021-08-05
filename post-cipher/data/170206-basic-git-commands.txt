@@ -69,7 +69,7 @@
 ===
 @@to commit your present files from the stash to the local repo, with a commit message:@@ '
 
-++$ git commit -m "<Commit message>"++ '
+++$ git commit -m "<commit message>"++ '
 
 @@a commit message should summarize the new work concisely, within 70 characters.@@ _
 @@if you can’t, you should probably split your work into more than one commits.@@ _
@@ -118,7 +118,7 @@
 @@the two operators may be composed, for instance as@@ ++HEAD^3~2++ @@.@@ '
 ===
 
-=== ##from the local repo to the remote repo: push## ===
+=== ##from the local to the remote: push## ===
 
 ===
 @@to push all consistent commits from the local repo to the remote repo:@@ '
@@ -134,7 +134,7 @@
 @@think twice before using it!@@ '
 ===
 
-=== ##from the remote to the local : clone, fetch, pull## ===
+=== ##from the remote to the local: clone, fetch, pull## ===
 
 ===
 @@to clone everything from the remote repo into a new subdirectory of the current working directory (where the repo for the blog is &taken for instance):@@ '
@@ -161,7 +161,7 @@
 === ##from the local to the tree: reset, revert## ===
 
 ===
-@@you may reset the working tree to a previous state, by:@@ '
+@@by resetting, you may completely restore the working tree to a previous state, by:@@ '
 
 ++$ git reset HEAD~2++ '
 
@@ -171,8 +171,7 @@
 ===
 
 ===
-@@meanwhile, to revert to commit,@@ '
-@@to restore the working tree to a previous  commit, but creating a new commit, without rewriting the history:@@ '
+@@meanwhile, by reverting, you may restore the working tree to a previous commit, but creating a new commit without rewriting the history:@@ '
 
 ++$ git revert <commit_pointer>++ '
 ===

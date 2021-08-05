@@ -24,8 +24,8 @@
 
 | | protagonist | senior | junior, remote | junior, close |
 | --- | --- | --- | --- | --- |
-| A, F | I, Ziyu | formal title, Chinese given name or English surname | informal title, Chinese given name or English surname | Chinese given name or English surname, the feature |
-| B, E | “the protagonist”, Zheng | formal title, Chinese surname or English name | informal title, Chinese surname or English name | Chinese surname or English name, the feature |
+| A, F | I, Ziyu | formal title, Chinese surname or English name | informal title, Chinese given name or English surname | Chinese given name or English surname |
+| B, E | “the protagonist”, Zheng | formal title, Chinese given name or English surname | informal title, Chinese surname or English name, the feature | Chinese surname or English name, the feature |
 | C, D | various | Chinese or English surname | Chinese or English given name | Chinese or English given name |
 
 ## Transliteration

@@ -84,16 +84,8 @@ def write_element(cut = '\n', **data):
    sink = sink.strip(" \t\n")
    return sink
 
-def unite(many_source, cut = ' '):
-   for index in range(len(many_source)):
-      many_source[index] = (many_source[index]).strip()
-   sink = (cut.join(many_source)).strip(" \t\n")
-   return sink
-
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
-
 def get_mark_right(mark_left):
-   assert (len(list(set(mark_left))) == 1)
+   assert (len(tuple(set(mark_left))) == 1)
    tip_left = mark_left[0]
    label_left = get_label(mark_left[0])
    if not be_start_asymmetry(label_left):
@@ -106,6 +98,12 @@ def get_mark_right(mark_left):
       tip_right = get_tip("COMMENT_RIGHT")
    mark_right = mark_left.replace(tip_left, tip_right)
    return mark_right
+
+def unite(many_source, cut = ' '):
+   for index in range(len(many_source)):
+      many_source[index] = (many_source[index]).strip()
+   sink = (cut.join(many_source)).strip(" \t\n")
+   return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -130,6 +128,16 @@ def be_frond(kind):
       "phrase",
       "verse",
       "cell",
+   }
+   return (kind in many_kind)
+
+def be_literary(kind):
+   many_kind = {
+      "serif-roman",
+      "serif-italic",
+      "serif-bold",
+      "sans-roman",
+      "sans-bold",
    }
    return (kind in many_kind)
 
@@ -251,20 +259,22 @@ def tune_text(source):
    sink = remove_token(many_glyph_mark, sink)
    sink = erase_token(many_glyph_space, sink)
    sink = prune_space(sink)
-   sink = chop_word_text(sink)
    sink = tune_hypertext(sink)
+   sink = chop_word_text(sink)
    return sink
 
 def tune_code(source):
    many_glyph_space = set([' ', '\t', '\n'])
    sink = source
    sink = erase_token(many_glyph_space, sink)
-   sink = chop_word_code(sink)
    sink = tune_hypertext(sink)
+   sink = chop_word_code(sink)
    return sink
 
 def tune_comment(source):
    many_escape = {
+      '------': '-',
+      '-----': '-',
       '----': '-',
       '---': '-',
       '--': '-',
@@ -274,13 +284,7 @@ def tune_comment(source):
    return sink
 
 def tune_hypertext(source):
-   many_escape = {
-      '<': "&lt;",
-      '>': "&gt;",
-      '&': "&amp;",
-      '\"': "&quot;",
-      '\'': "&#39;",
-   }
+   many_escape = give_escape_hypertext()
    sink = source
    index = 0
    while True:
@@ -316,26 +320,36 @@ def replace_token(many_token_out, source):
       sink = sink.replace(token_in, many_token_out[token_in])
    return sink
 
-def give_wide_space(kind):
-   sink = f"<span class=\"{kind}\">&ensp;</span>"
-   return sink
+def give_escape_hypertext():
+   many_escape = {
+      '<': "&lt;",
+      '>': "&gt;",
+      '&': "&amp;",
+      '\"': "&quot;",
+      '\'': "&#39;",
+   }
+   return many_escape
+
+def shall_agree_escape_hypertext(source, head_left):
+   many_escape = give_escape_hypertext()
+   for glyph, escape in many_escape.items():
+      head_right = head_left + len(escape)
+      piece = source[head_left: head_right]
+      if (piece == escape):
+         return True
+   return False
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 def chop_word_text(source):
    bound = 24
-   many_cut = list("aeiou")
+   many_cut = give_punctuation_halfwidth() + tuple("aeiou")
    sink = chop_word(many_cut, bound, source)
    return sink
 
 def chop_word_code(source):
    bound = 32
-   many_cut = list(
-      "~`!@#$%^&*()-_=+"
-      + "[{]}\|"
-      + ";:\'\""
-      + ",<.>/?"
-   )
+   many_cut = give_punctuation_halfwidth()
    sink = chop_word(many_cut, bound, source)
    return sink
 
@@ -361,7 +375,6 @@ def chop_word(many_cut, bound, source):
          whether_deal = True
       if whether_deal and (head_right - head_left >= bound):
          piece = source[head_left: head_right]
-         print("piece", piece)
          wound = head_left + find_wound(many_cut, piece)
          many_wound.append(wound)
       if (head >= len(source)):
@@ -371,19 +384,51 @@ def chop_word(many_cut, bound, source):
    return sink
 
 def find_wound(many_cut, source):
+   margin = 6
+   half = int(len(source) / 2)
+   for cut in many_cut:
+      many_found = []
+      for index, glyph in enumerate(source):
+         if (glyph == cut):
+            many_found.append(index)
+      found = take_value_from_offset(half, many_found)
+      if shall_agree_escape_hypertext(source, found):
+         continue
+      if (found < margin) or (len(source) - found - 1 < margin):
+         continue
+      return found
+   return half
+
+
+'''
+def find_wound(many_cut, source):
    half = int(len(source) / 2)
    for head in range(half + 1):
       head_left = half - head
       head_right = half + head
-      if (head_left > 0):
+      if (head_left >= 0):
          if (source[head_left] in many_cut):
-            return head_left
+            if not shall_agree_escape_hypertext(source, head_left):
+               return head_left
       if (head_right < len(source)):
          if (source[head_right] in many_cut):
-            return head_right
+            if not shall_agree_escape_hypertext(source, head_right):
+               return head_right
    return half
+'''
+
+
+def take_value_from_offset(offset, queue):
+   if not queue:
+      return -1
+   queue_offset = [index - offset for index in queue]
+   queue_offset.sort(key = abs)
+   queue_native = [index + offset for index in queue_offset]
+   return queue_native[0]
 
 def insert_chop(chop, many_wound, source):
+   if not many_wound:
+      return source
    sink = source
    many_wound.sort(reverse = True)
    for wound in many_wound:
@@ -494,33 +539,43 @@ def be_punctuation(glyph):
    return False
 
 def be_punctuation_halfwidth(glyph):
-   many_punctuation = {
-      ',', ':', ';', '.', '?', '!',
-      '–', '–', '—', '_', '\\', '|', '/',
-      '(', ')', '[', ']', '{', '}', '\'', '\"', '`',
-      '“', '”', '‘', '’', '«', '»', '‹', '›',
-      '=', '+', '*', '^', '~', '<', '>',
-      '@', '#', '$', '%', '&',
-   }
+   many_punctuation = give_punctuation_halfwidth()
    if glyph in many_punctuation:
       return True
    return False
 
 def be_punctuation_fullwidth(glyph):
-   many_punctuation = {
-      '。', '，', '、', '；', '：', '？', '！',
-      '─', '…', '‥', '．', '（', '）',
-      '「', '」', '『', '』', '《', '》', '〈', '〉',
-   }
+   many_punctuation = give_punctuation_fullwidth()
    if glyph in many_punctuation:
       return True
    return False
 
 def be_space(glyph):
-   many_space = {' ', '\t', '\n'}
+   many_space = tuple(" \t\n")
    if glyph in many_space:
       return True
    return False
+
+def give_punctuation_halfwidth():
+   # sorted in increasing priority
+   many_punctuation = tuple(
+      "()“”[]‘’—"
+      + ".?!;:,"
+      + "«»‹›\'\"`{}"
+      + "-–_/|\\"
+      + "=<>+*^~"
+      + "@#$%&"
+   )
+   return many_punctuation
+
+def give_punctuation_fullwidth():
+   # sorted in increasing priority
+   many_punctuation = tuple(
+      "（）「」『』─…‥"
+      + "。？！；：，、"
+      + "《》〈〉．"
+   )
+   return many_punctuation
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -552,15 +607,9 @@ def extract_caption(address):
    caption = ' '.join(caption.split())
    return caption
 
-def be_literary(kind):
-   many_kind = {
-      "serif-roman",
-      "serif-italic",
-      "serif-bold",
-      "sans-roman",
-      "sans-bold",
-   }
-   return (kind in many_kind)
+def give_wide_space(kind):
+   sink = f"<span class=\"{kind}\">&ensp;</span>"
+   return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -625,34 +674,7 @@ def surround_tuple_with_affix(affix, thing_tuple):
    result = tuple(thing_list)
    return result
 
-def give_many_alphabet_upper():
-   many_alphabet = (
-      'A', 'B', 'C',
-      'D', 'E', 
-      'F', 'G', 'H', 
-      'I', 'J', 'K', 
-      'L', 'M', 'N', 
-      'O', 'P', 'Q', 
-      'R', 'S', 'T',
-      'U', 'V', 'W',
-      'X', 'Y', 'Z',
-   )
-   return many_alphabet
-
-def give_many_alphabet_lower():
-   many_alphabet_upper = give_many_alphabet_upper()
-   many_alphabet_lower = []
-   for alphabet in many_alphabet_upper:
-      many_alphabet_lower.append(alphabet.lower())
-   many_alphabet_lower = tuple(many_alphabet_lower)
-   return many_alphabet_lower
-
-def give_digits():
-   digits = (
-      '0', '1', '2', '3', '4',
-      '5', '6', '7', '8', '9',
-   )
-   return digits
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 def get_table_sign(targets):
    digits = give_digits()
@@ -666,6 +688,27 @@ def get_table_upper(targets):
 def get_table_lower(targets):
    table = dict(zip(give_many_alphabet_lower(), targets))
    return table
+
+def give_many_alphabet_upper():
+   many_alphabet = tuple(
+      "ABCDEFGH"
+      + "IJKLMNO"
+      + "PQRST"
+      + "UVWXYZ"
+   )
+   return many_alphabet
+
+def give_many_alphabet_lower():
+   many_alphabet_upper = give_many_alphabet_upper()
+   many_alphabet_lower = []
+   for alphabet in many_alphabet_upper:
+      many_alphabet_lower.append(alphabet.lower())
+   many_alphabet_lower = tuple(many_alphabet_lower)
+   return many_alphabet_lower
+
+def give_digits():
+   digits = tuple("0123456789")
+   return digits
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
@@ -722,6 +765,27 @@ def get_tip_math(label):
    many_tip = give_many_tip_math()
    tip = many_tip.get(label)
    return tip
+
+def be_start_math(label):
+   miscellaneous = {
+      "PLAIN",
+      "CUT_PAIR",
+      "CUT_TRIPLET",
+      "CUT_TUPLE",
+   }
+   being = (
+      be_start_symbol_math(label)
+      or be_start_box_math(label)
+      or (label in miscellaneous)
+   )
+   return being
+
+def be_start_symbol_math(label):
+   being = (
+      be_start_letter_math(label)
+      or be_start_sign_math(label)
+   )
+   return being
 
 def be_start_letter_math(label):
    many_label = {
@@ -795,27 +859,6 @@ def be_cut_math(label):
       "CUT_TUPLE",
    }
    return (label in many_label)
-
-def be_start_symbol_math(label):
-   being = (
-      be_start_letter_math(label)
-      or be_start_sign_math(label)
-   )
-   return being
-
-def be_start_math(label):
-   miscellaneous = {
-      "PLAIN",
-      "CUT_PAIR",
-      "CUT_TRIPLET",
-      "CUT_TUPLE",
-   }
-   being = (
-      be_start_symbol_math(label)
-      or be_start_box_math(label)
-      or (label in miscellaneous)
-   )
-   return being
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -899,6 +942,21 @@ def get_tip_pseudo(label):
    tip = many_tip.get(label)
    return tip
 
+def be_start_pseudo(label):
+   being = (
+      be_start_symbol_pseudo(label)
+      or be_start_bracket_pseudo(label)
+      or (label == "PLAIN")
+   )
+   return being
+
+def be_start_symbol_pseudo(label):
+   being = (
+      be_start_letter_pseudo(label)
+      or be_start_sign_pseudo(label)
+   )
+   return being
+
 def be_start_letter_pseudo(label):
    many_label = {
       "BOLD",
@@ -937,18 +995,3 @@ def be_start_bracket_pseudo(label):
       "CHECK",
    }
    return (label in many_label)
-
-def be_start_symbol_pseudo(label):
-   being = (
-      be_start_letter_pseudo(label)
-      or be_start_sign_pseudo(label)
-   )
-   return being
-
-def be_start_pseudo(label):
-   being = (
-      be_start_symbol_pseudo(label)
-      or be_start_box_pseudo(label)
-      or (label == "PLAIN")
-   )
-   return being

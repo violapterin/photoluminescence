@@ -78,13 +78,13 @@
 <main class="document">
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Given a ordered set</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">of integers, return the number of such triplets chosen from</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">that can make up triangles, if we take them as lengths of the side.</span></span>
+<span class="phrase"><span class="serif-roman">Given a ordered set</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">of integers, with size</span> <span class="math"><span class="math-plain">\(N\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">return the number of such triplets chosen from</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">that can make up triangles, if we take them as lengths of the side.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Constraints:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="math"><span class="math-plain">\(1\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-serif">\(\,\mathrm {size}\,\)</span><span class="math-bracket-square">\(\left[ C \right]\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(1\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(;\,\)</span></span></span>
+<span class="phrase"><span class="math"><span class="math-plain">\(1\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(N\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(1\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(;\,\)</span></span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="math"><span class="math-plain">\(0\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(C _ {\left[ i \right]}\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(1\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(;\,\)</span></span></span>
@@ -92,7 +92,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <span class="math"><span class="math-plain">\(N\)</span><span class="math-sign">\(\:\equiv\:\)</span><span class="math-serif">\(\,\mathrm {size}\,\)</span><span class="math-bracket-square">\(\left[ C \right]\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">We want to find</span> <span class="math"><span class="math-plain">\(f\)</span><span class="math-bracket-square">\(\left[ C \right]\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">the number of valid triples of triangle number.</span></span> <span class="phrase"><span class="serif-roman">To slightly abuse notation, we may consider</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">to be an unordered set, when the order of elements doesn’t matter.</span></span> <span class="phrase"><span class="serif-roman">The brute-force approach would be exhausting all triplets in</span> <span class="math"><span class="math-plain">\(C\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">with complexity</span> <span class="math"><span class="math-plain">\(O\)</span><span class="math-bracket-square">\(\left[ N ^ {3} \right]\)</span></span><span class="serif-roman">.</span></span>
+<span class="phrase"><span class="serif-roman">We want to find</span> <span class="math"><span class="math-plain">\(f\)</span><span class="math-bracket-square">\(\left[ C \right]\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">the number of valid triples of triangle number.</span></span> <span class="phrase"><span class="serif-roman">To slightly abuse notation, we may consider</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">to be an unordered set, when the order of elements doesn’t matter.</span></span> <span class="phrase"><span class="serif-roman">The brute-force approach would be exhausting all triplets in</span> <span class="math"><span class="math-plain">\(C\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">with complexity</span> <span class="math"><span class="math-plain">\(O\)</span><span class="math-bracket-square">\(\left[ N ^ {3} \right]\)</span></span><span class="serif-roman">.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">How can we do better?</span></span> <span class="phrase"><span class="serif-roman">Let</span> <span class="math"><span class="math-plain">\(C\)</span></span> <span class="serif-roman">be sorted, which takes</span> <span class="math"><span class="math-plain">\(O\)</span><span class="math-bracket-square">\(\left[ N \,\mathrm {log}\, N \right]\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Without loss of generality, let the triplet be</span> <span class="math"><span class="math-bracket-angle">\(\left\langle x ,\, y ,\, z \right\rangle\)</span></span> <span class="serif-roman">with</span> <span class="math"><span class="math-plain">\(x\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(y\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(z\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">We only have to check:</span></span>
@@ -118,316 +118,202 @@
 </div>
 <div class="stanza">
 <p class="line">
-<span class="verse"><code class="mono">// 611. Valid Triangle Number [medium]</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">// Accepted July 19, 2021</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">#include &lt;iostream&gt;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">#include &lt;vector&gt;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">#include &lt;map&gt;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">#include &lt;algorithm&gt;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">typedef std::vector&lt;int&gt; Choice;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">typedef std::map&lt;int, int&gt; Record;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">int count_triangle_number(Choice&amp;);</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">int count_various(Record&amp;, Choice&amp;);</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">int count_fixed(Record&amp;, int, Choice&amp;);</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">void push_distinct(Choice&amp;, int);</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">int pick_two(int);</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">int pick_three(int);</code></span>
+<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int main()</code></span>
+<span class="verse"><code class="mono"># 611. Valid Triangle Number [medium]</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">Choice choice = {0, 1, 1, 1};</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">//Choice choice = {2, 2, 3, 4};</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int count = count_triangle_number(choice);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">std::cout &lt;&lt; count &lt;&lt; std::endl;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">// &quot;3&quot;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">/* (2,3,4), (2,3,4), (2,2,3) */</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse"><code class="mono"># Accepted July 19, 2021</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int count_triangle_number(Choice&amp; choice)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">std::sort(choice.begin(), choice.end());</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">Choice distinct;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">Record record;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int key = 0;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int cumulative = 0;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for (auto value_ = choice.begin(); value_ != choice.end(); value_++)</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (*value_ == 0) { continue; }</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">push_distinct(distinct, *value_);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">while (key &lt; *value_)</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record[key] = cumulative;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">key += 1;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">}</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">cumulative += 1;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record[key] = cumulative;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">}</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (distinct.empty()) { return 0; }</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">while (key &lt; distinct.back() * 2)</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record[key] = cumulative;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">key += 1;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">}</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int number = count_various(record, distinct);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse"><code class="mono">import typing as TYPE</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int count_various(Record&amp; record, Choice&amp; distinct)</code></span>
+<span class="verse"><code class="mono">def main():</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">{</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">choice = [2, 2, 3, 4]</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (distinct.empty()) { return 0; }</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">solution = Solution()</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int small = distinct[0];</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">count = solution.count_triangle_number(<wbr>choice)</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">distinct.erase(&lt;wbr&gt;distinct.begin());</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(&quot;There are&quot;, count, &quot;valid triplets.&quot;)</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int number_fixed = count_fixed(record, small, distinct);</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono"># &quot;3&quot;</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int number_partial = count_various(record, distinct);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int number = number_fixed + number_partial;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono"># # [2,3,4], [2,3,4], [2,2,3]</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int count_fixed(Record&amp; record, int small, Choice&amp; distinct)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int number = 0;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">int novel_small = record[small] - record[small - 1];</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += pick_three(novel_small);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (distinct.empty()) { return number; }</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += (record[small * 2 - 1] - record[small]) * pick_two(novel_small);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for (auto value_ = distinct.begin(); value_ != distinct.end(); value_++)</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">{</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">int bound = *value_ + small - 1;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">int novel_medium = record[*value_] - record[*value_ - 1];</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (novel_medium == 0) { continue; }</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">int total_above = record[bound] - record[*value_];</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">int add_distinct = total_above * novel_medium;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">int add_pair_medium = novel_medium * (novel_medium - 1) / 2;</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += novel_small * (add_distinct + add_pair_medium);</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">}</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse"><code class="mono">class Solution:</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">void push_distinct(Choice&amp; choice, int value)</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_triangle_number(self, choice: TYPE.List[int]) -&gt; int:</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">{</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">choice = [value for value in choice if value != 0]</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">bool whether_update = false;</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not choice: return 0</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (choice.empty()) { whether_update = true; }</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">choice.sort()</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">else if (choice.back() &lt; value) { whether_update = true; }</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record = dict()</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (whether_update) { choice.push_back(value); }</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">for head in range(max(choice) * 2 + 1):</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record[head] = sum([1 for value in choice if value &lt;= head])</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">record[-1] = 0</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int pick_two(int number)</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">distinct = list(set(choice))</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">{</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">distinct.sort()</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number &lt; 2) { return 0; }</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number = self.count_various(record, distinct)</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number * (number - 1) / 2;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">int pick_three(int number)</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_various(self, record: TYPE.Dict[int, int], distinct: TYPE.List[int]) -&gt; int:</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">{</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not distinct: return 0</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number &lt; 3) { return 0; }</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">small = distinct[0]</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number * (number - 1) * (number - 2) / 6;</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">partial = distinct[1:]</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">}</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number_fixed = self.count_fixed(record, small, partial)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number_partial = self.count_various(record, partial)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number = number_fixed + number_partial</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return int(number)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_fixed(self, record: TYPE.Dict[int, int], small: int, distinct: TYPE.List[int]) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number = 0</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">novel_small = record[small] - record[small - 1]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += self.pick_three(novel_small)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not distinct: return number</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += (record[small * 2 - 1] - record[small]) * self.pick_two(novel_small)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">for value in distinct:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">bound = value + small - 1</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">novel_medium = record[value] - record[value - 1]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (novel_medium == 0): continue</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">total_above = record[bound] - record[value]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">add_distinct = total_above * novel_medium</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">add_pair_medium = self.pick_two(novel_medium)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">number += novel_small * (add_distinct + add_pair_medium)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return int(number)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def pick_two(self, number: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number &lt; 2): return 0</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number * (number - 1) / 2</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def pick_three(self, number: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number &lt; 3): return 0</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return number * (number - 1) * (number - 2) / 6</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># # # # # # # # # # # # # # # #</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">main()</code></span>
 </p>
 </div>
 <div class="break">

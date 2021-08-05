@@ -11,17 +11,19 @@
 @@the students are really implementing a system of lambda calculus or an automata with their brain.@@ _
 @@people capable of basic programming #know <that while it may be tedious to implement, from scratch, operations on a field, changing basis for a matrix, Euclid algorithm on a polynomial ring, and so on, they are in fact nothing more than a rigid realization of rules.@@ _
 @@today these are what computers should do,@@
-@@and there is a lot more to explore in mathematics than these.@@ _
-@@what difference does it make <that someone is slightly faster and more accurate in such basic calculations that another, as long as they can do correctly under sufficient time>?@@ '
+@@and there is a lot more to explore in mathematics than these.@@ '
 
-@@unfortunately, children surely don’t know <they are considered machines when they take an exam>,@@
-@@and undoubtedly, they won’t before they are &exposed to concrete objects.@@ '
-@@still, what $troubles me is <that we practically require the children to invoke their vague intuition on computation>.@@ _
-@@those who return more correct answers in exams, win.@@ _
-@@what’s the big deal about that?@@
-@@the reason that some children are doing well is simply that they are quicker to realize, implicitly, the way to run a program with their brain;@@
-@@and the reason that some are not doing well, that they are slower.@@ _
-@@for the latter, they will never be revealed of the mystery, and will probably remain to think mathematics as an enigma.@@ '
+@@what $troubles me is <that we practically #require the children themselves to invoke their vague intuition on computation>.@@ _
+@@those {who #return more correct answers in exams}, win.@@ _
+@@what is the big deal about that?@@
+@@what difference $does it make <that some are slightly faster and more accurate in such basic calculations, as long as most of them can do correctly under sufficient time>?@@ '
+
+@@the reason that some children are %doing well is merely <that they are quicker to realize implicitly the way to run a program with their brain>;@@
+@@and the reason that some aren’t, <that they are slower to do so>.@@ _
+@@unfortunately, children surely #don’t know <they are considered machines when they take an exam>,@@
+@@and undoubtedly, they won’t before they are &exposed to concrete objects.@@ _
+@@for the latter, they will never be revealed of the mystery, because they #quit,@@
+@@and they will probably remain to think mathematics as an enigma.@@ '
 
 @@the elementary mathematics education is in dire need of reformation,@@
 @@and what can we do about the situation?@@ _
@@ -33,5 +35,6 @@
 ~~~
 
 ===
-@@❧@@ %%September 19, 2020%% '
+@@❧@@ %%September 19, 2020;%%
+%%revised August 3, 2021%% '
 ===

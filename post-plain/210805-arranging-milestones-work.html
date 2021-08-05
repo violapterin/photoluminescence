@@ -1,0 +1,107 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">You are given an ordered set</span> <span class="math"><span class="math-plain">\(M\)</span></span> <span class="serif-roman">of milestones, with size</span> <span class="math"><span class="math-plain">\(N\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">where</span> <span class="math"><span class="math-triplet">\(M _ {\left[ i \right]}\)</span></span> <span class="serif-roman">is the number of milestones of project</span> <span class="math"><span class="math-plain">\(i\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Every week, you finish exactly one milestone of one project.</span></span> <span class="phrase"><span class="serif-roman">You must work every week.</span></span> <span class="phrase"><span class="serif-roman">You can’t work on two milestones from the same project for two consecutive weeks.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Once all the milestones of all projects are finished, or if it must violate the rules to work on the remaining milestones, you will stop working.</span></span> <span class="phrase"><span class="serif-roman">Return the maximum number of weeks, for which you can work without violating the rules.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Constraints:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(1\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(N\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(1 0 ^ {5}\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(1\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(M _ {\left[ i \right]}\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(1 0 ^ {9}\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># 1953. Maximum Number of Weeks for Which You Can Work [medium]</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># Accepted August 5, 2021</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import typing as TYPE</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def main():</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">bound = [5, 2, 1]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">solution = Solution()</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">number = solution.<wbr>find_number_round(bound)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(&quot;There are&quot;, number, &quot;weeks.&quot;)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono"># 7</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">class Solution:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def find_number_round(self, array: TYPE.List[int]) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">total = sum(array)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">big = max(array)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">remain = total - big</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (remain &lt; big): return (total + remain - big + 1)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return total</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">main()</code></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">code accepted August 5, 2021</em></span>
+</p>
+</div>
+</main>
