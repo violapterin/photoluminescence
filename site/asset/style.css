@@ -20,17 +20,20 @@
 
 body
 {
-  width: 720px; 
-  font-size: 22px;
+  width: 900px; 
+  font-size: 24px;
 }
-@media screen and (max-width: 800px) {
-  body { width: 540px; font-size: 20px; }
+@media screen and (max-width: 1300px) {
+  body { width: 720px; font-size: 22px; }
+}
+@media screen and (max-width: 900px) {
+  body { width: 600px; font-size: 20px; }
 }
 @media screen and (max-width: 600px) {
-  body { width: 460px; font-size: 18px; }
+  body { width: 500px; font-size: 18px; }
 }
 @media screen and (max-width: 500px) {
-  body { width: 400px; font-size: 16px; }
+  body { width: 420px; font-size: 16px; }
 }
 @media screen and (max-width: 420px) {
   body { width: 360px; font-size: 14px; }
@@ -220,7 +223,7 @@ code, .mono
   padding: 0px 60px;
   text-align: center;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #header-banner #name-site, #header-banner #menu
   { margin: 0px 8px; padding: 0px 40px; }
 }
@@ -238,7 +241,7 @@ code, .mono
 {
   font-size: 30px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #name-site .title-site
   { font-size: 24px; }
 }
@@ -251,7 +254,7 @@ code, .mono
 {
   font-size: 18px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #name-site .tagline-site
   { font-size: 16px; }
 }
@@ -264,7 +267,7 @@ code, .mono
 {
   font-size: 18px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #menu .button-menu, #menu .dingbat-menu
   { font-size: 16px; }
 }
@@ -273,7 +276,7 @@ code, .mono
   { font-size: 14px; }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #name-site .title-site, #name-site .tagline-site
   { display: block; }
 }
@@ -338,7 +341,7 @@ header #header-post, header #header-page
   padding: 0px;
   font-size: 36px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   header #header-post, header #header-page
   { margin: 0px 16px; }
 }
@@ -353,7 +356,7 @@ header #header-post, header #header-page
   padding: 0px;
   font-weight: 500;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .entry, .title-catalog
   { margin: 12px 12px; }
 }
@@ -370,7 +373,7 @@ header #header-post, header #header-page
   text-indent: 18px;
   line-height: 90%;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .entry .title-entry,
   #header-post .heading-post, #header-page .heading-page
   { text-indent: 9px; }
@@ -389,7 +392,7 @@ header #header-post, header #header-page
   line-height: 90%;
   font-size: 32px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   #header-page .heading-page .display,
   #header-post .heading-post .heading
   { font-size: 28px; }
@@ -412,7 +415,7 @@ header #header-post, header #header-page
   font-size: 30px;
   font-style: italic;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .title-catalog .display
   { margin: 0px 10px; font-size: 26px; }
 }
@@ -431,7 +434,7 @@ header #header-post, header #header-page
   padding: 0px;
   font-size: 28px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .entry .title-entry .heading
   { font-size: 24px; }
 }
@@ -495,7 +498,7 @@ header #header-post, header #header-page
   font-weight: 500;
   line-height: 200%;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .data-post, .data-entry
   { padding: 0px 10px; font-size: 16px; }
 }
