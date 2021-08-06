@@ -42,11 +42,9 @@ as lengths of the side}.@@ '
 ===
 
 ///
-++#! /usr/bin/env python3++ '
-'
 ++# 611. Valid Triangle Number [medium]++ '
 ++# Accepted July 19, 2021++ '
-'
+++#! /usr/bin/env python3++ '
 ++import typing as TYPE++ '
 '
 ++def main():++ '
