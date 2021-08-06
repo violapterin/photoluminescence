@@ -5,9 +5,11 @@
 
 @@different CSS classes accounted for normal, italic, bold texts.@@ _
 @@I could also set up indentation, alignment, separating line, and colored background for category names.@@ _
+@@as for the font, I @use Alegreya and the accompanying Alegreya Sans, since I was rather fascinated by its somewhat old- fashioned but fancy strokes.@@ '
+
 @@the image links in the footer for social media was more difficult to achieve.@@ _
 @@a solution is the CSS background rule,@@
-@@and we @had to remember to adjust its width and height to avoid unwanted blank space.@@ _
+@@and we @had to remember to adjust its width and height to avoid unwanted blank space.@@ '
 ===
 
 ///
@@ -41,7 +43,7 @@ _ ++background-size: contain;++ '
 %%June 17:%% '
 
 @@ @enhanced responsive design.@@ _
-@@I @learnt <that font sizes, among other things, could be adapted with respect to the screen width>, as shown in the code below.@@ _
+@@I @learnt <that font sizes, among other things, could be adapted with respect to the screen width>, as shown in the code below.@@ '
 ===
 
 ///
@@ -59,7 +61,7 @@ _ ++body { font-size: 16px; }++ '
 
 @@while the Mathjax 3 documentation isn’t yet very &refined, it is instructive now to copy <what configuration @worked for me>.@@ _
 @@we could choose to render math in SVG, {which is &saved in image}, or CHTML, {which $calls web fonts}.@@ _
-@@moreover, we could specify precisely those CSS classes {in which Mathjax is &called}.@@ _
+@@moreover, we could specify precisely those CSS classes {in which Mathjax is &called}.@@ '
 ===
 
 ///
@@ -83,7 +85,7 @@ _ ++}++ '
 
 @@previously, I @decided to break math expressions into individual spans when parsing them, since Mathjax 3 @had no word break.@@ _
 @@the spacing wasn’t quite right.@@ _
-@@my workaround was to add@@ ++\,++ @@,@@ ++\:++ @@,@@ @@and@@ ++\;++ @@,@@ @@in the LaTeX source, and to remove whitespace between these spans.@@ _
+@@my workaround was to add@@ ++\,++ @@,@@ ++\:++ @@,@@ @@and@@ ++\;++ @@,@@ @@in the LaTeX source, and to remove whitespace between these spans.@@ '
 ===
 
 ===
@@ -121,8 +123,39 @@ _ ++}++ '
 @@if not possible either, we simply #broke at the middle of the word.@@ _
 @@do the same for code, except for breaking at alphabets.@@ _
 @@we could look up a list of characters, {at which words might be broken}, ordered in decreasing priority.@@ _
-@@for instance, it was better to break at period@@ ++.++ @@than at hyphen@@ ++-++ @@.@@ 
+@@for instance, it was better to break at period@@ ++.++ @@than at hyphen@@ ++-++ @@.@@  '
 ===
+
+===
+%%July 28:%% '
+
+@@with Selenium in Python, it was possible to automatically take screenshots, making it effortless to save double- backup of posts on my site.@@ _
+@@it could even to take screenshots of the full page, by identifying the@@ ++main++ @@class in my case.@@ _
+@@to do so, we call a headless Firefox.@@ _
+@@somehow, I didn’t successfully call Chrome;@@
+@@there was perhaps some path or version problems.@@ _
+@@to get a screenshot of higher resolution, we might want to zoom in,@@
+@@but by far I didn’t successfully do that either.@@ _
+@@the binary data of the image could be either saved or passed to other function, like the library Pillow.@@ '
+===
+
+///
+++#! /usr/bin/env python3++ '
+++import os++ '
+++import io++ '
+++from selenium.webdriver import Firefox++ '
+++from PIL import Image++ '
+'
+++address = "https://www.violapterin.com/"++ '
+++os.environ["MOZ_HEADLESS"] = "1"++ '
+++driver = Firefox()++ '
+++driver.get(address)++ '
+++element = driver.find_element_by_tag_name("body")++ '
+++binary = element.screenshot_as_png++ '
+++driver.quit()++ '
+++graph = Image.open(io.BytesIO(binary))++ '
+++graph.save("./homepage.png")++ '
+///
 
 ~~~
 
@@ -133,10 +166,13 @@ _ ++}++ '
 === ##references## ===
 
 ===
-@@❉@@ @@MDN Web Docs,@@ @@‹Colors›@@
+@@❉@@ @@MDN Web Docs,@@
+   @@‹Colors›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/color_value\\ '
-@@❉@@ @@MDN Web Docs,@@ @@‹Specificity›@@
+@@❉@@ @@MDN Web Docs,@@
+   @@‹Specificity›@@
    \\https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity\\ '
-@@❉@@ @@World Wide Web Consortium,@@ @@‹Markup Validation Service›@@
+@@❉@@ @@World Wide Web Consortium,@@
+   @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '
 ===

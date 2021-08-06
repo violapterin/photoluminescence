@@ -1,44 +1,44 @@
 
 ===
-@@given a ordered set@@ ^^.C^^ @@of integers, with size@@ ^^.N^^ @@,@@ @@return the number of such triplets
-chosen from@@ ^^.C^^ @@{that can make up triangles, if we #take them
+@@given a ordered set@@ ^^&t^^ @@of integers, with size@@ ^^.N^^ @@,@@ @@return the number of such triplets
+chosen from@@ ^^&t^^ @@{that can make up triangles, if we #take them
 as lengths of the side}.@@ '
 
 @@Constraints:@@ '
 
 ^^.1 <0 .N <0 .1.0.0.0.;^^ '
-^^.0 <0 [: .C: .[.i.]] <0 .1.0.0.0.;^^ '
+^^.0 <0 [: &t: .[.i.]] <0 .1.0.0.0.;^^ '
 ===
 
 ===
-@@we #want to find@@ ^^.f .[.C.]^^ @@,@@ @@the number of valid triples of triangle number.@@ _
-@@to slightly abuse notation, we may consider@@ ^^.C^^ @@to be an unordered set, when the order of elements doesn’t matter.@@ _
-@@the brute- force approach would be exhausting all triplets in@@ ^^.C^^ @@,@@ @@with complexity@@
-   ^^.O.[[.3: .N:].]^^ @@.@@ '
+@@we #want to find@@ ^^.f .[&t.]^^ @@,@@ @@the number of valid triples of triangle number.@@ _
+@@to slightly abuse notation, we may consider@@ ^^&t^^ @@to be an unordered set, when the order of elements doesn’t matter.@@ _
+@@the brute- force approach would be exhausting all triplets in@@ ^^&t^^ @@,@@ @@with complexity@@
+   ^^@O.[[.3: .N:].]^^ @@.@@ '
 
 @@how can we do better?@@ _
-@@let@@ ^^.C^^ @@be sorted, {which #takes@@ ^^.O.[.N 'log' .N.]^^ @@}.@@ _
+@@let@@ ^^&t^^ @@be sorted, {which #takes@@ ^^@O.[.N 'log' .N.]^^ @@}.@@ _
 @@without loss of generality, let the triplet be@@ ^^.<.x., .y., .z.>^^ @@with@@ ^^.x <0 .y <0 .z^^ @@.@@ _
 @@we only #have to check:@@ '
 ^^.x .+ .y >1 .z.;^^ '
 
-@@split cases of whether the biggest component@@ ^^.z <6 .C^^ @@ is chosen.@@ _
-@@call@@ ^^.D =1 .C /2 .{.z.}^^ @@.@@ _
-@@if@@ ^^.g .[.z., .D.]^^ @@is the number of valid triples, {in which@@ ^^.z^^ @@must be chosen}, then:@@ '
+@@split cases of whether the biggest component@@ ^^.z <6 &t^^ @@ is chosen.@@ _
+@@call@@ ^^&s =1 &t /2 .{.z.}^^ @@.@@ _
+@@if@@ ^^.g .[.z., &s.]^^ @@is the number of valid triples, {in which@@ ^^.z^^ @@must be chosen}, then:@@ '
 
-^^.f .[.C.] .= .g .[.z., .D.] .+ .f .[.D.]^^ '
+^^.f .[&t.] .= .g .[.z., &s.] .+ .f .[&s.]^^ '
 
-@@we #see <that@@ ^^.g .[.z., .D.]^^ @@$has complexity@@ ^^.O.[.N.]^^ @@>.@@ _
+@@we #see <that@@ ^^.g .[.z., &s.]^^ @@$has complexity@@ ^^@O.[.N.]^^ @@>.@@ _
 @@indeed, fix@@ ^^.z^^ @@,@@ @@for any@@ ^^.x^^ @@,@@ @@we #have@@ ^^.y >1 .z .- .x^^ @@.@@ _
 @@here@@ ^^.r .[.z .- .x.]^^ @@,@@ @@the number of such@@ ^^.y^^ @@,@@ @@may be found with a table, filled before the recursion.@@ _
-@@hence,@@ ^^.g .[.z., .D.]^^ @@may be so defined:@@ '
+@@hence,@@ ^^.g .[.z., &s.]^^ @@may be so defined:@@ '
 
-^^.g .[.z., .D.] .= [: %0: .x <6 .C] .r .[.z .- .x.].;^^ '
+^^.g .[.z., &s.] .= [: %0: .x <6 &t] .r .[.z .- .x.].;^^ '
 
-@@the complexity of calling@@ ^^.g^^ @@is@@ ^^.O.[.N.]^^ @@,@@
-@@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^.O.[.N.]^^ @@.@@ _
-@@the complexity of recursively calling@@ ^^.g^^ @@is@@ ^^.O.[[.2: .N:].]^^ @@,@@ @@{which $overwhelms the complexity of sorting}.@@ _
-@@the overall complexity is therefore@@ ^^.O.[[.2: .N:].]^^ @@.@@ '
+@@the complexity of calling@@ ^^.g^^ @@is@@ ^^@O.[.N.]^^ @@,@@
+@@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^@O.[.N.]^^ @@.@@ _
+@@the complexity of recursively calling@@ ^^.g^^ @@is@@ ^^@O.[[.2: .N:].]^^ @@,@@ @@{which $overwhelms the complexity of sorting}.@@ _
+@@the overall complexity is therefore@@ ^^@O.[[.2: .N:].]^^ @@.@@ '
 ===
 
 ///

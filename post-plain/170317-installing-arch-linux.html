@@ -68,7 +68,7 @@
 <span class="phrase"><code class="mono">(parted) mkpart primary ext4 42GiB 100%</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">In the steps above, if the requested partition can’t be made precisely as such,</span> <span class="serif-roman">an alternative suggestion will be prompted.</span></span> <span class="phrase"><span class="serif-roman">You might be asked again of the point of start and end, and of the file system.</span></span> <span class="phrase"><span class="serif-roman">I just applied default for everything.</span></span> <span class="phrase"><span class="serif-roman">You might also be warned that</span> <code class="mono">The resulting partition is not properly aligned for best performance</code> <span class="serif-roman">,</span> <span class="serif-roman">which we may ignore.</span></span>
+<span class="phrase"><span class="serif-roman">In the steps above, if the requested partition can’t be made precisely as such,</span> <span class="serif-roman">an alternative suggestion will be prompted.</span></span> <span class="phrase"><span class="serif-roman">You might be asked again of the point of start and end, and of the file system.</span></span> <span class="phrase"><span class="serif-roman">I just applied default for everything.</span></span> <span class="phrase"><span class="serif-roman">You might also be warned that</span> <code class="mono">The resulting partition isn’t properly aligned for best performance</code> <span class="serif-roman">,</span> <span class="serif-roman">which we may ignore.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Print a summary of each partition to double check:</span></span>
@@ -230,7 +230,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Now the internet connection is required,</span> <span class="serif-roman">and it is best that you have ethernet automatically connected.</span></span> <span class="phrase"><span class="serif-roman">Otherwise, you have to set it in command line, which is not covered here.</span></span> <span class="phrase"><span class="serif-roman">Alternatively, you may use a Wifi (not covered here either).</span></span> <span class="phrase"><span class="serif-roman">We may test the connection with</span> <code class="mono">ping</code><span class="serif-roman">:</span></span>
+<span class="phrase"><span class="serif-roman">Now the internet connection is required,</span> <span class="serif-roman">and it is best that you have ethernet automatically connected.</span></span> <span class="phrase"><span class="serif-roman">Otherwise, you have to set it in command line, which isn’t covered here.</span></span> <span class="phrase"><span class="serif-roman">Alternatively, you may use a Wifi (not covered here either).</span></span> <span class="phrase"><span class="serif-roman">We may test the connection with</span> <code class="mono">ping</code><span class="serif-roman">:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono"># ping -c 3 www.google.com</code></span>
@@ -275,7 +275,7 @@
 <span class="phrase"><code class="mono">%wheel ALL=(ALL) ALL</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Make stable repositories available to package manager ++pacman++.</span></span> <span class="phrase"><span class="serif-roman">To do so, open</span> <code class="mono">/etc/pacman.conf</code><span class="serif-roman">,</span> <span class="serif-roman">and uncomment these lines:</span></span>
+<span class="phrase"><span class="serif-roman">Make stable repositories available to package manager Pacman.</span></span> <span class="phrase"><span class="serif-roman">To do so, open</span> <code class="mono">/etc/pacman.conf</code><span class="serif-roman">,</span> <span class="serif-roman">and uncomment these lines:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">[multilib]</code></span>
@@ -290,7 +290,7 @@
 <span class="phrase"><code class="mono"># sudo pacman –Syu</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Besides the official repository that</span> <code class="mono">pacman</code> <span class="serif-roman">uses, there is another Arch User Repository (AUR) maintained by community.</span></span> <span class="phrase"><span class="serif-roman">We need other helpers to install AUR packages, including</span> <code class="mono">yay</code><span class="serif-roman">,</span> <code class="mono">pakku</code><span class="serif-roman">,</span> <code class="mono">pikaur</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">pacaur</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">The flag</span> <code class="mono">-S</code> <span class="serif-roman">also means installation.</span></span>
+<span class="phrase"><span class="serif-roman">Besides the official repository that Pacman uses, there is another Arch User Repository (AUR) maintained by community.</span></span> <span class="phrase"><span class="serif-roman">We need other helpers to install AUR packages, including</span> <code class="mono">yay</code><span class="serif-roman">,</span> <code class="mono">pakku</code><span class="serif-roman">,</span> <code class="mono">pikaur</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">pacaur</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">The flag</span> <code class="mono">-S</code> <span class="serif-roman">also means installation.</span></span>
 </p>
 </div>
 <div class="section">
@@ -324,7 +324,7 @@
 <span class="phrase"><code class="mono">fi</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">This means that we start the X server, if the display variable is not null, and if there is more than one terminal instance.</span></span>
+<span class="phrase"><span class="serif-roman">This means that we start the X server, if the display variable isn’t null, and if there is more than one terminal instance.</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">In the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.</span></span>

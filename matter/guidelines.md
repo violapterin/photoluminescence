@@ -5,7 +5,7 @@
 | code | A | B | C | D | E |
 | --- | --- | --- | --- | --- | --- |
 | class | notes | reading | expositions | comments | quests |
-| content | facts | summary | introduction | opinionated remarks | original research |
+| content | minor facts and exercises | summary and criticism | standard material and exercises | research level, opinionated remarks | research level, original results |
 | presentation | informal, traditional | informal, traditional | almost natural deduction | informal, traditional | almost type theoretical |
 | originality | low | low | mid | low | high |
 

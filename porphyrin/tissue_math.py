@@ -46,14 +46,14 @@ class Math_letter(Leaf):
             letter = AID.write_latex("\\mathbf", tail)
       elif (label_tip == "BLACK"):
          if (tail.islower()):
-            letter = AID.write_latex("\\mathbb", tail)
+            letter = AID.write_latex("\\mathbb", tail.upper())
          elif (tail.isupper()):
-            letter = AID.write_latex("\\fraktur", tail)
+            letter = AID.write_latex("\\mathfrak", tail.upper())
       elif (label_tip == "CURSIVE"):
          if (tail.islower()):
-            letter = AID.write_latex("\\mathcal", tail)
+            letter = AID.write_latex("\\mathcal", tail.upper())
          elif (tail.isupper()):
-            letter = AID.write_latex("\\mathscr", tail)
+            letter = AID.write_latex("\\mathscr", tail.upper())
       elif (label_tip == "GREEK"):
          uppers = (
             "\\@", "\\infty", "\\Xi",

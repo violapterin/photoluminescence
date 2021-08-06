@@ -36,7 +36,6 @@ def main():
       graph = IMAGE.open(io.BytesIO(binary))
       graph = enhance_contrast(graph)
       graph = enhance_sharpness(graph)
-      #graph = graph.convert("RGB")
       graph.save(path_graph, quality = 92)
 
 def enhance_sharpness(graph):

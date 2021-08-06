@@ -84,7 +84,10 @@
 <span class="phrase"><span class="serif-roman">Interpretation of the generation of “Photoluminescence” succeeded!</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Different CSS classes accounted for normal, italic, bold texts.</span></span> <span class="phrase"><span class="serif-roman">I could also set up indentation, alignment, separating line, and colored background for category names.</span></span> <span class="phrase"><span class="serif-roman">The image links in the footer for social media was more difficult to achieve.</span></span> <span class="phrase"><span class="serif-roman">A solution is the CSS background rule,</span> <span class="serif-roman">and we had to remember to adjust its width and height to avoid unwanted blank space.</span></span>
+<span class="phrase"><span class="serif-roman">Different CSS classes accounted for normal, italic, bold texts.</span></span> <span class="phrase"><span class="serif-roman">I could also set up indentation, alignment, separating line, and colored background for category names.</span></span> <span class="phrase"><span class="serif-roman">As for the font, I use Alegreya and the accompanying Alegreya Sans, since I was rather fascinated by its somewhat old-fashioned but fancy strokes.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">The image links in the footer for social media was more difficult to achieve.</span></span> <span class="phrase"><span class="serif-roman">A solution is the CSS background rule,</span> <span class="serif-roman">and we had to remember to adjust its width and height to avoid unwanted blank space.</span></span>
 </p>
 </div>
 <div class="stanza">
@@ -244,6 +247,61 @@
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">After a long thought, I maintained to justify, as I really liked the lofty look of a justified text.</span></span> <span class="phrase"><span class="serif-roman">To alleviate the problem, I used a media query to switch to left alignment when the screen is less than 600 px.</span></span> <span class="phrase"><span class="serif-roman">Furthermore, word breaking opportunity,</span> <code class="mono">&lt;wbr&gt;</code><span class="serif-roman">,</span> <span class="serif-roman">would be inserted.</span></span> <span class="phrase"><span class="serif-roman">To do so for text, we could single out a word, and broke at punctuations whenever possible;</span> <span class="serif-roman">if not possible, we broke at vowels;</span> <span class="serif-roman">if not possible either, we simply broke at the middle of the word.</span></span> <span class="phrase"><span class="serif-roman">Do the same for code, except for breaking at alphabets.</span></span> <span class="phrase"><span class="serif-roman">We could look up a list of characters, at which words might be broken, ordered in decreasing priority.</span></span> <span class="phrase"><span class="serif-roman">For instance, it was better to break at period</span> <code class="mono">.</code> <span class="serif-roman">than at hyphen</span> <code class="mono">-</code><span class="serif-roman">.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 28:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">With Selenium in Python, it was possible to automatically take screenshots, making it effortless to save double-backup of posts on my site.</span></span> <span class="phrase"><span class="serif-roman">It could even to take screenshots of the full page, by identifying the</span> <code class="mono">main</code> <span class="serif-roman">class in my case.</span></span> <span class="phrase"><span class="serif-roman">To do so, we call a headless Firefox.</span></span> <span class="phrase"><span class="serif-roman">Somehow, I didn’t successfully call Chrome;</span> <span class="serif-roman">there was perhaps some path or version problems.</span></span> <span class="phrase"><span class="serif-roman">To get a screenshot of higher resolution, we might want to zoom in,</span> <span class="serif-roman">but by far I didn’t successfully do that either.</span></span> <span class="phrase"><span class="serif-roman">The binary data of the image could be either saved or passed to other function, like the library Pillow.</span></span>
+</p>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import os</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import io</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">from selenium.webdriver import Firefox</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">from PIL import Image</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">address = &quot;https://www.<wbr>violapterin.com/&quot;</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">os.environ[<wbr>&quot;MOZ_HEADLESS&quot;] = &quot;1&quot;</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver = Firefox()</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver.get(address)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">element = driver.find_element_by_tag_name(<wbr>&quot;body&quot;)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">binary = element.screenshot_as_png</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver.quit()</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">graph = Image.open(io.BytesIO(binary))</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">graph.save(<wbr>&quot;./homepage.png&quot;)</code></span>
 </p>
 </div>
 <div class="break">

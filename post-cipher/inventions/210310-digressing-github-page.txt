@@ -12,10 +12,11 @@
 @@and there were no unicode characters beyond those in standard LaTeX.@@ _
 @@moreover, the latest version didn’t break long expressions.@@ '
 
-@@or it @seemed to be the best <that I abandon Jekyll altogether>,@@
-@@but I might not be capable of writing a system equivalent to Jekyll.@@ '
+@@or it @seemed to be the best <that I abandon Jekyll altogether and write a equivalent system>, {which I might not be capable of}.@@ '
 @@I could use CSS to typeset fractions, vectors, and matrices,@@
 @@and@@ ++\mathfrak++@@,@@ ++\mathbb++@@,@@ ++\mathcal++@@,@@ @@and@@ ++\mathscr++ @@could be simulated by different fonts.@@ _
+@@most symbols used in math weren’t &encoded in prevalent unicode blocks,@@
+@@but Noto Symbol font might have them.@@ _
 @@superscripts and subscripts were inherent in HTML, though recursive applications might not look nice.@@ _
 @@for example, a double superscript was traditionally smaller than a single superscript, {which probably had to be specified by a CSS class}.@@ _
 @@these tasks sounded possible, but not easy.@@ _
@@ -77,8 +78,10 @@
    @@«Information and Computation», 1988@@ '
 @@❉@@ @@M H Sørensen and P Urzyczyn,@@ @@«Lectures on the Curry-Howard Isomorphism».@@ _
    @@Elsevier, 2006@@ '
-@@❉@@ @@V Voevodsky et al,@@ @@«Homotopy Type Theory»@@
+@@❉@@ @@V Voevodsky et al,@@
+   @@«Homotopy Type Theory»@@
    \\https://homotopytypetheory.org/book\\ '
-@@❉@@ @@Coq,@@ @@‹Typing rules›@@
+@@❉@@ @@Coq,@@
+   @@‹Typing rules›@@
    \\https://coq.inria.fr/refman/language/cic.html\\ '
 ===

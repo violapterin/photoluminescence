@@ -1,5 +1,5 @@
 ===
-@@you are &given an ordered set@@ ^^.M^^ @@of milestones, with size@@ ^^.N^^ @@,@@ @@{where@@ ^^[: .M: .[.i.]]^^ @@is the number of milestones of project@@ ^^.i^^ @@}.@@ _
+@@you are &given an ordered set@@ ^^&m^^ @@of milestones, with size@@ ^^.N^^ @@,@@ @@{where@@ ^^[: &m: .[.i.]]^^ @@is the number of milestones of project@@ ^^.i^^ @@}.@@ _
 @@every week, you #finish exactly one milestone of one project.@@ _
 @@you must work every week.@@ _
 @@you can’t work on two milestones from the same project for two consecutive weeks.@@ '
@@ -10,15 +10,59 @@
 @@constraints:@@ '
 
 ^^.1 <0 .N <0 [.5: .1.0:].;^^ '
-^^.1 <0 [: .M: .[.i.]] <0 [.9: .1.0:].;^^ '
+^^.1 <0 [: &m: .[.i.]] <0 [.9: .1.0:].;^^ '
+
+@@(the story is so bad, I can’t help thinking another one.@@ _
+@@very simply, we may think <there are several piles of pebbles>,@@
+@@and we have to take them, one by one, but not taking two in a row from the same pile.@@ _
+@@how many pebbles can we take consecutively?@@ '
+
+@@alternatively, I #offer a more interesting one.@@ _
+@@in a human mission to Mars, the main dynamo is out of order.@@ _
+@@there has &been smaller, supplementary dynamos on the spaceship.@@ _
+@@we #plan to run one every night.@@ _
+@@if a dynamo is &run for two night, it will overheat.@@ _
+@@given limited amount of fuels, how many night can we survive before the rescue team arrive?)@@ '
+===
+
+===
+@@the problem $appears to be very complicated,@@
+@@but the answer was rather short.@@ _
+@@I @saw the complexity of solution to be@@ ^^@O.[.N.]^^ @@,@@ @@{which @surprised me},@@
+@@and then I really @came up of the solution myself.@@ '
+
+@@in the ideal case, every project is &finished,@@
+@@and every milestone is &used up.@@ _
+@@that won’t happen, if some projects $remains,@@
+@@but when do they?@@ _
+@@if two projects still #remain, we can do them alternatively,@@
+@@so there will be only one project remaining, if at all.@@ '
+
+@@regardless of the complexity, suppose@@ ^^&m .= .{[: .M: .0]., /6., [: .M: .N].}^^ @@is &sorted in descending order.@@ _
+@@what if we always #consume@@ ^^[: .M: .0]^^ @@alternately with@@ ^^[: .M: .1]., /6., [: .M: .N]^^ @@,@@ @@until@@ ^^[: .M: .0] .- [: .M: .1]^^ @@milestones are &used up?@@ '
+
+@@if so, we #have a pair of two largest projects, both of length@@ ^^[: .M: .1]^^ @@.@@ _
+@@smaller projects can be consumed alternately with the pair, while keeping the pair even.@@ _
+@@once the tie is intact, they will be cancelled exactly.@@ '
+
+@@otherwise, if@@ ^^.m .+ .1 >1 .0^^ @@milestones are left finally from@@ ^^[: .M: .0]^^ @@,@@ @@we are free to subtract a final one, leaving@@ ^^.m^^ @@milestones.@@ _
+@@this is because we #cancel projects two by two,@@
+@@and the order $doesn’t pose restriction on the final step, even if some pairs #overlap.@@ _
+@@since we have &consumed all other projects and still can’t cancel@@ ^^[: .M: .0]^^ @@,@@ @@we have already &done our best.@@ '
+
+@@sorting $takes@@ ^^@O.[.N 'log' .N.]^^ @@,@@ @@{which we can’t do}.@@ _
+@@however, we only #have to know the answer within@@ ^^@O.[.N.]^^ @@,@@
+@@and at least we may find@@ ^^[: .M: .0] <6 &m^^ @@,@@
+@@from the discussion above, the answer is simply@@ ^^'max' .(.0., [: .M: .0] .- [: .M: .1] .- /6 .- [: .M: .N] .- .1.)^^ @@.@@ _
+@@the trivial case, <that there is only@@ ^^.1^^ @@project>, also $applies.@@ _
+@@there might be a shorter proof,@@
+@@but I am proud of my independent thinking.@@ '
 ===
 
 ///
-++#! /usr/bin/env python3++ '
-'
 ++# 1953. Maximum Number of Weeks for Which You Can Work [medium]++ '
 ++# Accepted August 5, 2021++ '
-'
+++#! /usr/bin/env python3++ '
 ++import typing as TYPE++ '
 '
 ++def main():++ '

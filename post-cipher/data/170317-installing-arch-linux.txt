@@ -36,7 +36,7 @@
 
 ++(parted) mklabel msdos++ '
 
-@@meanwhile, UEFI/GPT partition is a newer standard, {which not every motherboard supports}.@@ _
+@@meanwhile, UEFI/GPT partition is a newer standard, {which not every motherboard $supports}.@@ _
 @@partitioning commands for UEFI/GPT are similar.@@ '
 
 @@my Lenovo Thinkpad currently used $has 1TB,@@
@@ -64,7 +64,7 @@
 @@an alternative suggestion will be prompted.@@ _
 @@you might be asked again of the point of start and end, and of the file system.@@ _
 @@I just @applied default for everything.@@ _
-@@you might also be warned <that@@ ++The resulting partition is not properly aligned for best performance++ @@>,@@ @@{which we may ignore}.@@ '
+@@you might also be warned <that@@ ++The resulting partition isn’t properly aligned for best performance++ @@>,@@ @@{which we may ignore}.@@ '
 
 @@print a summary of each partition to double check:@@ '
 
@@ -176,7 +176,7 @@
 ===
 @@now the internet connection is required,@@
 @@and it is best <that you have ethernet automatically connected>.@@ _
-@@otherwise, you have to set it in command line, {which is not &covered here}.@@ _
+@@otherwise, you have to set it in command line, {which isn’t &covered here}.@@ _
 @@alternatively, you may use a Wifi (not covered here either).@@ _
 @@we may test the connection with@@ ++ping++ @@:@@ '
 
@@ -213,7 +213,7 @@
 
 ++%wheel ALL=(ALL) ALL++ '
 
-@@make stable repositories available to package manager ++pacman++.@@ _
+@@make stable repositories available to package manager Pacman.@@ _
 @@to do so, open@@ ++/etc/pacman.conf++ @@,@@ @@and uncomment these lines:@@ '
 
 ++[multilib]++ '
@@ -225,7 +225,7 @@
 
 ++# sudo pacman –Syu++ '
 
-@@besides the official repository {that@@ ++pacman++ @@uses}, there is another Arch User Repository (AUR) maintained by community.@@ _
+@@besides the official repository {that Pacman uses}, there is another Arch User Repository (AUR) maintained by community.@@ _
 @@we #need other helpers to install AUR packages, including@@ ++yay++ @@,@@ ++pakku++ @@,@@ ++pikaur++ @@,@@ @@and@@ ++pacaur++ @@.@@ _
 @@the flag@@ ++-S++ @@also $means installation.@@ '
 ===
@@ -255,7 +255,7 @@
 _ ++exec startx++ '
 ++fi++ '
 
-@@this $means {that we #start the X server, if the display variable is not null, and if there is more than one terminal instance}.@@ '
+@@this $means {that we #start the X server, if the display variable isn’t null, and if there is more than one terminal instance}.@@ '
 
 @@in the presence of a beautiful GUI, instead of the scary monochrome console, I am sure the readers will figure out the rest.@@ '
 ===

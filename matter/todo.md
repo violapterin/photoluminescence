@@ -4,6 +4,8 @@
 
 1. Speech of Linshan Li
 
+1. A naked dance
+
 ## Comments
 
 1. Skepticism on math education
@@ -16,11 +18,13 @@
 
 1. Macroscopic and microscopic randomness
 
+1. Classifying Kindle books
+
 ## Expositions
 
 1. Achievability of memoryless binary erasure channel
 
-1. Trapping rainwater
+1. Coloring grids
 
 1. Nim game
 

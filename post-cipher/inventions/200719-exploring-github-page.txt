@@ -149,16 +149,22 @@ _ ++\fi \next}++ '
 === ##references## ===
 
 ===
-@@❉@@ @@T Preston- Werner,@@ @@‹A Jekyll template›@@
+@@❉@@ @@T Preston- Werner,@@
+   @@‹A Jekyll template›@@
    \\https://github.com/jekyll/example\\ '
-@@❉@@ @@J McGlone, ‹Guide on GitHub Pages›@@
+@@❉@@ @@J McGlone,@@
+   @@‹Guide on GitHub Pages›@@
    \\https://jmcglone.com/guides/github-pages\\ '
-@@❉@@ @@GitHub,@@ @@‹Managing a custom domain for your github pages site@@
+@@❉@@ @@GitHub,@@
+   @@‹Managing a custom domain for your github pages site›@@
    \\https://docs.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site\\ '
-@@❉@@ @@Google,@@ @@‹Getting started›@@
+@@❉@@ @@Google,@@
+   @@‹Getting started›@@
    \\https://developers.google.com/fonts/docs/getting_started\\ '
-@@❉@@ @@Mathjax,@@ @@‹API Changes›@@
+@@❉@@ @@Mathjax,@@
+   @@‹API Changes›@@
    \\https://docs.mathjax.org/en/latest/upgrading/v2.html#v2-api-changes\\ '
-@@❉@@ @@WordPress- com,@@ @@‹Domain management›@@
+@@❉@@ @@WordPress- com,@@
+   @@‹Domain management›@@
    \\https://wordpress.com/domains/manage\\ '
 ===
