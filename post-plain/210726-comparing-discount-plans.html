@@ -116,19 +116,13 @@
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">total_part = get_total(many_price, method[head])</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not (threshold &lt; total_part):</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">discount = 0</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not (threshold &lt; total_part): discount = 0</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">total += total_part - discount</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (budget &lt; total):</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">continue</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (budget &lt; total): continue</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
@@ -185,10 +179,7 @@
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">group = answer[head + 1]</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not group:</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">continue</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if not group: continue</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">discount = many_discount[head][1]</code></span>
@@ -197,10 +188,7 @@
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(&quot;group discounted &quot;, discount, &quot;:&quot;, sep = &#39;&#39;)</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">for item in group:</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(many_price[item], &quot;, &quot;, sep = &#39;&#39;, end = &#39;&#39;)</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">for item in group: print(many_price[item], &quot;, &quot;, sep = &#39;&#39;, end = &#39;&#39;)</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(&#39;&#39;)</code></span>
@@ -218,10 +206,7 @@
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">partial = divide_core(separation, number_core)</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number_option == 0):</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return partial</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number_option == 0): return partial</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">partition = []</code></span>
@@ -257,10 +242,7 @@
 <span class="verse"><code class="mono">def divide_core(separation, number_core):</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number_core == 0):</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return divide_empty(separation)</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (number_core == 0): return divide_empty(separation)</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">partial = divide_core(separation, number_core - 1)</code></span>
@@ -296,10 +278,7 @@
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">method = []</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for _ in range(separation):</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">method.append(set({}))</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for _ in range(separation): method.append(set({}))</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">partition = [method]</code></span>
@@ -317,10 +296,7 @@
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">amount = 0</code></span>
 </p>
 <p class="line">
-<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for index in group:</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">amount += many_price[index]</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">for index in group: amount += many_price[index]</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return amount</code></span>
@@ -329,7 +305,7 @@
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono"># # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #</code></span>
+<span class="verse"><code class="mono"># # # # # # # # # # # # # # # #</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
@@ -345,9 +321,6 @@
 </p>
 <p class="line">
 <span class="verse"><code class="mono">budget = 5000</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span>
 </p>
 <p class="line">
 <span class="verse"><code class="mono">plan = compare_discount(</code></span>

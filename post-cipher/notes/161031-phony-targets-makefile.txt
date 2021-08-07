@@ -23,19 +23,21 @@ _ ++rm -rf ./*.pdf++ '
 
 ===
 @@out of curiosity, I @conducted some experiments.@@ _
-@@consider the makefile:@@
-@@(Recall <that a recipe should be indented by a tab>.)@@ '
+@@consider the makefile as follows.@@ _
+@@(recall <that a recipe should be indented by a tab>.)@@ '
+===
 
+///
 ++all: alice bob++ '
 _ ++@echo recipe \'all\' executed.++ '
 ++alice:++ '
 _ ++touch alice++ '
 ++bob:++ '
 _ ++touch bob++ '
-===
+///
 
 ===
-@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent:@@ '
 
 ++$ make++ '
 _ ++touch alice++ '
@@ -46,7 +48,7 @@ _ ++recipe 'all' executed.++ '
 ===
 
 ===
-@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent:@@ '
 
 ++$ make++ '
 _ ++touch alice++ '
@@ -62,7 +64,7 @@ _ ++make: 'all' is up to date.++ '
 
 ++.PHONY: all++ '
 
-@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent.@@ '
+@@suppose@@ ++alice++ @@and@@ ++bob++ @@are both absent:@@ '
 
 ++$ make++ '
 _ ++touch alice++ '
@@ -74,7 +76,7 @@ _ ++recipe 'all' executed.++ '
 ===
 
 ===
-@@in conclusion, if a target is the prerequisite of the@@ ++.PHONY++ @@target, then its recipe will always be executed.@@ _
+@@in conclusion, if a target is the prerequisite of the phony target, then its recipe will always be executed.@@ _
 @@of course, before executing the recipe, its own prerequisites must exist and up to date as usual.@@ _
 @@a phony target is therefore &considered older than everything, a “file as old as time”.@@ '
 ===

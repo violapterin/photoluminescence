@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width initial-scale=1"/>
-  <title>Phony in Makefile</title>
+  <title>Phony targets in Makefile</title>
   <link rel="shortcut icon" href="/asset/favicon.ico"/>
   <link rel="stylesheet" href="/asset/style.css"/>
 
@@ -62,14 +62,14 @@
 <header>
   <div id="header-post">
     <h2 class="heading-post">
-      <span class="heading">Phony in Makefile</span>
+      <span class="heading">Phony targets in Makefile</span>
     </h2>
     <p class="data-post">
       <a class="data-stamp" href="/page/october-2016.html">31 October 2016</a>
       <a class="data-genre" href="/page/notes.html">Negligible notes</a>
       
       <a class="data-tag" href="/page/makefile.html">Makefile</a>
-<a class="data-tag" href="/page/coding.html">Coding</a>
+<a class="data-tag" href="/page/programming-tools.html">Programming tools</a>
     </p>
   </div>
 </header>
@@ -103,30 +103,32 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile:</span> <span class="serif-roman">(Recall that a recipe should be indented by a tab.)</span></span>
+<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile as follows.</span></span> <span class="phrase"><span class="serif-roman">(Recall that a recipe should be indented by a tab.)</span></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">all: alice bob</code></span>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">all: alice bob</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">@echo recipe \&#39;all\&#39; executed.</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">@echo recipe \&#39;all\&#39; executed.</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">alice:</code></span>
+<p class="line">
+<span class="verse"><code class="mono">alice:</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">touch alice</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">bob:</code></span>
+<p class="line">
+<span class="verse"><code class="mono">bob:</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">touch bob</code></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -149,7 +151,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -181,7 +183,7 @@
 <span class="phrase"><code class="mono">.PHONY: all</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -207,7 +209,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">In conclusion, if a target is the prerequisite of the</span> <code class="mono">.PHONY</code> <span class="serif-roman">target, then its recipe will always be executed.</span></span> <span class="phrase"><span class="serif-roman">Of course, before executing the recipe, its own prerequisites must exist and up to date as usual.</span></span> <span class="phrase"><span class="serif-roman">A phony target is therefore considered older than everything, a “file as old as time”.</span></span>
+<span class="phrase"><span class="serif-roman">In conclusion, if a target is the prerequisite of the phony target, then its recipe will always be executed.</span></span> <span class="phrase"><span class="serif-roman">Of course, before executing the recipe, its own prerequisites must exist and up to date as usual.</span></span> <span class="phrase"><span class="serif-roman">A phony target is therefore considered older than everything, a “file as old as time”.</span></span>
 </p>
 </div>
 <div class="break">

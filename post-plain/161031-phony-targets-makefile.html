@@ -27,30 +27,32 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile:</span> <span class="serif-roman">(Recall that a recipe should be indented by a tab.)</span></span>
+<span class="phrase"><span class="serif-roman">Out of curiosity, I conducted some experiments.</span></span> <span class="phrase"><span class="serif-roman">Consider the makefile as follows.</span></span> <span class="phrase"><span class="serif-roman">(Recall that a recipe should be indented by a tab.)</span></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">all: alice bob</code></span>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">all: alice bob</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">@echo recipe \&#39;all\&#39; executed.</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">@echo recipe \&#39;all\&#39; executed.</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">alice:</code></span>
+<p class="line">
+<span class="verse"><code class="mono">alice:</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch alice</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">touch alice</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase"><code class="mono">bob:</code></span>
+<p class="line">
+<span class="verse"><code class="mono">bob:</code></span>
 </p>
-<p class="paragraph">
-<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">touch bob</code></span>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">touch bob</code></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -73,7 +75,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -105,7 +107,7 @@
 <span class="phrase"><code class="mono">.PHONY: all</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose</span> <code class="mono">alice</code> <span class="serif-roman">and</span> <code class="mono">bob</code> <span class="serif-roman">are both absent:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ make</code></span>
@@ -131,7 +133,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">In conclusion, if a target is the prerequisite of the</span> <code class="mono">.PHONY</code> <span class="serif-roman">target, then its recipe will always be executed.</span></span> <span class="phrase"><span class="serif-roman">Of course, before executing the recipe, its own prerequisites must exist and up to date as usual.</span></span> <span class="phrase"><span class="serif-roman">A phony target is therefore considered older than everything, a “file as old as time”.</span></span>
+<span class="phrase"><span class="serif-roman">In conclusion, if a target is the prerequisite of the phony target, then its recipe will always be executed.</span></span> <span class="phrase"><span class="serif-roman">Of course, before executing the recipe, its own prerequisites must exist and up to date as usual.</span></span> <span class="phrase"><span class="serif-roman">A phony target is therefore considered older than everything, a “file as old as time”.</span></span>
 </p>
 </div>
 <div class="break">
