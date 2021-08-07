@@ -18,6 +18,7 @@ class Math_letter(Leaf):
       self.accent = ''
 
    def write(self):
+      assert (len(self.source) == 2 or len(self.source) == 4)
       letter_accent = ''
       letter = ''
       tip = self.source[0]
@@ -26,22 +27,10 @@ class Math_letter(Leaf):
       label_tail = AID.get_label_math(tail)
 
       if (len(self.source) >= 4):
-         tip_one = self.source[2]
-         tip_two = self.source[3]
-         label_accent_one = get_label_math(tip_one)
-         label_accent_two = get_label_math(tip_two)
-         if (label_accent_one == "ACCENT_ONE"):
-            if (label_accent_two == "ACCENT_ONE"):
-               self.accent = "\\bar"
-            elif (label_accent_two == "ACCENT_TWO"):
-               self.accent = "\\hat"
-         elif (label_accent_one == "ACCENT_TWO"):
-            if (label_accent_two == "ACCENT_ONE"):
-               self.accent = "\\breve"
-            elif (label_accent_two == "ACCENT_TWO"):
-               self.accent = "\\tilde"
+         accent = self.source[2:4]
+         self.accent = AID.get_accent(accent)
 
-      elif (label_tip == "BOLD"):
+      if (label_tip == "BOLD"):
          if (tail.islower() or tail.isupper()):
             letter = AID.write_latex("\\mathbf", tail)
       elif (label_tip == "BLACK"):
@@ -106,9 +95,10 @@ class Math_sign(Leaf):
 
    def __init__(self, **data):
       self.fill_basic(**data)
+      self.accent = ''
 
    def write(self):
-      assert (len(self.source) == 2)
+      assert (len(self.source) == 2 or len(self.source) == 4)
       content = ''
       sign = ''
       many_sign = ()
@@ -117,12 +107,17 @@ class Math_sign(Leaf):
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
 
+      if (len(self.source) >= 4):
+         accent = self.source[2:4]
+         self.accent = AID.get_accent(accent)
+
       if (label_tip == "LINE"):
          many_sign = (
             "\\mid", "\\nmid", "\\backslash",
             "\\parallel", "\\nparallel", "\\between",
             "\\dotsc", "\\dotsb", "\\vdots", "\\ddots",
          )
+         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
       elif (label_tip == "OPERATION_ONE"):
          many_sign = (
             "\\pm", "\\oplus", "\\cup",
@@ -146,6 +141,16 @@ class Math_sign(Leaf):
             "\\ltimes", "\\rtimes", "\\div", "\\oslash", 
          )
          many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
+
+      elif (label_tip == "ARROW_MIDDLE"):
+         self.LATERAL = False
+         many_sign = (
+            "\\downarrow", "\\Uparrow", "\\Downarrow",
+            "\\updownarrow", "\\Updownarrow",
+            "\\blacktriangle", "\\blacktriangledown",
+            "\\dagger", "\\ddagger", "\\wr",
+         )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
          many_sign = (
@@ -155,6 +160,7 @@ class Math_sign(Leaf):
             "\\hookleftarrow", "\\curvearrowleft",
             "\\triangleleft", "\\blacktriangleleft", 
          )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "ARROW_RIGHT"):
          self.LATERAL = False
          many_sign = (
@@ -164,14 +170,7 @@ class Math_sign(Leaf):
             "\\hookrightarrow", "\\curvearrowright",
             "\\triangleright", "\\blacktriangleright", 
          )
-      elif (label_tip == "ARROW_MIDDLE"):
-         self.LATERAL = False
-         many_sign = (
-            "\\downarrow", "\\Uparrow", "\\Downarrow",
-            "\\updownarrow", "\\Updownarrow",
-            "\\blacktriangle", "\\blacktriangledown",
-            "\\dagger", "\\ddagger", "\\wr",
-         )
+         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
       elif (label_tip == "EQUIVALENCE_ONE"):
          self.LATERAL = False
          many_sign = (
@@ -180,7 +179,7 @@ class Math_sign(Leaf):
             "\\Leftrightarrow", "\\not\\Leftrightarrow",
             "\\leftrightsquigarrow", "\\not\\leftrightsquigarrow",
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         many_sign = AID.surround_tuple_with_affix("\\;", many_sign)
       elif (label_tip == "EQUIVALENCE_TWO"):
          self.LATERAL = False
          many_sign = (
@@ -188,7 +187,8 @@ class Math_sign(Leaf):
             "\\propto", "\\asymp", "\\gtreqless", "\\lesseqgtr"
             "\\leftrightararray", "\\rightleftararray",
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         many_sign = AID.surround_tuple_with_affix("\\;", many_sign)
+
       elif (label_tip == "ORDER_LEFT"):
          self.LATERAL = False
          many_sign = (
@@ -205,6 +205,7 @@ class Math_sign(Leaf):
             "\\succeq", "\\succneqq", "\\vdash",
          )
          many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+
       elif (label_tip == "ABSTRACTION"):
          many_sign = (
             "\\displaystyle\\sum\\limits",
@@ -223,11 +224,16 @@ class Math_sign(Leaf):
          table_sign = AID.get_table_sign(many_sign)
       if tail.isdigit():
          sign = table_sign.get(tail)
+
       if not sign:
          data = self.give_data(0, len(self.source))
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
-      sink = self.write_math_outside(sign)
+      if self.accent:
+         sign_accent = AID.write_latex(self.accent, sign)
+      else:
+         sign_accent = sign
+      sink = self.write_math_outside(sign_accent)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -241,15 +247,20 @@ class Math_plain(Leaf):
 
    def __init__(self, **data):
       self.fill_basic(**data)
+      self.accent = ''
 
    def write(self):
-      assert (len(self.source) == 2)
+      assert (len(self.source) == 2 or len(self.source) == 4)
       content = ''
       symbol = ''
       tip = self.source[0]
       tail = self.source[1]
       label_tip = AID.get_label_math(tip)
       label_tail = AID.get_label_math(tail)
+
+      if (len(self.source) >= 4):
+         accent = self.source[2:4]
+         self.accent = AID.get_accent(accent)
 
       if (tail.isalnum()):
          symbol = tail
@@ -262,14 +273,14 @@ class Math_plain(Leaf):
             "GREEK": "\\exists",
             "ABSTRACTION": "\\wp",
             #
-            "LINE": "/",
-            "OPERATION_ONE": "+",
-            "OPERATION_TWO": "-",
-            "OPERATION_THREE": "\\cdot",
-            #
             "CUT_PAIR": ("," + "\\,"),
             "CUT_TRIPLET": (":" + "\\,"),
             "CUT_TUPLE": (";" + "\\,"),
+            #
+            "LINE": "\\,/\\,",
+            "OPERATION_ONE": "\\,+\\,",
+            "OPERATION_TWO": "\\,-\\,",
+            "OPERATION_THREE": "\\,\\cdot\\,",
             #
             "ARROW_MIDDLE": ("\\:" + "\\uparrow" + "\\:"),
             "ARROW_LEFT": ("\\:" + "\\leftarrow" + "\\:"),
@@ -290,16 +301,20 @@ class Math_plain(Leaf):
          data = self.give_data(0, len(self.source))
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
-      sink = self.write_math_outside(symbol)
-      label_tail_not_lateral = {
+      if self.accent:
+         symbol_accent = AID.write_latex(self.accent, symbol)
+      else:
+         symbol_accent = symbol
+      sink = self.write_math_outside(symbol_accent)
+      label_tail_straight = (
          "BOLD",
          "BLACK",
          "CURSIVE",
          "GREEK",
          "EQUIVALENCE_ONE",
          "EQUIVALENCE_TWO",
-      }
-      if (label_tail in label_tail_not_lateral):
+      )
+      if (label_tail in label_tail_straight):
          self.LATERAL = False
       return sink
 
@@ -441,6 +456,8 @@ class Math_pair(Leaf):
       box_top, box_bottom = boxes
       top = AID.unite([tissue.write() for tissue in box_top])
       bottom = AID.unite([tissue.write() for tissue in box_bottom])
+      top = AID.winnow_space_latex(top)
+      bottom = AID.winnow_space_latex(bottom)
       command = "\\dfrac"
       content = AID.write_latex(command, top, bottom)
       sink = self.write_math_outside(content)
@@ -493,8 +510,11 @@ class Math_triplet(Leaf):
       top = AID.unite([tissue.write() for tissue in box_top])
       main = AID.unite([tissue.write() for tissue in box_main])
       bottom = AID.unite([tissue.write() for tissue in box_bottom])
+      top = AID.winnow_space_latex(top)
+      main = AID.winnow_space_latex(main)
+      bottom = AID.winnow_space_latex(bottom)
       content = ''
-      if (whether_lateral):
+      if whether_lateral:
          many_content = []
          if main:
             many_content.append(main)
@@ -512,8 +532,8 @@ class Math_triplet(Leaf):
                content = AID.write_latex("\\overset", top, underset)
             else:
                content = underset
-         elif content:
-            overset = AID.write_latex("\\overset", top, main)
+         elif top:
+            content = AID.write_latex("\\overset", top, main)
       sink = self.write_math_outside(content)
       return sink
 
@@ -556,8 +576,9 @@ class Math_tuple(Leaf):
       many_content = []
       many_content.append(AID.write_latex("\\begin", "matrix"))
       for box in boxes:
-         sink_tissue = AID.unite([tissue.write() for tissue in box])
-         many_content.append(sink_tissue + "\\\\")
+         main = AID.unite([tissue.write() for tissue in box])
+         main = AID.winnow_space_latex(main)
+         many_content.append(main + "\\\\")
       many_content.append(AID.write_latex("\\end", "matrix"))
       content = AID.unite(many_content, cut = '')
       content = AID.insert_space_wide_latex(content)

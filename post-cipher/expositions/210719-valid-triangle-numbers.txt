@@ -1,13 +1,19 @@
 
 ===
-@@given a ordered set@@ ^^&t^^ @@of integers, with size@@ ^^.N^^ @@,@@ @@return the number of such triplets
+@@you are &given a set@@ ^^&t^^ @@of sides, with size@@ ^^.N^^ @@.@@ _
+@@return the number of such triplets
 chosen from@@ ^^&t^^ @@{that can make up triangles, if we #take them
 as lengths of the side}.@@ '
 
 @@Constraints:@@ '
 
-^^.1 <0 .N <0 .1.0.0.0.;^^ '
-^^.0 <0 [: &t: .[.i.]] <0 .1.0.0.0.;^^ '
+^^.1
+   <0 .N
+   <0 .1.0.0.0.;^^ '
+^^.0
+   <0 [: &t: .[.n.]]
+   <0 .1.0.0.0.,
+   `for` .n .= .1 ., /6 ., .N.;^^ '
 ===
 
 ===
@@ -26,14 +32,14 @@ as lengths of the side}.@@ '
 @@call@@ ^^&s =1 &t /2 .{.z.}^^ @@.@@ _
 @@if@@ ^^.g .[.z., &s.]^^ @@is the number of valid triples, {in which@@ ^^.z^^ @@must be chosen}, then:@@ '
 
-^^.f .[&t.] .= .g .[.z., &s.] .+ .f .[&s.]^^ '
+^^.f .[&t.] .= .g .[.z., &s.] .+ .f .[&s.].;^^ '
 
 @@we #see <that@@ ^^.g .[.z., &s.]^^ @@$has complexity@@ ^^@O.[.N.]^^ @@>.@@ _
 @@indeed, fix@@ ^^.z^^ @@,@@ @@for any@@ ^^.x^^ @@,@@ @@we #have@@ ^^.y >1 .z .- .x^^ @@.@@ _
 @@here@@ ^^.r .[.z .- .x.]^^ @@,@@ @@the number of such@@ ^^.y^^ @@,@@ @@may be found with a table, filled before the recursion.@@ _
 @@hence,@@ ^^.g .[.z., &s.]^^ @@may be so defined:@@ '
 
-^^.g .[.z., &s.] .= [: %0: .x <6 &t] .r .[.z .- .x.].;^^ '
+^^.g .[.z., &s.] .= [: %0: .x!! <6 &t] .r .[.z .- .x!!.].;^^ '
 
 @@the complexity of calling@@ ^^.g^^ @@is@@ ^^@O.[.N.]^^ @@,@@
 @@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^@O.[.N.]^^ @@.@@ _

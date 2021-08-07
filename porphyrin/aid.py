@@ -646,6 +646,24 @@ def get_tip_middle_math(tip_left):
       tip_middle = get_tip_math("CUT_TUPLE")
    return tip_middle
 
+def get_accent(accent):
+   command = ''
+   tip_one = accent[0]
+   tip_two = accent[1]
+   label_accent_one = get_label_math(tip_one)
+   label_accent_two = get_label_math(tip_two)
+   if (label_accent_one == "ACCENT_ONE"):
+      if (label_accent_two == "ACCENT_ONE"):
+         command = "\\bar"
+      elif (label_accent_two == "ACCENT_TWO"):
+         command = "\\hat"
+   elif (label_accent_one == "ACCENT_TWO"):
+      if (label_accent_two == "ACCENT_ONE"):
+         command = "\\breve"
+      elif (label_accent_two == "ACCENT_TWO"):
+         command = "\\tilde"
+   return command
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 def write_latex(command, *many_option):
@@ -673,6 +691,30 @@ def surround_tuple_with_affix(affix, thing_tuple):
       thing_list.append(affix + thing + affix)
    result = tuple(thing_list)
    return result
+
+def winnow_space_latex(source):
+   sink = source
+   many_single = ("\\,", "\\:", "\\;")
+   many_double = {
+      "\\,\\,": "\\,",
+      "\\:\\,": "\\:",
+      "\\;\\,": "\\;",
+      "\\,\\:": "\\:",
+      "\\:\\:": "\\:",
+      "\\;\\:": "\\;",
+      "\\,\\;": "\\;",
+      "\\:\\;": "\\;",
+      "\\;\\;": "\\;",
+   }
+   for single in many_single:
+      if sink.startswith(single):
+         sink = sink[len(single):]
+   for single in many_single:
+      if sink.endswith(single):
+         sink = sink[:-len(single)]
+   for double, single in many_double.items():
+      sink = sink.replace(double, single)
+   return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -767,7 +809,7 @@ def get_tip_math(label):
    return tip
 
 def be_start_math(label):
-   miscellaneous = {
+   many_other = {
       "PLAIN",
       "CUT_PAIR",
       "CUT_TRIPLET",
@@ -776,7 +818,7 @@ def be_start_math(label):
    being = (
       be_start_symbol_math(label)
       or be_start_box_math(label)
-      or (label in miscellaneous)
+      or (label in many_other)
    )
    return being
 

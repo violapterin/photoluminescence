@@ -41,17 +41,31 @@
 @@actually, some time after, there was a internet meme weirdly relevant to the present topic, asking the smart reader to vote <what among the precedence below were correct>, {which @went like}@@
 @@(I am %making up numbers now):@@ '
 
-^^`obelus_eager`.: .8 *8 .(.4 .+ .2.) *0 .3 .= .4^^ '
-^^`obelus_lazy`.: .8 *8 .(.4 .+ .2.) *0 .3 .= (.4, .9)^^ '
-^^`solidus_eager`.: .8 ./ .(.4 .+ .2.) .* .3 .= .4^^ '
-^^`solidus_lazy`.: .8 ./ .(.4 .+ .2.) .* .3 .= (.4, .9)^^ '
-^^`fraction_eager`.: (.8, .4 .+ .2) *0 .3 .= .4^^ '
-^^`fraction_lazy`.: (.8, .4 .+ .2) *0 .3 .= (.4, .9)^^ '
+^^`Obelus_eager`.:
+   .8 *8 .(.4 .+ .2.) *0 .3
+   .= .4^^ '
+^^`Obelus_lazy`.:
+   .8 *8 .(.4 .+ .2.) *0 .3
+   .= (.4, .9)^^ '
+^^`Solidus_eager`.:
+   .8 ./ .(.4 .+ .2.) .* .3
+   .= .4^^ '
+^^`Solidus_lazy`.:
+   .8 ./ .(.4 .+ .2.) .* .3
+   .= (.4, .9)^^ '
+^^`Fraction_eager`.:
+   (.8, .4 .+ .2) .* .3
+   .= .4^^ '
+^^`Fraction_lazy`.:
+   (.8, .4 .+ .2) .* .3
+   .= (.4, .9)^^ '
 
-@@certainly,@@ ++fraction_eager++ @@is right, and@@ ++fraction_lazy++ @@was unanimously &rejected,@@
+@@clearly,@@ ++Fraction_eager++ @@is right,@@
+@@and@@ ++Solidus_lazy++ @@,@@ @@I think, is the norm.@@ _
+@@certainly,@@ ++Solidus_eager++ @@and@@ ++Fraction_lazy++ @@was unanimously &rejected,@@
 @@and it is &displayed here just for comparison.@@ _
 @@however, for the rest, it is not so clear.@@ _
-@@while I absolutely @took it for granted <that@@ ++obelus_lazy++ @@and@@ ++solidus_lazy++ @@were correct>, the consensus @seemed to be@@ ++obelus_eager++ @@and@@ ++solidus_lazy++ @@.@@ _
+@@while I absolutely @took it for granted <that@@ ++Obelus_lazy++ @@and@@ ++Solidus_lazy++ @@were correct>, the consensus @seemed to be@@ ++Obelus_eager++ @@and@@ ++Solidus_lazy++ @@.@@ _
 @@it $appears therefore <that people #equate the solidus with the fraction, but not with the obelus>;@@
 @@that is to say, people #regard@@ ^^.a./.b^^ @@the same as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
 

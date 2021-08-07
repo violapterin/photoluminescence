@@ -532,6 +532,15 @@ class Leaf(Organ):
       if (label_left == "PLAIN"):
          if not AID.be_start_asymmetry_math(label_after):
             head_right = self.move_right(1, head_after)
+            if (head_right < len(self.source)):
+               tip_middle = self.source[head_right]
+               label_middle = AID.get_label_math(tip_middle)
+               if (AID.be_start_accent_math(label_middle)):
+                  head_right = self.move_right(2, head_right)
+            if (head_right - head_left < 2):
+               data = self.give_data(head_left, head_right)
+               from .caution import Token_invalid_as_symbol as creator
+               creator(**data).panic()
             data = self.give_data(head_left, head_right)
             if not data["source"]:
                tissue = TISSUE.Math_void()

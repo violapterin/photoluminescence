@@ -80,6 +80,10 @@
    "tag": ["Age", "General mathematics"],
    "title": "The young man’s game"},
 
+{"stamp": "181115", "genre": "expositions",
+   "tag": ["Gravity", "Conic sections", "Classical mechanics"],
+   "title": "The Kepler problem"},
+
 {"stamp": "170809", "genre": "notes",
    "tag": ["Notation", "Education", "General mathematics"],
    "title": "The obelus notation for division"},

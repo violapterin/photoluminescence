@@ -1,5 +1,5 @@
 ===
-@@you are &given an ordered set@@ ^^&m^^ @@of milestones, with size@@ ^^.N^^ @@,@@ @@{where@@ ^^[: .M: .n]^^ @@is the number of milestones of project@@ ^^.n .= .1 ., /6 ., .N^^ @@}.@@ _
+@@you are &given a set@@ ^^&m^^ @@of numbers of milestone, with size@@ ^^.N^^ @@.@@ _
 @@every week, you #finish exactly one milestone of one project.@@ _
 @@you must work every week.@@ _
 @@you can’t work on two milestones from the same project for two consecutive weeks.@@ '
@@ -9,8 +9,13 @@
 
 @@constraints:@@ '
 
-^^.1 <0 .N <0 [.5: .1.0:].;^^ '
-^^.1 <0 [: .M: .n] <0 [.9: .1.0:].;^^ '
+^^.1
+   <0 .N
+   <0 [.5: .1.0:].;^^ '
+^^.1
+   <0 [: &m: .[.n.]]
+   <0 [.9: .1.0:].,
+   `for` .n .= .1 ., /6 ., .N.;^^ '
 
 @@(the story is so bad, I can’t help thinking another one.@@ _
 @@very simply, we may think <there are several piles of pebbles>,@@

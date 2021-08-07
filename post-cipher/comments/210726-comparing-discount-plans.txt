@@ -18,13 +18,22 @@
 @@(but people #do that all the time.)@@ _
 @@in other words, we #have the equations:@@ '
 
-^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N] `all` `is` `mutually` `exclusive` `and` `collectively` `exhaustive` `of` &p.;^^ '
-^^.q <6 &q^^ '
-^^[: .P: .n] =1 [: %0: .p <6 [: &p: .n]] .p., `for` .n .= .1., /6 .,.N^^ '
-^^.T .= [.N: %0: .n .= .1] [: .P: .n] .- [:%0: .d <6 &d] .d .+ .q^^ '
-^^[:.s: .n] <0 [:.P: .n]., `for` [:.d: .n] <6 &d^^ '
-^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]., .q .= 'argmin' [:.P: .0]^^ '
-^^.q .= 'argmin' .T^^ '
+^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]
+   `each` `is` `mutually` `exclusive` `and` `collectively` `exhaustive` `of` &p.;^^ '
+^^.q
+   <6 &q.;^^ '
+^^[: .P: .n]
+   =1 [: %0: .p!! <6 [: &p: .n]] .p!!.,
+   `for` .n .= .1., /6 .,.N.;^^ '
+^^.T
+   .= [.N: %0: .n!! .= .1] [: .P: .n!!] .- [:%0: .d!! <6 &d] .d!! .+ .q.;^^ '
+^^[:.s: .n]
+   <0 [:.P: .n].,
+   `for` [:.d: .n] <6 &d.;^^ '
+^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]., .q
+   .= 'argmin' [:.P: .0] .[[:&p!!: .0]., /6., [:&p!!: .N].].;^^ '
+^^.q
+   .= 'argmin' .T .[.q!!.].;^^ '
 
 @@taking this view, we #implement a brute force approach below.@@ '
 ===
