@@ -6,7 +6,7 @@
 @@we #know <the ellipse is &confined within a plane>, by the third law of Newton.@@ _
 @@without loss of generality, let the length be &scaled,@@
 @@so <that the longer axis of ellipse along the@@ ^^.x^^ @@axis has length@@ ^^.1^^ @@.@@ _
-@@we also #let the shorter axis of ellipse along the@@ ^^.y^^ @@axis has length@@ ^^$b <1 .1^^ @@,@@
+@@we also #let the shorter axis of ellipse along the@@ ^^.y^^ @@axis has length@@ ^^$b <0 .1^^ @@,@@
 @@so <that the focal point $lies on the@@ ^^.x^^ @@axis>.@@ _
 @@the sun $lies at@@ ^^.<$g., .0.>^^ @@the focal point of ellipse.@@ _
 @@introduce the focal distance:@@ '
@@ -15,7 +15,7 @@
 
 @@define the position vector@@ ^^.r^^ @@,@@ @@velocity@@ ^^.v^^ @@,@@ @@acceleration@@ ^^.a^^ @@.@@ _
 @@they are functions of@@ ^^$q .= $q.[.t.]^^ @@,@@ @@the counterclockwise angle originating from the sun.@@ _
-@@they are &found as thus:@@ '
+@@with a star denoting derivative of@@ ^^.t^^ @@,@@ @@they are &found as thus:@@ '
 
 ^^`Position`.:
    .r
@@ -59,6 +59,7 @@
    [:$q: *5] $h
    .= `constant`^^ '
 ^^=1 .K.;^^ '
+^^>1 .0.;^^ '
 ===
 
 ===

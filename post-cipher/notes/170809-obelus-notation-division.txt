@@ -3,10 +3,10 @@
 ===
 @@in Taiwan, as I #remember, elementary school instructors and textbooks #notate division as@@ ^^.a *8 .b^^ @@,@@ @@{which is &known as the obelus}.@@ _
 @@even as a kid, I @learnt myself, from more advanced math books, <that people @used@@ ^^.a ./ .b^^ @@,@@ @@the solidus, or slash, to denote division>.@@ _
-@@strangely, when I was about in the 7th grade, the math textbook @announced, if I am not &mistaken, <that from now on, the obelus was to be &discouraged>, just as@@ ^^*0^^ @@was replaced by@@ ^^.*^^ @@.@@ _
+@@strangely, when I was about in the 7th grade, the math textbook @announced <that from now on, the obelus was to be &discouraged>, just as@@ ^^*0^^ @@was replaced by@@ ^^.*^^ @@.@@ _
 @@it @maintained <that we would always use fraction>, and <that when the space didn’t allow, we would use a solidus>.@@ _
 @@except in textbooks and exercise books in basic arithmetic, and on some calculators, I have never &seen the obelus anywhere else, in analysis, algebra, geometry, nor in any scientific publication.@@ _
-@@actually, the ISO 80000-2 standard for mathematical notation $recommends only the solidus or fraction bar for division, saying <that the obelus “should not be used” for division>.@@ '
+@@actually, the ISO 80000-2 standard for mathematical notation $recommends only the solidus or fraction bar for division, saying <that the obelus “shouldn’t be used” for division>.@@ '
 ===
 
 === ##origin of the obelus## ===
@@ -43,31 +43,31 @@
 
 ^^`Obelus_eager`.:
    .8 *8 .(.4 .+ .2.) *0 .3
-   .= .4^^ '
+   .= .4.;^^ '
 ^^`Obelus_lazy`.:
    .8 *8 .(.4 .+ .2.) *0 .3
-   .= (.4, .9)^^ '
+   .= (.4, .9).;^^ '
 ^^`Solidus_eager`.:
    .8 ./ .(.4 .+ .2.) .* .3
-   .= .4^^ '
+   .= .4.;^^ '
 ^^`Solidus_lazy`.:
    .8 ./ .(.4 .+ .2.) .* .3
-   .= (.4, .9)^^ '
+   .= (.4, .9).;^^ '
 ^^`Fraction_eager`.:
    (.8, .4 .+ .2) .* .3
-   .= .4^^ '
+   .= .4.;^^ '
 ^^`Fraction_lazy`.:
    (.8, .4 .+ .2) .* .3
-   .= (.4, .9)^^ '
+   .= (.4, .9).;^^ '
 
 @@clearly,@@ ++Fraction_eager++ @@is right,@@
-@@and@@ ++Solidus_lazy++ @@,@@ @@I think, is the norm.@@ _
-@@certainly,@@ ++Solidus_eager++ @@and@@ ++Fraction_lazy++ @@was unanimously &rejected,@@
-@@and it is &displayed here just for comparison.@@ _
-@@however, for the rest, it is not so clear.@@ _
-@@while I absolutely @took it for granted <that@@ ++Obelus_lazy++ @@and@@ ++Solidus_lazy++ @@were correct>, the consensus @seemed to be@@ ++Obelus_eager++ @@and@@ ++Solidus_lazy++ @@.@@ _
+@@and@@ ++Solidus_lazy++ @@,@@ @@I #think, is the norm.@@ _
+@@certainly,@@ ++Solidus_eager++ @@and@@ ++Fraction_lazy++ @@are unanimously &rejected,@@
+@@and they are &displayed here just for comparison.@@ _
+@@however, for the rest, it isn’t so clear.@@ _
+@@while I absolutely #take it for granted <that@@ ++Obelus_lazy++ @@and@@ ++Solidus_lazy++ @@are correct>, the consensus @#seem to be@@ ++Obelus_eager++ @@and@@ ++Solidus_lazy++ @@.@@ _
 @@it $appears therefore <that people #equate the solidus with the fraction, but not with the obelus>;@@
-@@that is to say, people #regard@@ ^^.a./.b^^ @@the same as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
+@@that is to say, people #regard@@ ^^.a./.b^^ @@the same thing as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
 
 @@why #spend so much time writing on such trivial matter?@@ _
 @@as I @said, it is curious <how the choice of notation $has some bearing on the perception of precedence>,@@

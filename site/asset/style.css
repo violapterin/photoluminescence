@@ -174,6 +174,7 @@ code, .mono
      "Courier New", monospace;
    font-size: 0.8em;
    font-weight: 600;
+   color: indigo;
    white-space: break-spaces;
    word-break: keep-all;
 }
@@ -412,20 +413,19 @@ header #header-post, header #header-page
 {
    margin: 0px 12px;
    padding: 0px;
-   font-size: 28px;
-   font-style: italic;
+   font-size: 26px;
 }
 @media screen and (max-width: 900px) {
    .title-catalog .display
-   { margin: 0px 10px; font-size: 24px; }
+   { margin: 0px 10px; font-size: 22px; }
 }
 @media screen and (max-width: 600px) {
    .title-catalog .display
-   { margin: 0px 8px; font-size: 20px; }
+   { margin: 0px 8px; font-size: 18px; }
 }
 @media screen and (max-width: 420px) {
    .title-catalog .display
-   { margin: 0px 6px; font-size: 16px; }
+   { margin: 0px 6px; font-size: 14px; }
 }
 
 .entry .title-entry .heading
@@ -467,13 +467,13 @@ header #header-post, header #header-page
 .title-catalog .display,
 .title-catalog .display:visited
 {
-   color: mediumblue;
+   color: royalblue;
 }
 
 .entry .title-entry .heading,
 .entry .title-entry .heading:visited
 {
-   color: royalblue;
+   color: mediumblue;
 }
 
 .title-catalog .display:hover,
@@ -693,6 +693,21 @@ header #header-post, header #header-page
 {
    background: url("/asset/icon-license.png") no-repeat;
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.math-letter, .math-sign, .math-plain,
+.math-bracket-round, .math-bracket-square, .math-bracket-curly,
+.math-bracket-angle, .math-bracket-line,
+.math-pair, .math-triplet, .math-tuple,
+.math-serif, .math-sans, .math-mono
+{
+   color: midnightblue;
+   /*color: #300053;*/
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
