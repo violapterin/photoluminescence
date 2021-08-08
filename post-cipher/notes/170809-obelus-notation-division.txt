@@ -60,12 +60,12 @@
    (.8, .4 .+ .2) .* .3
    .= (.4, .9).;^^ '
 
-@@clearly,@@ ++Fraction_eager++ @@is right,@@
-@@and@@ ++Solidus_lazy++ @@,@@ @@I #think, is the norm.@@ _
-@@certainly,@@ ++Solidus_eager++ @@and@@ ++Fraction_lazy++ @@are unanimously &rejected,@@
+@@clearly,@@ ++FracEager++ @@is right,@@
+@@and@@ ++SolLazy++ @@,@@ @@I #think, is the norm.@@ _
+@@certainly,@@ ++SolEager++ @@and@@ ++FracLazy++ @@are unanimously &rejected,@@
 @@and they are &displayed here just for comparison.@@ _
 @@however, for the rest, it isn’t so clear.@@ _
-@@while I absolutely #take it for granted <that@@ ++Obelus_lazy++ @@and@@ ++Solidus_lazy++ @@are correct>, the consensus @#seem to be@@ ++Obelus_eager++ @@and@@ ++Solidus_lazy++ @@.@@ _
+@@while I absolutely #take it for granted <that@@ ++ObLazy++ @@and@@ ++SolLazy++ @@are correct>, the consensus @#seem to be@@ ++ObEager++ @@and@@ ++SolLazy++ @@.@@ _
 @@it $appears therefore <that people #equate the solidus with the fraction, but not with the obelus>;@@
 @@that is to say, people #regard@@ ^^.a./.b^^ @@the same thing as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
 

@@ -1,0 +1,65 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">There are three kinds of object in the world: algorithms, problems, and machines.</span></span> <span class="phrase"><span class="serif-roman">An algorithm can solve a problem,</span> <span class="serif-roman">a problem can be computed on a machine,</span> <span class="serif-roman">and a machine can simulate another machine.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Here</span> <span class="math"><span class="math-plain">\(\wp\)</span></span> <span class="serif-roman">is an intuitionistic machine, which can only compute decidable algorithm.</span></span> <span class="phrase"><span class="serif-roman">At any rate, we at least have</span> <span class="math"><span class="math-plain">\(\wp\)</span></span> <span class="serif-roman">at our disposal.</span></span> <span class="phrase"><span class="serif-roman">Put most stupidly, if we have</span> <span class="math"><span class="math-plain">\(\wp\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">then we have</span> <span class="math"><span class="math-plain">\(\wp\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Namely:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Void}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-plain">\(\wp\)</span><span class="math-sign">\(\:\Rightarrow\:\)</span><span class="math-plain">\(\wp\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose machine</span> <span class="math"><span class="math-letter">\(\Gamma\)</span></span> <span class="serif-roman">can simulate machine</span> <span class="math"><span class="math-letter">\(\Delta\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">If we have</span> <span class="math"><span class="math-letter">\(\Gamma\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">and have any problem</span> <span class="math"><span class="math-plain">\(X\)</span></span> <span class="serif-roman">which is computed on</span> <span class="math"><span class="math-letter">\(\Delta\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">then we have a valid new computer stronger than</span> <span class="math"><span class="math-plain">\(\wp\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Namely:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Instantiation\_machine}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-mono">\(\;\mathtt {if}\;\)</span><span class="math-letter">\(\Gamma\)</span><span class="math-sign">\(\:\Rightarrow\:\)</span><span class="math-letter">\(\Delta\)</span><span class="math-plain">\(,\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {then}\;\)</span><span class="math-mono">\(\;\mathtt {has}\;\)</span><span class="math-letter">\(\varphi\)</span><span class="math-bracket-square">\(\left[ \Gamma ,\, X :\, D \right]\)</span><span class="math-plain">\(:\,\)</span><span class="math-plain">\(\wp\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose computer</span> <span class="math"><span class="math-letter">\(\Gamma\)</span></span> <span class="serif-roman">can compute problem</span> <span class="math"><span class="math-plain">\(X\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">If we have</span> <span class="math"><span class="math-letter">\(\Gamma\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">and have any algorithm</span> <span class="math"><span class="math-plain">\(x\)</span></span> <span class="serif-roman">which solves</span> <span class="math"><span class="math-plain">\(X\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">then we have a valid new computer stronger than</span> <span class="math"><span class="math-plain">\(\wp\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Namely:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Instantiation\_problem}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-mono">\(\;\mathtt {if}\;\)</span><span class="math-letter">\(\Gamma\)</span><span class="math-sign">\(\:\Rightarrow\:\)</span><span class="math-plain">\(X\)</span><span class="math-plain">\(,\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {then}\;\)</span><span class="math-mono">\(\;\mathtt {has}\;\)</span><span class="math-letter">\(\varphi\)</span><span class="math-bracket-square">\(\left[ \Gamma ,\, x :\, X \right]\)</span><span class="math-plain">\(:\,\)</span><span class="math-plain">\(\wp\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Rules</span> <code class="mono">InstMachine</code> <span class="serif-roman">and</span> <code class="mono">InstProblem</code> <span class="serif-roman">correspond to universal instantiation in classical logic.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose we have such a method, that, with machine</span> <span class="math"><span class="math-plain">\(G\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">and with any .x an implementation of</span> <span class="math"><span class="math-plain">\(X\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">we can simulate machine</span> <span class="math"><span class="math-letter">\(\Delta\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Then, with</span> <span class="math"><span class="math-plain">\(G\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">we obtain a method, by which any</span> <span class="math"><span class="math-plain">\(x\)</span></span> <span class="serif-roman">an solution of</span> <span class="math"><span class="math-plain">\(X\)</span></span> <span class="serif-roman">gives rise to a way to simulate</span> <span class="math"><span class="math-letter">\(\Delta\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Namely:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Deduction\_machine}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-mono">\(\;\mathtt {if}\;\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \Gamma ,\, x :\, X \right]\)</span><span class="math-sign">\(\:\Rightarrow\:\)</span><span class="math-letter">\(\Delta\)</span><span class="math-plain">\(,\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {then}\;\)</span><span class="math-mono">\(\;\mathtt {has}\;\)</span><span class="math-letter">\(\varphi\)</span><span class="math-bracket-square">\(\left[ \Gamma \right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-square">\(\left[ x :\, X \right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\Delta\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Suppose we have such a method, that, with machine</span> <span class="math"><span class="math-plain">\(G\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">and with any .x an implementation of</span> <span class="math"><span class="math-plain">\(X\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">we can solve problem</span> <span class="math"><span class="math-plain">\(Y\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Then, with</span> <span class="math"><span class="math-plain">\(G\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">we obtain a method, by which any</span> <span class="math"><span class="math-plain">\(x\)</span></span> <span class="serif-roman">an solution of</span> <span class="math"><span class="math-plain">\(X\)</span></span> <span class="serif-roman">gives rise to a way to solve</span> <span class="math"><span class="math-plain">\(Y\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Namely:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Deduction\_problem}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-mono">\(\;\mathtt {if}\;\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \Gamma ,\, x :\, X \right]\)</span><span class="math-sign">\(\:\Rightarrow\:\)</span><span class="math-plain">\(Y\)</span><span class="math-plain">\(:\,\)</span><span class="math-plain">\(\wp\)</span><span class="math-plain">\(,\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {then}\;\)</span><span class="math-mono">\(\;\mathtt {has}\;\)</span><span class="math-letter">\(\varphi\)</span><span class="math-bracket-square">\(\left[ \Gamma \right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-square">\(\left[ x :\, X \right]\)</span><span class="math-plain">\(:\,\)</span><span class="math-plain">\(Y\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Rules</span> <code class="mono">DedMachine</code> <span class="serif-roman">and</span> <code class="mono">DedProblem</code> <span class="serif-roman">correspond to the deduction theorem in classical logic.</span></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">May 21, 2021;</em> <em class="serif-italic">extended August 9, 2021</em></span>
+</p>
+</div>
+</main>

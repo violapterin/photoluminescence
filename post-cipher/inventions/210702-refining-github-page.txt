@@ -129,14 +129,14 @@ _ ++}++ '
 ===
 %%July 28:%% '
 
-@@with Selenium in Python, it was possible to automatically take screenshots, making it effortless to save double- backup of posts on my site.@@ _
-@@it could even to take screenshots of the full page, by identifying the@@ ++main++ @@class in my case.@@ _
-@@to do so, we call a headless Firefox.@@ _
-@@somehow, I didn’t successfully call Chrome;@@
-@@there was perhaps some path or version problems.@@ _
-@@to get a screenshot of higher resolution, we might want to zoom in,@@
-@@but by far I didn’t successfully do that either.@@ _
+@@with the library Selenium in Python, it was possible to automatically take screenshots calling a headless Firefox, making it effortless to save double- backup of posts on my site.@@ _
+@@it could even take a full- page screenshot, by identifying the@@ ++main++ @@class in my case.@@ '
 @@the binary data of the image could be either saved or passed to other function, like the library Pillow.@@ '
+
+@@somehow, I @couldn’t call Chrome;@@
+@@there was perhaps some problems with path or version.@@ _
+@@besides, to get a screenshot of higher resolution, we @had to zoom in,@@
+@@but by far I @didn’t manage to do that either.@@ _
 ===
 
 ///
