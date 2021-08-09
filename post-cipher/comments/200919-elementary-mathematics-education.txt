@@ -1,0 +1,45 @@
+===
+@@the more I #learn higher mathematics, the more I #wonder <how little benefit the elementary mathematics education has &brought to children>.@@ _
+@@in light of the advance in computers, they are borderline useless and not indicative of the innate talent of the students.@@ '
+
+@@children #spend a lot of time in school learning arithmetic, chiefly the four operations on real numbers, solution of linear systems, and manipulation involving polynomials.@@ _
+@@as the level $progresses, some of them #struggle,@@
+@@and others #appear more capable.@@ _
+@@consequently, they either #choose or #abandon majors or occupations mathematics.@@ '
+
+@@but in a broader perspective, these calculations are some simple algorithms in disguise.@@ _
+@@operations on a field, changing basis for a matrix, Euclid algorithm on a polynomial ring, and so on— we #know <that they are straightforward, if tedious, to program from scratch, since they are merely a bunch of rigid rules>.@@ _
+@@geometric auxiliary lines are a nightmare to guess,@@
+@@but they can be determined on a ring with Gröbner basis.@@ _
+@@trigonometry identities are &said to be a torture,@@
+@@but they are a nothing more than polynomial identities of exponential functions.@@ _
+@@these matters are easy to program, but hard to calculate in head.@@ '
+
+@@presently, children {who are faster and more accurate in exams}, #win.@@ _
+@@what is the big deal about that?@@
+@@what difference $does it make, as long as most of them can do it correctly in sufficient time?@@ _
+@@today such basic calculations are <what computers should do>,@@
+@@and apart from them, there is a lot more to explore in mathematics.@@ '
+
+@@indeed, <the students are %implementing a computer with their brain>.@@ _
+@@we practically #require the children to invoke the vague intuition by themselves.@@ _
+@@unfortunately, children surely #don’t know <they are %running a program with their brain when they #take an exam>.@@ _
+@@some children are better, and some are slower to grasp the insight.@@ _
+@@for the latter, if they #quit, they will never be revealed of the mystery,@@
+@@and they will remain to think mathematics as an enigma.@@ _
+@@while it is auful to obscure children from the nature computation,@@
+@@undoubtedly many students in the middle school aren’t ready, either, to learn programming and computation theory before they are &exposed to concrete objects for several years.@@ '
+
+@@the elementary mathematics education is in dire need of reformation,@@
+@@and what can we do about the situation?@@ _
+@@there, I #hope, could be a way to somehow educate children more about computation,@@
+@@so <that they are self-aware when they do it,@@
+@@and it might turn out <that the way we #classify students’ inclination has &been the very opposite of unleashing their gifts.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%September 19, 2020;%%
+%%revised August 3, 2021%% '
+===

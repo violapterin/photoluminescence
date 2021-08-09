@@ -1,0 +1,131 @@
+===
+@@there are three kinds of object in the world: algorithms, problems, and machines.@@ _
+@@an algorithm may solve a problem,@@
+@@and a problem may be computed on a machine.@@ _
+@@if an algorithm@@ ^^.x^^ @@$solves a problem@@ ^^.X^^ @@,@@ @@we write@@ ^^.x.: .X^^ @@;@@
+@@if a problem@@ ^^.X^^ @@is &computed on a machine@@ ^^$G^^ @@,@@ @@we write@@ ^^.X.: $G^^ @@;@@
+@@moreover, a machine@@ ^^$G^^ @@can be thought as an instance of a super machines@@ ^^[:.%: .n]^^ @@,@@ @@{which might not exist in real world};@@
+@@in that case, we #write@@ ^^$G.: [:.%: .n]^^ @@.@@ _
+@@when@@ ^^$c.: $C^^ @@,@@ @@we #say <an object@@ ^^$c^^ @@is of type@@ ^^$C^^ @@>.@@ '
+
+@@a function $maps objects from one type to objects another type.@@ _
+@@if a function@@ ^^$f^^ @@$takes an object@@ ^^$c.: $C^^ @@as input and another object@@ ^^$q.: $Q^^ @@as output, we #write@@ ^^$f .[$c.: $C.] .= $q.: $Q^^ @@.@@ _
+@@the function is &written as@@ ^^[:.@: $c.: $C] $q^^ @@,@@ @@of type &written as@@ ^^[:.&: .x.: .X] $C^^ @@>.@@ '
+
+@@we #have countably infinite number of identifier symbols, {which can denote any algorithms, problems, and machines— constant or variable—}, without any predetermined meaning.@@ _
+@@we also #have countably infinite memory bits and countably infinite time slots.@@ _
+@@however, there are several fundamental rules {we ought to obey}.@@ '
+===
+
+===
+@@in the very beginning, we #possess a primitive machine@@ ^^[:.%: .0]^^ @@,@@ @@{which can only compute decidable problems}.@@ _
+@@at any rate, we at least #have@@ ^^[:.%: .0]^^ @@at our disposal.@@ _
+@@therefore a machine is valid, if it is stronger than@@ ^^[:.%: .0]^^ @@.@@ _
+@@especially,@@ ^^[:.%: .0]^^ @@is valid.@@ _
+@@put most plainly, if we #have@@ ^^[:.%: .0]^^ @@,@@ @@then we #have@@ ^^[:.%: .0]^^ @@:@@ '
+
+^^`Primitive_type`.:
+   `has` $y .[[:.%: .0].] .= [:.%: .0].;^^ '
+^^`say` $G `is` `valid` `about` [:.%: .0].,
+   `if` `has` $y .[$G.] .= [:.%: .0].;^^ '
+
+@@furthermore,@@ ^^[:.%: .0]^^ @@$realizes super machines@@ ^^[:.%: .1]^^ @@,@@
+@@and@@ ^^[:.%: .1]^^ @@$realizes super machines@@ ^^[:.%: .2]^^ @@,@@ @@and so on:@@ '
+
+^^[:.%: .0].: [:.%: .1].;
+   [:.%: .1].: [:.%: .2].;
+   .......;^^ '
+===
+
+===
+@@clearly, with valid machines@@ ^^$G., $D^^ @@,@@ @@we #get a valid new machine by combining@@ ^^.($G., $D.)^^ @@.@@ _
+@@actually, we may think@@ ^^.($G., $D.).: [:.%: .1]^^ @@.@@ _
+@@with a valid composite of machines@@ ^^$G., $D^^ @@,@@ @@once@@ ^^$G^^ @@$doesn’t depend on additional objects than@@ ^^$D^^ @@$does, we can use only@@ ^^$D^^ @@:@@ '
+
+^^`Scope`.:
+   `given` .($G., $D.) `valid` `about` [:.%: .0].,
+   `has` $y .[$G.] .= $D.;^^ '
+
+@@rule@@ ++Scope++ @@#corresponds to the deletion of superfluous variables in logic.@@ '
+===
+
+===
+@@suppose <machine@@ ^^$G^^ @@can compute problem@@ ^^.X^^ @@>.@@ _
+@@with@@ ^^$G^^ @@,@@ @@and with any algorithm@@ ^^.x^^ @@{which $solves@@ ^^.X^^ @@,@@ @@we #have a valid new machine:@@ '
+
+^^`Valid_problem`.:
+   `given` $f .[$G.] .= .X.: [:.%: .0].,
+   .($G., .x.: .X.) `is` `valid`.;^^ '
+
+@@suppose <machine@@ ^^$G^^ @@can simulate@@ ^^.X^^ @@>.@@ _
+@@with@@ ^^$G^^ @@,@@ @@and with any problem@@ ^^.X^^ @@{which is &computed on @@ ^^$D^^ @@,@@ @@we #have a valid new machine:@@ '
+
+^^`Valid_machine`.:
+   `given` $f .[$G.] .= $D.,
+   .($G., .X.: $D.) `is` `valid`.;^^ '
+
+@@or, including super machines:@@ '
+
+^^`given` $f .[$G.: [:.%: .n .+ .1].] .= [:.%: .n].,
+   .($G., $D.: [:.%: .n .+ .1].) `is` `valid`.;^^ '
+
+@@rules@@ ++ValidProblem++ @@and@@ ++ValidMachine++ @@#correspond to universal instantiation in logic.@@ '
+===
+
+===
+@@suppose <we #have such a method, <that, with machine@@ ^^$G^^ @@,@@ @@and with any@@ ^^.x^^ @@an implementation of@@ ^^.X^^ @@,@@ @@we can solve problem@@ ^^.Y^^ @@>>.@@ _
+@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a solution {which $takes any@@ ^^.x^^ @@and $solves@@ ^^.Y^^ @@:@@ '
+
+^^`Elimination_problem`.:
+   `given` $f .[$G., .x.: .X.] .= .Y.: [:.%: .0].,
+   `has` $y .[$G.] .= [:.& :.x.: .X] .Y.: [:.%: .0].;^^ '
+
+@@suppose <we #have such a method, <that, with machine@@ ^^$G^^ @@,@@ @@and with any@@ ^^.x^^ @@an implementation of@@ ^^.X^^ @@,@@ @@we can simulate machine@@ ^^$D^^ @@>>.@@ _
+@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a machine {which $takes any@@ ^^.x^^ @@and $simulates@@ ^^$D^^ @@}:@@ '
+
+^^`Elimination_machine`.:
+   `given` $f .[$G., .x.: .X.] .= $D.,
+   `has` $y .[$G.] .= .(.x.: .X., $D.).;^^ '
+
+@@or, including super machines:@@ '
+
+^^`given` $f .[$G.: [:.%: .n]., .x.: .X.] .= $D.: [:.%: .n].,
+   `has` $y .[$G.] .= [:.& :.x.: .X.] $D.: [:.%: .n].;^^ '
+
+@@rules@@ ++ElMachine++ @@and@@ ++ElProblem++ @@#correspond to the deduction theorem in logic.@@ '
+===
+
+===
+@@suppose <on machine@@ ^^$G^^ @@,@@ @@any algorithm@@ ^^.x.: .X^^ @@$gives rise to an object@@ ^^$c.: $C^^ @@>.@@ _
+@@then on machine@@ ^^$G^^ @@,@@ @@this map can properly define a function:@@ '
+
+^^`Abstraction`.:
+   `given` $f .[$G., .x.: .X.] .= $c.: $C.,
+   `has` $y .[$G.] .= [:.@: .x.: .X] $c.: [:.&: .x.: .X] $C.;^^ '
+
+@@suppose <on machine@@ ^^$G^^ @@,@@ @@there is a function of type@@ ^^[:.&: .x.: .X] $C^^ @@>.@@ _
+@@then on machine@@ ^^$G^^ @@,@@ @@this function can map any algorithm@@ ^^.y.: .X^^ @@to an object@@ ^^$c .[$c.]: $C^^ @@,@@ @@by replacing all occurrences of@@ ^^.x^^ @@in@@ ^^$C^^ @@with@@ ^^.y^^ @@>:@@ '
+
+^^`Application`.:
+   `given` $f .[$G.] .= $c.: [:.&: .x.: .X] $C., `and` .y.: .X.,
+   $f .[$G., .y.] .= $c .[.y.]: $C .[.x =1 .y.].;^^ '
+
+@@rules@@ ++Abstraction++ @@and@@ ++Application++ @@#correspond to conditional proofs and modus ponens in logic.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%May 21, 2021;%%
+%%extended August 9, 2021%% '
+===
+
+=== ##references## ===
+
+===
+@@❉@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›.@@ _
+   @@«Information and Computation», 1988@@ '
+@@❉@@ @@V Voevodsky et al,@@
+   @@«Homotopy Type Theory»@@
+   \\https://homotopytypetheory.org/book\\ '
+===

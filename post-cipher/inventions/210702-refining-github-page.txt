@@ -137,6 +137,9 @@ _ ++}++ '
 @@there was perhaps some problems with path or version.@@ _
 @@besides, to get a screenshot of higher resolution, we @had to zoom in,@@
 @@but by far I @didn’t manage to do that either.@@ _
+@@in addition, Chinese characters should be shown in Noto Serif,@@
+@@but the result was in a sans font,@@
+@@and I can’t tell <whether it was Noto Sans or a default font in Windows>.@@ '
 ===
 
 ///
