@@ -89,14 +89,16 @@ body, header
 {
    margin: 0px;
    padding: 0px;
-   text-indent: 36px;
+   text-indent: 40px;
    text-align: justify;
    text-justify: inter-word;
    overflow-wrap: anywhere;
 }
 @media screen and (max-width: 600px) {
-   .paragraph
-   { text-align: left; }
+   .paragraph {
+      text-align: left; 
+      text-indent: 20px;
+   }
 }
 
 .line
@@ -199,13 +201,13 @@ code, .mono
 
 .document a:hover
 {
-   color: lightsteelblue;
+   color: cornflowerblue;
    text-decoration: underline;
 }
 
 .document a:visited
 {
-   color: mediumslateblue;
+   color: slateblue;
    text-decoration: none;
 }
 
@@ -470,7 +472,13 @@ header #header-post, header #header-page
 .title-catalog .display,
 .title-catalog .display:visited
 {
-   color: darkslateblue;
+   color: blueviolet;
+}
+
+.title-catalog .display:hover
+{
+   color: mediumslateblue;
+   text-decoration: underline;
 }
 
 .entry .title-entry .heading,
@@ -479,10 +487,9 @@ header #header-post, header #header-page
    color: mediumblue;
 }
 
-.title-catalog .display:hover,
 .entry .title-entry .heading:hover
 {
-   color: cornflowerblue;
+   color: dodgerblue;
    text-decoration: underline;
 }
 
