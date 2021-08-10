@@ -2,10 +2,10 @@ from pdb import set_trace
 
 from . import aid as AID
 
-# # Stem: Document
+# # Stem: Document,
 # # Stem (bough): Section, Stanza, Array, Graph, Break,
-# # Stem (twig): Paragraph, Line, Row, Newline
-# # Stem (frond): Phrase, Verse, Cell, Space
+# # Stem (twig): Paragraph, Line, Row, Newline,
+# # Stem (frond): Phrase, Verse, Cell, Space,
 # # Leaf: Math, Pseudo,
 # # Leaf: Serif_roman, Serif_italic, Serif_bold,
 # # Leaf: Sans_roman, Sans_bold, Mono,
@@ -62,14 +62,25 @@ class Organ(object):
    def explain(self):
       print(f"Writing {self.KIND} with source:", flush = True)
       many_fragment = self.source.split('\n')
-      many_count = []
-      for count in range(len(many_fragment)):
-         if (abs(count) < 3) or (abs(count - len(many_fragment)) < 3):
-            many_count.append(count)
+      size = len(many_fragment)
+      many_count_start = []
+      many_count_stop = []
+      if size <= 6:
+         many_count_start = list(range(size))
+      else:
+         for count in range(size):
+            if (abs(count) <= 3):
+               many_count_start.append(count)
+            if (abs(count - len(many_fragment)) <= 3):
+               many_count_stop.append(count)
       color_default = "\033[0m"
       color_yellow = "\033[93m"
-      for count in many_count:
+      for count in many_count_start:
          print(">>", color_yellow, many_fragment[count], color_default)
+      if many_count_stop:
+         print("...(omitted)...")
+         for count in many_count_stop:
+            print(">>", color_yellow, many_fragment[count], color_default)
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

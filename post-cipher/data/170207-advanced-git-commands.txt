@@ -46,7 +46,7 @@
 ===
 @@to apply a rebase, in order to replay commits from the current branch onto another branch:@@ '
 
-++$ git rebase <branch_being_merged_into>++ '
+++$ git rebase <target_branch>++ '
 
 @@with option@@ ++-i++ @@,@@ @@you may edit <whether and how the each commit is used>.@@ '
 ===
@@ -56,7 +56,7 @@
 @@let us say <you want to combine the last commits to be one>.@@ _
 @@apply an interactive rebase:@@ '
 
-++$ git rebase -i HEAD~3++ '
+++$ git rebase -i HEAD~3 <target_branch>++ '
 
 @@an editor should open, showing:@@ '
 

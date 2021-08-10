@@ -87,7 +87,7 @@ def write_element(cut = '\n', **data):
 def get_mark_right(mark_left):
    assert (len(tuple(set(mark_left))) == 1)
    tip_left = mark_left[0]
-   label_left = get_label(mark_left[0])
+   label_left = get_label(tip_left)
    if not be_start_asymmetry(label_left):
       mark_right = mark_left
       return mark_left

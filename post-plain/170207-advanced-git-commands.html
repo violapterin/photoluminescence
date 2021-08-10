@@ -77,7 +77,7 @@
 <span class="phrase"><span class="serif-roman">To apply a rebase, in order to replay commits from the current branch onto another branch:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git rebase &lt;branch_being_merged_into&gt;</code></span>
+<span class="phrase"><code class="mono">$ git rebase &lt;target_branch&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">With option</span> <code class="mono">-i</code><span class="serif-roman">,</span> <span class="serif-roman">you may edit whether and how the each commit is used.</span></span>
@@ -88,7 +88,7 @@
 <span class="phrase"><span class="serif-roman">For concreteness:</span></span> <span class="phrase"><span class="serif-roman">Let us say you want to combine the last commits to be one.</span></span> <span class="phrase"><span class="serif-roman">Apply an interactive rebase:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><code class="mono">$ git rebase -i HEAD~3</code></span>
+<span class="phrase"><code class="mono">$ git rebase -i HEAD~3 &lt;target_branch&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">An editor should open, showing:</span></span>

@@ -83,6 +83,11 @@
 @@this file is &saved as@@ ++.git/COMMIT_EDITMSG++ @@.@@ _
 @@I #find it useful to edit the commit message this way, because I #don’t have to backslash- escape special characters.@@ _
 @@you may also add more explanatory lines below, separated from the commit message with a blank line.@@ '
+
+@@but what if you #want to cancel the last 3 commits, in order to make a new commit from the present tree?@@ _
+@@you can revert the head, and commit as usual.@@ '
+
+++$ git reset HEAD~3++ '
 ===
 
 ===
@@ -134,7 +139,7 @@
 @@think twice before using it!@@ '
 ===
 
-=== ##from the remote to the local: clone, fetch, pull## ===
+=== ##from the remote to the local: clone, fetch, pull, reset## ===
 
 ===
 @@to clone everything from the remote repo into a new subdirectory of the current working directory (where the repo for the blog is &taken for instance):@@ '
@@ -143,19 +148,25 @@
 ===
 
 ===
-@@fetching $creates a local copy of a remote branch in the local repo only, not affecting the working tree nor the head.@@ _
-@@to fetch everything from the remote repo to the working tree:@@ '
+@@fetching $creates a local copy of a remote branch only, not affecting the working tree nor the head.@@ _
+@@to fetch everything from a remote branch:@@ '
 
 ++$ git fetch origin <branch>++ '
 ===
 
 ===
-@@meanwhile, pulling not only $fetches all remote branches as said, but also $merges all conflicts into the specified branch.@@ _
+@@meanwhile, pulling not only $fetches a remote branch as said, but also $merges all conflicts into the corresponding local branch.@@ _
 @@to pull from origin to a branch:@@ '
 
 ++$ git pull origin <branch>++ '
 
 @@it is more straightforward, I #think, to fetch and merge explicitly, than just to pull.@@ '
+===
+
+===
+@@if there are local changes, {which you are %willing to discard,} we may reset the local branch to a remote branch:@@ '
+
+++$ git reset --hard origin/<branch>++ '
 ===
 
 === ##from the local to the tree: reset, revert## ===

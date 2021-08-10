@@ -20,9 +20,10 @@ class Document(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          bough, head = self.snip_bough(head)
-         if bough:
-            self.many_sink.append(bough)
          head = self.move_right(0, head)
+         if not bough:
+            continue
+         self.many_sink.append(bough)
 
    def write(self):
       many_content = []
@@ -126,9 +127,10 @@ class Section(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Paragraph, head)
-         if twig:
-            self.many_sink.append(twig)
          head = self.move_right(0, head)
+         if not twig:
+            continue
+         self.many_sink.append(twig)
 
    def write(self):
       many_content = []
@@ -161,9 +163,10 @@ class Stanza(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Line, head)
-         if twig:
-            self.many_sink.append(twig)
          head = self.move_right(0, head)
+         if not twig:
+            continue
+         self.many_sink.append(twig)
 
    def write(self):
       many_content = []
@@ -197,9 +200,10 @@ class Array(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          twig, head = self.shatter_stem("newline", Row, head)
-         if twig:
-            self.many_sink.append(twig)
          head = self.move_right(0, head)
+         if not twig:
+            continue
+         self.many_sink.append(twig)
 
    def write(self):
       many_content = []
@@ -268,10 +272,10 @@ class Paragraph(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Phrase, head)
+         head = self.move_right(0, head)
          if not frond:
             continue
          self.many_sink.append(frond)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []
@@ -302,10 +306,10 @@ class Line(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Verse, head)
+         head = self.move_right(0, head)
          if not frond:
             continue
          self.many_sink.append(frond)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []
@@ -336,10 +340,10 @@ class Row(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          frond, head = self.shatter_stem("space", Cell, head)
+         head = self.move_right(0, head)
          if not frond:
             continue
          self.many_sink.append(frond)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []
@@ -369,6 +373,7 @@ class Phrase(Stem):
    def parse(self):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
+         head = self.move_right(0, head)
          leaf, head = self.snip_leaf(head)
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
@@ -380,7 +385,6 @@ class Phrase(Stem):
             self.many_sink[-1].address = address
          else:
             self.many_sink.append(leaf)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []
@@ -428,6 +432,7 @@ class Verse(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
+         head = self.move_right(0, head)
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
@@ -438,7 +443,6 @@ class Verse(Stem):
             self.many_sink[-1].address = address
          else:
             self.many_sink.append(leaf)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []
@@ -471,6 +475,7 @@ class Cell(Stem):
       head = self.move_right(0, 0)
       while (head < len(self.source)):
          leaf, head = self.snip_leaf(head)
+         head = self.move_right(0, head)
          if (not leaf) or (not leaf.source.strip(" \t\n")):
             continue
          if (leaf.KIND == "link"):
@@ -481,7 +486,6 @@ class Cell(Stem):
             self.many_sink[-1].address = address
          else:
             self.many_sink.append(leaf)
-         head = self.move_right(0, head)
 
    def write(self):
       many_content = []

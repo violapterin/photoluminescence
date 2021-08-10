@@ -8,8 +8,6 @@
 
 ## Comments
 
-1. Skepticism on math education
-
 1. English modal verbs
 
 1. Technological unemployment
@@ -44,9 +42,7 @@
 
 ## Meta
 
-1. Insert word break opportunity
-
-1. Show, in bracket, number of posts in a category
+1. Reduce line height for wrapped headings
 
 1. Save the Porphyrin cheat sheet
 

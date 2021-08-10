@@ -97,6 +97,12 @@
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">An editor should open, showing the commit message and the status.</span></span> <span class="phrase"><span class="serif-roman">This file is saved as</span> <code class="mono">.git/COMMIT_EDITMSG</code><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">I find it useful to edit the commit message this way, because I don’t have to backslash-escape special characters.</span></span> <span class="phrase"><span class="serif-roman">You may also add more explanatory lines below, separated from the commit message with a blank line.</span></span>
 </p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">But what if you want to cancel the last 3 commits, in order to make a new commit from the present tree?</span></span> <span class="phrase"><span class="serif-roman">You can revert the head, and commit as usual.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git reset HEAD~3</code></span>
+</p>
 </div>
 <div class="section">
 <p class="paragraph">
@@ -156,7 +162,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><b class="serif-bold">From the remote to the local: clone, fetch, pull</b></span>
+<span class="phrase"><b class="serif-bold">From the remote to the local: clone, fetch, pull, reset</b></span>
 </p>
 </div>
 <div class="section">
@@ -169,7 +175,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Fetching creates a local copy of a remote branch in the local repo only, not affecting the working tree nor the head.</span></span> <span class="phrase"><span class="serif-roman">To fetch everything from the remote repo to the working tree:</span></span>
+<span class="phrase"><span class="serif-roman">Fetching creates a local copy of a remote branch only, not affecting the working tree nor the head.</span></span> <span class="phrase"><span class="serif-roman">To fetch everything from a remote branch:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git fetch origin &lt;branch&gt;</code></span>
@@ -177,13 +183,21 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Meanwhile, pulling not only fetches all remote branches as said, but also merges all conflicts into the specified branch.</span></span> <span class="phrase"><span class="serif-roman">To pull from origin to a branch:</span></span>
+<span class="phrase"><span class="serif-roman">Meanwhile, pulling not only fetches a remote branch as said, but also merges all conflicts into the corresponding local branch.</span></span> <span class="phrase"><span class="serif-roman">To pull from origin to a branch:</span></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><code class="mono">$ git pull origin &lt;branch&gt;</code></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">It is more straightforward, I think, to fetch and merge explicitly, than just to pull.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">If there are local changes, which you are willing to discard, we may reset the local branch to a remote branch:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">$ git reset --hard origin/&lt;branch&gt;</code></span>
 </p>
 </div>
 <div class="section">

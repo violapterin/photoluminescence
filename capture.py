@@ -14,15 +14,13 @@ def main():
    folder_slice = os.path.join(folder_book, "slice")
    folder_leaf = os.path.join(folder_book, "leaf")
 
-   #many_title = extract_title(folder_cipher)
+   many_title = extract_title(folder_cipher)
+   many_title.sort()
    #many_title = many_title[0:4] # XXX
-   #print(many_title)
-
    many_title = [
       "190711-shuri-castle-okinawa",
       "210719-valid-triangle-numbers",
    ]
-
    prefix = "https://www.violapterin.com/post/"
    many_path_graph = []
    for title in many_title:
@@ -39,12 +37,12 @@ def main():
       graph.save(path_graph, quality = 92)
 
 def enhance_sharpness(graph):
-   level = 1.2
+   level = 1.3
    graph = ENHANCE.Sharpness(graph).enhance(level)
    return graph
 
 def enhance_contrast(graph):
-   level = 1.2
+   level = 1.1
    graph = ENHANCE.Contrast(graph).enhance(level)
    return graph
 
