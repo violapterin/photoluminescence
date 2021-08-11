@@ -196,13 +196,14 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    many_whole.append(header_page)
 
    many_whole.append("<main class=\"document\">")
-   bound_symbol = 48
+   bound_symbol = 54
    entity = "<p class=\"title-catalog\">"
    count_symbol = 0
+   padding = 4
    for name, catalog in many_catalog.items():
       unified = unify_name(name)
       kind = name + ' ' + '[' + str(len(catalog)) + ']'
-      count_symbol += len(kind) + 1
+      count_symbol += len(kind) + padding
       display = write_element_display(kind, unified)
       whether_return = False
       if whether_short:
@@ -210,7 +211,7 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
       else:
          if (count_symbol > bound_symbol):
             whether_return = True
-            count_symbol = len(kind)
+            count_symbol = len(kind) + padding
       if whether_return:
          entity += "</p>"
          many_whole.append(entity)

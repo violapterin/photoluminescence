@@ -84,7 +84,7 @@ _ ++recipe 'all' executed.++ '
 ~~~
 
 ===
-%%Chinese version written October 31, 2016;%%
+@@❧@@ %%Chinese version written October 31, 2016;%%
 %%English version translated January 31, 2017;%%
 %%revised July 31, 2021%% '
 ===

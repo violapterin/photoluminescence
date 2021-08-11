@@ -212,8 +212,6 @@ class Array(Stem):
       element = AID.write_element(
          content = twig_head.write(),
          tag = self.TAG_HEAD,
-         many_attribute = ["class"],
-         many_value = [self.KIND],
       )
       many_content.append(element)
       for twig_body in self.many_sink:

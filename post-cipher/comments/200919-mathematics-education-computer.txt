@@ -5,7 +5,7 @@
 @@children #spend a lot of time in school learning arithmetic, chiefly the four operations on real numbers, solution of linear systems, and manipulation involving polynomials.@@ _
 @@as the level $progresses, some of them #struggle,@@
 @@and others #appear more capable.@@ _
-@@consequently, they either #choose or #abandon majors or occupations mathematics.@@ '
+@@consequently, they either #choose or #abandon majors or occupations related to mathematics.@@ '
 
 @@but in a broader perspective, these calculations are some simple algorithms in disguise.@@ _
 @@operations on a field, changing basis for a matrix, Euclid algorithm on a polynomial ring, and so on— we #know <that they are straightforward, if tedious, to program from scratch, since they are merely a bunch of rigid rules>.@@ _

@@ -19,27 +19,25 @@
 
 body
 {
-   width: 720px; 
-   font-size: 22px;
+   width: 800px; 
+   font-size: 24px;
+}
+@media screen and (max-width: 1300px) {
+   body { width: 700px; font-size: 22px; }
 }
 @media screen and (max-width: 900px) {
    body { width: 600px; font-size: 20px; }
 }
-@media screen and (max-width: 720px) {
-   body { width: 500px; font-size: 18px; }
-}
 @media screen and (max-width: 600px) {
-   body { width: 420px; font-size: 16px; }
-}
-@media screen and (max-width: 500px) {
-   body { width: 360px; font-size: 14px; }
+   body { width: 480px; font-size: 18px; }
 }
 @media screen and (max-width: 420px) {
-   body { width: 320px; font-size: 12px; }
+   body { width: 360px; font-size: 16px; }
 }
 
 body, header
-#header-banner, #header-page, #header-post, #footer-whole
+#header-banner, #header-page, #header-post,
+#footer-whole
 {
    margin: auto;
    padding: 0px;
@@ -63,8 +61,10 @@ body, header
 
 .array
 {
-   margin: 16px 0px;
+   margin: 0px 24px;
    padding: 0px;
+   border-spacing: 0px 3px;
+   width: 96%
 }
 
 .graph
@@ -85,7 +85,7 @@ body, header
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.paragraph
+div .paragraph
 {
    margin: 0px;
    padding: 0px;
@@ -95,13 +95,13 @@ body, header
    overflow-wrap: anywhere;
 }
 @media screen and (max-width: 600px) {
-   .paragraph {
+   div .paragraph {
       text-align: left; 
       text-indent: 20px;
    }
 }
 
-.line
+div .line
 {
    margin: 2px;
    padding: 0px 6px;
@@ -112,24 +112,33 @@ body, header
    overflow-wrap: anywhere;
 }
 
-.row
+table .row, table .row
 {
-   margin: 6px;
+   margin: 0px;
    padding: 0px;
-   border: 1px darkseagreen solid;
 }
 
-.phrase, .verse, .cell
+p .phrase, p .verse
 {
-   padding: 0px;
    margin: 0px 4px;
+   padding: 0px;
+}
+
+tr .cell
+{
+   margin: 0px;
+   padding: 6px;
+   border-left: 4px darkseagreen solid;
+   border-bottom: 2px darkseagreen solid;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-main, header, p, div, table, span, em, b
+header, main,
+p, div, table,
+span, em, b
 {
    font-family: "Alegreya", "Noto Serif CJK KR", serif;
    font-weight: 400;
@@ -406,57 +415,57 @@ header #header-post, header #header-page
 @media screen and (max-width: 900px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 28px; }
+   { font-size: 30px; }
 }
 @media screen and (max-width: 600px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 24px; }
+   { font-size: 28px; }
 }
 @media screen and (max-width: 420px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 20px; }
+   { font-size: 26px; }
 }
 
 .title-catalog .display
 {
    margin: 0px 12px;
    padding: 0px;
-   font-size: 26px;
+   font-size: 28px;
    font-weight: 500;
 }
 @media screen and (max-width: 900px) {
    .title-catalog .display
-   { margin: 0px 10px; font-size: 22px; }
+   { margin: 0px 10px; font-size: 26px; }
 }
 @media screen and (max-width: 600px) {
    .title-catalog .display
-   { margin: 0px 8px; font-size: 18px; }
+   { margin: 0px 8px; font-size: 24px; }
 }
 @media screen and (max-width: 420px) {
    .title-catalog .display
-   { margin: 0px 6px; font-size: 14px; }
+   { margin: 0px 6px; font-size: 22px; }
 }
 
 .entry .title-entry .heading
 {
    margin: 0px;
    padding: 0px;
-   font-size: 28px;
+   font-size: 30px;
    font-weight: 700;
 }
 @media screen and (max-width: 900px) {
    .entry .title-entry .heading
-   { font-size: 24px; }
+   { font-size: 28px; }
 }
 @media screen and (max-width: 600px) {
    .entry .title-entry .heading
-   { font-size: 20px; }
+   { font-size: 26px; }
 }
 @media screen and (max-width: 420px) {
    .entry .title-entry .heading
-   { font-size: 16px; }
+   { font-size: 24px; }
 }
 
 #header-page .heading-page .display
