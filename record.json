@@ -1,4 +1,7 @@
 [
+{"stamp": "210812", "genre": "expositions", "series": "Foundations of mathematics",
+   "tag": ["Type theory", "Constructive mathematics"],
+   "title": "The identity type"},
 {"stamp": "210811", "genre": "data",
    "tag": ["Verbs", "German"],
    "title": "German irregular verbs"},
@@ -18,7 +21,7 @@
    "tag": ["GitHub", "Meta", "Web programming", "Python", "TeX family"],
    "title": "Restarting: GitHub Page progress report, part 4"},
 {"stamp": "210521", "genre": "expositions",
-   "tag": ["Type theory", "Constructive mathematics"],
+   "tag": ["Type theory", "Constructive mathematics"], "series": "Foundations of mathematics",
    "title": "A picture of constructive mathematics"},
 {"stamp": "210418", "genre": "fictions",
    "tag": ["Sonnet", "Love"],

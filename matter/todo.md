@@ -42,7 +42,7 @@
 
 ## Meta
 
-1. Reduce line height for wrapped headings
+1. Add word break opportunity in cells of a table
 
 1. Save the Porphyrin cheat sheet
 

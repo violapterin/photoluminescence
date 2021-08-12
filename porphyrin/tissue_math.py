@@ -154,7 +154,7 @@ class Math_sign(Leaf):
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
          many_sign = (
-            "\\Leftarrow", "\\Lleftarrow",
+            "\\leftarrow", "\\Leftarrow",
             "\\nwarrow", "\\swarrow",
             "\\leftarrowtail", "\\twoheadleftarrow", 
             "\\hookleftarrow", "\\curvearrowleft",
@@ -164,7 +164,7 @@ class Math_sign(Leaf):
       elif (label_tip == "ARROW_RIGHT"):
          self.LATERAL = False
          many_sign = (
-            "\\Rightarrow", "\\Rrightarrow",
+            "\\rightarrow", "\\Rightarrow",
             "\\nearrow", "\\searrow",
             "\\rightarrowtail", "\\twoheadrightarrow", 
             "\\hookrightarrow", "\\curvearrowright",
@@ -283,8 +283,6 @@ class Math_plain(Leaf):
             "OPERATION_THREE": "\\,\\cdot\\,",
             #
             "ARROW_MIDDLE": ("\\:" + "\\uparrow" + "\\:"),
-            "ARROW_LEFT": ("\\:" + "\\leftarrow" + "\\:"),
-            "ARROW_RIGHT": ("\\:" + "\\rightarrow" + "\\:"),
             "EQUIVALENCE_ONE": ("\\;" + "=" + "\\;"),
             "EQUIVALENCE_TWO": ("\\;" + "\\sim" + "\\;"),
             #

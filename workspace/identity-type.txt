@@ -1,0 +1,45 @@
+===
+@@if@@ ^^.x^^ @@and@@ ^^.y^^ @@are equal, we write@@ ^^.x =1 .y^^ @@.@@ _
+@@what does that mean?@@ _
+@@it means@@ <^^.x^^ @@and@@ ^^.y^^ @@are just the same thing>.@@ _
+@@and what does that mean?@@ _
+@@it means <if a term involves@@ ^^.x^^ @@,@@ @@it can be changed to@@ ^^.y^^ @@>.@@ '
+
+@@the bewilderment arises, if we #consider@@ ^^.x =1 .5^^ @@,@@ ^^.y =1 .3^^ @@.@@ _
+@@then@@ ^^.x^^ @@and@@ ^^.y .+ .2^^ @@are the same thing.@@ _
+@@but how can@@ ^^.x^^ @@and@@ ^^.y .+ .2^^ @@happen?@@ _
+@@the former is the identifier for a number,@@
+@@and the latter is the result of an operation involving an identifier and a constant.@@ '
+
+@@if everything is &phrased as something existing or something giving something else, then an identity is an object in a type too.@@ _
+@@the identity@@ ^^.I^^ @@$depends on a type@@ ^^.A^^ @@,@@
+@@and it $relates two objects of the same type:@@ '
+
+^^.I .[.A.: .%., .a.: .A., .b.: .B.].: .%^^ '
+
+@@every term is equal to itself,@@
+@@and every object in a type can be replaced with equal objects:@@ '
+
+^^`given` .x.: .A.,
+   `has` &R .[.x.]
+      =1 .I .[.A., .x., .x.].]^^ '
+
+^^`given` .x.: .A.,
+   `and` .y.: .A.,
+   `and` .C.: .a \1 .%.,
+   `has` &L .[$f.: .I .[.A., .x., .y.].]
+      =1 $y.: .I .[.A., .C .[.x.]., .C .[.y.].]^^ '
+
+@@a moment’s thought reveals <reflexivity, symmetry, and transitivity #hold>,@@
+@@and therefore <the identity type can be viewed as an equivalence relation>, agreeing the tradition notion.@@ '
+
+@@when we @stated the rules, we @used the judgemental equality.@@ _
+@@however, we see immediately <if@@ ^^.x =1 .y^^ @@then@@ ^^.x .= .y^^ @@>.@@ _
+@@this is the reason <that it is mostly harmless to confuse them>.@@ _
+@@in presenting classical mathematics, we only use the judgemental equality in definitions, and use the identity anywhere else.@@ '
+
+@@actually, in the presentation of rules, it is possible to altogether avoid introducing@@ ^^=1^^ @@nor using@@ ^^.=^^ @@,@@ @@in favor of the judgement sign@@ ^^<9^^ @@;@@
+@@though the rules would be harder to understand to most people.@@ _
+@@if so, the judgemental equality is merely a syntactic sugar,@@
+@@and for our purpose, whenever it is &called, it is &considered as an identity.@@ '
+===

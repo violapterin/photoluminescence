@@ -1,6 +1,9 @@
 ===
 @@here are some common German irregular verbs.@@
-@@we list respectively the infinitive, third person singular present, third person singular simple past, third person singular perfect.@@ '
+@@we #list respectively the infinitive, third person singular present, third person singular simple past, third person singular perfect.@@ '
+@@some verbs {which originally #form perfect with@@ ##ist## @@},@@ @@can also go with@@ ##hat## @@now,@@
+@@and they #go with@@ ##hat## @@when used in the transitive sense.@@ '
+@@some verbs {which are traditionally strong}, have also &allowed weak conjugation.
 ===
 
 === ##group 1: a, e## ===
@@ -8,22 +11,23 @@
 """
 @@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
 ##bitten## _ ##bittet## _ ##bat## _ ##hat gebeten## '
-##essen## _ ##ißt## _ ##aß## _ ##hat gegessen## '
-##fressen## _ ##frißt## _ ##fraß## _ ##hat gefressen## '
+##essen## _ ##isst## _ ##aß## _ ##hat gegessen## '
+##fressen## _ ##frisst## _ ##fraß## _ ##hat gefressen## '
 ##geben## _ ##gibt## _ ##gab## _ ##hat gegeben## '
 ##geschehen## _ ##geschieht## _ ##geschah## _ ##ist geschehen## '
 ##lesen## _ ##liest## _ ##las## _ ##hat gelesen## '
 ##liegen## _ ##liegt## _ ##lag## _ ##hat gelegen## '
-##messen## _ ##mißt## _ ##maß## _ ##hat gemessen## '
+##messen## _ ##misst## _ ##maß## _ ##hat gemessen## '
 ##sehen## _ ##sieht## _ ##sah## _ ##hat gesehen## '
 ##sitzen## _ ##sitzt## _ ##saß## _ ##hat gesessen## '
 ##treten## _ ##tritt## _ ##trat## _ ##ist getreten## '
-##vergessen## _ ##vergißt## _ ##vergaß## _ ##hat vergessen## '
+##vergessen## _ ##vergisst## _ ##vergaß## _ ##hat vergessen## '
 """
 
 === ##group 2: a, o## ===
 
 """
+@@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
 ##befehlen## _ ##befiehlt## _ ##befahl## _ ##hat befohlen## '
 ##beginnen## _ ##beginnt## _ ##begann## _ ##hat begonnen## '
 ##brechen## _ ##bricht## _ ##brach## _ ##ist gebrochen## '
@@ -46,6 +50,7 @@
 === ##group 3: a, u## ===
 
 """
+@@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
 ##binden## _ ##bindet## _ ##band## _ ##hat gebunden## '
 ##finden## _ ##findet## _ ##fand## _ ##hat gefunden## '
 ##gelingen## _ ##gelingt## _ ##gelang## _ ##ist gelungen## '
@@ -62,18 +67,17 @@
 
 """
 @@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
-##beißen## _ ##beißt## _ ##biß## _ ##hat gebissen## '
+##beißen## _ ##beißt## _ ##biss## _ ##hat gebissen## '
 ##gleiten## _ ##gleitet## _ ##glitt## _ ##ist glitten## '
 ##greifen## _ ##greift## _ ##griff## _ ##hat gegriffen## '
 ##leiden## _ ##leidet## _ ##litt## _ ##hat gelitten## '
 ##pfeifen## _ ##pfeift## _ ##pfiff## _ ##hat gepfiffen## '
-##reißen## _ ##reißt## _ ##riß## _ ##hat gerissen## '
+##reißen## _ ##reißt## _ ##riss## _ ##hat gerissen## '
 ##reiten## _ ##reitet## _ ##ritt## _ ##ist geritten## '
 ##schneiden## _ ##schneidet## _ ##schnitt## _ ##hat geschnitten## '
 ##schreiten## _ ##schreitet## _ ##schritt## _ ##ist geschritten## '
 ##streiten## _ ##streitet## _ ##stritt## _ ##hat gestritten## '
 """
-<#### _ #### _ #### _ #### '>
 
 === ##group 5: ie, ie## ===
 
@@ -84,12 +88,12 @@
 ##reiben## _ ##reibt## _ ##rieb## _ ##hat gerieben## '
 ##scheinen## _ ##scheint## _ ##schien## _ ##hat geschienen## '
 ##schreiben## _ ##schreibt## _ ##schrieb## _ ##hat geschrieben## '
-##schreien## _ ##schreit## _ ##schrie## _ ##hat geschrieen## '
+##schreien## _ ##schreit## _ ##schrie## _ ##hat geschrien## '
 ##schweigen## _ ##schweigt## _ ##schwieg## _ ##hat geschwiegen## '
 ##steigen## _ ##steigt## _ ##stieg## _ ##ist gestiegen## '
 ##treiben## _ ##treibt## _ ##trieb## _ ##hat getrieben## '
 ##vermeiden## _ ##vermeidet## _ ##vermied## _ ##hat vermieden## '
-##verziehen## _ ##verzeiht## _ ##verzieh## _ ##hat verziehen## '
+##verzeihen## _ ##verzeiht## _ ##verzieh## _ ##hat verziehen## '
 ##weisen## _ ##weist## _ ##wies## _ ##hat gewiesen## '
 """
 
@@ -103,7 +107,7 @@
 ##fangen## _ ##fängt## _ ##fing## _ ##hat gefangen## '
 ##halten## _ ##hält## _ ##hielt## _ ##hat gehalten## '
 ##hängen## _ ##hängt## _ ##hing## _ ##hat gehangen## '
-##lassen## _ ##läßt## _ ##ließ## _ ##hat gelassen## '
+##lassen## _ ##lässt## _ ##ließ## _ ##hat gelassen## '
 ##raten## _ ##rät## _ ##riet## _ ##hat geraten## '
 ##schlafen## _ ##schläft## _ ##schlief## _ ##hat geschlafen## '
 """
@@ -115,17 +119,18 @@
 ##biegen## _ ##biegt## _ ##bog## _ ##hat gebogen## '
 ##bieten## _ ##bietet## _ ##bot## _ ##hat geboten## '
 ##fliegen## _ ##fliegt## _ ##flog## _ ##ist geflogen## '
-##fiehen## _ ##flieht## _ ##floh## _ ##ist geflohen## '
-##fließen## _ ##fließt## _ ##floß## _ ##ist geflossen## '
+##fliehen## _ ##flieht## _ ##floh## _ ##ist geflohen## '
+##fließen## _ ##fließt## _ ##floss## _ ##ist geflossen## '
 ##frieren## _ ##friert## _ ##fror## _ ##hat gefroren## '
-##genießen## _ ##genießt## _ ##genoß## _ ##hat genossen## '
-##gießen## _ ##gießt## _ ##goß## _ ##hat gegossen## '
+##genießen## _ ##genießt## _ ##genoss## _ ##hat genossen## '
+##gießen## _ ##gießt## _ ##goss## _ ##hat gegossen## '
 ##heben## _ ##hebt## _ ##hob## _ ##hat gehoben## '
 ##kriechen## _ ##kriecht## _ ##kroch## _ ##ist gekrochen## '
 ##lügen## _ ##lügt## _ ##log## _ ##hat gelogen## '
 ##riechen## _ ##riecht## _ ##roch## _ ##hat gerochen## '
 ##schieben## _ ##schiebt## _ ##schob## _ ##hat geschoben## '
-##schießen## _ ##schießt## _ ##schoß## _ ##hat geschossen## '
+##schießen## _ ##schießt## _ ##schoss## _ ##hat geschossen## '
+##schließen## _ ##schließt## _ ##schloss## _ ##hat geschlossen## '
 ##schmelzen## _ ##schmilzt## _ ##schmolz## _ ##ist geschmolzen## '
 ##schwören## _ ##schwört## _ ##schwor## _ ##hat geschworen## '
 ##verlieren## _ ##verliert## _ ##verlor## _ ##hat verloren## '
@@ -136,8 +141,9 @@
 === ##group 8: u, a## ===
 
 """
+@@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
 ##fahren## _ ##fährt## _ ##fuhr## _ ##ist gefahren## '
-##graben## _ ##gräbt## _ ##grub## _ ##hat gebraben## '
+##graben## _ ##gräbt## _ ##grub## _ ##hat gegraben## '
 ##laden## _ ##lädt## _ ##lud## _ ##hat geladen## '
 ##schaffen## _ ##schafft## _ ##schuf## _ ##hat geschaffen## '
 ##schlagen## _ ##schlägt## _ ##schlug## _ ##hat geschlagen## '
@@ -149,12 +155,13 @@
 === ##group 9: a, a## ===
 
 """
-##brenne## _ ##brennt## _ ##brannte## _ ##hat gebrannt## '
-##bringer## _ ##bringt## _ ##brachte## _ ##hat gebracht## '
+@@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
+##brennen## _ ##brennt## _ ##brannte## _ ##hat gebrannt## '
+##bringen## _ ##bringt## _ ##brachte## _ ##hat gebracht## '
 ##denken## _ ##denkt## _ ##dachte## _ ##hat gedacht## '
 ##kennen## _ ##kennt## _ ##kannte## _ ##hat gekannt## '
 ##nennen## _ ##nennt## _ ##nannte## _ ##hat genannt## '
-##rennen## _ ##rennt## _ ##rannte## _ ##hat gebrannt## '
+##rennen## _ ##rennt## _ ##rannte## _ ##hat gerannt## '
 ##senden## _ ##sendet## _ ##sandte## _ ##hat gesandt## '
 ##wenden## _ ##wendet## _ ##wandte## _ ##hat gewandt## '
 """
@@ -162,6 +169,7 @@
 === ##miscellaneous## ===
 
 """
+@@infinitive@@ _ @@present@@ _ @@past@@ _ @@perfect@@ '
 ##gehen## _ ##geht## _ ##ging## _ ##ist gegangen## '
 ##haben## _ ##hat## _ ##hatte## _ ##hat gehabt## '
 ##heißen## _ ##heißt## _ ##hieß## _ ##hat geheißen## '
@@ -170,10 +178,10 @@
 ##rufen## _ ##ruft## _ ##rief## _ ##hat gerufen## '
 ##sein## _ ##ist## _ ##war## _ ##ist gewesen## '
 ##stehen## _ ##steht## _ ##stand## _ ##hat gestanden## '
-##stoßen## _ ##stößt## _ ##stieß## _ ##hat gestossen## '
-##tun## _ ##tut## _ ##tat## _ ##hat gestan## '
+##stoßen## _ ##stößt## _ ##stieß## _ ##hat gestoßen## '
+##tun## _ ##tut## _ ##tat## _ ##hat getan## '
 ##werden## _ ##wird## _ ##wurde## _ ##ist geworden## '
-##wissen## _ ##weiß## _ ##wußte## _ ##hat gewußt## '
+##wissen## _ ##weiß## _ ##wusste## _ ##hat gewusst## '
 """
 
 ~~~
