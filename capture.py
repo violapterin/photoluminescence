@@ -28,7 +28,7 @@ def main():
    ]
    '''
    many_title = extract_title(folder_cipher)
-   many_title = many_title[0:1] # XXX
+   many_title = many_title[0:3] # XXX
    take_photograph(folder_shot, many_title)
    shred_photograph(folder_strip, folder_shot)
    patch_leaf(folder_leaf, folder_strip)
@@ -36,8 +36,9 @@ def main():
 def patch_leaf(folder_leaf, folder_strip):
    if not compare_folder_with_folder(folder_leaf, folder_strip):
       return
-   suffix = ".png"
-   limit_height = 1080
+   suffix_in = ".png"
+   suffix_out = ".jpg"
+   limit_height = 1200
    total = 0
    number_page = 0
    for name_article in os.listdir(folder_strip):
@@ -45,27 +46,32 @@ def patch_leaf(folder_leaf, folder_strip):
       if not os.path.isdir(folder_article):
          continue
       for name_strip in os.listdir(folder_article):
+         if not name_strip.endswith(suffix_in):
+            continue
          path_strip = os.path.join(folder_article, name_strip)
          if not os.path.isfile(path_strip):
             continue
          with IMAGE.open(path_strip) as strip:
             print("opening", path_strip)
             height = strip.size[1]
-            print("height", height)
-            print("total", total)
             if (total == 0):
                leaf = copy.copy(strip)
                total += height
             elif (total + height > limit_height):
-               name_leaf = str(number_page).zfill(3) + suffix
+               name_leaf = str(number_page).zfill(3) + suffix_out
                number_page += 1
                path_leaf = os.path.join(folder_leaf, name_leaf)
+               leaf = tune_leaf(leaf)
                leaf.save(path_leaf, quality = 100)
                leaf = copy.copy(strip)
                total = height
             else:
                leaf = concatenate_graph(strip, leaf)
                total += height
+   name_leaf = str(number_page).zfill(3) + suffix_out
+   path_leaf = os.path.join(folder_leaf, name_leaf)
+   leaf = tune_leaf(leaf)
+   leaf.save(path_leaf, quality = 100)
 
 def shred_photograph(folder_strip, folder_shot):
    suffix = ".png"
@@ -113,10 +119,11 @@ def shred_photograph(folder_strip, folder_shot):
 def take_photograph(folder_shot, many_title):
    prefix = "https://www.violapterin.com/post/"
    many_path_graph = []
+   suffix = ".png"
    for title in many_title:
       stamp = title.split('-')[0]
       address = prefix + title + ".html"
-      path_graph = os.path.join(folder_shot, stamp) + ".png"
+      path_graph = os.path.join(folder_shot, stamp) + suffix
       if os.path.isfile(path_graph):
          continue
       many_path_graph.append(path_graph)
@@ -143,32 +150,36 @@ def save_screenshot(address):
    return graph
 
 def concatenate_graph(down, top):
+   top_alpha = top.convert("RGBA")
+   down_alpha = down.convert("RGBA")
    height_top = top.size[1]
    height_down = down.size[1]
    width = max(top.size[0], down.size[0])
    dimension = (width, height_top + height_down)
-   combined = IMAGE.new("RGB", dimension)
-   combined.paste(top, (0, 0))
-   combined.paste(down, (0, height_top))
+   combined = IMAGE.new("RGBA", dimension, (255, 255, 255))
+   combined.paste(top, (0, 0), top_alpha)
+   combined.paste(down, (0, height_top), down_alpha)
+   combined = combined.convert("RGB")
    return combined
 
-def pad_leaf(leaf):
-   width = 1200
-   height = 1700
+
+def tune_leaf(leaf):
+   leaf_alpha = leaf.convert("RGBA")
+   width = 1080
+   height = 1450
    more_width = width - leaf.size[0]
    more_height = height - leaf.size[1]
    left_width = more_width // 2
    left_height = more_height // 2
    right_width = more_width - left_width
    right_height = more_height - left_height
-   coordinate = (
-      left_width,
-      left_height,
-      right_width,
-      right_height,
-   )
-   expanded = OPERATION.expand(leaf, coordinate)
-   return expanded
+   coordinate = (left_width, left_height, right_width, right_height)
+   dimension = (width, height)
+   combined = IMAGE.new("RGBA", dimension, (255, 255, 255))
+   combined.paste(leaf, (left_width, left_height), leaf_alpha)
+   combined = combined.convert("RGB")
+   #expanded = OPERATION.expand(leaf, coordinate)
+   return combined
 
 def enhance_sharpness(strip):
    level = 2.5

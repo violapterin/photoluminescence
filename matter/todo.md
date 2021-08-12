@@ -44,6 +44,8 @@
 
 1. Catalog: Print the last one
 
+1. Capture: Why is the background black?
+
 1. Capture: Stop ignore the last line?
 
 1. Save the Porphyrin cheat sheet
