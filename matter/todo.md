@@ -42,7 +42,9 @@
 
 ## Meta
 
-1. Add word break opportunity in cells of a table
+1. Catalog: Print the last one
+
+1. Capture: Stop ignore the last line?
 
 1. Save the Porphyrin cheat sheet
 

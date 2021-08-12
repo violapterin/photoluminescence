@@ -221,29 +221,29 @@ class Array(Stem):
          )
          many_content.append(element)
 
-      setups = ["<colgroup>"]
-      count_row = len(self.many_sink[0].many_sink)
-      highest_count_row = 12
-      if (count_row > highest_count_row):
-         row = self.many_sink[0]
-         data = row.give_data(0, len(row.source))
+      many_setup = ["<colgroup>"]
+      count_twig = len(self.many_sink[0].many_sink)
+      limit_count_twig = 12
+      if (count_twig > limit_count_twig):
+         twig = self.many_sink[0]
+         data = twig.give_data(0, len(twig.source))
          from .caution import Too_many_column as creator
          creator(**data).panic()
-      many_weight = [0] * count_row
-      for row in self.many_sink:
-         if not (len(row.many_sink) == count_row):
-            data = row.give_data(0, len(row.source))
+      many_weight = [0] * count_twig
+      for twig in self.many_sink:
+         if not (len(twig.many_sink) == count_twig):
+            data = twig.give_data(0, len(twig.source))
             from .caution import Column_not_agreeing as creator
             creator(**data).panic()
-         for index in range(count_row):
-            many_weight[index] += len(row.many_sink[index].source)
+         for row in range(count_twig):
+            many_weight[row] += len(twig.many_sink[row].source)
       many_percentage = AID.normalize_percentage(many_weight)
-      for percentage in many_percentage:
-         setups.append("<col style=\"width: {}%;\">".format(percentage))
-      setups.append("</colgroup>")
-      setup = AID.unite(setups, cut = '\n')
+      for column in range(len(many_percentage)):
+         percentage = many_percentage[column]
+         many_setup.append(f"<col style=\"width: {percentage}%;\">")
+      many_setup.append("</colgroup>")
+      setup = AID.unite(many_setup, cut = '\n')
       many_content.insert(0, setup)
-
       content = AID.unite(many_content, cut = '\n')
       if not content:
          return ''
@@ -342,6 +342,10 @@ class Row(Stem):
          if not frond:
             continue
          self.many_sink.append(frond)
+      size = len(self.many_sink)
+      ratio = 3 / size - 3 / (size * size) + 1 / (size * size * size)
+      for twig in self.many_sink:
+         twig.bound_wrap = int(ratio * twig.bound_wrap)
 
    def write(self):
       many_content = []
@@ -468,6 +472,7 @@ class Cell(Stem):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.many_sink = []
+      self.bound_wrap = 24
 
    def parse(self):
       head = self.move_right(0, 0)
@@ -484,6 +489,8 @@ class Cell(Stem):
             self.many_sink[-1].address = address
          else:
             self.many_sink.append(leaf)
+      for leaf in self.many_sink:
+         leaf.bound_wrap = self.bound_wrap
 
    def write(self):
       many_content = []

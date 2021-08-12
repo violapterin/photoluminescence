@@ -260,7 +260,6 @@ def tune_text(source):
    sink = erase_token(many_glyph_space, sink)
    sink = prune_space(sink)
    sink = tune_hypertext(sink)
-   sink = chop_word_text(sink)
    return sink
 
 def tune_code(source):
@@ -268,7 +267,6 @@ def tune_code(source):
    sink = source
    sink = erase_token(many_glyph_space, sink)
    sink = tune_hypertext(sink)
-   sink = chop_word_code(sink)
    return sink
 
 def tune_comment(source):
@@ -341,14 +339,12 @@ def shall_agree_escape_hypertext(source, head_left):
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-def chop_word_text(source):
-   bound = 24
+def chop_word_text(source, bound):
    many_cut = give_punctuation_halfwidth() + tuple("aeiou")
    sink = chop_word(many_cut, bound, source)
    return sink
 
-def chop_word_code(source):
-   bound = 32
+def chop_word_code(source, bound):
    many_cut = give_punctuation_halfwidth()
    sink = chop_word(many_cut, bound, source)
    return sink
@@ -398,25 +394,6 @@ def find_wound(many_cut, source):
          continue
       return found
    return half
-
-
-'''
-def find_wound(many_cut, source):
-   half = int(len(source) / 2)
-   for head in range(half + 1):
-      head_left = half - head
-      head_right = half + head
-      if (head_left >= 0):
-         if (source[head_left] in many_cut):
-            if not shall_agree_escape_hypertext(source, head_left):
-               return head_left
-      if (head_right < len(source)):
-         if (source[head_right] in many_cut):
-            if not shall_agree_escape_hypertext(source, head_right):
-               return head_right
-   return half
-'''
-
 
 def take_value_from_offset(offset, queue):
    if not queue:

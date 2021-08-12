@@ -11,9 +11,11 @@ class Serif_roman(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 24
 
    def write(self):
       content = AID.tune_text(self.source)
+      content = AID.chop_word_text(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink
@@ -26,9 +28,11 @@ class Serif_italic(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 24
 
    def write(self):
       content = AID.tune_text(self.source)
+      content = AID.chop_word_text(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink
@@ -41,9 +45,11 @@ class Serif_bold(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 24
 
    def write(self):
       content = AID.tune_text(self.source)
+      content = AID.chop_word_text(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink
@@ -56,9 +62,11 @@ class Sans_roman(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 24
 
    def write(self):
       content = AID.tune_text(self.source)
+      content = AID.chop_word_text(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink
@@ -71,9 +79,11 @@ class Sans_bold(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 24
 
    def write(self):
       content = AID.tune_text(self.source)
+      content = AID.chop_word_text(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink
@@ -86,9 +96,11 @@ class Mono(Leaf):
    def __init__(self, **data):
       self.fill_basic(**data)
       self.address = ''
+      self.bound_wrap = 32
 
    def write(self):
       content = AID.tune_code(self.source)
+      content = AID.chop_word_code(content, self.bound_wrap)
       if content:
          sink = self.write_text(content)
       return sink

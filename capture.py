@@ -2,6 +2,7 @@
 
 import os
 import io
+import copy
 import numpy as NUMPY
 from selenium import webdriver as DRIVER
 from PIL import Image as IMAGE
@@ -29,41 +30,56 @@ def main():
    many_title = extract_title(folder_cipher)
    many_title = many_title[0:1] # XXX
    take_photograph(folder_shot, many_title)
-   #shred_photograph(folder_strip, folder_shot)
-   #patch_leaf(folder_strip, folder_leaf)
+   shred_photograph(folder_strip, folder_shot)
+   patch_leaf(folder_leaf, folder_strip)
 
-def patch_leaf(folder_strip, folder_leaf):
+def patch_leaf(folder_leaf, folder_strip):
+   if not compare_folder_with_folder(folder_leaf, folder_strip):
+      return
+   suffix = ".png"
    limit_height = 1080
    total = 0
-   for name_strip in os.listdir(folder_strip):
-      path_strip = os.path.join(folder_strip, name_strip)
-      if not os.path.isfile(path_strip):
+   number_page = 0
+   for name_article in os.listdir(folder_strip):
+      folder_article = os.path.join(folder_strip, name_article)
+      if not os.path.isdir(folder_article):
          continue
-      leaf = None
-      with IMAGE.open(path_strip) as strip:
-         if (total == 0):
-            leaf = copy(strip)
-         height = graph.size[1]
-         if (total + height > limit_height):
-            patch(strip, leaf)
-         total += height
+      for name_strip in os.listdir(folder_article):
+         path_strip = os.path.join(folder_article, name_strip)
+         if not os.path.isfile(path_strip):
+            continue
+         with IMAGE.open(path_strip) as strip:
+            print("opening", path_strip)
+            height = strip.size[1]
+            print("height", height)
+            print("total", total)
+            if (total == 0):
+               leaf = copy.copy(strip)
+               total += height
+            elif (total + height > limit_height):
+               name_leaf = str(number_page).zfill(3) + suffix
+               number_page += 1
+               path_leaf = os.path.join(folder_leaf, name_leaf)
+               leaf.save(path_leaf, quality = 100)
+               leaf = copy.copy(strip)
+               total = height
+            else:
+               leaf = concatenate_graph(strip, leaf)
+               total += height
 
 def shred_photograph(folder_strip, folder_shot):
    suffix = ".png"
-   tmp = 0 # XXX
    for name_shot in os.listdir(folder_shot):
-      tmp += 1 # XXX
-      if tmp >= 2: break # XXX
       if not name_shot.endswith(suffix):
          continue
       bare_graph = name_shot[:-len(suffix)]
       path_graph = os.path.join(folder_shot, name_shot)
       if not os.path.isfile(path_graph):
          continue
-      folder_graph = os.path.join(folder_strip, bare_graph)
-      if not os.path.isdir(folder_graph):
-         os.system("mkdir" + ' ' + folder_graph)
-      if not compare_folder_with_file(folder_graph, path_graph):
+      folder_article = os.path.join(folder_strip, bare_graph)
+      if not os.path.isdir(folder_article):
+         os.system("mkdir" + ' ' + folder_article)
+      if not compare_folder_with_file(folder_article, path_graph):
          continue
       print("Slicing:", path_graph, "......")
       limit_bright = 255
@@ -85,14 +101,14 @@ def shred_photograph(folder_strip, folder_shot):
             )
          for head in range(0, len(many_boundary) - 1):
             name_strip = bare_graph + give_tail(head) + suffix
-            path_strip = os.path.join(folder_graph, name_strip)
+            path_strip = os.path.join(folder_article, name_strip)
             above = many_boundary[head]
             below = many_boundary[head + 1]
-            part = graph.crop((0, above, width - 1, below))
+            strip = graph.crop((0, above, width - 1, below))
             if (below - above < height_line):
-               part = enhance_contrast(part)
-               part = enhance_sharpness(part)
-            part.save(path_strip, quality = 100)
+               strip = enhance_contrast(strip)
+               strip = enhance_sharpness(strip)
+            strip.save(path_strip, quality = 100)
 
 def take_photograph(folder_shot, many_title):
    prefix = "https://www.violapterin.com/post/"
@@ -104,9 +120,37 @@ def take_photograph(folder_shot, many_title):
       if os.path.isfile(path_graph):
          continue
       many_path_graph.append(path_graph)
-      binary = save_screenshot(address)
-      with IMAGE.open(io.BytesIO(binary)) as graph:
-         graph.save(path_graph, quality = 100)
+      graph = save_screenshot(address)
+      graph.save(path_graph, quality = 100)
+
+def save_screenshot(address):
+   id_heading = "header-post"
+   class_content = "document"
+   size = 1536
+   os.environ["MOZ_HEADLESS"] = "1"
+   print("Capturing:", address, "......")
+   driver = DRIVER.Firefox()
+   driver.set_window_size(size, size)
+   driver.get(address)
+   element_heading = driver.find_element_by_id(id_heading)
+   binary_heading = element_heading.screenshot_as_png
+   graph_heading = IMAGE.open(io.BytesIO(binary_heading))
+   element_content = driver.find_element_by_class_name(class_content)
+   binary_content = element_content.screenshot_as_png
+   graph_content = IMAGE.open(io.BytesIO(binary_content))
+   driver.quit()
+   graph = concatenate_graph(graph_content, graph_heading)
+   return graph
+
+def concatenate_graph(down, top):
+   height_top = top.size[1]
+   height_down = down.size[1]
+   width = max(top.size[0], down.size[0])
+   dimension = (width, height_top + height_down)
+   combined = IMAGE.new("RGB", dimension)
+   combined.paste(top, (0, 0))
+   combined.paste(down, (0, height_top))
+   return combined
 
 def pad_leaf(leaf):
    width = 1200
@@ -126,42 +170,15 @@ def pad_leaf(leaf):
    expanded = OPERATION.expand(leaf, coordinate)
    return expanded
 
-def save_screenshot(address):
-   id_heading = "header-post"
-   class_content = "document"
-   size = 1536
-   os.environ["MOZ_HEADLESS"] = "1"
-   print("Capturing:", address, "......")
-   driver = DRIVER.Firefox()
-   driver.set_window_size(size, size)
-   driver.get(address)
-   element_heading = driver.find_element_by_id(id_heading)
-   graph_heading = element_heading.screenshot_as_png
-   element_content = driver.find_element_by_class(class_content)
-   graph_content = element_content.screenshot_as_png
-   driver.quit()
-   graph = concatenate_graph(graph_content, graph_heading)
-   return graph
-
 def enhance_sharpness(strip):
    level = 2.5
    strip = ENHANCE.Sharpness(strip).enhance(level)
    return strip
 
 def enhance_contrast(strip):
-   level = 1.0
+   level = 1.5
    strip = ENHANCE.Contrast(strip).enhance(level)
    return strip
-
-def concatenate_graph(down, top):
-   height_top = top.size[1]
-   height_down = down.size[1]
-   width = max(top.size[0], down.size[0])
-   dimension = (width, height_top + height_down)
-   combined = IMAGE.new("RGB", dimension)
-   combined.paste(top, (0, 0))
-   combined.paste(down, (0, height_top))
-   return combined
 
 def extract_title(folder_cipher):
    many_title = []
@@ -198,17 +215,40 @@ def find_boundary(record):
          cumulative = 0
    return many_point
 
+def compare_folder_with_folder(this_folder, that_folder):
+   if not os.path.isdir(this_folder):
+      return true
+   if not os.path.isdir(that_folder):
+      return false
+   time_this = get_time_folder(this_folder)
+   time_that = get_time_folder(that_folder)
+   return (time_this < time_that)
+
 def compare_folder_with_file(folder, path):
+   if not os.path.isdir(folder):
+      return true
+   if not os.path.isfile(path):
+      return false
+   time_folder = get_time_folder(folder)
+   time_path = get_time_path(folder)
+   return (time_folder < time_path)
+
+def get_time_folder(folder):
    time_folder = 0
-   time_path = os.stat(path).st_mtime
    many_thing = os.scandir(folder)
    for thing in many_thing:
-      if not thing.is_file():
-         continue
-      time = thing.stat().st_mtime
+      time = 0
+      if thing.is_file():
+         time = thing.stat().st_mtime
+      elif thing.is_dir():
+         time = get_time_folder(thing.path)
       if time_folder < time:
          time_folder = time
-   return (time_folder < time_path)
+   return time_folder
+
+def get_time_path(path):
+   time_path = os.stat(path).st_mtime
+   return time_path
 
 def give_tail(count):
    base = 26

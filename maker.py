@@ -217,6 +217,8 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
          many_whole.append(entity)
          entity = "<p class=\"title-catalog\">"
       entity += display
+   entity += "</p>"
+   many_whole.append(entity)
    many_whole.append("</main>")
    many_whole.append(footer)
    many_whole.append("</body>")
