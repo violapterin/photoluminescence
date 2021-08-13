@@ -15,6 +15,8 @@ def main(whether_new):
    folder_shot = os.path.join(folder_book, "shot")
    folder_strip = os.path.join(folder_book, "strip")
    folder_leaf = os.path.join(folder_book, "leaf")
+   assert(os.path.isdir(folder_cipher))
+   assert(os.path.isdir(folder_book))
    if not whether_new:
       if os.path.isdir(folder_shot):
          shutil.rmtree(folder_shot)
@@ -28,11 +30,6 @@ def main(whether_new):
       os.mkdir(folder_strip)
    if not os.path.isdir(folder_leaf):
       os.mkdir(folder_leaf)
-   assert(os.path.isdir(folder_cipher))
-   assert(os.path.isdir(folder_book))
-   assert(os.path.isdir(folder_shot))
-   assert(os.path.isdir(folder_strip))
-   assert(os.path.isdir(folder_leaf))
    '''
    many_title = [
       "190710-american-village-okinawa",
@@ -40,7 +37,7 @@ def main(whether_new):
    ]
    '''
    many_title = extract_title(folder_cipher)
-   many_title = many_title[0:3] # XXX
+   #many_title = many_title[9:13] # XXX
    take_photograph(whether_new, folder_shot, many_title)
    shred_photograph(whether_new, folder_strip, folder_shot)
    patch_leaf(whether_new, folder_leaf, folder_strip)
@@ -51,14 +48,18 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
          return
    suffix_in = ".png"
    suffix_out = ".jpg"
-   limit_height = constant()["inner_height"]
+   limit_height = constant()["height_inner"]
    total = 0
    number_page = 0
+   stamp_last = ''
+   stamp_next = ''
+   leaf = None
    for name_article in os.listdir(folder_strip):
       folder_article = os.path.join(folder_strip, name_article)
       if not os.path.isdir(folder_article):
          continue
       for name_strip in os.listdir(folder_article):
+         stamp_next = name_strip[0:6]
          if not name_strip.endswith(suffix_in):
             continue
          path_strip = os.path.join(folder_article, name_strip)
@@ -66,21 +67,35 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
             continue
          with IMAGE.open(path_strip) as strip:
             height = strip.size[1]
-            if (total == 0):
-               leaf = copy.copy(strip)
-               total += height
-            elif (total + height > limit_height):
+            height_skip = constant()["height_skip"]
+            whether_clear = False
+            whether_switch = False
+            if stamp_last and (stamp_last != stamp_next):
+               whether_switch = True
+            stamp_last = stamp_next
+            if whether_switch:
+               if (total + height_skip > limit_height):
+                  whether_clear = True
+            else:
+               if (total + height > limit_height):
+                  whether_clear = True
+            if whether_clear:
+               total = 0
                name_leaf = str(number_page).zfill(3) + suffix_out
                number_page += 1
-               path_leaf = os.path.join(folder_leaf, name_leaf)
                leaf = tune_leaf(leaf)
                print("Saving leaf:", name_leaf, "......")
+               path_leaf = os.path.join(folder_leaf, name_leaf)
                leaf.save(path_leaf, quality = 100)
-               leaf = copy.copy(strip)
-               total = height
-            else:
+               leaf = None
+            if whether_switch:
+               leaf = append_skip(leaf)
+               total += height_skip
+            if leaf:
                leaf = concatenate_graph(strip, leaf)
-               total += height
+            else:
+               leaf = copy.copy(strip)
+            total += height
    name_leaf = str(number_page).zfill(3) + suffix_out
    path_leaf = os.path.join(folder_leaf, name_leaf)
    leaf = tune_leaf(leaf)
@@ -109,7 +124,7 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
          matrix = NUMPY.asarray(graph.convert('L'))
          height = matrix.shape[0]
          width = matrix.shape[1]
-         bright = int(width / 128)
+         bright = int(width * constant()["least_bright"])
          marginal = [sum(row) for row in list(matrix)]
          flip = [limit_bright * width - value for value in marginal]
          passed = [(value > bright) for value in flip]
@@ -149,21 +164,30 @@ def take_photograph(whether_new, folder_shot, many_title):
 
 def save_screenshot(address):
    id_heading = "header-post"
-   class_content = "document"
-   size = constant()["outer_width"]
+   class_content = "essay"
+   size = constant()["width_outer"]
    os.environ["MOZ_HEADLESS"] = "1"
    driver = DRIVER.Firefox()
    driver.set_window_size(size, size)
    print("Capturing address:", address, "......")
+   #driver.implicitly_wait(10) # seconds
    driver.get(address)
-   element_heading = driver.find_element_by_id(id_heading)
-   binary_heading = element_heading.screenshot_as_png
-   graph_heading = IMAGE.open(io.BytesIO(binary_heading))
-   element_content = driver.find_element_by_class_name(class_content)
-   binary_content = element_content.screenshot_as_png
-   graph_content = IMAGE.open(io.BytesIO(binary_content))
+   element = driver.find_element_by_class_name(class_content)
+   binary = element.screenshot_as_png
+   graph = IMAGE.open(io.BytesIO(binary))
    driver.quit()
-   graph = concatenate_graph(graph_content, graph_heading)
+
+   '''
+      element_heading = driver.find_element_by_id(id_heading)
+      binary_heading = element_heading.screenshot_as_png
+      graph_heading = IMAGE.open(io.BytesIO(binary_heading))
+      graph_heading = append_blank(graph_heading)
+      element_content = driver.find_element_by_class_name(class_content)
+      binary_content = element_content.screenshot_as_png
+      graph_content = IMAGE.open(io.BytesIO(binary_content))
+      driver.quit()
+      graph = concatenate_graph(graph_content, graph_heading)
+   '''
    return graph
 
 def concatenate_graph(down, top):
@@ -172,9 +196,9 @@ def concatenate_graph(down, top):
    width = max(top.size[0], down.size[0])
    height = height_top + height_down
    dimension = (width, height)
-   combined = IMAGE.new("RGBA", dimension, (255, 255, 255))
-   more_width_top = (width - top.size[0]) // 2
-   more_width_down = (width - down.size[0]) // 2
+   combined = IMAGE.new("RGBA", dimension, "WHITE")
+   more_width_top = int((width - top.size[0]) / 2)
+   more_width_down = int((width - down.size[0]) / 2)
    offset_top = (more_width_top, 0)
    offset_down = (more_width_down, top.size[1])
    top_alpha = top.convert("RGBA")
@@ -184,24 +208,53 @@ def concatenate_graph(down, top):
    combined = combined.convert("RGB")
    return combined
 
-
 def tune_leaf(leaf):
    leaf_alpha = leaf.convert("RGBA")
-   width_outer = constant()["outer_width"]
-   height_inner = constant()["inner_height"]
-   height_outer = constant()["outer_height"]
-   more_width = (width_outer - leaf.size[0]) // 2
-   more_height = (height_outer - leaf.size[1]) // 2
-   margin_height = (height_outer - height_inner) // 2
+   width_outer = constant()["width_outer"]
+   height_inner = constant()["height_inner"]
+   height_outer = constant()["height_outer"]
+   margin_height = int((height_outer - height_inner) / 2)
+   more_width = int((width_outer - leaf.size[0]) / 2)
+   more_height = height_outer - leaf.size[1]
+   more_height = int(more_height * constant()["height_outer"])
    more_height = max(0, min(margin_height, more_height))
    dimension = (width_outer, height_outer)
-   combined = IMAGE.new("RGBA", dimension, (255, 255, 255))
-   combined.paste(leaf, (more_width, more_height), mask = leaf_alpha)
+   combined = IMAGE.new("RGBA", dimension, "WHITE")
+   more = (more_width, more_height)
+   combined.paste(leaf, more, mask = leaf_alpha)
    combined = combined.convert("RGB")
    return combined
 
+def append_skip(leaf):
+   width_skip = constant()["width_skip"]
+   height_skip = constant()["height_skip"]
+   height_stripe = constant()["height_stripe"]
+   dimension_skip = (width_skip, height_skip)
+   dimension_stripe = (width_skip, height_stripe)
+   skip = IMAGE.new("RGBA", dimension_skip, "WHITE")
+   stripe = IMAGE.new("RGBA", dimension_stripe, "GRAY")
+   stripe_alpha = stripe.convert("RGBA")
+   offset = (0, int(height_skip / 2))
+   skip.paste(stripe, offset, mask = stripe_alpha)
+   if not leaf:
+      return skip
+   else:
+      leaf = concatenate_graph(skip, leaf)
+   return leaf
+
+def append_blank(leaf):
+   width_skip = constant()["width_skip"]
+   height_blank = constant()["height_blank"]
+   dimension_blank = (width_skip, height_blank)
+   blank = IMAGE.new("RGBA", dimension_blank, "WHITE")
+   if not leaf:
+      return blank
+   else:
+      leaf = concatenate_graph(blank, leaf)
+   return leaf
+
 def enhance_sharpness(strip):
-   level = 2.0
+   level = 2.5
    strip = ENHANCE.Sharpness(strip).enhance(level)
    return strip
 
@@ -290,10 +343,16 @@ def give_tail(count):
 
 def constant():
    table = {
-      "inner_width": 840,
-      "inner_height": 1080,
-      "outer_width": 960,
-      "outer_height": 1360,
+      "width_inner": 808,
+      "height_inner": 1212,
+      "width_outer": 960,
+      "height_outer": 1360,
+      "width_skip": 640,
+      "height_skip": 96,
+      "height_blank": 36,
+      "height_stripe": 4,
+      "least_bright": 1/168,
+      "ratio_vertical": 2/3,
       "limit_line": 300,
    }
    return table
