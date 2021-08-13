@@ -183,7 +183,13 @@
 <span class="phrase"><span class="serif-roman">The binary data of the image could be either saved or passed to other function, like the library Pillow.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Somehow, I couldn’t call Chrome;</span> <span class="serif-roman">there was perhaps some problems with path or version.</span></span> <span class="phrase"><span class="serif-roman">Besides, to get a screenshot of higher resolution, we had to zoom in,</span> <span class="serif-roman">but by far I didn’t manage to do that either.</span></span> <span class="phrase"><span class="serif-roman">In addition, Chinese characters should be shown in Noto Serif,</span> <span class="serif-roman">but the result was in a sans font,</span> <span class="serif-roman">and I can’t tell whether it was Noto Sans or a default font in Windows.</span></span>
+<span class="phrase"><span class="serif-roman">Somehow, I couldn’t call Chrome;</span> <span class="serif-roman">there was perhaps some problems with path or version.</span></span> <span class="phrase"><span class="serif-roman">Besides, to get a screenshot of higher resolution, we had to zoom in,</span> <span class="serif-roman">but by far I didn’t manage to do that either.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">In addition, Chinese characters should be shown in Noto Serif,</span> <span class="serif-roman">but the result was in a sans font,</span> <span class="serif-roman">and I can’t tell whether it was Noto Sans or a default font in Windows.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Another problem was that sometimes Selenium timed out, or even failed to locate the ID for the post header, for just certain posts, which was strange.</span></span> <span class="phrase"><span class="serif-roman">I therefore enclosed both the post header and the post content in a div given a class for Selenium to recognize, which greatly improved stability.</span></span>
 </p>
 </div>
 <div class="stanza">
@@ -231,6 +237,26 @@
 </p>
 <p class="line">
 <span class="verse"><code class="mono">graph.save(<wbr>&quot;./homepage.png&quot;)</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">July 28:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">I was a bloody underrated, world-class genius!</span></span> <span class="phrase"><span class="serif-roman">I was now able to make a PDF of all blog posts crawled as image.</span></span> <span class="phrase"><span class="serif-roman">Presently there were about 40 posts,</span> <span class="serif-roman">and the PDF was already almost 100 page long.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">First, as said above, I automatically saved images of blog posts by Selenium.</span></span> <span class="phrase"><span class="serif-roman">The text appeared blurry,</span> <span class="serif-roman">but Pillow could enhance its contrast and sharpness.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Second, I sliced pictures line by line, saved to dedicated directories named by date.</span></span> <span class="phrase"><span class="serif-roman">To let Pillow recognize the cuts, if you noticed, I even added yellow borders to displayed lines and green borders to table rows, all slightly broken with CSS margin.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Third, I patched the slices greedily into pages.</span></span> <span class="phrase"><span class="serif-roman">Once the present total height exceeded the page height, I created a new page.</span></span> <span class="phrase"><span class="serif-roman">When every post ends, I inserted a separation line, and started patching another post.</span></span> <span class="phrase"><span class="serif-roman">Pillow would extend each page with suitable margin.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Fourth, I called ImageMagick via Bash, to convert the pages properly numbered in alphabetical order, into a single PDF.</span></span>
 </p>
 </div>
 <div class="break">

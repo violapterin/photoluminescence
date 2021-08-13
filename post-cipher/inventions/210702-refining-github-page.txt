@@ -136,10 +136,14 @@ _ ++}++ '
 @@somehow, I @couldn’t call Chrome;@@
 @@there was perhaps some problems with path or version.@@ _
 @@besides, to get a screenshot of higher resolution, we @had to zoom in,@@
-@@but by far I @didn’t manage to do that either.@@ _
+@@but by far I @didn’t manage to do that either.@@ '
+
 @@in addition, Chinese characters should be shown in Noto Serif,@@
 @@but the result was in a sans font,@@
 @@and I can’t tell <whether it was Noto Sans or a default font in Windows>.@@ '
+
+@@another problem was <that sometimes Selenium @timed out, or even @failed to locate the ID for the post header, for just certain posts, {which was strange}>.@@ _
+@@I therefore @enclosed both the post header and the post content in a div given a class for Selenium to recognize, which greatly improved stability.@@ '
 ===
 
 ///
@@ -159,6 +163,29 @@ _ ++}++ '
 ++graph = Image.open(io.BytesIO(binary))++ '
 ++graph.save("./homepage.png")++ '
 ///
+
+===
+%%July 28:%% '
+
+@@I was a bloody underrated, world- class genius!@@ _
+@@I was now able to make a PDF of all blog posts crawled as image.@@ _
+@@presently there were about 40 posts,@@
+@@and the PDF was already almost 100 page long.@@ '
+
+@@first, as said above, I automatically @saved images of blog posts by Selenium.@@ _
+@@the text @appeared blurry,@@
+@@but Pillow could enhance its contrast and sharpness.@@ '
+
+@@second, I @sliced pictures line by line, saved to dedicated directories named by date.@@ _
+@@to let Pillow recognize the cuts, if you @noticed, I even @added yellow borders to displayed lines and green borders to table rows, all slightly broken with CSS margin.@@ '
+
+@@third, I @patched the slices greedily into pages.@@ _
+@@once the present total height @exceeded the page height, I @created a new page.@@ _
+@@when every post ends, I @inserted a separation line, and @started patching another post.@@ _
+@@Pillow would extend each page with suitable margin.@@ '
+
+@@fourth, I @called ImageMagick via Bash, to convert the pages properly numbered in alphabetical order, into a single PDF.@@ '
+===
 
 ~~~
 

@@ -11,7 +11,7 @@ SUFFIX_IN=".jpg"
 SUFFIX_OUT=".pdf"
 book="${THIS}/book"
 leaf="${book}/leaf"
-path_full="${book}/full${SUFFIX_OUT}"
+path_full="${book}/phonoluminesence-full${SUFFIX_OUT}"
 option="\
    -units pixelsperinch\
    -density 300\

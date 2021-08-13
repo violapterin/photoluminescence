@@ -23,12 +23,12 @@
       $b 'sin' $q.>.;^^ '
 ^^`Velocity`.:
    .v
-   .= .<.- [:$q: *5] 'sin' $q.,
+   .= .<.- [:$q: .'] 'sin' $q.,
       $b 'cos' $q.>.;^^ '
 ^^`Acceleration`.:
    .a
-   .= .<.-[:$q: *5*5] 'sin' $q .- [.2 : $q: *5] 'cos' $q.,
-      $b [:$q: *5*5] 'cos' $q .- $b [.2 : $q: *5] 'sin' $q.>.;^^ '
+   .= .<.-[:$q: ."] 'sin' $q .- [.2 : $q: .'] 'cos' $q.,
+      $b [:$q: ."] 'cos' $q .- $b [.2 : $q: .'] 'sin' $q.>.;^^ '
 ===
 
 ===
@@ -38,25 +38,25 @@
 ^^[.2: .\.r.|:]   [.2: .\.v.|:] .- [.2: .(.r .* .v.):]
    .= `constant`.;^^ '
 
-@@expressions@@ ++Position++ @@and@@ ++Velocity++ @@#yield a constraint on@@ ^^[:$q: *5]^^ @@:@@ '
+@@expressions@@ ++Position++ @@and@@ ++Velocity++ @@#yield a constraint on@@ ^^[:$q: .']^^ @@:@@ '
 
 ^^.([.2: 'cos' .[$q.]:] .- .2 $g 'cos' $q .+ [.2: $g:] .+ [.2: $b:] 'sin' [.2: $q:].)
-      .* [:$q: *5] .([.2: 'sin' .[$q.]:] .+ [.2: $b:] [.2: 'cos' .[$q.]:].)
-   .- [.2: $q: *5]
+      .* [:$q: .'] .([.2: 'sin' .[$q.]:] .+ [.2: $b:] [.2: 'cos' .[$q.]:].)
+   .- [.2: $q: .']
       [.2: .(.- 'cos' $q 'sin' $q .+ $g 'sin' $q .+ [.2: $b:] 'sin' $q.):]
    .= `constant`.;^^ '
 
-@@by arranging, by@@ ^^[.2: 'sin' .[$q.]:] .+ [.2: 'cos' .[$q.]:] .= .1^^ @@,@@ @@by absorbing@@ ^^[.2: $b:]^^ @@into the constant, and by pulling out@@ ^^[.2: $q: *5]^^ @@,@@ @@we get:@@ '
+@@by arranging, by@@ ^^[.2: 'sin' .[$q.]:] .+ [.2: 'cos' .[$q.]:] .= .1^^ @@,@@ @@by absorbing@@ ^^[.2: $b:]^^ @@into the constant, and by pulling out@@ ^^[.2: $q: .']^^ @@,@@ @@we get:@@ '
 
 ^^$h =1 .1 .- $g 'cos' $q.;^^ '
-^^ [.2: $q: *5] [.2: $h:]
+^^ [.2: $q: .'] [.2: $h:]
    .= `constant`.;^^ '
 
 @@here, notice@@ ^^.1 .- $g 'cos' $q >1 .0^^ @@.@@ _
-@@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[:$q: *5] >1 .0^^ @@also $does.@@ '
+@@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[:$q: .'] >1 .0^^ @@also $does.@@ '
 
 ^^`Equal_areas`.:
-   [:$q: *5] $h
+   [:$q: .'] $h
    .= `constant`^^ '
 ^^=1 .K.;^^ '
 ^^>1 .0.;^^ '
@@ -66,13 +66,13 @@
 @@differentiation on both sides of@@ ++Equal_areas++ @@$gives:@@ '
 
 ^^`Angle_derivative`.:
-   [:$q: *5*5] $h .+ [.2: $q: *5] $g 'sin' $q
+   [:$q: ."] $h .+ [.2: $q: .'] $g 'sin' $q
    .= .0.;^^ '
 
 @@after further manipulation, we #have (except perhaps when both sides are singular):@@ '
 
-^^(.- [:$q: *5*5] 'sin' $q .- [.2: $q: *5] 'cos' $q, 'cos' $q .- $g)
-   .= ([:$q: *5*5] 'cos' $q .- [.2: $q: *5] 'sin' $q, 'sin' $q).;^^ '
+^^(.- [:$q: ."] 'sin' $q .- [.2: $q: .'] 'cos' $q, 'cos' $q .- $g)
+   .= ([:$q: ."] 'cos' $q .- [.2: $q: .'] 'sin' $q, 'sin' $q).;^^ '
 
 @@this $indicates <that the force exerted by the Sun to the planet is on the same line {which $connects them}, but along opposite direction>.@@ '
 ===
@@ -82,22 +82,22 @@
 @@we #start from expression@@ ++Acceleration++ @@:@@ '
 
 ^^[.4: .\.r.|:] [.2: .\.a.|:]
-   .= [.4: $h:] .*[.2: $q: *5*5] .([.2: $b:] [.2: 'cos' .[$q.]:] .+ [.2: 'sin' .[$q.]:].)
-      .+ [.4: $h:] .*.2 [:$q: *5*5] [.2: $q: *5] $g 'cos' $q 'sin' $q
-      .+ [.4: $h:] .*[.4: $q: *5] .([.2: 'cos' .[$q.]:] .+ [.2: $b:] [.2: 'sin' .[$q.]:].).;^^ '
+   .= [.4: $h:] .*[.2: $q: ."] .([.2: $b:] [.2: 'cos' .[$q.]:] .+ [.2: 'sin' .[$q.]:].)
+      .+ [.4: $h:] .*.2 [:$q: ."] [.2: $q: .'] $g 'cos' $q 'sin' $q
+      .+ [.4: $h:] .*[.4: $q: .'] .([.2: 'cos' .[$q.]:] .+ [.2: $b:] [.2: 'sin' .[$q.]:].).;^^ '
 
 @@it may require patience to verify,@@
 @@but by@@ ^^[.2: 'sin' .[$q.]:] .+ [.2: 'cos' .[$q.]:] .= .1^^ @@,@@ ^^[.2: $b:] .+ [.2: $g:] .= .1^^ @@,@@ @@and by repeatedly using@@ ++AngleDer++ @@,@@ @@we will obtain:@@ '
 
 ^^[.4: .\.r.|:] [.2: .\.a.|:]
    .= [.2: $h:]
-      .* [.4: $q: *5] [.2: $g:] [.2: 'sin' .[$q.]:]
+      .* [.4: $q: .'] [.2: $g:] [.2: 'sin' .[$q.]:]
       .* .([.2: $b:] [.2: 'cos' .[$q.]:] .+ [.2: 'sin' .[$q.]:].)
    .+ [.3: $h:]
-      .* [.2: $q: *5] .(.- $g 'sin' $q.)
-      .* .2 [.2: $q: *5] [.2: $g:] 'cos' $q 'sin' $q
+      .* [.2: $q: .'] .(.- $g 'sin' $q.)
+      .* .2 [.2: $q: .'] [.2: $g:] 'cos' $q 'sin' $q
    .+ [.2: $h:]
-      .* [.4: $q: *5]
+      .* [.4: $q: .']
       .* .([.2: 'cos' .[$q.]:] .+ [.2: $b:] [.2: 'sin' .[$q.]:].)^^ '
 ^^.= [.2: .K:].;^^ '
 ===

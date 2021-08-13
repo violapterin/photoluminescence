@@ -1,9 +1,9 @@
 ===
-@@here are some common German irregular verbs.@@
-@@we #list respectively the infinitive, third person singular present, third person singular simple past, third person singular perfect.@@ '
+@@here are some common German irregular verbs.@@ _
+@@we #list respectively the infinitive, third person singular present, third person singular simple past, third person singular perfect.@@ _
 @@some verbs {which originally #form perfect with@@ ##ist## @@},@@ @@can also go with@@ ##hat## @@now,@@
-@@and they #go with@@ ##hat## @@when used in the transitive sense.@@ '
-@@some verbs {which are traditionally strong}, have also &allowed weak conjugation.
+@@and they #go with@@ ##hat## @@when used in the transitive sense.@@ _
+@@some verbs {which are traditionally strong}, have also &allowed weak conjugation.@@ '
 ===
 
 === ##group 1: a, e## ===

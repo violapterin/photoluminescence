@@ -142,8 +142,11 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             below = many_boundary[head + 1]
             strip = graph.crop((0, above, width - 1, below))
             if (below - above < limit_line):
-               strip = enhance_contrast(strip)
-               strip = enhance_sharpness(strip)
+               strip = enhance_contrast(True, strip)
+               strip = enhance_sharpness(True, strip)
+            else:
+               strip = enhance_contrast(False, strip)
+               strip = enhance_sharpness(False, strip)
             print("Slicing strip:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
@@ -176,18 +179,6 @@ def save_screenshot(address):
    binary = element.screenshot_as_png
    graph = IMAGE.open(io.BytesIO(binary))
    driver.quit()
-
-   '''
-      element_heading = driver.find_element_by_id(id_heading)
-      binary_heading = element_heading.screenshot_as_png
-      graph_heading = IMAGE.open(io.BytesIO(binary_heading))
-      graph_heading = append_blank(graph_heading)
-      element_content = driver.find_element_by_class_name(class_content)
-      binary_content = element_content.screenshot_as_png
-      graph_content = IMAGE.open(io.BytesIO(binary_content))
-      driver.quit()
-      graph = concatenate_graph(graph_content, graph_heading)
-   '''
    return graph
 
 def concatenate_graph(down, top):
@@ -242,24 +233,17 @@ def append_skip(leaf):
       leaf = concatenate_graph(skip, leaf)
    return leaf
 
-def append_blank(leaf):
-   width_skip = constant()["width_skip"]
-   height_blank = constant()["height_blank"]
-   dimension_blank = (width_skip, height_blank)
-   blank = IMAGE.new("RGBA", dimension_blank, "WHITE")
-   if not leaf:
-      return blank
-   else:
-      leaf = concatenate_graph(blank, leaf)
-   return leaf
-
-def enhance_sharpness(strip):
-   level = 2.5
+def enhance_sharpness(whether_strong, strip):
+   level = 1.5
+   if whether_strong:
+      level = 4.0
    strip = ENHANCE.Sharpness(strip).enhance(level)
    return strip
 
-def enhance_contrast(strip):
+def enhance_contrast(whether_strong, strip):
    level = 1.1
+   if whether_strong:
+      level = 1.2
    strip = ENHANCE.Contrast(strip).enhance(level)
    return strip
 
@@ -343,10 +327,10 @@ def give_tail(count):
 
 def constant():
    table = {
-      "width_inner": 808,
-      "height_inner": 1212,
-      "width_outer": 960,
-      "height_outer": 1360,
+      "width_inner": 816,
+      "height_inner": 1326,
+      "width_outer": 1080,
+      "height_outer": 1530,
       "width_skip": 640,
       "height_skip": 96,
       "height_blank": 36,
