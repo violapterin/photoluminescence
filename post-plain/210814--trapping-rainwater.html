@@ -1,0 +1,181 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">You are given a set</span> <span class="math"><span class="math-letter">\(\mathbf {r}\)</span></span> <span class="serif-roman">representing an elevation map of bars with unit width, with size</span> <span class="math"><span class="math-plain">\(N\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Compute how much water it can trap after raining.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Constraints:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(1\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(N\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(3\)</span><span class="math-plain">\(\,\cdot\,\)</span><span class="math-triplet">\(1 0 ^ {4}\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(0\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(\mathbf {r} _ {\left[ n \right]}\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-triplet">\(1 0 ^ {5}\)</span><span class="math-mono">\(\;\mathtt {for}\;\)</span><span class="math-plain">\(n\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(1\)</span><span class="math-plain">\(,\,\)</span><span class="math-sign">\(\,\dotsc\,\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(N\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">For brevity, for two lists</span> <span class="math"><span class="math-letter">\(\mathbf {u}\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">we say</span> <span class="math"><span class="math-letter">\(\mathbf {v}\)</span><span class="math-sign">\(\:&lt;\:\)</span><span class="math-letter">\(\mathbf {u}\)</span></span> <span class="serif-roman">if</span> <span class="math"><span class="math-triplet">\(\mathbf {v} _ {\left[ n \right]}\)</span><span class="math-sign">\(\:&lt;\:\)</span><span class="math-triplet">\(\mathbf {v} _ {\left[ n \right]}\)</span></span> <span class="serif-roman">for each</span> <span class="math"><span class="math-plain">\(n\)</span></span><span class="serif-roman">;</span> <span class="serif-roman">and we similarly compare a scalar with a list.</span></span> <span class="phrase"><span class="serif-roman">Also</span> <span class="math"><span class="math-bracket-angle">\(\left\langle \mathbf {u} ,\, \mathbf {v} \right\rangle\)</span></span> <span class="serif-roman">is a concatenated list, with</span> <span class="math"><span class="math-letter">\(\mathbf {u}\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">understood to be flattened;</span> <span class="serif-roman">and we similarly concatenate a scalar to a list.</span></span>
+</p>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono"># 42. Trapping Rain Water [hard]</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import typing as TYPE</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def main():</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">rain = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">solution = Solution()</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">number = solution.count_trap(rain)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">print(&quot;There are&quot;, number, &quot;drops.&quot;)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># 6</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">class Solution:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def count_trap(self, rain: TYPE.List[int]) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">return self.count_left(rain, 0, len(rain) - 1)</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def count_left(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">left = self.probe_left(rain, start)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (left &gt;= len(rain)): return self.count_right(rain, start, stop)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">water_left = sum([max(0, rain[start] - value) for value in rain[start:left+1]])</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">water_right = self.count_left(rain, left, stop)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">return water_left + water_right</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def count_right(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">right = self.probe_right(rain, stop)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (right &lt; 0): return self.count_left(rain, start, stop)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">water_right = sum([max(0, rain[stop] - value) for value in rain[right:stop+1]])</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">water_left = self.count_right(rain, start, right)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">return water_left + water_right</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def probe_right(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">limit = rain[start]</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">head = start - 1</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">while (head &gt;= 0):</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">head -= 1</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">return head</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">def probe_left(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">limit = rain[start]</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">head = start + 1</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">while head &lt; len(rain):</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">head += 1</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">return head</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono"># # # # # # # # # # # # # # # #</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">main()</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">August 14, 2021</em></span>
+</p>
+</div>
+</main>

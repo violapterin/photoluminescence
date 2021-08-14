@@ -197,8 +197,9 @@ code, .mono
    padding: 0px;
 }
 
-.document
+.essay
 {
+   border-top: 3px lightgray solid;
    border-bottom: 3px lightgray solid;
 }
 
@@ -237,11 +238,6 @@ code, .mono
 @media screen and (max-width: 600px) {
    #header-banner #name-site, #header-banner #menu
    { margin: 0px 4px; padding: 0px 20px; }
-}
-
-#header-banner
-{
-   border-bottom: 3px lightgray solid;
 }
 
 #name-site .title-site
@@ -342,19 +338,19 @@ code, .mono
 /* post: */
 /*    #header-post .heading-post .heading */
 
-header #header-post, header #header-page
+#header-post, #header-page
 {
-   margin: 0px 24px;
+   margin: 16px 32px;
    padding: 0px;
    font-size: 36px;
 }
 @media screen and (max-width: 900px) {
-   header #header-post, header #header-page
-   { margin: 0px 16px; }
+   #header-post, #header-page
+   { margin: 8px 24px; }
 }
 @media screen and (max-width: 600px) {
-   header #header-post, header #header-page
-   { margin: 0px 8px; }
+   #header-post, #header-page
+   { margin: 8px 16px; }
 }
 
 .entry

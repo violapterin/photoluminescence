@@ -194,6 +194,7 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    many_whole.append("<body>")
    many_whole.append(header_banner)
 
+   many_whole.append("<div class=\"essay\">")
    many_whole.append(header_page)
    many_whole.append("<main class=\"document\">")
    bound_symbol = 54
@@ -220,6 +221,7 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    entity += "</p>"
    many_whole.append(entity)
    many_whole.append("</main>")
+   many_whole.append("</div>")
 
    many_whole.append(footer)
    many_whole.append("</body>")
@@ -243,6 +245,8 @@ def write_page(matter, folder_post, heading, many_record):
    many_whole.append(head)
    many_whole.append("<body>")
    many_whole.append(header_banner)
+
+   many_whole.append("<div class=\"essay\">")
    many_whole.append(header_page)
    many_whole.append("<main class=\"document\">")
    for record in many_record:
@@ -251,6 +255,8 @@ def write_page(matter, folder_post, heading, many_record):
       display = write_entry(entry, record, name_post)
       many_whole.append(display)
    many_whole.append("</main>")
+   many_whole.append("</div>")
+
    many_whole.append(footer)
    many_whole.append("</body>")
    many_whole.append("</html>")
@@ -270,10 +276,12 @@ def write_post(matter, plain, record):
    many_whole.append(head)
    many_whole.append("<body>")
    many_whole.append(header_banner)
+
    many_whole.append("<div class=\"essay\">")
    many_whole.append(header_post)
    many_whole.append(plain)
    many_whole.append("</div>")
+
    many_whole.append(footer)
    many_whole.append("</body>")
    many_whole.append("</html>")

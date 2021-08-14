@@ -1,4 +1,10 @@
 [
+{"stamp": "210815", "genre": "readings",
+   "tag": ["Ghibli", "Japan", "War"],
+   "title": "«From Up on Poppy Hill»"},
+{"stamp": "210814", "genre": "expositions",
+   "tag": ["LeetCode", "Recursion"],
+   "title": "Trapping rainwater"},
 {"stamp": "210812", "genre": "expositions", "series": "Foundations of mathematics",
    "tag": ["Type theory", "Constructive mathematics"],
    "title": "The identity type"},
