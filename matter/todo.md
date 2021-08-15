@@ -46,6 +46,8 @@
 
 1. Capture: Page numbers?
 
+1. Filter duplicate posts with the same stamp (resulted by renaming)
+
 1. Make: File error when post does not exist
 
 1. Save the Porphyrin cheat sheet

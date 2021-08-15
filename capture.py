@@ -30,14 +30,8 @@ def main(whether_new):
       os.mkdir(folder_strip)
    if not os.path.isdir(folder_leaf):
       os.mkdir(folder_leaf)
-   '''
-   many_title = [
-      "190710-american-village-okinawa",
-      "210719-valid-triangle-numbers",
-   ]
-   '''
    many_title = extract_title(folder_cipher)
-   #many_title = many_title[9:13] # XXX
+
    take_photograph(whether_new, folder_shot, many_title)
    shred_photograph(whether_new, folder_strip, folder_shot)
    patch_leaf(whether_new, folder_leaf, folder_strip)
@@ -48,7 +42,8 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
          return
    suffix_in = ".png"
    suffix_out = ".jpg"
-   limit_height = constant()["height_inner"]
+   height_inner = constant()["height_inner"]
+   limit_switch = constant()["limit_switch"]
    total = 0
    number_page = 0
    stamp_last = ''
@@ -74,11 +69,14 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
                whether_switch = True
             stamp_last = stamp_next
             if whether_switch:
-               if (total + height_skip > limit_height):
+               if (total + height_skip > limit_switch):
                   whether_clear = True
             else:
-               if (total + height > limit_height):
+               if (total + height > height_inner):
                   whether_clear = True
+            if whether_switch:
+               leaf = append_skip(leaf)
+               total += height_skip
             if whether_clear:
                total = 0
                name_leaf = str(number_page).zfill(3) + suffix_out
@@ -88,9 +86,6 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
                path_leaf = os.path.join(folder_leaf, name_leaf)
                leaf.save(path_leaf, quality = 100)
                leaf = None
-            if whether_switch:
-               leaf = append_skip(leaf)
-               total += height_skip
             if leaf:
                leaf = concatenate_graph(strip, leaf)
             else:
@@ -142,11 +137,13 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             below = many_boundary[head + 1]
             strip = graph.crop((0, above, width - 1, below))
             if (below - above < limit_line):
-               strip = enhance_contrast(True, strip)
                strip = enhance_sharpness(True, strip)
+               strip = enhance_contrast(True, strip)
+               strip = enhance_brightness(True, strip)
             else:
-               strip = enhance_contrast(False, strip)
                strip = enhance_sharpness(False, strip)
+               strip = enhance_contrast(False, strip)
+               strip = enhance_brightness(False, strip)
             print("Slicing strip:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
@@ -173,7 +170,6 @@ def save_screenshot(address):
    driver = DRIVER.Firefox()
    driver.set_window_size(size, size)
    print("Capturing address:", address, "......")
-   #driver.implicitly_wait(10) # seconds
    driver.get(address)
    element = driver.find_element_by_class_name(class_content)
    binary = element.screenshot_as_png
@@ -234,17 +230,24 @@ def append_skip(leaf):
    return leaf
 
 def enhance_sharpness(whether_strong, strip):
-   level = 1.5
+   level = 1.3
    if whether_strong:
-      level = 4.0
+      level = 3.0
    strip = ENHANCE.Sharpness(strip).enhance(level)
    return strip
 
 def enhance_contrast(whether_strong, strip):
+   level = 1.2
+   if whether_strong:
+      level = 2.0
+   strip = ENHANCE.Contrast(strip).enhance(level)
+   return strip
+
+def enhance_brightness(whether_strong, strip):
    level = 1.1
    if whether_strong:
-      level = 1.2
-   strip = ENHANCE.Contrast(strip).enhance(level)
+      level = 1.4
+   strip = ENHANCE.Brightness(strip).enhance(level)
    return strip
 
 def extract_title(folder_cipher):
@@ -328,16 +331,17 @@ def give_tail(count):
 def constant():
    table = {
       "width_inner": 816,
-      "height_inner": 1326,
+      "height_inner": 1224,
       "width_outer": 1080,
       "height_outer": 1530,
+      "limit_switch": 960,
       "width_skip": 640,
       "height_skip": 96,
       "height_blank": 36,
       "height_stripe": 4,
       "least_bright": 1/168,
       "ratio_vertical": 2/3,
-      "limit_line": 300,
+      "limit_line": 128,
    }
    return table
 

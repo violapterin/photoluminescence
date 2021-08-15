@@ -20,10 +20,10 @@ as lengths of the side}.@@ '
 @@we #want to find@@ ^^.f .[&t.]^^ @@,@@ @@the number of valid triples of triangle number.@@ _
 @@to slightly abuse notation, we may consider@@ ^^&t^^ @@to be an unordered set, when the order of elements doesn’t matter.@@ _
 @@the brute- force approach would be exhausting all triplets in@@ ^^&t^^ @@,@@ @@with complexity@@
-   ^^@O.[[.3: .N:].]^^ @@.@@ '
+   ^^@O .[[.3: .N:].]^^ @@.@@ '
 
 @@how can we do better?@@ _
-@@let@@ ^^&t^^ @@be sorted, {which #takes@@ ^^@O.[.N 'log' .N.]^^ @@}.@@ _
+@@let@@ ^^&t^^ @@be sorted, {which #takes@@ ^^@O .[.N 'log' .N.]^^ @@}.@@ _
 @@without loss of generality, let the triplet be@@ ^^.<.x., .y., .z.>^^ @@with@@ ^^.x <0 .y <0 .z^^ @@.@@ _
 @@we only #have to check:@@ '
 ^^.x .+ .y >1 .z.;^^ '
@@ -34,17 +34,17 @@ as lengths of the side}.@@ '
 
 ^^.f .[&t.] .= .g .[.z., &s.] .+ .f .[&s.].;^^ '
 
-@@we #see <that@@ ^^.g .[.z., &s.]^^ @@$has complexity@@ ^^@O.[.N.]^^ @@>.@@ _
+@@we #see <that@@ ^^.g .[.z., &s.]^^ @@$has complexity@@ ^^@O .[.N.]^^ @@>.@@ _
 @@indeed, fix@@ ^^.z^^ @@,@@ @@for any@@ ^^.x^^ @@,@@ @@we #have@@ ^^.y >1 .z .- .x^^ @@.@@ _
 @@here@@ ^^.r .[.z .- .x.]^^ @@,@@ @@the number of such@@ ^^.y^^ @@,@@ @@may be found with a table, filled before the recursion.@@ _
 @@hence,@@ ^^.g .[.z., &s.]^^ @@may be so defined:@@ '
 
 ^^.g .[.z., &s.] .= [: %0: .x!! <6 &t] .r .[.z .- .x!!.].;^^ '
 
-@@the complexity of calling@@ ^^.g^^ @@is@@ ^^@O.[.N.]^^ @@,@@
-@@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^@O.[.N.]^^ @@.@@ _
-@@the complexity of recursively calling@@ ^^.g^^ @@is@@ ^^@O.[[.2: .N:].]^^ @@,@@ @@{which $overwhelms the complexity of sorting}.@@ _
-@@the overall complexity is therefore@@ ^^@O.[[.2: .N:].]^^ @@.@@ '
+@@the complexity of calling@@ ^^.g^^ @@is@@ ^^@O .[.N.]^^ @@,@@
+@@and the complexity of exhausting@@ ^^.x^^ @@is also@@ ^^@O .[.N.]^^ @@.@@ _
+@@the complexity of recursively calling@@ ^^.g^^ @@is@@ ^^@O .[[.2: .N:].]^^ @@,@@ @@{which $overwhelms the complexity of sorting}.@@ _
+@@the overall complexity is therefore@@ ^^@O .[[.2: .N:].]^^ @@.@@ '
 ===
 
 ///
