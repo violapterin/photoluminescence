@@ -163,7 +163,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">July 28:</em></span>
+<span class="phrase"><em class="serif-italic">August 3:</em></span>
 </p>
 <p class="paragraph">
 <span class="phrase"><span class="serif-roman">Word break had been a serious problem in web designing.</span></span> <span class="phrase"><span class="serif-roman">It was the tradition in typography to justify text,</span> <span class="serif-roman">but it was generally discouraged to do so in web programming.</span></span> <span class="phrase"><span class="serif-roman">The reason is that web browsers couldn’t reliably break words in real time,</span> <span class="serif-roman">and if we insist justification of text, spaces could be too big.</span></span>
@@ -174,89 +174,31 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><em class="serif-italic">July 28:</em></span>
+<span class="phrase"><em class="serif-italic">August 16:</em></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">With the library Selenium in Python, it was possible to automatically take screenshots calling a headless Firefox, making it effortless to save double-backup of posts on my site.</span></span> <span class="phrase"><span class="serif-roman">It could even take a full-page screenshot, by identifying the</span> <code class="mono">main</code> <span class="serif-roman">class in my case.</span></span>
+<span class="phrase"><span class="serif-roman">Unlike in a book having a fixed width of page, mathematics on a webpage had to adapt a variety of widths.</span></span> <span class="phrase"><span class="serif-roman">Mathjax 3 hadn’t implement the word break feature yet, as in Mathjax 2.</span></span> <span class="phrase"><span class="serif-roman">Not breaking long expressions, could result in a large blank in the right half of some lines, considering the present width of page was already narrower than the usual size of a mathematics textbook.</span></span> <span class="phrase"><span class="serif-roman">I came up a way of greedily fitting a line with mathematics, by splitting each paired bracket to three parts, the left bracket, the content, and the right bracket, while keeping the automatic sizing by phantom objects.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">The binary data of the image could be either saved or passed to other function, like the library Pillow.</span></span>
+<span class="phrase"><span class="serif-roman">Suppose we have the LaTeX source:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Somehow, I couldn’t call Chrome;</span> <span class="serif-roman">there was perhaps some problems with path or version.</span></span> <span class="phrase"><span class="serif-roman">Besides, to get a screenshot of higher resolution, we had to zoom in,</span> <span class="serif-roman">but by far I didn’t manage to do that either.</span></span>
+<span class="phrase"><code class="mono">\left( \frac {a} {b} \right)</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">In addition, Chinese characters should be shown in Noto Serif,</span> <span class="serif-roman">but the result was in a sans font,</span> <span class="serif-roman">and I can’t tell whether it was Noto Sans or a default font in Windows.</span></span>
+<span class="phrase"><span class="serif-roman">I propose to convert it as:</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Another problem was that sometimes Selenium timed out, or even failed to locate the ID for the post header, for just certain posts, which was strange.</span></span> <span class="phrase"><span class="serif-roman">I therefore enclosed both the post header and the post content in a div given a class for Selenium to recognize, which greatly improved stability.</span></span>
-</p>
-</div>
-<div class="stanza">
-<p class="line">
-<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">import os</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">import io</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">from selenium.webdriver import Firefox</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">from PIL import Image</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">address = &quot;https://www.<wbr>violapterin.com/&quot;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">os.environ[<wbr>&quot;MOZ_HEADLESS&quot;] = &quot;1&quot;</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">driver = Firefox()</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">driver.get(address)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">element = driver.find_element_by_tag_name(<wbr>&quot;body&quot;)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">binary = element.screenshot_as_png</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">driver.quit()</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">graph = Image.open(io.BytesIO(binary))</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">graph.save(<wbr>&quot;./homepage.png&quot;)</code></span>
-</p>
-</div>
-<div class="section">
-<p class="paragraph">
-<span class="phrase"><em class="serif-italic">July 28:</em></span>
+<span class="phrase"><code class="mono">\left( \vphantom {\frac {a} {b}} \right.</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">I was a bloody underrated, world-class genius!</span></span> <span class="phrase"><span class="serif-roman">I was now able to make a PDF of all blog posts crawled as image.</span></span> <span class="phrase"><span class="serif-roman">Presently there were about 40 posts,</span> <span class="serif-roman">and the PDF was already almost 100 page long.</span></span>
+<span class="phrase">&ensp;</span> <span class="phrase"><code class="mono">\frac {a} {b}</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">First, as said above, I automatically saved images of blog posts by Selenium.</span></span> <span class="phrase"><span class="serif-roman">The text appeared blurry,</span> <span class="serif-roman">but Pillow could enhance its contrast and sharpness.</span></span>
+<span class="phrase"><code class="mono">\left. \vphantom {\frac {a} {b}} \right)</code></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">Second, I sliced pictures line by line, saved to dedicated directories named by date.</span></span> <span class="phrase"><span class="serif-roman">To let Pillow recognize the cuts, if you noticed, I even added yellow borders to displayed lines and green borders to table rows, all slightly broken with CSS margin.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Third, I patched the slices greedily into pages.</span></span> <span class="phrase"><span class="serif-roman">Once the present total height exceeded the page height, I created a new page.</span></span> <span class="phrase"><span class="serif-roman">When every post ends, I inserted a separation line, and started patching another post.</span></span> <span class="phrase"><span class="serif-roman">Pillow would extend each page with suitable margin.</span></span>
-</p>
-<p class="paragraph">
-<span class="phrase"><span class="serif-roman">Fourth, I called ImageMagick via Bash, to convert the pages properly numbered in alphabetical order, into a single PDF.</span></span>
+<span class="phrase"><span class="serif-roman">It might be extreme to abuse the functionality of phantom objects,</span> <span class="serif-roman">and LaTeX purists were going to have a heart attack if they see I break up mathematics like this.</span></span> <span class="phrase"><span class="serif-roman">At any rate, since the Porphyrin source was stable, I could always switch back to the older version if I regretted.</span></span>
 </p>
 </div>
 <div class="break">
@@ -264,7 +206,7 @@
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">started July 2, 2021</em></span>
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">mostly July 2, 2021</em></span>
 </p>
 </div>
 <div class="section">

@@ -14,7 +14,7 @@
 ===
 
 ===
-@@for brevity, for two lists@@ ^^#u., #v^^ @@we say@@ ^^#v <1 #u^^ @@if@@ ^^[:#v: .[.n.]] <1 [:#v: .[.n.]]^^ @@for each@@ ^^.n^^ @@;@@
+@@for brevity, for two lists@@ ^^#u., #v^^ @@we say@@ ^^#u <1 #v^^ @@if@@ ^^[:#u: .[.m.]] <1 [:#v: .[.n.]]^^ @@for each@@ ^^.n^^ @@;@@
 @@and we similarly #compare a scalar@@ ^^$a^^ @@with a list@@ ^^#v^^ @@.@@ _
 @@also@@ ^^.<#u., #v.>^^ @@is a concatenated list, with@@ ^^#u., #v^^ @@understood to be flattened;@@
 @@and we similarly #concatenate a scalar@@ ^^$a^^ @@to a list@@ ^^#v^^ @@.@@ _

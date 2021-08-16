@@ -43,8 +43,8 @@
 @@if two projects still #remain, we can do them alternatively,@@
 @@so there will be only one project remaining, if at all.@@ '
 
-@@regardless of the complexity, suppose@@ ^^&m .= .{[: .M: .0]., /6., [: .M: .N].}^^ @@is &sorted in descending order.@@ _
-@@what if we always #consume@@ ^^[: .M: .0]^^ @@alternately with@@ ^^[: .M: .1]., /6., [: .M: .N]^^ @@,@@ @@until@@ ^^[: .M: .0] .- [: .M: .1]^^ @@milestones are &used up?@@ '
+@@regardless of the complexity, suppose@@ ^^&m .= .{[: .M: .0]., /6., [: .M: .N .- .1].}^^ @@is &sorted in descending order.@@ _
+@@what if we always #consume@@ ^^[: .M: .0]^^ @@alternately with@@ ^^[: .M: .1]., /6., [: .M: .N .- .1]^^ @@,@@ @@until@@ ^^[: .M: .0] .- [: .M: .1]^^ @@milestones are &used up?@@ '
 
 @@if so, we #have a pair of two largest projects, both of length@@ ^^[: .M: .1]^^ @@.@@ _
 @@smaller projects can be consumed alternately with the pair, while keeping the pair even.@@ _
@@ -58,7 +58,7 @@
 @@sorting $takes@@ ^^@O.[.N 'log' .N.]^^ @@,@@ @@{which we can’t do}.@@ _
 @@however, we only #have to know the answer within@@ ^^@O.[.N.]^^ @@,@@
 @@and at least we may find@@ ^^[: .M: .0] <6 &m^^ @@,@@
-@@from the discussion above, the answer is simply@@ ^^'max' .(.0., [: .M: .0] .- [: .M: .1] .- /6 .- [: .M: .N] .- .1.)^^ @@.@@ _
+@@from the discussion above, the answer is simply@@ ^^'max' .(.0., [: .M: .0] .- [: .M: .1] .- /6 .- [: .M: .N .- .1] .- .1.)^^ @@.@@ _
 @@the trivial case, <that there is only@@ ^^.1^^ @@project>, also $applies.@@ _
 @@there might be a shorter proof,@@
 @@but I am proud of my independent thinking.@@ '

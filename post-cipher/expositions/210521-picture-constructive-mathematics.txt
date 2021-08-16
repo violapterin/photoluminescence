@@ -91,7 +91,7 @@
 
 ^^`Elimination_problem`.:
    `given` $f .[$G., .x.: .X.] =1 .Y.: [:.%: .0].,
-   `has` $y .[$G.] =1 [:.& :.x.: .X] .Y.: [:.%: .0].;^^ '
+   `has` $y .[$G.] =1 [:.& :.x!!.: .X] .Y .[.x!!.].: [:.%: .0].;^^ '
 
 @@suppose <we #have such a method, <that, with machine@@ ^^$G^^ @@,@@ @@and with any@@ ^^.x^^ @@an implementation of@@ ^^.X^^ @@,@@ @@we can simulate machine@@ ^^$D^^ @@>>.@@ _
 @@then, with@@ ^^$G^^ @@,@@ @@we may obtain a machine {which $takes any@@ ^^.x^^ @@and $simulates@@ ^^$D^^ @@}:@@ '
@@ -103,7 +103,7 @@
 @@or, including super machines:@@ '
 
 ^^`given` $f .[$G.: [:.%: .n]., .x.: .X.] =1 $D.: [:.%: .n].,
-   `has` $y .[$G.] =1 [:.& :.x.: .X.] $D.: [:.%: .n].;^^ '
+   `has` $y .[$G.] =1 [:.& :.x!!.: .X.] $D .[.x!!.].: [:.%: .n].;^^ '
 
 @@rules@@ ++ElMachine++ @@and@@ ++ElProblem++ @@#correspond to the deduction theorem in logic.@@ '
 ===
@@ -114,13 +114,13 @@
 
 ^^`Abstraction`.:
    `given` $f .[$G., .x.: .X.] =1 $c .[.x.].: $C.[.x.].,
-   `has` $y .[$G.] =1 [:.@: .x.: .X] $c .[.x.].: [:.&: .x.: .X] $C .[.x.].;^^ '
+   `has` $y .[$G.] =1 [:.@: .x!!.: .X] $c .[.x!!.].: [:.&: .x!!.: .X] $C .[.x!!.].;^^ '
 
-@@suppose <on machine@@ ^^$G^^ @@,@@ @@there is a function of type@@ ^^[:.&: .x.: .X] $C^^ @@>.@@ _
+@@suppose <on machine@@ ^^$G^^ @@,@@ @@there is a function of type@@ ^^[:.&: .x!!.: .X] $C .[.x!!.]^^ @@>.@@ _
 @@then on machine@@ ^^$G^^ @@,@@ @@this function can map any algorithm@@ ^^.y.: .X^^ @@to an object@@ ^^$c .[.y.]^^ @@,@@ @@by replacing all occurrences of@@ ^^.x^^ @@with@@ ^^.y^^ @@>:@@ '
 
 ^^`Application`.:
-   `given` $f .[$G.] =1 $c.: [:.&: .x.: .X] $C .[.x.]
+   `given` $f .[$G.] =1 $c.: [:.&: .x!!.: .X] $C .[.x!!.]
    `and` .y.: .X.,
    $f .[$G., .y.] =1 $c .[.y.].: $C .[.x \0 .y.].;^^ '
 

@@ -131,9 +131,6 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
                "Warning: Image has more than", limit_boundary,
                "strips.", "It is cropped."
             )
-         # Determine the boundaries before adjustments on color balance!
-         #cut = 4 # percentage of the darker end and lighter end
-         #graph = OPERATION.autocontrast(graph, cutoff = cut)
          for head in range(0, len(many_boundary) - 1):
             name_strip = bare_graph + give_tail(head) + suffix_out
             path_strip = os.path.join(folder_article, name_strip)
@@ -147,9 +144,6 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
                strip = ENHANCE.Contrast(strip).enhance(contrast)
                strip = ENHANCE.Sharpness(strip).enhance(sharpness)
                strip = ENHANCE.Brightness(strip).enhance(brightness)
-               #strip = enhance(True, strip)
-            #else:
-               #strip = enhance(False, strip)
             print("Slicing:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
@@ -158,7 +152,6 @@ def take_photograph(whether_new, folder_shot, many_title):
    many_path_graph = []
    suffix_in = ".html"
    suffix_out = ".png"
-   #many_title = many_title[0:30] # XXX
    for title in many_title:
       stamp = title.split('-')[0]
       address = prefix + title + suffix_in
@@ -192,8 +185,9 @@ def concatenate_graph(down, top):
    height = height_top + height_down
    dimension = (width, height)
    combined = IMAGE.new("RGBA", dimension, "WHITE")
-   more_width_top = int((width - top.size[0]) / 2)
-   more_width_down = int((width - down.size[0]) / 2)
+   ratio_top = constant()["ratio_top"]
+   more_width_top = int(ratio_top * (width - top.size[0]))
+   more_width_down = int((1 / 2) * (width - down.size[0]))
    offset_top = (more_width_top, 0)
    offset_down = (more_width_down, top.size[1])
    top_alpha = top.convert("RGBA")
@@ -238,26 +232,6 @@ def append_skip(leaf):
       leaf = concatenate_graph(skip, leaf)
    leaf = leaf.convert("RGB")
    return leaf
-
-'''
-def enhance(whether_strong, strip):
-   hold = copy.copy(strip)
-   #hold = hold.convert("RGB")
-   cut = (2, 6) # darker end, lighter end
-   contrast = 1.2
-   sharpness = 1.5
-   brightness = 1.1
-   if whether_strong:
-      cut = (3, 9)
-      contrast = 1.8
-      sharpness = 3.0
-      brightness = 1.4
-   hold = ENHANCE.Contrast(hold).enhance(contrast)
-   hold = ENHANCE.Sharpness(hold).enhance(sharpness)
-   hold = ENHANCE.Brightness(hold).enhance(brightness)
-   #hold = OPERATION.autocontrast(hold, cutoff = cut)
-   return hold
-'''
 
 def extract_title(folder_cipher):
    many_title = []
@@ -349,7 +323,7 @@ def constant():
       "height_blank": 36,
       "height_stripe": 3,
       "least_bright": 1/128,
-      "ratio_vertical": 2/3,
+      "ratio_top": 2/3,
       "limit_line": 128,
    }
    return table

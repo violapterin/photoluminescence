@@ -1,4 +1,5 @@
 from pdb import set_trace
+import copy
 
 from . import aid as AID
 
@@ -398,39 +399,51 @@ class Leaf(Organ):
       return many_value
 
    def write_math_bracket(self, mark_left, mark_right):
-      many_content = [mark_left]
       head = self.move_right(0, 0)
+      many_inner = []
+      many_outer = []
       while (head < len(self.source)):
-         tissue, head = self.snip_tissue_math(head)
-         if tissue:
-            many_content.append(tissue.write())
+         tissue_inner, head = self.snip_tissue_math(head)
+         tissue_outer = copy.deepcopy(tissue_inner)
+         tissue_outer.OUTSIDE = True
+         if tissue_inner:
+            many_inner.append(tissue_inner.write())
+            many_outer.append(tissue_outer.write())
          head = self.move_right(0, head)
-      many_content.append(mark_right)
-      content = AID.unite(many_content)
-      sink = self.write_math_outside(content)
+      inner = AID.unite(many_inner)
+      outer = AID.unite(many_outer)
+      phantom = "\\vphantom{" + inner + '}'
+
+      sink = ''
+      if not self.OUTSIDE:
+         sink += mark_left + inner + mark_right
+      else:
+         dot_left = "\\left."
+         dot_right = "\\right."
+         inner_left = mark_left + phantom + dot_right
+         inner_right = dot_left + phantom + mark_right
+         outer_left = self.write_math(inner_left)
+         outer_right = self.write_math(inner_right)
+         sink += outer_left + outer + outer_right
       return sink
 
-   def write_math_outside(self, source):
-      assert (hasattr(self, "OUTSIDE"))
+   def write_math(self, source):
+      if not self.OUTSIDE:
+         return source
       sink = ''
       tag = "span"
-      mark_left = "\\("
-      mark_right = "\\)"
-      if (self.OUTSIDE):
-         content = mark_left + source + mark_right
-         sink = AID.write_element(
-            cut = '',
-            content = content,
-            tag = tag,
-            many_attribute = ["class"],
-            many_value = [self.KIND],
-         )
-      else:
-         sink = source
+      content = "\\(" + source + "\\)"
+      sink = AID.write_element(
+         cut = '',
+         content = content,
+         tag = tag,
+         many_attribute = ["class"],
+         many_value = [self.KIND],
+      )
       sink = sink.strip()
       return sink
 
-   def write_pseudo_outside(self, source):
+   def write_pseudo(self, source):
       tag = "span"
       sink = AID.write_element(
          cut = ' ',

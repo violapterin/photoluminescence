@@ -649,7 +649,7 @@ def write_latex(command, *many_option):
    many_sink.append(command)
    for option in many_option:
       many_sink.append('{' + option + '}')
-   sink = unite(many_sink)
+   sink = unite(many_sink, cut = '')
    return sink
 
 def insert_space_narrow_latex(content):

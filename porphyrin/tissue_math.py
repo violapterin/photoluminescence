@@ -1,4 +1,5 @@
 from pdb import set_trace
+import copy
 
 from .organ import Leaf
 from . import aid as AID
@@ -19,7 +20,7 @@ class Math_letter(Leaf):
 
    def write(self):
       assert (len(self.source) == 2 or len(self.source) == 4)
-      letter_accent = ''
+      sink = ''
       letter = ''
       tip = self.source[0]
       tail = self.source[1]
@@ -78,10 +79,10 @@ class Math_letter(Leaf):
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
       if self.accent:
-         letter_accent = AID.write_latex(self.accent, letter)
+         sink = AID.write_latex(self.accent, letter)
       else:
-         letter_accent = letter
-      sink = self.write_math_outside(letter_accent)
+         sink = letter
+      sink = self.write_math(sink)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -99,9 +100,8 @@ class Math_sign(Leaf):
 
    def write(self):
       assert (len(self.source) == 2 or len(self.source) == 4)
-      content = ''
+      sink = ''
       sign = ''
-      many_sign = ()
       tip = self.source[0]
       tail = self.source[1]
       label_tip = AID.get_label_math(tip)
@@ -111,6 +111,7 @@ class Math_sign(Leaf):
          accent = self.source[2:4]
          self.accent = AID.get_accent(accent)
 
+      many_sign = ()
       if (label_tip == "LINE"):
          many_sign = (
             "\\mid", "\\nmid", "\\backslash",
@@ -207,6 +208,7 @@ class Math_sign(Leaf):
          many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
 
       elif (label_tip == "ABSTRACTION"):
+         self.LATERAL = False
          many_sign = (
             "\\displaystyle\\sum\\limits",
             "\\displaystyle\\prod\\limits",
@@ -230,10 +232,10 @@ class Math_sign(Leaf):
          from .caution import Token_invalid_as_symbol as creator
          creator(**data).panic()
       if self.accent:
-         sign_accent = AID.write_latex(self.accent, sign)
+         sink = AID.write_latex(self.accent, sign)
       else:
-         sign_accent = sign
-      sink = self.write_math_outside(sign_accent)
+         sink = sign
+      sink = self.write_math(sink)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -251,7 +253,7 @@ class Math_plain(Leaf):
 
    def write(self):
       assert (len(self.source) == 2 or len(self.source) == 4)
-      content = ''
+      sink = ''
       symbol = ''
       tip = self.source[0]
       tail = self.source[1]
@@ -294,16 +296,6 @@ class Math_plain(Leaf):
             "ACCENT_TWO": "?",
          }
          symbol = table_symbol.get(label_tail)
-
-      if not symbol:
-         data = self.give_data(0, len(self.source))
-         from .caution import Token_invalid_as_symbol as creator
-         creator(**data).panic()
-      if self.accent:
-         symbol_accent = AID.write_latex(self.accent, symbol)
-      else:
-         symbol_accent = symbol
-      sink = self.write_math_outside(symbol_accent)
       label_tail_straight = (
          "BOLD",
          "BLACK",
@@ -314,6 +306,16 @@ class Math_plain(Leaf):
       )
       if (label_tail in label_tail_straight):
          self.LATERAL = False
+
+      if not symbol:
+         data = self.give_data(0, len(self.source))
+         from .caution import Token_invalid_as_symbol as creator
+         creator(**data).panic()
+      if self.accent:
+         sink = AID.write_latex(self.accent, symbol)
+      else:
+         sink = symbol
+      sink = self.write_math(sink)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -452,13 +454,13 @@ class Math_pair(Leaf):
          creator(**data).panic()
 
       box_top, box_bottom = boxes
-      top = AID.unite([tissue.write() for tissue in box_top])
-      bottom = AID.unite([tissue.write() for tissue in box_bottom])
+      top = AID.unite([tissue.write() for tissue in box_top], cut = '')
+      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = '')
       top = AID.winnow_space_latex(top)
       bottom = AID.winnow_space_latex(bottom)
       command = "\\dfrac"
       content = AID.write_latex(command, top, bottom)
-      sink = self.write_math_outside(content)
+      sink = self.write_math(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -501,38 +503,71 @@ class Math_triplet(Leaf):
          from .caution import Wrong_number_boxes as creator
          creator(**data).panic()
 
-      box_top, box_main, box_bottom = boxes
-      whether_lateral = True
-      if (len(box_main) == 1) and (not box_main[0].LATERAL):
-         whether_lateral = False
-      top = AID.unite([tissue.write() for tissue in box_top])
-      main = AID.unite([tissue.write() for tissue in box_main])
-      bottom = AID.unite([tissue.write() for tissue in box_bottom])
+      box_top, box_main_inner, box_bottom = boxes
+      top = AID.unite([tissue.write() for tissue in box_top], cut = '')
+      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = '')
+      many_inner = []
+      for tissue in box_main_inner:
+         many_inner.append(tissue.write())
+      box_main_outer = copy.deepcopy(box_main_inner)
+      whether_abstraction = False
+      if box_main_inner[0].source[0] == AID.get_tip_math("ABSTRACTION"):
+         whether_abstraction = True
+      self.lateral = True
+      if (len(box_main_inner) == 1) and not box_main_inner[0].LATERAL:
+         self.lateral = False
+      if self.lateral:
+         for tissue in box_main_outer:
+            tissue.OUTSIDE = True
+      many_outer = []
+      for tissue in box_main_outer:
+         many_outer.append(tissue.write())
+      inner = AID.unite(many_inner, cut = '')
+      outer = AID.unite(many_outer, cut = '')
       top = AID.winnow_space_latex(top)
-      main = AID.winnow_space_latex(main)
       bottom = AID.winnow_space_latex(bottom)
+      inner = AID.winnow_space_latex(inner)
+      outer = AID.winnow_space_latex(outer)
+      phantom = "\\vphantom{" + inner + '}'
+
+      sink = ''
       content = ''
-      if whether_lateral:
-         many_content = []
-         if main:
-            many_content.append(main)
+      appendage = ''
+      if self.lateral:
+         if self.OUTSIDE:
+            content += outer
          else:
-            many_content.append('\\;')
-         if top:
-            many_content.append(AID.write_latex('^', top))
-         if bottom:
-            many_content.append(AID.write_latex('_', bottom))
-         content = AID.unite(many_content)
+            content += inner
+         if not content:
+            content += "\\;"
+         if top or bottom:
+            appendage += phantom
+            if top:
+               appendage += AID.write_latex('^', top)
+            if bottom:
+               appendage += AID.write_latex('_', bottom)
+         appendage = self.write_math(appendage)
+      elif whether_abstraction:
+         content += inner
+         if not content:
+            content += "\\;"
+         if top or bottom:
+            if top:
+               content += AID.write_latex('^', top)
+            if bottom:
+               content += AID.write_latex('_', bottom)
+         content = self.write_math(content)
       else:
          if bottom:
-            underset = AID.write_latex("\\underset", bottom, main)
+            underset = AID.write_latex("\\underset", bottom, inner)
             if top:
                content = AID.write_latex("\\overset", top, underset)
             else:
                content = underset
          elif top:
-            content = AID.write_latex("\\overset", top, main)
-      sink = self.write_math_outside(content)
+            content = AID.write_latex("\\overset", top, inner)
+         content = self.write_math(content)
+      sink = content + appendage
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -574,13 +609,13 @@ class Math_tuple(Leaf):
       many_content = []
       many_content.append(AID.write_latex("\\begin", "matrix"))
       for box in boxes:
-         main = AID.unite([tissue.write() for tissue in box])
+         main = AID.unite([tissue.write() for tissue in box], cut = '')
          main = AID.winnow_space_latex(main)
          many_content.append(main + "\\\\")
       many_content.append(AID.write_latex("\\end", "matrix"))
       content = AID.unite(many_content, cut = '')
       content = AID.insert_space_wide_latex(content)
-      sink = self.write_math_outside(content)
+      sink = self.write_math(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -661,7 +696,7 @@ class Math_serif(Leaf):
          creator(**data).panic()
       content = AID.write_latex(command, self.source.replace('_', '\\_'))
       content = AID.insert_space_narrow_latex(content)
-      sink = self.write_math_outside(content)
+      sink = self.write_math(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -684,7 +719,7 @@ class Math_sans(Leaf):
          creator(**data).panic()
       content = AID.write_latex(command, self.source.replace('_', '\\_'))
       content = AID.insert_space_narrow_latex(content)
-      sink = self.write_math_outside(content)
+      sink = self.write_math(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
@@ -707,7 +742,7 @@ class Math_mono(Leaf):
          creator(**data).panic()
       content = AID.write_latex(command, self.source.replace('_', '\\_'))
       content = AID.insert_space_wide_latex(content)
-      sink = self.write_math_outside(content)
+      sink = self.write_math(content)
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 

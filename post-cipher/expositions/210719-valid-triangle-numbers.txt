@@ -18,7 +18,7 @@ as lengths of the side}.@@ '
 
 ===
 @@we #want to find@@ ^^.f .[&t.]^^ @@,@@ @@the number of valid triples of triangle number.@@ _
-@@to slightly abuse notation, we may consider@@ ^^&t^^ @@to be an unordered set, when the order of elements doesn’t matter.@@ _
+@@to slightly abuse notation, we may consider@@ ^^&t^^ @@ordered in any fixed manner.@@ _
 @@the brute- force approach would be exhausting all triplets in@@ ^^&t^^ @@,@@ @@with complexity@@
    ^^@O .[[.3: .N:].]^^ @@.@@ '
 

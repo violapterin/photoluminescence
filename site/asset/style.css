@@ -43,16 +43,6 @@ body, header
    padding: 0px;
 }
 
-#header-banner
-{
-   border-bottom: 3px lightgray solid;
-}
-
-#footer-whole
-{
-   border-top: 3px lightgray solid;
-}
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -288,13 +278,17 @@ code, .mono
    { display: block; }
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+#header-banner
+{
+   width: 98%;
+   border-bottom: 3px lightgray solid;
+}
 
 #header-banner #banner
 {
+   width: 100%;
    margin: 0px auto;
    display: block;
-   width: 96%;
 }
 
 #name-site .title-site, #name-site .tagline-site,
@@ -574,44 +568,40 @@ code, .mono
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#footer-quote
-{
-   font-size: 16px;
-}
-@media screen and (max-width: 600px) {
-   #footer-quote
-   { font-size: 15px; }
-}
-@media screen and (max-width: 420px) {
-   #footer-quote
-   { font-size: 14px; }
-}
-
 #footer-whole
 {
    margin: 18px auto;
    padding: 0px;
-   width: 320px;
+   width: 98%;
+   border-top: 3px lightgray solid;
 }
 
-#footer-signature, #footer-quote
+#footer-quote, #footer-signature
 {
-   margin: auto;
+   font-size: 16px;
    height: auto;
+   width: 320px;
+}
+@media screen and (max-width: 600px) {
+   #footer-quote, #footer-signature
+   { font-size: 15px; }
+}
+@media screen and (max-width: 420px) {
+   #footer-quote, #footer-signature
+   { font-size: 14px; }
 }
 
 #footer-quote
 {
-   margin: 0px;
-   padding-right: 0px 12px;
+   margin: 16px auto;
+   padding: 0px 0px 0px 20px;
    color: dimgray;
    text-align: left;
-   display: inline-block;
 }
 
 #footer-signature
 {
-   font-size: 16px;
+   margin: 0px auto;
    padding: 0px;
    text-align: left;
 }

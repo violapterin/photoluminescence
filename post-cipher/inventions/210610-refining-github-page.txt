@@ -107,7 +107,7 @@ _ ++}++ '
 ===
 
 ===
-%%July 28:%% '
+%%August 3:%% '
 
 @@word break had &been a serious problem in web designing.@@ _
 @@it was the tradition in typography to justify text,@@
@@ -127,70 +127,32 @@ _ ++}++ '
 ===
 
 ===
-%%July 28:%% '
+%%August 16:%% '
 
-@@with the library Selenium in Python, it was possible to automatically take screenshots calling a headless Firefox, making it effortless to save double- backup of posts on my site.@@ _
-@@it could even take a full- page screenshot, by identifying the@@ ++main++ @@class in my case.@@ '
-@@the binary data of the image could be either saved or passed to other function, like the library Pillow.@@ '
+@@unlike in a book having a fixed width of page}, mathematics on a webpage @had to adapt a variety of widths.@@ _
+@@Mathjax 3 @hadn’t implement the word break feature yet, as in Mathjax 2.@@ _
+@@not breaking long expressions, could result in a large blank in the right half of some lines, considering the present width of page was already narrower than the usual size of a mathematics textbook.@@ _
+@@I @came up a way of greedily fitting a line with mathematics, by splitting each paired bracket to three parts, the left bracket, the content, and the right bracket, while keeping the automatic sizing by phantom objects.@@ '
 
-@@somehow, I @couldn’t call Chrome;@@
-@@there was perhaps some problems with path or version.@@ _
-@@besides, to get a screenshot of higher resolution, we @had to zoom in,@@
-@@but by far I @didn’t manage to do that either.@@ '
+@@suppose we #have the LaTeX source:@@ '
 
-@@in addition, Chinese characters should be shown in Noto Serif,@@
-@@but the result was in a sans font,@@
-@@and I can’t tell <whether it was Noto Sans or a default font in Windows>.@@ '
+++\left( \frac {a} {b} \right)++ '
 
-@@another problem was <that sometimes Selenium @timed out, or even @failed to locate the ID for the post header, for just certain posts, {which was strange}>.@@ _
-@@I therefore @enclosed both the post header and the post content in a div given a class for Selenium to recognize, which greatly improved stability.@@ '
-===
+@@I #propose to convert it as:@@ '
 
-///
-++#! /usr/bin/env python3++ '
-++import os++ '
-++import io++ '
-++from selenium.webdriver import Firefox++ '
-++from PIL import Image++ '
-'
-++address = "https://www.violapterin.com/"++ '
-++os.environ["MOZ_HEADLESS"] = "1"++ '
-++driver = Firefox()++ '
-++driver.get(address)++ '
-++element = driver.find_element_by_tag_name("body")++ '
-++binary = element.screenshot_as_png++ '
-++driver.quit()++ '
-++graph = Image.open(io.BytesIO(binary))++ '
-++graph.save("./homepage.png")++ '
-///
+++\left( \vphantom {\frac {a} {b}} \right.++ '
+_ ++\frac {a} {b}++ '
+++\left. \vphantom {\frac {a} {b}} \right)++ '
 
-===
-%%July 28:%% '
-
-@@I was a bloody underrated, world- class genius!@@ _
-@@I was now able to make a PDF of all blog posts crawled as image.@@ _
-@@presently there were about 40 posts,@@
-@@and the PDF was already almost 100 page long.@@ '
-
-@@first, as said above, I automatically @saved images of blog posts by Selenium.@@ _
-@@the text @appeared blurry,@@
-@@but Pillow could enhance its contrast and sharpness.@@ '
-
-@@second, I @sliced pictures line by line, saved to dedicated directories named by date.@@ _
-@@to let Pillow recognize the cuts, if you @noticed, I even @added yellow borders to displayed lines and green borders to table rows, all slightly broken with CSS margin.@@ '
-
-@@third, I @patched the slices greedily into pages.@@ _
-@@once the present total height @exceeded the page height, I @created a new page.@@ _
-@@when every post ends, I @inserted a separation line, and @started patching another post.@@ _
-@@Pillow would extend each page with suitable margin.@@ '
-
-@@fourth, I @called ImageMagick via Bash, to convert the pages properly numbered in alphabetical order, into a single PDF.@@ '
+@@it might be extreme to abuse the functionality of phantom objects,@@
+@@and LaTeX purists were %going to have a heart attack if they see I break up mathematics like this.@@ _
+@@at any rate, since the Porphyrin source was stable, I could always switch back to the older version if I @regretted.@@ '
 ===
 
 ~~~
 
 ===
-@@❧@@ %%started July 2, 2021%% '
+@@❧@@ %%mostly July 2, 2021%% '
 ===
 
 === ##references## ===

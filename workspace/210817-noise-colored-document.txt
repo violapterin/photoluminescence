@@ -1,0 +1,24 @@
+===
+@@sometimes we #have a scanned documents of text,@@
+@@and we #want to reduce the noise, {which @blurred the edge of printed symbols}.@@ _
+@@if the document is monochrome, we can define a threshold,@@
+@@so <that darker pixels over the threshold are mapped to pure black, and lighter pixels to white>.@@ _
+@@however, if it is &colored, such crude process might give poor results.@@ _
+@@we probably #need to estimate more converging points in the color space, {which noisy pixels are &mapped to}.@@ _
+
+@@more formally, let the document be@@ ^^#P .= .<[:#p :.0]., /6., [:#p :.N .- .1].>^^ @@,@@ @@a list of pixels.@@ _
+@@every pixel@@ ^^#p .= .<.x., .y., .z.> <6 #P^^ @@in the RGB color space, is a triple of red, green, and blue.@@ _
+@@parameters@@ ^^.x., .y., .z^^ @@#take discrete values in a range, such as@@ ^^.0^^ @@to@@ ^^.2.5.5^^ @@.@@ _
+@@for brevity, suppose@@ ^^#p^^ @@is &normalized so that@@ ^^.0 <0 .x., .y.,.z <0 .1^^ @@.@@ '
+
+@@define these quantities:@@ '
+
+^^$q
+   .= (.1, .3) .(.x .+ .y .+ .z.).;^^ '
+^^$f
+   .= ([.2: .x:] .+ [.2: .y:] .+ [.2: .z:], .9 [.2: $q:]).;^^ '
+^^$y
+   .= ([.3: .x:] .+ [.3: .y:] .+ [.3: .z:], .2.7 [.3: $q:] $f).;^^ '
+
+@@it is clear <that they #form a coordinate>.@@ '
+===

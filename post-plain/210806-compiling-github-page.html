@@ -1,0 +1,120 @@
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">August 6, 2021:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">With the library Selenium in Python, it was possible to automatically take screenshots calling a headless Firefox, making it effortless to save double-backup of posts on my site.</span></span> <span class="phrase"><span class="serif-roman">It could even take a full-page screenshot, by identifying the</span> <code class="mono">main</code> <span class="serif-roman">class in my case.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">The binary data of the image could be either saved or passed to other function, like the library Pillow.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Somehow, I couldn’t call Chrome;</span> <span class="serif-roman">there was perhaps some problems with path or version.</span></span> <span class="phrase"><span class="serif-roman">Besides, to get a screenshot of higher resolution, we had to zoom in,</span> <span class="serif-roman">but by far I didn’t manage to do that either.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">In addition, Chinese characters should be shown in Noto Serif,</span> <span class="serif-roman">but the result was in a sans font,</span> <span class="serif-roman">and I can’t tell whether it was Noto Sans or a default font in Windows.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Another problem was that sometimes Selenium timed out, or even failed to locate the ID for the post header, for just certain posts, which was strange.</span></span> <span class="phrase"><span class="serif-roman">I therefore enclosed both the post header and the post content in a div given a class for Selenium to recognize, which greatly improved stability.</span></span>
+</p>
+</div>
+<div class="stanza">
+<p class="line">
+<span class="verse"><code class="mono">#! /usr/bin/env python3</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import os</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">import io</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">from selenium.webdriver import Firefox</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">from PIL import Image</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">address = &quot;https://www.<wbr>violapterin.com/&quot;</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">os.environ[<wbr>&quot;MOZ_HEADLESS&quot;] = &quot;1&quot;</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver = Firefox()</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver.get(address)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">element = driver.find_element_by_tag_name(<wbr>&quot;body&quot;)</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">binary = element.screenshot_as_png</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">driver.quit()</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">graph = Image.open(io.BytesIO(binary))</code></span>
+</p>
+<p class="line">
+<span class="verse"><code class="mono">graph.save(<wbr>&quot;./homepage.png&quot;)</code></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">August 13:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">I was a bloody underrated, world-class genius!</span></span> <span class="phrase"><span class="serif-roman">I was now able to make a PDF of all blog posts crawled as image.</span></span> <span class="phrase"><span class="serif-roman">Presently there were about 40 posts,</span> <span class="serif-roman">and the PDF was already almost 100 page long.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">First, as said above, I automatically saved images of blog posts by Selenium.</span></span> <span class="phrase"><span class="serif-roman">The resulting text appeared blurry,</span> <span class="serif-roman">but Pillow image processing functions, as</span> <code class="mono">PIL.ImageEnhance.Contrast</code> <span class="serif-roman">and</span> <code class="mono">PIL.ImageOps.autocontrast</code><span class="serif-roman">,</span> <span class="serif-roman">were helpful.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Second, I sliced pictures line by line, saved to dedicated directories named by date.</span></span> <span class="phrase"><span class="serif-roman">To let Pillow recognize the cuts, if you noticed, I even added yellow borders to displayed lines and green borders to table rows, all slightly broken with CSS margin.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Third, I patched the slices greedily into pages.</span></span> <span class="phrase"><span class="serif-roman">Once the present total height exceeded the page height, I created a new page.</span></span> <span class="phrase"><span class="serif-roman">When every post ends, I inserted a separation line, and started patching another post.</span></span> <span class="phrase"><span class="serif-roman">Pillow would extend each page with suitable margin.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Fourth, I called ImageMagick via Bash, to convert the pages properly numbered in alphabetical order, into a single PDF.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><em class="serif-italic">August 17:</em></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Now I wanted to reduce the noise, which blurred the edge of glyphs.</span></span> <span class="phrase"><span class="serif-roman">If the document had been monochrome, I could have defined a threshold,</span> <span class="serif-roman">so that darker pixels over the threshold were mapped to pure black, and lighter pixels to white.</span></span> <span class="phrase"><span class="serif-roman">However, since it was colored, such crude process only gave poor results.</span></span> <span class="phrase"><span class="serif-roman">I probably needed to suggest more converging points in the color space, which noisy pixels were to be mapped to.</span></span> <span class="phrase"><span class="serif-roman">More formally, let the document be</span> <span class="math"><span class="math-letter">\(\mathbf{P}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle\vphantom{\mathbf{p}\vphantom{\mathbf{p}}_{0} ,\, \,\dotsc\, ,\, \mathbf{p}\vphantom{\mathbf{p}}_{N\,-\,1}}\right.\)</span><span class="math-letter">\(\mathbf{p}\)</span><span class="math-triplet">\(\vphantom{\mathbf{p}}_{0}\)</span> <span class="math-plain">\(,\,\)</span> <span class="math-sign">\(\,\dotsc\,\)</span> <span class="math-plain">\(,\,\)</span> <span class="math-letter">\(\mathbf{p}\)</span><span class="math-triplet">\(\vphantom{\mathbf{p}}_{N\,-\,1}\)</span><span class="math-bracket-angle">\(\left.\vphantom{\mathbf{p}\vphantom{\mathbf{p}}_{0} ,\, \,\dotsc\, ,\, \mathbf{p}\vphantom{\mathbf{p}}_{N\,-\,1}}\right\rangle\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">a list of pixels.</span></span> <span class="phrase"><span class="serif-roman">Every pixel</span> <span class="math"><span class="math-letter">\(\mathbf{p}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle\vphantom{x ,\, y ,\, z}\right.\)</span><span class="math-plain">\(x\)</span> <span class="math-plain">\(,\,\)</span> <span class="math-plain">\(y\)</span> <span class="math-plain">\(,\,\)</span> <span class="math-plain">\(z\)</span><span class="math-bracket-angle">\(\left.\vphantom{x ,\, y ,\, z}\right\rangle\)</span><span class="math-sign">\(\:\in\:\)</span><span class="math-letter">\(\mathbf{P}\)</span></span> <span class="serif-roman">in the RGB color space, is a triple of red, green, and blue.</span></span> <span class="phrase"><span class="serif-roman">Parameters</span> <span class="math"><span class="math-plain">\(x\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(y\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(z\)</span></span> <span class="serif-roman">take discrete values in a range, such as</span> <span class="math"><span class="math-plain">\(0\)</span></span> <span class="serif-roman">to</span> <span class="math"><span class="math-plain">\(2\)</span><span class="math-plain">\(5\)</span><span class="math-plain">\(5\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">For brevity, suppose</span> <span class="math"><span class="math-letter">\(\mathbf{p}\)</span></span> <span class="serif-roman">is normalized so that</span> <span class="math"><span class="math-plain">\(0\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(x\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(y\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(z\)</span><span class="math-sign">\(\:\leq\:\)</span><span class="math-plain">\(1\)</span></span><span class="serif-roman">.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Define these quantities:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-letter">\(\vartheta\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{1}{3}\)</span><span class="math-bracket-round">\(\left(\vphantom{x \,+\, y \,+\, z}\right.\)</span><span class="math-plain">\(x\)</span> <span class="math-plain">\(\,+\,\)</span> <span class="math-plain">\(y\)</span> <span class="math-plain">\(\,+\,\)</span> <span class="math-plain">\(z\)</span><span class="math-bracket-round">\(\left.\vphantom{x \,+\, y \,+\, z}\right)\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-letter">\(\varphi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{x\vphantom{x}^{2}\,+\,y\vphantom{y}^{2}\,+\,z\vphantom{z}^{2}}{9\vartheta\vphantom{\vartheta}^{2}}\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{x\vphantom{x}^{3}\,+\,y\vphantom{y}^{3}\,+\,z\vphantom{z}^{3}}{27\vartheta\vphantom{\vartheta}^{3}\varphi}\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">It is clear that they form a coordinate.</span></span>
+</p>
+</div>
+<div class="break">
+<span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span> <span class="phrase">&emsp;</span> <span class="phrase">❦</span>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">❧</span> <em class="serif-italic">started August 6, 2021</em></span>
+</p>
+</div>
+</main>
