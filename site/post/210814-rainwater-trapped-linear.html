@@ -113,15 +113,15 @@
 <span class="phrase"><span class="math"><span class="math-mono">\(\;\mathtt {Right\_low}\;\)</span><span class="math-plain">\(:\,\)</span><span class="math-mono">\(\;\mathtt {if}\;\)</span><span class="math-letter">\(\alpha\)</span><span class="math-sign">\(\:&gt;\:\)</span><span class="math-letter">\(\mathbf {u}\)</span><span class="math-plain">\(,\,\)</span><span class="math-mono">\(\;\mathtt {then}\;\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \left\langle \mathbf {v} ,\, \alpha ,\, \mathbf {u} ,\, \alpha \right\rangle \right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \left\langle \alpha ,\, \mathbf {u} ,\, \alpha \right\rangle \right]\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \left\langle \mathbf {v} ,\, \alpha \right\rangle \right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\varphi\)</span><span class="math-bracket-square">\(\left[ \alpha ,\, \left\langle \alpha ,\, \mathbf {u} ,\, \alpha \right\rangle \right]\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-square">\(\left[ \left\langle \mathbf {v} ,\, \alpha \right\rangle \right]\)</span><span class="math-plain">\(;\,\)</span></span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">We begin by examining</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span></span> <span class="serif-roman">from the left end.</span></span> <span class="phrase"><span class="serif-roman">Cases</span> <code class="mono">Left_high</code> <span class="serif-roman">and</span> <code class="mono">Left_low</code> <span class="serif-roman">are mutually exclusive,</span> <span class="serif-roman">and the situation that neighboring components are equal doesn’t matter.</span></span> <span class="phrase"><span class="serif-roman">But there is a remaining case, that</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \alpha ,\, \mathbf {v} \right\rangle\)</span></span> <span class="serif-roman">with</span> <span class="math"><span class="math-letter">\(\alpha\)</span><span class="math-sign">\(\:&gt;\:\)</span><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">When this happens, we turn to the right end to examine cases</span> <code class="mono">Right_high</code> <span class="serif-roman">and</span> <code class="mono">Right_low</code> <span class="serif-roman">which is analogous.</span></span>
+<span class="phrase"><span class="serif-roman">We begin by examining</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span></span> <span class="serif-roman">from the left end.</span></span> <span class="phrase"><span class="serif-roman">Cases</span> <code class="mono">LeftHigh</code> <span class="serif-roman">and</span> <code class="mono">LeftLow</code> <span class="serif-roman">are mutually exclusive,</span> <span class="serif-roman">and the situation that neighboring components are equal doesn’t matter.</span></span> <span class="phrase"><span class="serif-roman">But there is a remaining case, that</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \alpha ,\, \mathbf {v} \right\rangle\)</span></span> <span class="serif-roman">with</span> <span class="math"><span class="math-letter">\(\alpha\)</span><span class="math-sign">\(\:&gt;\:\)</span><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">When this happens, we turn to the right end to examine cases</span> <code class="mono">RightHigh</code> <span class="serif-roman">and</span> <code class="mono">RightLow</code> <span class="serif-roman">which is analogous.</span></span>
 </p>
 </div>
 <div class="section">
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">A moment of thought reveals that the overall time complexity is</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ N \right]\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Suppose we are examining</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \mathbf {v} ,\, \alpha \right\rangle\)</span></span> <span class="serif-roman">from the left end;</span> <span class="serif-roman">when</span> <span class="math"><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">is removed in case</span> <code class="mono">Left_high</code><span class="serif-roman">,</span> <span class="serif-roman">it takes</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ \,\mathrm {size}\, \mathbf {v} \right]\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Or else when</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \alpha ,\, \mathbf {v} \right\rangle\)</span></span> <span class="serif-roman">with</span> <span class="math"><span class="math-letter">\(\alpha\)</span><span class="math-sign">\(\:&gt;\:\)</span><span class="math-letter">\(\mathbf {v}\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">it takes</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ \,\mathrm {size}\, \mathbf {x} \right]\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">but</span> <code class="mono">Right_high</code> <span class="serif-roman">or</span> <code class="mono">Right_low</code> <span class="serif-roman">must happen;</span> <span class="serif-roman">component</span> <span class="math"><span class="math-letter">\(\alpha\)</span></span> <span class="serif-roman">won’t be examined again.</span></span> <span class="phrase"><span class="serif-roman">Hence any component has to be examined twice at most.</span></span>
+<span class="phrase"><span class="serif-roman">A moment of thought reveals that the overall time complexity is</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ N \right]\)</span></span> <span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Suppose we are examining</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \mathbf {v} ,\, \alpha \right\rangle\)</span></span> <span class="serif-roman">from the left end;</span> <span class="serif-roman">when</span> <span class="math"><span class="math-letter">\(\mathbf {v}\)</span></span> <span class="serif-roman">is removed in case</span> <code class="mono">LeftHigh</code><span class="serif-roman">,</span> <span class="serif-roman">it takes</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ \,\mathrm {size}\, \mathbf {v} \right]\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Or else when</span> <span class="math"><span class="math-letter">\(\mathbf {x}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-angle">\(\left\langle \alpha ,\, \mathbf {v} \right\rangle\)</span></span> <span class="serif-roman">with</span> <span class="math"><span class="math-letter">\(\alpha\)</span><span class="math-sign">\(\:&gt;\:\)</span><span class="math-letter">\(\mathbf {v}\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">it takes</span> <span class="math"><span class="math-letter">\(\mathscr {O}\)</span><span class="math-bracket-square">\(\left[ \,\mathrm {size}\, \mathbf {x} \right]\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">but</span> <code class="mono">RightHigh</code> <span class="serif-roman">or</span> <code class="mono">RightLow</code> <span class="serif-roman">must happen;</span> <span class="serif-roman">component</span> <span class="math"><span class="math-letter">\(\alpha\)</span></span> <span class="serif-roman">won’t be examined again.</span></span> <span class="phrase"><span class="serif-roman">Hence any component has to be examined twice at most.</span></span>
 </p>
 <p class="paragraph">
-<span class="phrase"><span class="serif-roman">The validity of algorithm appears obvious;</span> <span class="serif-roman">it would be able to write a proof by a generalized induction on the length of the list, according to the steps</span> <code class="mono">Left_high</code><span class="serif-roman">,</span> <code class="mono">Left_low</code><span class="serif-roman">,</span> <code class="mono">Right_high</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">Right_low</code> <span class="serif-roman">displayed above.</span></span>
+<span class="phrase"><span class="serif-roman">The validity of algorithm appears obvious;</span> <span class="serif-roman">it would be able to write a proof by a generalized induction on the length of the list, according to the steps</span> <code class="mono">LeftHigh</code><span class="serif-roman">,</span> <code class="mono">LeftLow</code><span class="serif-roman">,</span> <code class="mono">RightHigh</code><span class="serif-roman">,</span> <span class="serif-roman">and</span> <code class="mono">RightLow</code> <span class="serif-roman">displayed above.</span></span>
 </p>
 </div>
 <div class="stanza">
@@ -141,19 +141,19 @@
 <span class="verse"><code class="mono">def main():</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">rain = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">rain = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">solution = Solution()</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">solution = Solution()</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">number = solution.count_trap(rain)</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">number = solution.count_trap(rain)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">print(&quot;There are&quot;, number, &quot;drops.&quot;)</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">print(&quot;There are&quot;, number, &quot;drops.&quot;)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono"># 6</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono"># 6</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
@@ -165,106 +165,106 @@
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">def count_trap(self, rain: TYPE.List[int]) -&gt; int:</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_trap(self, rain: TYPE.List[int]) -&gt; int:</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">return self.count_left(rain, 0, len(rain) - 1)</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">def count_left(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">left = self.probe_left(rain, start)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">if (left &gt;= len(rain)): return self.count_right(rain, start, stop)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">water_left = sum([max(0, rain[start] - value) for value in rain[start:left+1]])</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">water_right = self.count_left(rain, left, stop)</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">return water_left + water_right</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return self.count_left(rain, 0, len(rain) - 1)</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">def count_right(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_left(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">right = self.probe_right(rain, stop)</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">left = self.probe_left(rain, start)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">if (right &lt; 0): return self.count_left(rain, start, stop)</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (left &gt;= len(rain)): return self.count_right(rain, start, stop)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">water_right = sum([max(0, rain[stop] - value) for value in rain[right:stop+1]])</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">water_left = sum([max(0, rain[start] - value) for value in rain[start:left+1]])</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">water_left = self.count_right(rain, start, right)</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">water_right = self.count_left(rain, left, stop)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">return water_left + water_right</code></span>
-</p>
-<p class="line">
-<span class="verse">&ensp;</span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">def probe_right(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">limit = rain[start]</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">head = start - 1</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">while (head &gt;= 0):</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">head -= 1</code></span>
-</p>
-<p class="line">
-<span class="verse"><code class="mono">return head</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return water_left + water_right</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">def probe_left(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def count_right(self, rain: TYPE.List[int], start: int, stop: int) -&gt; int:</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">limit = rain[start]</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (stop - start &lt;= 1): return 0</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">head = start + 1</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">right = self.probe_right(rain, stop)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">while head &lt; len(rain):</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (right &lt; 0): return self.count_left(rain, start, stop)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">water_right = sum([max(0, rain[stop] - value) for value in rain[right:stop+1]])</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">head += 1</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">water_left = self.count_right(rain, start, right)</code></span>
 </p>
 <p class="line">
-<span class="verse"><code class="mono">return head</code></span>
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return water_left + water_right</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def probe_right(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">limit = rain[start]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">head = start - 1</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">while (head &gt;= 0):</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">head -= 1</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return head</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse"><code class="mono">def probe_left(self, rain: TYPE.List[int], start: int) -&gt; int:</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">limit = rain[start]</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">head = start + 1</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">while head &lt; len(rain):</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">if (rain[head] &gt;= limit): break</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">head += 1</code></span>
+</p>
+<p class="line">
+<span class="verse">&ensp;</span> <span class="verse">&ensp;</span> <span class="verse"><code class="mono">return head</code></span>
 </p>
 <p class="line">
 <span class="verse">&ensp;</span>
@@ -291,27 +291,25 @@
 
 </div>
 
-<footer>
-   <div id="footer-whole">
-      <p id="footer-quote"></p>
+<footer id="footer-whole">
+   <p id="footer-quote"></p>
 
-      <div id="footer-signature">
-         <div id="footer-left">
-            <p class="footer-author">violapterin</p>
-            <p class="footer-motto">VOLO NON FUGIA</p>
-            <p class="footer-icon">
-               <a class="icon-gmail" href="mailto:violapterin@gmail.com"></a>
-               <a class="icon-github" href="http://github.com/violapterin/"></a>
-               <a class="icon-facebook" href="http://facebook.com/violapterin/"></a>
-               <a class="icon-twitter" href="http://twitter.com/violapterin/"></a>
-            </p>
-            <p class="footer-license">
-            <a class="icon-license" href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
-            </p>
-         </div>
-         <div id="footer-right">
-            <img class="footer-profile" src="/asset/profile.png" alt="profile">
-         </div>
+   <div id="footer-signature">
+      <div id="footer-left">
+         <p class="footer-author">violapterin</p>
+         <p class="footer-motto">VOLO NON FUGIA</p>
+         <p class="footer-icon">
+            <a class="icon-gmail" href="mailto:violapterin@gmail.com"></a>
+            <a class="icon-github" href="http://github.com/violapterin/"></a>
+            <a class="icon-facebook" href="http://facebook.com/violapterin/"></a>
+            <a class="icon-twitter" href="http://twitter.com/violapterin/"></a>
+         </p>
+         <p class="footer-license">
+         <a class="icon-license" href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
+         </p>
+      </div>
+      <div id="footer-right">
+         <img class="footer-profile" src="/asset/profile.png" alt="profile">
       </div>
    </div>
 </footer>

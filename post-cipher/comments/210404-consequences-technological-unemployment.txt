@@ -1,17 +1,68 @@
 ===
-@@People studying in science like to picture such a utopia, <in which, with the advance of artificial intelligence, machine learning, robotics and the like, humans live in eternal happiness, being served by machines, and not having to work>.@@ '
+@@scientists #like to picture an utopia, {where humans #live in eternal happiness, served by machines and not having to work}.@@ _
+@@indeed, many of my friends, {whom I @acquainted in electrical engineering or physics departments}, #seem to share such unlimited optimism,@@
+@@but somehow excluded from the positive air, I always #look at the pessimistic side.@@ _
+@@where @did we diverge to drastically different views?@@ _
+@@this is <what I #don’t understand>.@@ _
+@@optimists, pray tell me {where I #get it wrong}.@@ '
 
-@@I just #don’t understand the unlimited optimism.@@ _
-@@Any optimist, pray tell me {where I get it wrong}.@@ _
-@@As machines and robots #replace our jobs, there will be less and less jobs, and more and more poor people.@@ _
-@@It only $takes some one third of people being unemployed, to make our society collapse into chaos.@@ _
-@@While machines #do produce more products, these products can’t be sold by then, because most people #have got no money.@@ _
-@@Some #say {that there will be novel, irreplaceable jobs unimaginable to us}, yet when asked of how we create such jobs, they #have no idea.@@ _
-@@With such risk unparalleled in history, they are like, “the ship will cross the bridge when it comes over”, is that a responsible attitude <which departments in science should have>?@@ '
+@@with the advance of robotics, machine learning, and artificial intelligence alike, machines are %becoming better and better;@@
+@@they are faster, cheaper, more accurate, and never %having to rest.@@ _
+@@optimists #think <humans will excel at more creative jobs, leaving the routine tasks to machine>;@@
+@@but pessimists #doubt <these jobs are sufficient in number, or existent at all>.@@ _
+@@to compose a meaningful poem or construct a movement in sonata form, computers #have a long way to go;@@
+@@but they are more than serviceable to generate background music for games and automatic replies for customer service.@@ _
+@@even doctors and lawyers #start to seek computer’s help when finding patterns in innumerable cases.@@ _
+@@to be sure, there are plenty “creative” jobs {machines can qualify}, if not all of them at present.@@ '
+
+@@if machines really would replace our jobs, optimists #gather <there will be novel, irreplaceable jobs unimaginable to us by now>;@@
+@@yet when pessimists #ask them <what they are>, they #have no idea.@@ _
+@@in the Documentary short ‹Humans Need Not Apply›, we #imagine <two horses were %having a conversation a hundred years ago, as thus>.@@ _
+@@one horse @feared <that cars were %going to replace horses>;@@
+@@another horse @believed <that it was to be a good thing that <they no longer @had to carry goods and gallop in battlefield>,@@
+@@and there would be more effortless jobs awaiting for them>>.@@ _
+@@as it @turned out, the demand of horse was plain %decreasing.@@ _
+@@now they are mostly &used for sports, movies, and mountain rangers.@@ _
+@@ridiculous as it is, aren’t human beings %dreaming of the same?@@ '
+
+@@if most people are &unemployed, to optimists, all they have to do is relax in the beautiful new world.@@ _
+@@maybe the surplus resource is enough for everybody to share,@@
+@@so we no longer #have to work,@@
+@@and we may rest, travel, and pursue hobbies at our heart’s desire.@@ _
+@@nevertheless, pessimists wonder <where our money $comes from>.@@ _
+@@perhaps rephrased more simply, labor, though a torture to many of us, is the only peaceful way to reliably allocate resources.@@ _
+@@we #let the invisible hand to distribute the wealth, not ideally but better than nothing.@@ _
+@@the fewer jobs there are, the more poor people there are;@@
+@@it is that simple.@@ _
+@@machines #do produce a lot of products,@@
+@@but these can’t be sold by then:@@
+@@the bourgeois class is %vanishing,@@
+@@and the robots #don’t purchase.@@ '
+
+@@if the social inequality become heated,@@
+@@some believe <there will be efforts to reorganize the wealth>;@@
+@@maybe unconditional basic income is at hand.@@ _
+@@but what if the society $breaks down before reformation could happen?@@ _
+@@democracy @took some 150 years, from 1789 to 1945, to mature, and not even peacefully.@@ _
+@@all the more, we #don’t have a hundred years to save the humanity.@@ _
+@@there will be upheavals both domestic and international.@@ _
+@@domestically, inequality will lead to riots;@@
+@@without traditional jobs, violence is the only remaining way of distribution.@@ _
+@@we either slay or suffer.@@ _
+@@internationally, as the core countries #exploit the periphery countries, fascism will arise during the chaos in the latter,@@
+@@and the third world war is a matter of time.@@ '
+
+@@computers can serve us and save our labour,@@
+@@and it too can deprive us of our job undermine our economy.@@ _
+@@but to pessimists like me, it is more an express train, {which we think will head to the heaven, but falls into the hell},@@
+@@and we are too &scared to look out of the window.@@ _
+@@with such risk unparalleled in history, the optimists are like, “the ship will cross the bridge when it comes over”;@@
+@@is that a responsible attitude <which scientists should have>?@@ '
 ===
 
 ~~~
 
 ===
-@@❧@@ %%April 4, 2021%% '
+@@❧@@ %%April 4, 2021;%%
+%%extended August 16, 2021%% '
 ===

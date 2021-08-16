@@ -7,6 +7,7 @@ from selenium import webdriver as DRIVER
 from PIL import Image as IMAGE
 from PIL import ImageEnhance as ENHANCE
 from PIL import ImageOps as OPERATION
+#from PIL import ImageFilter as FILTER
 
 def main(whether_new):
    folder_this = os.path.dirname(__file__)
@@ -119,10 +120,10 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
          matrix = NUMPY.asarray(graph.convert('L'))
          height = matrix.shape[0]
          width = matrix.shape[1]
-         bright = int(width * constant()["least_bright"])
+         least_bright = int(width * constant()["least_bright"])
          marginal = [sum(row) for row in list(matrix)]
          flip = [limit_bright * width - value for value in marginal]
-         passed = [(value > bright) for value in flip]
+         passed = [(value > least_bright) for value in flip]
          many_boundary = find_boundary(passed)
          limit_boundary = 26 * 26
          if (len(many_boundary) > limit_boundary):
@@ -130,6 +131,9 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
                "Warning: Image has more than", limit_boundary,
                "strips.", "It is cropped."
             )
+         # Determine the boundaries before adjustments on color balance!
+         #cut = 4 # percentage of the darker end and lighter end
+         #graph = OPERATION.autocontrast(graph, cutoff = cut)
          for head in range(0, len(many_boundary) - 1):
             name_strip = bare_graph + give_tail(head) + suffix_out
             path_strip = os.path.join(folder_article, name_strip)
@@ -137,14 +141,16 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             below = many_boundary[head + 1]
             strip = graph.crop((0, above, width - 1, below))
             if (below - above < limit_line):
-               strip = enhance_sharpness(True, strip)
-               strip = enhance_contrast(True, strip)
-               strip = enhance_brightness(True, strip)
-            else:
-               strip = enhance_sharpness(False, strip)
-               strip = enhance_contrast(False, strip)
-               strip = enhance_brightness(False, strip)
-            print("Slicing strip:", name_strip, "......")
+               contrast = 1.5
+               sharpness = 3.0
+               brightness = 1.3
+               strip = ENHANCE.Contrast(strip).enhance(contrast)
+               strip = ENHANCE.Sharpness(strip).enhance(sharpness)
+               strip = ENHANCE.Brightness(strip).enhance(brightness)
+               #strip = enhance(True, strip)
+            #else:
+               #strip = enhance(False, strip)
+            print("Slicing:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
 def take_photograph(whether_new, folder_shot, many_title):
@@ -152,6 +158,7 @@ def take_photograph(whether_new, folder_shot, many_title):
    many_path_graph = []
    suffix_in = ".html"
    suffix_out = ".png"
+   #many_title = many_title[0:30] # XXX
    for title in many_title:
       stamp = title.split('-')[0]
       address = prefix + title + suffix_in
@@ -175,6 +182,7 @@ def save_screenshot(address):
    binary = element.screenshot_as_png
    graph = IMAGE.open(io.BytesIO(binary))
    driver.quit()
+   graph = graph.convert("RGB")
    return graph
 
 def concatenate_graph(down, top):
@@ -224,31 +232,32 @@ def append_skip(leaf):
    offset = (0, int(height_skip / 2))
    skip.paste(stripe, offset, mask = stripe_alpha)
    if not leaf:
+      skip = skip.convert("RGB")
       return skip
    else:
       leaf = concatenate_graph(skip, leaf)
+   leaf = leaf.convert("RGB")
    return leaf
 
-def enhance_sharpness(whether_strong, strip):
-   level = 1.3
+'''
+def enhance(whether_strong, strip):
+   hold = copy.copy(strip)
+   #hold = hold.convert("RGB")
+   cut = (2, 6) # darker end, lighter end
+   contrast = 1.2
+   sharpness = 1.5
+   brightness = 1.1
    if whether_strong:
-      level = 3.0
-   strip = ENHANCE.Sharpness(strip).enhance(level)
-   return strip
-
-def enhance_contrast(whether_strong, strip):
-   level = 1.2
-   if whether_strong:
-      level = 2.0
-   strip = ENHANCE.Contrast(strip).enhance(level)
-   return strip
-
-def enhance_brightness(whether_strong, strip):
-   level = 1.1
-   if whether_strong:
-      level = 1.4
-   strip = ENHANCE.Brightness(strip).enhance(level)
-   return strip
+      cut = (3, 9)
+      contrast = 1.8
+      sharpness = 3.0
+      brightness = 1.4
+   hold = ENHANCE.Contrast(hold).enhance(contrast)
+   hold = ENHANCE.Sharpness(hold).enhance(sharpness)
+   hold = ENHANCE.Brightness(hold).enhance(brightness)
+   #hold = OPERATION.autocontrast(hold, cutoff = cut)
+   return hold
+'''
 
 def extract_title(folder_cipher):
    many_title = []
@@ -338,8 +347,8 @@ def constant():
       "width_skip": 640,
       "height_skip": 96,
       "height_blank": 36,
-      "height_stripe": 4,
-      "least_bright": 1/168,
+      "height_stripe": 3,
+      "least_bright": 1/128,
       "ratio_vertical": 2/3,
       "limit_line": 128,
    }

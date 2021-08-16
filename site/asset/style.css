@@ -43,6 +43,16 @@ body, header
    padding: 0px;
 }
 
+#header-banner
+{
+   border-bottom: 3px lightgray solid;
+}
+
+#footer-whole
+{
+   border-top: 3px lightgray solid;
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -195,12 +205,6 @@ code, .mono
 {
    margin: 0px;
    padding: 0px;
-}
-
-.essay
-{
-   border-top: 3px lightgray solid;
-   border-bottom: 3px lightgray solid;
 }
 
 .document a
