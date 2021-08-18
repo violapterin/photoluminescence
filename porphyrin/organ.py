@@ -410,8 +410,8 @@ class Leaf(Organ):
             many_inner.append(tissue_inner.write())
             many_outer.append(tissue_outer.write())
          head = self.move_right(0, head)
-      inner = AID.unite(many_inner)
-      outer = AID.unite(many_outer)
+      inner = AID.unite(many_inner, cut = ' ')
+      outer = AID.unite(many_outer, cut = '')
       phantom = "\\vphantom{" + inner + '}'
 
       sink = ''

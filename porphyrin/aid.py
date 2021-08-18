@@ -662,13 +662,6 @@ def insert_space_wide_latex(content):
    sink = space + content + space
    return sink
 
-def surround_tuple_with_affix(affix, thing_tuple):
-   thing_list = []
-   for thing in thing_tuple:
-      thing_list.append(affix + thing + affix)
-   result = tuple(thing_list)
-   return result
-
 def winnow_space_latex(source):
    sink = source
    many_single = ("\\,", "\\:", "\\;")

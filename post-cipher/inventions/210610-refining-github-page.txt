@@ -149,6 +149,18 @@ _ ++\frac {a} {b}++ '
 @@at any rate, since the Porphyrin source was stable, I could always switch back to the older version if I @regretted.@@ '
 ===
 
+===
+%%August 18:%% '
+
+@@ @came across the concept of relative units,@@ ++em++ @@and@@ ++rem++ @@.@@ _
+@@sizes in@@ ++em++ @@were measured relative to the font size of its parent element,@@
+@@and sizes in@@ ++rem++ @@,@@ @@to the font size of its root ancestor.@@ _
+@@it @rendered some media queries unnecessary, thus drastically shortening the lines and even enhancing the readability.@@ _
+@@all @seemed promising,@@
+@@but on testing, I @found Mathjax couldn’t display properly;@@
+@@disappointing as it was, I @guessed <absolute pixels were still more robust>.@@ '
+===
+
 ~~~
 
 ===
@@ -167,4 +179,7 @@ _ ++\frac {a} {b}++ '
 @@❉@@ @@World Wide Web Consortium,@@
    @@‹Markup Validation Service›@@
    \\https://validator.w3.org\\ '
+@@❉@@ @@World Wide Web Consortium,@@
+   @@‹Units›@@
+   \\https://www.w3.org/Style/Examples/007/units.en.html\\ '
 ===

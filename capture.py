@@ -7,7 +7,6 @@ from selenium import webdriver as DRIVER
 from PIL import Image as IMAGE
 from PIL import ImageEnhance as ENHANCE
 from PIL import ImageOps as OPERATION
-#from PIL import ImageFilter as FILTER
 
 def main(whether_new):
    folder_this = os.path.dirname(__file__)
@@ -137,13 +136,6 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             above = many_boundary[head]
             below = many_boundary[head + 1]
             strip = graph.crop((0, above, width - 1, below))
-            if (below - above < limit_line):
-               contrast = 1.5
-               sharpness = 3.0
-               brightness = 1.3
-               strip = ENHANCE.Contrast(strip).enhance(contrast)
-               strip = ENHANCE.Sharpness(strip).enhance(sharpness)
-               strip = ENHANCE.Brightness(strip).enhance(brightness)
             print("Slicing:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
@@ -165,7 +157,7 @@ def take_photograph(whether_new, folder_shot, many_title):
 def save_screenshot(address):
    id_heading = "header-post"
    class_content = "essay"
-   size = constant()["width_outer"]
+   size = constant()["width_window"]
    os.environ["MOZ_HEADLESS"] = "1"
    driver = DRIVER.Firefox()
    driver.set_window_size(size, size)
@@ -313,16 +305,17 @@ def give_tail(count):
 
 def constant():
    table = {
-      "width_inner": 816,
-      "height_inner": 1224,
-      "width_outer": 1080,
-      "height_outer": 1530,
-      "limit_switch": 960,
+      "width_window": 2048,
+      "width_inner": 1080,
+      "height_inner": 1440,
+      "width_outer": 1200,
+      "height_outer": 1700,
+      "limit_switch": 800,
       "width_skip": 640,
       "height_skip": 96,
       "height_blank": 36,
       "height_stripe": 3,
-      "least_bright": 1/128,
+      "least_bright": 1/192,
       "ratio_top": 2/3,
       "limit_line": 128,
    }

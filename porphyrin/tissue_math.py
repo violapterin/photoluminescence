@@ -118,7 +118,8 @@ class Math_sign(Leaf):
             "\\parallel", "\\nparallel", "\\between",
             "\\dotsc", "\\dotsb", "\\vdots", "\\ddots",
          )
-         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
+         affix = "\\,"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "OPERATION_ONE"):
          many_sign = (
             "\\pm", "\\oplus", "\\cup",
@@ -126,7 +127,8 @@ class Math_sign(Leaf):
             "\\spadesuit", "\\heartsuit",
             "\\diamondsuit", "\\clubsuit", 
          )
-         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
+         affix = "\\,"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "OPERATION_TWO"):
          many_sign = (
             "\\mp", "\\ominus", "\\cap",
@@ -134,14 +136,16 @@ class Math_sign(Leaf):
             "\\neg", "\\angle",
             "\\square", "\\blacksquare",
          )
-         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
+         affix = "\\,"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "OPERATION_THREE"):
          many_sign = (
             "\\times", "\\odot", "\\otimes",
             "\\bullet", "\\circ", "\\star",
             "\\ltimes", "\\rtimes", "\\div", "\\oslash", 
          )
-         many_sign = AID.surround_tuple_with_affix("\\,", many_sign)
+         affix = "\\,"
+         many_sign = (affix + thing + affix for thing in many_sign)
 
       elif (label_tip == "ARROW_MIDDLE"):
          self.LATERAL = False
@@ -151,7 +155,8 @@ class Math_sign(Leaf):
             "\\blacktriangle", "\\blacktriangledown",
             "\\dagger", "\\ddagger", "\\wr",
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         affix = "\\:"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "ARROW_LEFT"):
          self.LATERAL = False
          many_sign = (
@@ -161,7 +166,8 @@ class Math_sign(Leaf):
             "\\hookleftarrow", "\\curvearrowleft",
             "\\triangleleft", "\\blacktriangleleft", 
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         affix = "\\:"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "ARROW_RIGHT"):
          self.LATERAL = False
          many_sign = (
@@ -171,7 +177,8 @@ class Math_sign(Leaf):
             "\\hookrightarrow", "\\curvearrowright",
             "\\triangleright", "\\blacktriangleright", 
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         affix = "\\:"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "EQUIVALENCE_ONE"):
          self.LATERAL = False
          many_sign = (
@@ -180,7 +187,8 @@ class Math_sign(Leaf):
             "\\Leftrightarrow", "\\not\\Leftrightarrow",
             "\\leftrightsquigarrow", "\\not\\leftrightsquigarrow",
          )
-         many_sign = AID.surround_tuple_with_affix("\\;", many_sign)
+         affix = "\\;"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "EQUIVALENCE_TWO"):
          self.LATERAL = False
          many_sign = (
@@ -188,7 +196,8 @@ class Math_sign(Leaf):
             "\\propto", "\\asymp", "\\gtreqless", "\\lesseqgtr"
             "\\leftrightararray", "\\rightleftararray",
          )
-         many_sign = AID.surround_tuple_with_affix("\\;", many_sign)
+         affix = "\\;"
+         many_sign = (affix + thing + affix for thing in many_sign)
 
       elif (label_tip == "ORDER_LEFT"):
          self.LATERAL = False
@@ -197,7 +206,8 @@ class Math_sign(Leaf):
             "\\subseteq", "\\subsetneq", "\\in",
             "\\preceq", "\\precneqq", "\\dashv",
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         affix = "\\;"
+         many_sign = (affix + thing + affix for thing in many_sign)
       elif (label_tip == "ORDER_RIGHT"):
          self.LATERAL = False
          many_sign = (
@@ -205,7 +215,8 @@ class Math_sign(Leaf):
             "\\supseteq", "\\supsetneq", "\\notin",
             "\\succeq", "\\succneqq", "\\vdash",
          )
-         many_sign = AID.surround_tuple_with_affix("\\:", many_sign)
+         affix = "\\;"
+         many_sign = (affix + thing + affix for thing in many_sign)
 
       elif (label_tip == "ABSTRACTION"):
          self.LATERAL = False
@@ -454,8 +465,8 @@ class Math_pair(Leaf):
          creator(**data).panic()
 
       box_top, box_bottom = boxes
-      top = AID.unite([tissue.write() for tissue in box_top], cut = '')
-      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = '')
+      top = AID.unite([tissue.write() for tissue in box_top], cut = ' ')
+      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = ' ')
       top = AID.winnow_space_latex(top)
       bottom = AID.winnow_space_latex(bottom)
       command = "\\dfrac"
@@ -504,8 +515,8 @@ class Math_triplet(Leaf):
          creator(**data).panic()
 
       box_top, box_main_inner, box_bottom = boxes
-      top = AID.unite([tissue.write() for tissue in box_top], cut = '')
-      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = '')
+      top = AID.unite([tissue.write() for tissue in box_top], cut = ' ')
+      bottom = AID.unite([tissue.write() for tissue in box_bottom], cut = ' ')
       many_inner = []
       for tissue in box_main_inner:
          many_inner.append(tissue.write())
@@ -522,7 +533,7 @@ class Math_triplet(Leaf):
       many_outer = []
       for tissue in box_main_outer:
          many_outer.append(tissue.write())
-      inner = AID.unite(many_inner, cut = '')
+      inner = AID.unite(many_inner, cut = ' ')
       outer = AID.unite(many_outer, cut = '')
       top = AID.winnow_space_latex(top)
       bottom = AID.winnow_space_latex(bottom)
@@ -609,11 +620,11 @@ class Math_tuple(Leaf):
       many_content = []
       many_content.append(AID.write_latex("\\begin", "matrix"))
       for box in boxes:
-         main = AID.unite([tissue.write() for tissue in box], cut = '')
+         main = AID.unite([tissue.write() for tissue in box], cut = ' ')
          main = AID.winnow_space_latex(main)
          many_content.append(main + "\\\\")
       many_content.append(AID.write_latex("\\end", "matrix"))
-      content = AID.unite(many_content, cut = '')
+      content = AID.unite(many_content, cut = ' ')
       content = AID.insert_space_wide_latex(content)
       sink = self.write_math(content)
       return sink

@@ -196,6 +196,12 @@
 @@afterwards, commit.@@ '
 ===
 
+===
+@@instead, if you only #want to reset one file, use:@@ '
+
+++git checkout HEAD~5 -- <certainfile.txt>++ '
+===
+
 ~~~
 
 ===

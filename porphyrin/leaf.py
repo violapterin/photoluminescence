@@ -1,5 +1,3 @@
-from pdb import set_trace
-
 from .organ import Leaf
 from . import aid as AID
 
@@ -152,7 +150,7 @@ class Comment(Leaf):
          AID.tune_comment(self.source),
          token_right,
       ]
-      sink = AID.unite(many_sink)
+      sink = AID.unite(many_sink, cut = '')
       return sink
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -204,7 +202,7 @@ class Pseudo(Leaf):
             tissue.OUTSIDE = True
             many_content.append(tissue.write())
          head = self.move_right(0, head)
-      content = AID.unite(many_content)
+      content = AID.unite(many_content, cut = '')
       sink = AID.write_element(
             content = content,
             tag = self.TAG,

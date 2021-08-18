@@ -19,20 +19,20 @@
 
 body
 {
-   width: 800px; 
-   font-size: 24px;
+   width: 960px; 
+   font-size: 25px;
 }
-@media screen and (max-width: 1300px) {
-   body { width: 700px; font-size: 22px; }
+@media screen and (max-width: 1500px) {
+   body { width: 750px; font-size: 22px; }
 }
 @media screen and (max-width: 900px) {
-   body { width: 600px; font-size: 20px; }
+   body { width: 600px; font-size: 19px; }
 }
 @media screen and (max-width: 600px) {
-   body { width: 480px; font-size: 18px; }
+   body { width: 450px; font-size: 16px; }
 }
-@media screen and (max-width: 420px) {
-   body { width: 360px; font-size: 16px; }
+@media screen and (max-width: 450px) {
+   body { width: 360px; font-size: 13px; }
 }
 
 body, header
@@ -71,7 +71,7 @@ body, header
 {
    margin: 12px 24px auto;
    padding: 0px 6px;
-   width: 84%;
+   width: 80%;
    display: block;
    border-left: 12px lightcyan solid;
 }
@@ -88,7 +88,7 @@ body, header
 div .paragraph
 {
    margin: 0px;
-   padding: 0px;
+   padding: 0px 16px;
    text-indent: 40px;
    text-align: justify;
    text-justify: inter-word;
@@ -96,20 +96,27 @@ div .paragraph
 }
 @media screen and (max-width: 600px) {
    div .paragraph {
-      text-align: left; 
+      padding: 0px 8px;
       text-indent: 20px;
+      text-align: left; 
    }
 }
 
 div .line
 {
    margin: 2px;
-   padding: 0px 6px;
+   padding: 0px 8px;
    border-left: 12px lemonchiffon solid;
    text-indent: 18px;
    text-align: left;
    text-justify: none;
    overflow-wrap: anywhere;
+}
+@media screen and (max-width: 600px) {
+   div .paragraph {
+      padding: 0px 4px;
+      text-indent: 9px;
+   }
 }
 
 table .row, table .row
@@ -236,24 +243,24 @@ code, .mono
 
 #name-site .title-site
 {
-   font-size: 30px;
+   font-size: 32px;
 }
 @media screen and (max-width: 900px) {
    #name-site .title-site
-   { font-size: 24px; }
+   { font-size: 29px; }
 }
 @media screen and (max-width: 600px) {
    #name-site .title-site
-   { font-size: 18px; }
+   { font-size: 26px; }
 }
 
 #name-site .tagline-site
 {
-   font-size: 18px;
+   font-size: 20px;
 }
 @media screen and (max-width: 900px) {
    #name-site .tagline-site
-   { font-size: 16px; }
+   { font-size: 27px; }
 }
 @media screen and (max-width: 600px) {
    #name-site .tagline-site
@@ -262,11 +269,11 @@ code, .mono
 
 #menu .button-menu, #menu .dingbat-menu
 {
-   font-size: 18px;
+   font-size: 20px;
 }
 @media screen and (max-width: 900px) {
    #menu .button-menu, #menu .dingbat-menu
-   { font-size: 16px; }
+   { font-size: 17px; }
 }
 @media screen and (max-width: 600px) {
    #menu .button-menu, #menu .dingbat-menu
@@ -280,7 +287,7 @@ code, .mono
 
 #header-banner
 {
-   width: 98%;
+   width: 100%;
    border-bottom: 3px lightgray solid;
 }
 
@@ -340,7 +347,6 @@ code, .mono
 {
    margin: 16px 32px;
    padding: 0px;
-   font-size: 36px;
 }
 @media screen and (max-width: 900px) {
    #header-post, #header-page
@@ -387,7 +393,7 @@ code, .mono
    margin: 12px 12px;
    padding: 0px;
    text-indent: 24px;
-   line-height: 80%;
+   line-height: 120%;
 }
 @media screen and (max-width: 900px) {
    #header-post .heading-post, #header-page .heading-page
@@ -403,20 +409,21 @@ code, .mono
 {
    margin: 0px;
    padding: 0px;
-   font-size: 32px;
+   font-size: 35px;
    font-weight: 700;
+   line-height: 116%;
 }
 @media screen and (max-width: 900px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 30px; }
+   { font-size: 32px; }
 }
 @media screen and (max-width: 600px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 28px; }
+   { font-size: 29px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
    { font-size: 26px; }
@@ -426,8 +433,9 @@ code, .mono
 {
    margin: 0px 12px;
    padding: 0px;
-   font-size: 28px;
+   font-size: 29px;
    font-weight: 500;
+   line-height: 132%;
 }
 @media screen and (max-width: 900px) {
    .title-catalog .display
@@ -435,31 +443,32 @@ code, .mono
 }
 @media screen and (max-width: 600px) {
    .title-catalog .display
-   { margin: 0px 8px; font-size: 24px; }
+   { margin: 0px 8px; font-size: 23px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
    .title-catalog .display
-   { margin: 0px 6px; font-size: 22px; }
+   { margin: 0px 6px; font-size: 20px; }
 }
 
 .entry .title-entry .heading
 {
    margin: 0px;
    padding: 0px;
-   font-size: 30px;
+   font-size: 32px;
    font-weight: 700;
+   line-height: 108%;
 }
 @media screen and (max-width: 900px) {
    .entry .title-entry .heading
-   { font-size: 28px; }
+   { font-size: 29px; }
 }
 @media screen and (max-width: 600px) {
    .entry .title-entry .heading
    { font-size: 26px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
    .entry .title-entry .heading
-   { font-size: 24px; }
+   { font-size: 23px; }
 }
 
 #header-page .heading-page .display
@@ -502,21 +511,21 @@ code, .mono
 {
    margin: 6px 12px;
    padding: 0px;
-   font-size: 18px;
+   font-size: 20px;
    font-weight: 500;
    line-height: 200%;
 }
 @media screen and (max-width: 900px) {
    .data-post, .data-entry
-   { padding: 0px 10px; font-size: 16px; }
+   { padding: 0px 10px; font-size: 17px; }
 }
 @media screen and (max-width: 600px) {
    .data-post, .data-entry
    { padding: 0px 8px; font-size: 14px; }
 }
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 450px) {
    .data-post, .data-entry
-   { padding: 0px 6px; font-size: 12px; }
+   { padding: 0px 6px; font-size: 11px; }
 }
 
 .data-post .data-stamp, .data-entry .data-stamp,
@@ -570,9 +579,9 @@ code, .mono
 
 #footer-whole
 {
-   margin: 18px auto;
-   padding: 0px;
-   width: 98%;
+   margin: 12px auto;
+   padding: 6px;
+   width: 100%;
    border-top: 3px lightgray solid;
 }
 
@@ -584,18 +593,19 @@ code, .mono
 }
 @media screen and (max-width: 600px) {
    #footer-quote, #footer-signature
-   { font-size: 15px; }
-}
-@media screen and (max-width: 420px) {
-   #footer-quote, #footer-signature
    { font-size: 14px; }
+}
+@media screen and (max-width: 450px) {
+   #footer-quote, #footer-signature
+   { font-size: 12px; }
 }
 
 #footer-quote
 {
-   margin: 16px auto;
+   margin: 8px auto;
    padding: 0px 0px 0px 20px;
    color: dimgray;
+   font-style: italic;
    text-align: left;
 }
 
@@ -606,17 +616,11 @@ code, .mono
    text-align: left;
 }
 
-#footer-quote,
-#footer-left .footer-author,
-#footer-left .footer-motto
-{
-   font-style: italic;
-}
-
 #footer-left, #footer-right
 {
    margin: 3px;
    padding: 0px;
+   font-style: italic;
    display: inline-block;
    vertical-align: middle;
 }
@@ -636,7 +640,7 @@ code, .mono
 .footer-author, .footer-motto, .footer-icon,
 .footer-profile
 {
-   margin: 3px 6px;
+   margin: 6px 6px;
    padding: 0px;
 }
 
