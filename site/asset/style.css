@@ -49,14 +49,38 @@ body, header
 
 .section
 {
-   margin: 24px 0px;
+   margin: 24px 72px;
    padding: 0px;
+}
+@media screen and (max-width: 1500px) {
+   .section
+   { margin: 20px 54px; }
+}
+@media screen and (max-width: 900px) {
+   .section
+   { margin: 16px 36px; }
+}
+@media screen and (max-width: 600px) {
+   .section
+   { margin: 12px 18px; }
 }
 
 .stanza
 {
-   margin: 24px 0px;
+   margin: 24px 48px;
    padding: 0px;
+}
+@media screen and (max-width: 1500px) {
+   .stanza
+   { margin: 20px 36px; }
+}
+@media screen and (max-width: 900px) {
+   .stanza
+   { margin: 16px 24px; }
+}
+@media screen and (max-width: 600px) {
+   .stanza
+   { margin: 12px 12px; }
 }
 
 .array
@@ -69,7 +93,7 @@ body, header
 
 .graph
 {
-   margin: 12px 24px auto;
+   margin: 6px auto;
    padding: 0px 6px;
    width: 80%;
    display: block;
@@ -113,7 +137,7 @@ div .line
    overflow-wrap: anywhere;
 }
 @media screen and (max-width: 600px) {
-   div .paragraph {
+   div .line {
       padding: 0px 4px;
       text-indent: 9px;
    }
@@ -228,17 +252,21 @@ code, .mono
 
 #header-banner #name-site, #header-banner #menu
 {
-   margin: 0px 12px;
+   margin: 6px 12px;
    padding: 0px 60px;
    text-align: center;
 }
 @media screen and (max-width: 900px) {
-   #header-banner #name-site, #header-banner #menu
-   { margin: 0px 8px; padding: 0px 40px; }
+   #header-banner #name-site, #header-banner #menu {
+      margin: 6px 8px;
+      padding: 0px 40px; 
+   }
 }
 @media screen and (max-width: 600px) {
-   #header-banner #name-site, #header-banner #menu
-   { margin: 0px 4px; padding: 0px 20px; }
+   #header-banner #name-site, #header-banner #menu {
+      margin: 6px 4px;
+      padding: 0px 20px;
+   }
 }
 
 #name-site .title-site
@@ -247,11 +275,11 @@ code, .mono
 }
 @media screen and (max-width: 900px) {
    #name-site .title-site
-   { font-size: 29px; }
+   { font-size: 28px; }
 }
 @media screen and (max-width: 600px) {
    #name-site .title-site
-   { font-size: 26px; }
+   { font-size: 24px; }
 }
 
 #name-site .tagline-site
@@ -260,11 +288,11 @@ code, .mono
 }
 @media screen and (max-width: 900px) {
    #name-site .tagline-site
-   { font-size: 27px; }
+   { font-size: 18px; }
 }
 @media screen and (max-width: 600px) {
    #name-site .tagline-site
-   { font-size: 14px; }
+   { font-size: 16px; }
 }
 
 #menu .button-menu, #menu .dingbat-menu
@@ -293,7 +321,7 @@ code, .mono
 
 #header-banner #banner
 {
-   width: 100%;
+   width: 90%;
    margin: 0px auto;
    display: block;
 }
@@ -345,63 +373,91 @@ code, .mono
 
 #header-post, #header-page
 {
-   margin: 16px 32px;
+   margin: 24px 72px;
    padding: 0px;
+}
+@media screen and (max-width: 1500px) {
+   #header-post, #header-page
+   { margin: 18px 54px; }
 }
 @media screen and (max-width: 900px) {
    #header-post, #header-page
-   { margin: 8px 24px; }
+   { margin: 12px 36px; }
 }
 @media screen and (max-width: 600px) {
    #header-post, #header-page
-   { margin: 8px 16px; }
+   { margin: 6px 18px; }
 }
 
 .entry
 {
-   margin: 18px 0px;
+   margin: 16px 0px;
    padding: 0px;
    font-weight: 500;
 }
-@media screen and (max-width: 900px) {
-   .entry, .title-catalog
+@media screen and (max-width: 1500px) {
+   .entry
    { margin: 12px 0px; }
 }
+@media screen and (max-width: 900px) {
+   .entry
+   { margin: 8px 0px; }
+}
 @media screen and (max-width: 600px) {
-   .entry, .title-catalog
-   { margin: 6px 0px; }
+   .entry
+   { margin: 4px 0px; }
 }
 
 .entry .title-entry, .title-catalog
 {
-   margin: 18px 18px;
+   margin: 8px 12px;
    padding: 0px;
-   text-indent: 18px;
-   line-height: 120%;
+   text-indent: 12px;
+   line-height: 100%;
+}
+@media screen and (max-width: 1500px) {
+   .entry .title-entry, .title-catalog {
+      margin: 6px 9px;
+      text-indent: 9px;
+   }
 }
 @media screen and (max-width: 900px) {
-   .entry .title-entry, .title-catalog
-   { text-indent: 12px; }
+   .entry .title-entry, .title-catalog {
+      margin: 4px 6px;
+      text-indent: 6px;
+   }
 }
 @media screen and (max-width: 600px) {
-   .entry .title-entry, .title-catalog
-   { text-indent: 6px; }
+   .entry .title-entry, .title-catalog {
+      margin: 2px 3px;
+      text-indent: 3px;
+   }
 }
 
 #header-post .heading-post, #header-page .heading-page
 {
-   margin: 12px 12px;
+   margin: 12px 16px;
    padding: 0px;
-   text-indent: 24px;
+   text-indent: 36px;
    line-height: 120%;
 }
+@media screen and (max-width: 1500px) {
+   #header-post .heading-post, #header-page .heading-page {
+      margin: 9px 12px;
+      text-indent: 27px;
+   }
+}
 @media screen and (max-width: 900px) {
-   #header-post .heading-post, #header-page .heading-page
-   { text-indent: 16px; }
+   #header-post .heading-post, #header-page .heading-page {
+      margin: 6px 8px;
+      text-indent: 18px;
+   }
 }
 @media screen and (max-width: 600px) {
-   #header-post .heading-post, #header-page .heading-page
-   { text-indent: 8px; }
+   #header-post .heading-post, #header-page .heading-page {
+      margin: 3px 4px;
+      text-indent: 9px; 
+   }
 }
 
 #header-page .heading-page .display,
@@ -409,7 +465,7 @@ code, .mono
 {
    margin: 0px;
    padding: 0px;
-   font-size: 35px;
+   font-size: 36px;
    font-weight: 700;
    line-height: 116%;
 }
@@ -421,19 +477,19 @@ code, .mono
 @media screen and (max-width: 600px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 29px; }
+   { font-size: 28px; }
 }
 @media screen and (max-width: 450px) {
    #header-page .heading-page .display,
    #header-post .heading-post .heading
-   { font-size: 26px; }
+   { font-size: 24px; }
 }
 
 .title-catalog .display
 {
    margin: 0px 12px;
    padding: 0px;
-   font-size: 29px;
+   font-size: 30px;
    font-weight: 500;
    line-height: 132%;
 }
@@ -443,11 +499,11 @@ code, .mono
 }
 @media screen and (max-width: 600px) {
    .title-catalog .display
-   { margin: 0px 8px; font-size: 23px; }
+   { margin: 0px 8px; font-size: 22px; }
 }
 @media screen and (max-width: 450px) {
    .title-catalog .display
-   { margin: 0px 6px; font-size: 20px; }
+   { margin: 0px 6px; font-size: 18px; }
 }
 
 .entry .title-entry .heading
@@ -460,15 +516,15 @@ code, .mono
 }
 @media screen and (max-width: 900px) {
    .entry .title-entry .heading
-   { font-size: 29px; }
+   { font-size: 28px; }
 }
 @media screen and (max-width: 600px) {
    .entry .title-entry .heading
-   { font-size: 26px; }
+   { font-size: 24px; }
 }
 @media screen and (max-width: 450px) {
    .entry .title-entry .heading
-   { font-size: 23px; }
+   { font-size: 20px; }
 }
 
 #header-page .heading-page .display
@@ -511,21 +567,27 @@ code, .mono
 {
    margin: 6px 12px;
    padding: 0px;
-   font-size: 20px;
+   font-size: 19px;
    font-weight: 500;
    line-height: 200%;
 }
 @media screen and (max-width: 900px) {
-   .data-post, .data-entry
-   { padding: 0px 10px; font-size: 17px; }
+   .data-post, .data-entry { 
+      padding: 0px 10px;
+      font-size: 16px;
+   }
 }
 @media screen and (max-width: 600px) {
-   .data-post, .data-entry
-   { padding: 0px 8px; font-size: 14px; }
+   .data-post, .data-entry { 
+      padding: 0px 8px;
+      font-size: 13px;
+   }
 }
 @media screen and (max-width: 450px) {
-   .data-post, .data-entry
-   { padding: 0px 6px; font-size: 11px; }
+   .data-post, .data-entry { 
+      padding: 0px 6px;
+      font-size: 10px;
+   }
 }
 
 .data-post .data-stamp, .data-entry .data-stamp,
@@ -537,8 +599,8 @@ code, .mono
 .data-post .data-series:visited, .data-entry .data-series:visited,
 .data-post .data-tag:visited, .data-entry .data-tag:visited
 {
-   margin: 6px 6px;
-   padding: 0px 6px;
+   margin: 4px 4px;
+   padding: 0px 4px;
    color: darkslategray;
    text-decoration: none;
 }
@@ -579,8 +641,8 @@ code, .mono
 
 #footer-whole
 {
-   margin: 12px auto;
-   padding: 6px;
+   margin: 18px auto;
+   padding: 18px;
    width: 100%;
    border-top: 3px lightgray solid;
 }
@@ -602,7 +664,7 @@ code, .mono
 
 #footer-quote
 {
-   margin: 8px auto;
+   margin: 0px auto;
    padding: 0px 0px 0px 20px;
    color: dimgray;
    font-style: italic;
@@ -752,7 +814,6 @@ code, .mono
    font-weight: 700;
    unicode-range: U+4E00-9FFF;
 }
-
 
 .pseudo-letter-italic
 {

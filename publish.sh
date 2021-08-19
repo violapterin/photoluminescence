@@ -1,48 +1,68 @@
 #! /usr/bin/env bash
 
+#sample() {
+#   many_option=" \
+#      -sDEVICE=pdfwrite \
+#      -dCompatibilityLevel=1.4 \
+#      -dBATCH \
+#      -dNOPAUSE \
+#      -dQUIET \
+#      -dFIXEDMEDIA \
+#      -sPAPERSIZE=b5 \
+#      -dPDFSETTINGS=/printer \
+#      -sOutputFile=$2 \
+#      "
+#   set -x
+#   rm -f $2
+#   gs ${many_option} $1
+#   { set +x; } 2>/dev/null
+#}
+
 compile() {
-   SUFFIX_IN=".jpg"
-   SUFFIX_OUT=".pdf"
-   TITLE="phonoluminescence-full"
-   many_option="\
-      -units pixelsperinch\
-      -density 300\
-      -page b5\
-      -auto-orient\
+   SUFFIX_IN="png"
+   many_option=" \
+      -auto-orient \
+      -units pixelsperinch \
+      -density 300 \
+      -page b5 \
       "
-   path_out=$2/${TITLE}${SUFFIX_OUT}
    set -x
-   rm -f "${path_out}"
-   convert $1/*${SUFFIX_IN} ${many_option} ${path_out}
+   rm -f $2
+   convert $1/*.${SUFFIX_IN} ${many_option} $2
    { set +x; } 2>/dev/null
 }
 
 tune() {
-   SUFFIX_IN=".jpg"
-   SUFFIX_OUT=".jpg"
-   for path_leaf in $1/*
+   SUFFIX_IN="png"
+   SUFFIX_OUT="png"
+   for path_in in $1/*
    do
-      if [ ! -f "${path_leaf}" ]
+      if [ ! -f "${path_in}" ]
       then
          continue
       fi
-      name="$(basename ${path_leaf})"
-      extension="${name##*.}"
+      name="$(basename ${path_in})"
       bare="${name%.*}"
-      if [ "${extension}" != "jpg" ]
+      suffix="${name##*.}"
+      if [ "${suffix}" != "${SUFFIX_IN}" ]
       then
          continue
       fi
-      echo "tuning image ${path_leaf} ..."
+      path_out="$2/${bare}.${SUFFIX_OUT}"
+      # # Compare time stamps:
+      if [ "${path_out}" -nt "${path_in}" ]
+      then
+         continue
+      fi
+      echo "tuning image ${path_in} ..."
       # brightness-contrast: percentage x percentage
       # adaptive-sharpen: radius x level
-      many_option="\
-         -brightness-contrast 8x18\
-         -adaptive-sharpen 1x3\
+      many_option=" \
+         -brightness-contrast 6x12 \
+         -adaptive-sharpen 2x4 \
          "
-      path_out=$2/${bare}${SUFFIX_OUT}
       set -x
-      convert ${path_leaf} ${many_option} ${path_out}
+      convert ${path_in} ${many_option} ${path_out}
       { set +x; } 2>/dev/null
    done
 }
@@ -55,24 +75,35 @@ then
     exit
 fi
 
+if [ ! command -v gs &> /dev/null ]
+then
+    echo "Please install Ghostscript."
+    exit
+fi
+
 THIS="$(dirname $0)"
-SUFFIX_IN=".jpg"
-SUFFIX_OUT=".pdf"
+SUFFIX_OUT="pdf"
 book="${THIS}/book"
 leaf="${book}/leaf"
 tuned="${book}/tuned"
+full="${book}/full.${SUFFIX_OUT}"
+#secondary="${book}/full-secondary.${SUFFIX_OUT}"
 if [ ! -d "${book}" ]
 then
-  echo "${book} does not exist."
+  mkdir "${book}"
 fi
 if [ ! -d "${leaf}" ]
 then
-  echo "${leaf} does not exist."
+  mkdir "${leaf}"
 fi
 if [ ! -d "${tuned}" ]
 then
-  echo "${tuned} does not exist."
+  mkdir "${tuned}"
 fi
 
+echo "    ! ! ! tuning ${leaf} to ${tuned}:"
 tune ${leaf} ${tuned}
-compile ${tuned} ${book}
+echo "    ! ! ! compiling ${tuned} to ${full}:"
+compile ${tuned} ${full}
+#echo "    ! ! ! sampling ${primary} to ${secondary}:"
+#sample ${primary} ${secondary}

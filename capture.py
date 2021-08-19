@@ -5,8 +5,6 @@ import shutil
 import numpy as NUMPY
 from selenium import webdriver as DRIVER
 from PIL import Image as IMAGE
-from PIL import ImageEnhance as ENHANCE
-from PIL import ImageOps as OPERATION
 
 def main(whether_new):
    folder_this = os.path.dirname(__file__)
@@ -41,7 +39,7 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
       if not compare_folder_with_folder(folder_leaf, folder_strip):
          return
    suffix_in = ".png"
-   suffix_out = ".jpg"
+   suffix_out = ".png"
    height_inner = constant()["height_inner"]
    limit_switch = constant()["limit_switch"]
    total = 0
@@ -114,7 +112,6 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
          if not compare_folder_with_file(folder_article, path_graph):
             continue
       limit_bright = 255
-      limit_line = constant()["limit_line"]
       with IMAGE.open(path_graph) as graph:
          matrix = NUMPY.asarray(graph.convert('L'))
          height = matrix.shape[0]
@@ -155,15 +152,15 @@ def take_photograph(whether_new, folder_shot, many_title):
       graph.save(path_graph, quality = 100)
 
 def save_screenshot(address):
-   id_heading = "header-post"
-   class_content = "essay"
+   #id_heading = "header-post"
+   kind = "essay"
    size = constant()["width_window"]
    os.environ["MOZ_HEADLESS"] = "1"
    driver = DRIVER.Firefox()
    driver.set_window_size(size, size)
    print("Capturing address:", address, "......")
    driver.get(address)
-   element = driver.find_element_by_class_name(class_content)
+   element = driver.find_element_by_class_name(kind)
    binary = element.screenshot_as_png
    graph = IMAGE.open(io.BytesIO(binary))
    driver.quit()
@@ -262,18 +259,18 @@ def find_boundary(record):
 
 def compare_folder_with_folder(this_folder, that_folder):
    if not os.path.isdir(this_folder):
-      return true
+      return True
    if not os.path.isdir(that_folder):
-      return false
+      return False
    time_this = get_time_folder(this_folder)
    time_that = get_time_folder(that_folder)
    return (time_this < time_that)
 
 def compare_folder_with_file(folder, path):
    if not os.path.isdir(folder):
-      return true
+      return True
    if not os.path.isfile(path):
-      return false
+      return False
    time_folder = get_time_folder(folder)
    time_path = get_time_path(folder)
    return (time_folder < time_path)
@@ -305,19 +302,18 @@ def give_tail(count):
 
 def constant():
    table = {
-      "width_window": 2048,
+      "width_window": 1600,
       "width_inner": 1080,
       "height_inner": 1440,
       "width_outer": 1200,
       "height_outer": 1700,
-      "limit_switch": 800,
-      "width_skip": 640,
+      "limit_switch": 960,
+      "width_skip": 720,
       "height_skip": 96,
-      "height_blank": 36,
+      "height_blank": 48,
       "height_stripe": 3,
       "least_bright": 1/192,
       "ratio_top": 2/3,
-      "limit_line": 128,
    }
    return table
 

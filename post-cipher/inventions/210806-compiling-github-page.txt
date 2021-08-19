@@ -70,8 +70,8 @@
 @@however, since it was &colored, such crude process only @gave poor results.@@ '
 
 @@formally, let the document be represented as@@ ^^#P .= .<[:#p :.0]., /6., [:#p :.N .- .1].>^^ @@,@@ @@a list of pixels.@@ _
-@@a pixel@@ ^^#p .= .<.x., .y., .z.>^^ @@is a triple of red, green, and blue in the RGB color space.@@ _
-@@for simplicity, suppose<@@ ^^#p^^ @@is &transformed so <that@@ ^^.- .1 ./ .2 <0 .x., .y.,.z <0 .1 ./ .2^^ @@>.@@ _
+@@a pixel@@ ^^[:#p :.n] .= .<.x., .y., .z.>^^ @@is a triple of red, green, and blue in the RGB color space.@@ _
+@@for simplicity, suppose<@@ ^^[:#p :.n]^^ @@is &transformed so <that@@ ^^.- .1 ./ .2 <0 .x., .y.,.z <0 .1 ./ .2^^ @@>.@@ _
 @@it $seems <we have to conduct a regression to find several converging points, {towards which noisy pixels are &quantized}>.@@ _
 @@assuming blending with neighboring white pixels $doesn’t change its color but merely its brightness, we could let@@ ^^[:#p :.0]., /6., [:#p :.N .- .1]^^ @@vote for a consensus of brightness.@@ '
 
@@ -88,7 +88,7 @@
 ===
 %%August 18:%% '
 
-@@if the width of body was more than@@ ++900px++ @@,@@ @@the resolution of the resulting @appeared somewhat acceptable.@@
+@@if the width of body was more than@@ ++900px++ @@,@@ @@the resolution of the resulting @appeared somewhat acceptable.@@ _
 @@the setting would only activate in the presence of a really wide screen like@@ ++2000px++ @@,@@ @@tailored for Selenium,@@
 @@so it wasn’t to affect the normal browsing experience.@@ _
 @@(otherwise, I would have to use an alternative CSS style, and serve locally to let Selenium take the screenshot, {which would be too much a hassle}.)@@ _

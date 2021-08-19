@@ -44,3 +44,9 @@
 @@if so, the judgemental equality would be merely a syntactic sugar.@@ _
 @@anyway for our purpose, whenever it is &called,@@ ^^=1^^ @@is &considered as@@ ^^=1^^ @@,@@ @@unless when it really can’t.@@ '
 ===
+
+~~~
+
+===
+@@❧@@ %%August 12, 2021%% '
+===
