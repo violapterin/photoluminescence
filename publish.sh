@@ -1,23 +1,5 @@
 #! /usr/bin/env bash
 
-#sample() {
-#   many_option=" \
-#      -sDEVICE=pdfwrite \
-#      -dCompatibilityLevel=1.4 \
-#      -dBATCH \
-#      -dNOPAUSE \
-#      -dQUIET \
-#      -dFIXEDMEDIA \
-#      -sPAPERSIZE=b5 \
-#      -dPDFSETTINGS=/printer \
-#      -sOutputFile=$2 \
-#      "
-#   set -x
-#   rm -f $2
-#   gs ${many_option} $1
-#   { set +x; } 2>/dev/null
-#}
-
 compile() {
    SUFFIX_IN="png"
    many_option=" \
@@ -59,7 +41,7 @@ tune() {
       # adaptive-sharpen: radius x level
       many_option=" \
          -brightness-contrast 6x12 \
-         -adaptive-sharpen 2x4 \
+         -adaptive-sharpen 1x3 \
          "
       set -x
       convert ${path_in} ${many_option} ${path_out}
@@ -86,8 +68,7 @@ SUFFIX_OUT="pdf"
 book="${THIS}/book"
 leaf="${book}/leaf"
 tuned="${book}/tuned"
-full="${book}/full.${SUFFIX_OUT}"
-#secondary="${book}/full-secondary.${SUFFIX_OUT}"
+full="${book}/photoluminescence-full.${SUFFIX_OUT}"
 if [ ! -d "${book}" ]
 then
   mkdir "${book}"
@@ -101,9 +82,7 @@ then
   mkdir "${tuned}"
 fi
 
-echo "    ! ! ! tuning ${leaf} to ${tuned}:"
+echo "    ! ! ! Tuning ${leaf} to ${tuned} ! ! !"
 tune ${leaf} ${tuned}
-echo "    ! ! ! compiling ${tuned} to ${full}:"
+echo "    ! ! ! Compiling ${tuned} to ${full} ! ! !"
 compile ${tuned} ${full}
-#echo "    ! ! ! sampling ${primary} to ${secondary}:"
-#sample ${primary} ${secondary}

@@ -2,4 +2,5 @@
 
 import capture
 
-capture.main(True)
+whether_new = True
+capture.main(whether_new)

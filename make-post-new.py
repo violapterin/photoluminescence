@@ -2,4 +2,5 @@
 
 import make
 
-make.main(True)
+whether_new = True
+make.main(whether_new)

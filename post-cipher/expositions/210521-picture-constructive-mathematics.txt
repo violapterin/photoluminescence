@@ -35,7 +35,7 @@
 @@at any rate, we at least #have@@ ^^[:.%: .0]^^ @@at our disposal.@@ _
 @@therefore a machine is valid, if it is stronger than@@ ^^[:.%: .0]^^ @@.@@ _
 @@especially,@@ ^^[:.%: .0]^^ @@is valid.@@ _
-@@put most plainly, if we #have@@ ^^[:.%: .0]^^ @@,@@ @@then we #have@@ ^^[:.%: .0]^^ @@:@@ '
+@@put most plainly, if we #have@@ ^^[:.%: .0]^^ @@,@@ @@then we #have@@ ^^[:.%: .0]^^ @@,@@ @@namely:@@ '
 
 ^^`Primitive`.:
    `has` $y .[[:.%: .0].] =1 [:.%: .0].;^^ '
@@ -51,12 +51,12 @@
 ===
 
 ===
-@@clearly, with valid machines@@ ^^$G., $D^^ @@,@@ @@we #get a valid new machine by combining@@ ^^.($G., $D.)^^ @@.@@ _
-@@actually, we may think@@ ^^.($G., $D.).: [:.%: .1]^^ @@.@@ _
-@@with a valid composite of machines@@ ^^$G., $D^^ @@,@@ @@once@@ ^^$G^^ @@$doesn’t depend on additional objects than@@ ^^$D^^ @@$does, we can use only@@ ^^$D^^ @@:@@ '
+@@clearly, with valid machines@@ ^^$G., $D^^ @@,@@ @@we #get a valid new machine by combining@@ ^^.<$G., $D.>^^ @@.@@ _
+@@actually, we may think@@ ^^.<$G., $D.>.: [:.%: .1]^^ @@.@@ _
+@@with a valid composite of machines@@ ^^$G., $D^^ @@,@@ @@once@@ ^^$G^^ @@$doesn’t depend on additional objects than@@ ^^$D^^ @@$does, we can use only@@ ^^$D^^ @@,@@ @@namely:@@ '
 
 ^^`Scope`.:
-   `given` .($G., $D.) `valid` `about` [:.%: .0].,
+   `given` .<$G., $D.> `valid` `about` [:.%: .0].,
    `has` $y .[$G.] =1 $D.;^^ '
 
 @@rule@@ ++Scope++ @@#corresponds to the deletion of superfluous variables in logic.@@ '
@@ -64,41 +64,41 @@
 
 ===
 @@suppose <machine@@ ^^$G^^ @@can compute problem@@ ^^.X^^ @@>.@@ _
-@@with@@ ^^$G^^ @@,@@ @@and with any algorithm@@ ^^.x^^ @@{which $solves@@ ^^.X^^ @@,@@ @@we #have a valid new machine:@@ '
+@@with@@ ^^$G^^ @@,@@ @@and with any algorithm@@ ^^.x^^ @@{which $solves@@ ^^.X^^ @@,@@ @@we #have a valid new machine, namely:@@ '
 
 ^^`Valid_problem`.:
    `given` $f .[$G.] =1 .X.: [:.%: .0].,
-   .($G., .x.: .X.) `is` `valid`.;^^ '
+   .<$G., .x.: .X.> `is` `valid`.;^^ '
 
 @@suppose <machine@@ ^^$G^^ @@can simulate@@ ^^.X^^ @@>.@@ _
-@@with@@ ^^$G^^ @@,@@ @@and with any problem@@ ^^.X^^ @@{which is &computed on @@ ^^$D^^ @@,@@ @@we #have a valid new machine:@@ '
+@@with@@ ^^$G^^ @@,@@ @@and with any problem@@ ^^.X^^ @@{which is &computed on @@ ^^$D^^ @@,@@ @@we #have a valid new machine, namely:@@ '
 
 ^^`Valid_machine`.:
    `given` $f .[$G.] =1 $D.,
-   .($G., .X.: $D.) `is` `valid`.;^^ '
+   .<$G., .X.: $D.> `is` `valid`.;^^ '
 
 @@or, including super machines:@@ '
 
 ^^`given` $f .[$G.: [:.%: .n .+ .1].] =1 [:.%: .n].,
-   .($G., $D.: [:.%: .n .+ .1].) `is` `valid`.;^^ '
+   .<$G., $D.: [:.%: .n .+ .1].> `is` `valid`.;^^ '
 
 @@rules@@ ++ValidProblem++ @@and@@ ++ValidMachine++ @@#correspond to universal instantiation in logic.@@ '
 ===
 
 ===
 @@suppose <we #have such a method, <that, with machine@@ ^^$G^^ @@,@@ @@and with any@@ ^^.x^^ @@an implementation of@@ ^^.X^^ @@,@@ @@we can solve problem@@ ^^.Y^^ @@>>.@@ _
-@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a solution {which $takes any@@ ^^.x^^ @@and $solves@@ ^^.Y^^ @@:@@ '
+@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a solution {which $takes any@@ ^^.x^^ @@and $solves@@ ^^.Y^^ @@,@@ @@namely:@@ '
 
 ^^`Elimination_problem`.:
    `given` $f .[$G., .x.: .X.] =1 .Y.: [:.%: .0].,
    `has` $y .[$G.] =1 [:.& :.x!!.: .X] .Y .[.x!!.].: [:.%: .0].;^^ '
 
 @@suppose <we #have such a method, <that, with machine@@ ^^$G^^ @@,@@ @@and with any@@ ^^.x^^ @@an implementation of@@ ^^.X^^ @@,@@ @@we can simulate machine@@ ^^$D^^ @@>>.@@ _
-@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a machine {which $takes any@@ ^^.x^^ @@and $simulates@@ ^^$D^^ @@}:@@ '
+@@then, with@@ ^^$G^^ @@,@@ @@we may obtain a machine {which $takes any@@ ^^.x^^ @@and $simulates@@ ^^$D^^ @@},@@ @@namely:@@ '
 
 ^^`Elimination_machine`.:
    `given` $f .[$G., .x.: .X.] =1 $D.,
-   `has` $y .[$G.] =1 .(.x.: .X., $D.).;^^ '
+   `has` $y .[$G.] =1 .<.x.: .X., $D.>.;^^ '
 
 @@or, including super machines:@@ '
 
@@ -110,14 +110,14 @@
 
 ===
 @@suppose <on machine@@ ^^$G^^ @@,@@ @@any algorithm@@ ^^.x.: .X^^ @@$gives rise to an object@@ ^^$c.: $C^^ @@>.@@ _
-@@then on machine@@ ^^$G^^ @@,@@ @@this map can properly define a function:@@ '
+@@then on machine@@ ^^$G^^ @@,@@ @@this map can properly define a function, namely:@@ '
 
 ^^`Abstraction`.:
    `given` $f .[$G., .x.: .X.] =1 $c .[.x.].: $C.[.x.].,
    `has` $y .[$G.] =1 [:.@: .x!!.: .X] $c .[.x!!.].: [:.&: .x!!.: .X] $C .[.x!!.].;^^ '
 
 @@suppose <on machine@@ ^^$G^^ @@,@@ @@there is a function of type@@ ^^[:.&: .x!!.: .X] $C .[.x!!.]^^ @@>.@@ _
-@@then on machine@@ ^^$G^^ @@,@@ @@this function can map any algorithm@@ ^^.y.: .X^^ @@to an object@@ ^^$c .[.y.]^^ @@,@@ @@by replacing all occurrences of@@ ^^.x^^ @@with@@ ^^.y^^ @@>:@@ '
+@@then on machine@@ ^^$G^^ @@,@@ @@this function can map any algorithm@@ ^^.y.: .X^^ @@to an object@@ ^^$c .[.y.]^^ @@,@@ @@by replacing all occurrences of@@ ^^.x^^ @@with@@ ^^.y^^ @@>,@@ @@namely:@@ '
 
 ^^`Application`.:
    `given` $f .[$G.] =1 $c.: [:.&: .x!!.: .X] $C .[.x!!.]

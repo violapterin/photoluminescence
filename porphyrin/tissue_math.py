@@ -1,6 +1,4 @@
-from pdb import set_trace
 import copy
-
 from .organ import Leaf
 from . import aid as AID
 
@@ -533,12 +531,18 @@ class Math_triplet(Leaf):
       many_outer = []
       for tissue in box_main_outer:
          many_outer.append(tissue.write())
-      inner = AID.unite(many_inner, cut = ' ')
-      outer = AID.unite(many_outer, cut = '')
+      inner_chief = AID.unite(many_inner[:-1 or None], cut = ' ')
+      inner_last = many_inner[-1 or None]
+      outer_chief = AID.unite(many_outer[:-1 or None], cut = '')
+      outer_last = many_outer[-1 or None]
       top = AID.winnow_space_latex(top)
       bottom = AID.winnow_space_latex(bottom)
-      inner = AID.winnow_space_latex(inner)
-      outer = AID.winnow_space_latex(outer)
+      inner_chief = AID.winnow_space_latex(inner_chief)
+      inner_last = AID.winnow_space_latex(inner_last)
+      outer_chief = AID.winnow_space_latex(outer_chief)
+      outer_last = AID.winnow_space_latex(outer_last)
+      outer = outer_chief + outer_last
+      inner = inner_chief + ' ' + inner_last
       phantom = "\\vphantom{" + inner + '}'
 
       sink = ''
@@ -546,11 +550,10 @@ class Math_triplet(Leaf):
       appendage = ''
       if self.lateral:
          if self.OUTSIDE:
-            content += outer
+            content += outer_chief
          else:
-            content += inner
-         if not content:
-            content += "\\;"
+            content += inner_chief + ' '
+         appendage += inner_last + ' '
          if top or bottom:
             appendage += phantom
             if top:

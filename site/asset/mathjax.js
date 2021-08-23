@@ -25,3 +25,10 @@ window.MathJax = {
       ignoreHtmlClass: ["body"],
    },
 };
+
+(function () {
+  var setting = document.createElement('script');
+  setting.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
+  setting.async = true;
+  document.head.appendChild(setting);
+})();

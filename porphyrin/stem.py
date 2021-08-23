@@ -1,5 +1,3 @@
-from pdb import set_trace
-
 from .organ import Stem
 from . import aid as AID
 

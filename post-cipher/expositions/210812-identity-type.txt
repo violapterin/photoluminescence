@@ -15,12 +15,12 @@
 @@if@@ ^^.x^^ @@and@@ ^^.y^^ @@are identical, we have a algorithm@@ ^^$f^^ @@which verifies the fact.@@ _
 @@object@@ ^^$f^^ @@has type@@ ^^.I .[.x., .y.]^^ @@,@@ @@traditionally denoted@@ ^^.x .= .y^^ @@.@@ _
 @@the identity@@ ^^.I^^ @@$depends on a type@@ ^^.A^^ @@,@@
-@@and it $relates two objects of the same type:@@ '
+@@and it $relates two objects of the same type as follows:@@ '
 
 ^^.I .[.A.: .%., .a.: .A., .b.: .B.].: .%.;^^ '
 
 @@every term is equal to itself,@@
-@@and every object in a type may be replaced with equal objects:@@ '
+@@and every object in a type may be replaced with equal objects, namely:@@ '
 
 ^^`given` .x.: .A.,
    `has` @R .[.x.]

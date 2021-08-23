@@ -27,7 +27,8 @@
 @@but how to find@@ ^^.M^^ @@?@@ '
 
 @@if@@ ^^#x .= .<#v., $a., #u.>^^ @@with@@ ^^.<#v., $a.>^^ @@increasing, then we may remove #u without affecting the result;@@
-@@similar is the decreasing case:@@ '
+@@similar is the decreasing case.@@
+@@this is to say:@@ '
 
 ^^`Left_high`.:
    `if` .<#v., $a.> `increasing`.,
@@ -40,7 +41,8 @@
       .= $y .[.<#v., $a.>.].;^^ '
 
 @@or if@@ ^^#x .= .<$a., #v., $a., #u.>^^ @@with@@ ^^$a >1 #v^^ @@,@@ @@then we may break@@ ^^.<$a., #v., $a.>^^ @@from@@ ^^.<$a., #u.>^^ @@,@@ @@and add the respective answers;@@
-@@similar is the decreasing case:@@ '
+@@similar is the decreasing case.@@
+@@this is to say:@@ '
 
 ^^`Left_low`.:
    `if` $a >1 #v.,

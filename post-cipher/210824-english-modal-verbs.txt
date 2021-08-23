@@ -1,0 +1,54 @@
+===
+@@in the beginning, English modal verbs@@ ##will## @@,@@ ##can## @@,@@ ##may## @@,@@ ##must## @@,@@ ##shall## @@all have past tense, namely@@ ##would## @@,@@ ##could## @@,@@ ##might## @@,@@ ##mote## @@,@@ ##should## @@.@@ _
+@@they also have respective subjunctive moods to indicate unreality or intention.@@ '
+
+@@then@@ ##mote## @@,@@ @@the past tense of@@ ##must## @@,@@ @@became obsolete;@@
+##shall## @@#grew to be rare;@@
+@@furthermore, the subjunctive@@ ##might## @@and@@ ##should## @@#dominate the past tense@@ ##might## @@and@@ ##should## @@.@@ _
+@@there is now considerable confusion about the usage of these 9 modal verbs,@@
+@@and Americans probably #find many of them exchangeable.@@ _
+@@let us try to sort the matter out.@@ '
+===
+
+===
+@@modal verb@@ ##will## @@is used to express intention and certainty.@@ '
+
+##I will finish the report tonight.## '
+##the judge will reconsider the case.## '
+##the first course will start next week.## '
+##the house will be torn down soon.## '
+
+@@it can also express expectation and prediction.@@ '
+
+##you will see a beautiful garden by the lake.## '
+##more people will starve to death in the war.## '
+
+@@sometimes it $indicates a nature or habit:@@ '
+
+##this piece of sodium will explode in the water.## '
+##a cup of milk in the morning will be good for health.## '
+##kids will play all night without being tired.## '
+===
+
+===
+@@here I #summarize my suggestions in each case, in order to avoid some ambiguities.@@ _
+@@certainly, one doesn’t need to follow them at all times, not even myself.@@ _
+===
+
+"""
+@@usage@@ _ @@gloss@@ _ @@past@@ _ @@present@@ '
+@@certainty, expectation, nature, intention@@ _ %%to be to%% _
+   ##would## _ ##will## '
+@@ability@@ _ %%to be able to%% _
+   ##could## _ ##can## '
+@@obligation@@ _ %%to be obliged to%% _
+   ##should## _ ##should## '
+@@necessity@@ _ %%to have to%% _
+   ##should## _ ##must## '
+@@permission@@ _ %%to be allowed to%% _
+   ##could## _ ##may## '
+@@high possibility@@ _ %%to be likely to%% _
+   ##could## _ ##can## '
+@@low possibility@@ _ %%to be possible to%% _
+   ##might## _ ##may## '
+"""

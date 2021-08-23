@@ -42,11 +42,13 @@
 
 ## Meta
 
-1. Capture: Do not start new post in the lower part of page
+1. Capture: Split PDF files with respect to genre
+
+1. Capture: Compare time stamp of tuned images and PDF
 
 1. Capture: Page numbers?
 
-1. Porphyrin: Break auto sized brackets and use vphantom?
+1. Porphyrin: Do not separate last item in main of triplet, with the rest
 
 1. Filter duplicate posts with the same stamp (resulted by renaming)
 

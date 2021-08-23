@@ -38,6 +38,7 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
    if whether_new:
       if not compare_folder_with_folder(folder_leaf, folder_strip):
          return
+   print("! ! ! Patching pages ! ! !")
    suffix_in = ".png"
    suffix_out = ".png"
    height_inner = constant()["height_inner"]
@@ -96,6 +97,7 @@ def patch_leaf(whether_new, folder_leaf, folder_strip):
    leaf.save(path_leaf, quality = 100)
 
 def shred_photograph(whether_new, folder_strip, folder_shot):
+   print("! ! ! Shredding screenshots ! ! !")
    suffix_in = ".png"
    suffix_out = ".png"
    for name_shot in os.listdir(folder_shot):
@@ -137,6 +139,7 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             strip.save(path_strip, quality = 100)
 
 def take_photograph(whether_new, folder_shot, many_title):
+   print("! ! ! Taking screenshots ! ! !")
    prefix = "https://www.violapterin.com/post/"
    many_path_graph = []
    suffix_in = ".html"
@@ -313,7 +316,7 @@ def constant():
       "height_blank": 48,
       "height_stripe": 3,
       "least_bright": 1/192,
-      "ratio_top": 2/3,
+      "ratio_top": 3/4,
    }
    return table
 

@@ -15,48 +15,48 @@
 
 @@define the position vector@@ ^^.r^^ @@,@@ @@velocity@@ ^^.v^^ @@,@@ @@acceleration@@ ^^.a^^ @@.@@ _
 @@they are functions of@@ ^^$q .= $q.[.t.]^^ @@,@@ @@the counterclockwise angle originating from the sun.@@ _
-@@with a star denoting derivative of@@ ^^.t^^ @@,@@ @@they are &found as thus:@@ '
+@@with a prime denoting derivative of@@ ^^.t^^ @@,@@ @@they are &found as thus:@@ '
 
 ^^`Position`.:
    .r
-   .= .<'cos' $q .- $g.,
-      $b 'sin' $q.>.;^^ '
+   .= .<'Cos' $q .- $g.,
+      $b 'Sin' $q.>.;^^ '
 ^^`Velocity`.:
    .v
-   .= .<.- [:$q: .'] 'sin' $q.,
-      $b 'cos' $q.>.;^^ '
+   .= .<.- [.': $q:] 'Sin' $q.,
+      $b [.': $q:] 'Cos' $q.>.;^^ '
 ^^`Acceleration`.:
    .a
-   .= .<.-[:$q: ."] 'sin' $q .- [.2 : $q: .'] 'cos' $q.,
-      $b [:$q: ."] 'cos' $q .- $b [.2 : $q: .'] 'sin' $q.>.;^^ '
+   .= .<.-[.": $q:] 'Sin' $q .- [.2.' : $q:] 'Cos' $q.,
+      $b [.": $q:] 'Cos' $q .- $b [.2.' : $q:] 'Sin' $q.>.;^^ '
 ===
 
 ===
 @@meanwhile, the second law of Kepler $states <that the area of the triangle swept by the line {which $passes through the planet and the sun}, in unit time, is constant>.@@ _
-@@this vector identity $gives the square of area spanned by@@ ^^.r^^ @@and@@ ^^.v^^ @@:@@ '
+@@this vector identity $gives the square of area spanned by@@ ^^.r^^ @@and@@ ^^.v^^ @@as thus:@@ '
 
 ^^[.2: .\.r.|:]   [.2: .\.v.|:] .- [.2: .(.r .* .v.):]
    .= `constant`.;^^ '
 
-@@expressions@@ ++Position++ @@and@@ ++Velocity++ @@#yield a constraint on@@ ^^[:$q: .']^^ @@:@@ '
+@@expressions@@ ++Position++ @@and@@ ++Velocity++ @@#yield a constraint on@@ ^^[.': $q:]^^ @@:@@ '
 
-^^.([.2: 'cos' .[$q.]:] .- .2 $g 'cos' $q .+ [.2: $g:] .+ [.2: $b:] 'sin' [.2: $q:].)
-      .* [:$q: .'] .([.2: 'sin' .[$q.]:] .+ [.2: $b:] [.2: 'cos' .[$q.]:].)
-   .- [.2: $q: .']
-      [.2: .(.- 'cos' $q 'sin' $q .+ $g 'sin' $q .+ [.2: $b:] 'sin' $q.):]
+^^.([.2: 'Cos' .[$q.]:] .- .2 $g 'Cos' $q .+ [.2: $g:] .+ [.2: $b:] 'Sin' [.2: $q:].)
+      .* [.': $q:] .([.2: 'Sin' .[$q.]:] .+ [.2: $b:] [.2: 'Cos' .[$q.]:].)
+   .- [.'.2: $q:]
+      [.2: .(.- 'Cos' $q 'Sin' $q .+ $g 'Sin' $q .+ [.2: $b:] 'Sin' $q 'Cos' $q.):]
    .= `constant`.;^^ '
 
-@@by arranging, by@@ ^^[.2: 'sin' .[$q.]:] .+ [.2: 'cos' .[$q.]:] .= .1^^ @@,@@ @@by absorbing@@ ^^[.2: $b:]^^ @@into the constant, and by pulling out@@ ^^[.2: $q: .']^^ @@,@@ @@we get:@@ '
+@@by arranging, by@@ ^^[.2: 'Sin' .[$q.]:] .+ [.2: 'Cos' .[$q.]:] .= .1^^ @@,@@ @@by absorbing@@ ^^[.2: $b:]^^ @@into the constant, and by pulling out@@ ^^[.'.2: $q:]^^ @@,@@ @@we get:@@ '
 
-^^$h =1 .1 .- $g 'cos' $q.;^^ '
-^^ [.2: $q: .'] [.2: $h:]
+^^$h =1 .1 .- $g 'Cos' $q.;^^ '
+^^ [.'.2: $q:] [.2: $h:]
    .= `constant`.;^^ '
 
-@@here, notice@@ ^^.1 .- $g 'cos' $q >1 .0^^ @@.@@ _
-@@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[:$q: .'] >1 .0^^ @@also $does.@@ '
+@@here, notice@@ ^^.1 .- $g 'Cos' $q >1 .0^^ @@.@@ _
+@@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[.': $q:] >1 .0^^ @@also $does, hence:@@ '
 
 ^^`Equal_areas`.:
-   [:$q: .'] $h
+   [.': $q:] $h
    .= `constant`^^ '
 ^^=1 .K.;^^ '
 ^^>1 .0.;^^ '
@@ -66,13 +66,13 @@
 @@differentiation on both sides of@@ ++Equal_areas++ @@$gives:@@ '
 
 ^^`Angle_derivative`.:
-   [:$q: ."] $h .+ [.2: $q: .'] $g 'sin' $q
+   [.": $q:] $h .+ [.'.2: $q:] $g 'Sin' $q
    .= .0.;^^ '
 
 @@after further manipulation, we #have (except perhaps when both sides are singular):@@ '
 
-^^(.- [:$q: ."] 'sin' $q .- [.2: $q: .'] 'cos' $q, 'cos' $q .- $g)
-   .= ([:$q: ."] 'cos' $q .- [.2: $q: .'] 'sin' $q, 'sin' $q).;^^ '
+^^(.- [.": $q:] 'Sin' $q .- [.'.2: $q:] 'Cos' $q, 'Cos' $q .- $g)
+   .= ([.": $q:] 'Cos' $q .- [.'.2: $q:] 'Sin' $q, 'Sin' $q).;^^ '
 
 @@this $indicates <that the force exerted by the Sun to the planet is on the same line {which $connects them}, but along opposite direction>.@@ '
 ===
@@ -82,24 +82,26 @@
 @@we #start from expression@@ ++Acceleration++ @@:@@ '
 
 ^^[.4: .\.r.|:] [.2: .\.a.|:]
-   .= [.4: $h:] .*[.2: $q: ."] .([.2: $b:] [.2: 'cos' .[$q.]:] .+ [.2: 'sin' .[$q.]:].)
-      .+ [.4: $h:] .*.2 [:$q: ."] [.2: $q: .'] $g 'cos' $q 'sin' $q
-      .+ [.4: $h:] .*[.4: $q: .'] .([.2: 'cos' .[$q.]:] .+ [.2: $b:] [.2: 'sin' .[$q.]:].).;^^ '
+   .= [.4: $h:] .*[.".2: $q:] .([.2: $b:] [.2: 'Cos' .[$q.]:] .+ [.2: 'Sin' .[$q.]:].)
+      .+ [.4: $h:] .*.2 [.": $q:] [.'.2: $q:] [.2: $g:] 'Cos' $q 'Sin' $q
+      .+ [.4: $h:] .*[.'.4: $q:] .([.2: 'Cos' .[$q.]:] .+ [.2: $b:] [.2: 'Sin' .[$q.]:].).;^^ '
 
 @@it may require patience to verify,@@
-@@but by@@ ^^[.2: 'sin' .[$q.]:] .+ [.2: 'cos' .[$q.]:] .= .1^^ @@,@@ ^^[.2: $b:] .+ [.2: $g:] .= .1^^ @@,@@ @@and by repeatedly using@@ ++AngleDer++ @@,@@ @@we will obtain:@@ '
+@@but by@@ ^^[.2: 'Sin' .[$q.]:] .+ [.2: 'Cos' .[$q.]:] .= .1^^ @@,@@ ^^[.2: $b:] .+ [.2: $g:] .= .1^^ @@,@@ @@and by repeatedly using@@ ++AngleDer++ @@,@@ @@we may obtain:@@ '
 
 ^^[.4: .\.r.|:] [.2: .\.a.|:]
    .= [.2: $h:]
-      .* [.4: $q: .'] [.2: $g:] [.2: 'sin' .[$q.]:]
-      .* .([.2: $b:] [.2: 'cos' .[$q.]:] .+ [.2: 'sin' .[$q.]:].)
+      .* [.'.4: $q:] [.2: $g:] [.2: 'Sin' .[$q.]:]
+      .* .([.2: $b:] [.2: 'Cos' .[$q.]:] .+ [.2: 'Sin' .[$q.]:].)
    .+ [.3: $h:]
-      .* [.2: $q: .'] .(.- $g 'sin' $q.)
-      .* .2 [.2: $q: .'] [.2: $g:] 'cos' $q 'sin' $q
-   .+ [.2: $h:]
-      .* [.4: $q: .']
-      .* .([.2: 'cos' .[$q.]:] .+ [.2: $b:] [.2: 'sin' .[$q.]:].)^^ '
-^^.= [.2: .K:].;^^ '
+      .* [.'.2: $q:] .(.- $g 'Sin' $q.)
+      .* .2 [.'.2: $q:] [.2: $g:] 'Cos' $q 'Sin' $q
+   .+ [.4: $h:]
+      .* [.'.4: $q:]
+      .* .([.2: 'Cos' .[$q.]:] .+ [.2: $b:] [.2: 'Sin' .[$q.]:].)^^ '
+^^.= [.4: .K:].;^^ '
+
+@@this $agrees the Newton law of gravitation.@@ '
 ===
 
 ~~~

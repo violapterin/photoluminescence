@@ -1,19 +1,19 @@
 ===
-@@Phoenix $wants to buy all products with respective price@@ ^^.p <6 &p^^ @@,@@ @@and respective discount thresholds@@ ^^[:.s: .n]^^ @@so <that when the sum exceeds@@ ^^[:.s: .n]^^ @@,@@ @@he $gets discount@@ ^^[:.d: .n]^^ @@>,@@ ^^.n .= .1 ., /6 ., .N^^ @@.@@ _
-@@he $considers to buy one optional item with price@@ ^^.q <6 &q^^ @@.@@ _
-@@he $has also a limit of budget@@ ^^.B^^ @@.@@ _
-@@how $does he make the best choice?@@ '
+@@Raven $wants to buy all products with respective price@@ ^^.p <6 &p^^ @@,@@ @@and respective discount thresholds@@ ^^[:.s: .n]^^ @@so <that when the sum exceeds@@ ^^[:.s: .n]^^ @@,@@ @@she $gets discount@@ ^^[:.d: .n]^^ @@>,@@ ^^.n .= .1 ., /6 ., .N^^ @@.@@ _
+@@she $considers to buy one optional item with price@@ ^^.q <6 &q^^ @@.@@ _
+@@she $has also a limit of budget@@ ^^.B^^ @@.@@ _
+@@how $does she make the best choice?@@ '
 ===
 
 ===
 @@Yuchun @asked me the question,@@
 @@and the confusion is <how we #elucidate our everyday instinct>.@@ _
-@@if Phoenix simply $minimizes the total cost@@ ^^.T^^ @@,@@ @@he most likely wouldn’t buy any optional item.@@ _
-@@perhaps he should introduce a penalty function@@ ^^$f^^ @@,@@ @@{which $trades the total eligible discount with@@ ^^.q^^ @@}.@@ _
-@@for instance, he may set@@ ^^$f =1 $R .q^^ @@,@@ @@and minimize@@ ^^.T .+ $R .q^^ @@.@@ '
+@@if Raven simply $minimizes the total cost@@ ^^.T^^ @@,@@ @@she most likely wouldn’t buy any optional item.@@ _
+@@perhaps she should introduce a penalty function@@ ^^$f^^ @@,@@ @@{which $trades the total eligible discount with@@ ^^.q^^ @@}.@@ _
+@@for instance, she may set@@ ^^$f =1 $R .q^^ @@,@@ @@and minimize@@ ^^.T .+ $R .q^^ @@.@@ '
 
-@@alternatively, Phoenix may minimize the price not discounted,@@
-@@and when there is a tie, he $minimizes the total price.@@ _
+@@alternatively, Raven may minimize the price not discounted,@@
+@@and when there is a tie, she $minimizes the total price.@@ _
 @@certainly, this isn’t perfect either, because it may be absurd to see it a better bargain to buy many option items to get more discount.@@ _
 @@(but people #do that all the time.)@@ _
 @@in other words, we #have the equations:@@ '
