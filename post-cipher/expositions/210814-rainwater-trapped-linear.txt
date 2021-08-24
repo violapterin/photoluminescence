@@ -31,12 +31,12 @@
 @@this is to say:@@ '
 
 ^^`Left_high`.:
-   `if` .<#v., $a.> `increasing`.,
+   `if` .<#v., $a.> "increasing".,
    `then` $y .[.<#v., $a., #u.>.]
       .= $y .[.<$a., #u.>.].;^^ '
 
 ^^`Right_high`.:
-   `if` .<$a., #u.> `decreasing`.,
+   `if` .<$a., #u.> "decreasing".,
    `then` $y .[.<#v., $a., #u.>.]
       .= $y .[.<#v., $a.>.].;^^ '
 

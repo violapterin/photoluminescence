@@ -19,7 +19,7 @@
 @@in other words, we #have the equations:@@ '
 
 ^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]
-   `each` `is` `mutually` `exclusive` `and` `collectively` `exhaustive` `of` &p.;^^ '
+   "each" "is" "mutually" "exclusive" "and" "collectively" "exhaustive" "of" &p.;^^ '
 ^^.q
    <6 &q.;^^ '
 ^^[: .P: .n]

@@ -36,7 +36,7 @@
 @@this vector identity $gives the square of area spanned by@@ ^^.r^^ @@and@@ ^^.v^^ @@as thus:@@ '
 
 ^^[.2: .\.r.|:]   [.2: .\.v.|:] .- [.2: .(.r .* .v.):]
-   .= `constant`.;^^ '
+   .= "constant".;^^ '
 
 @@expressions@@ ++Position++ @@and@@ ++Velocity++ @@#yield a constraint on@@ ^^[.': $q:]^^ @@:@@ '
 
@@ -44,20 +44,20 @@
       .* [.': $q:] .([.2: 'Sin' .[$q.]:] .+ [.2: $b:] [.2: 'Cos' .[$q.]:].)
    .- [.'.2: $q:]
       [.2: .(.- 'Cos' $q 'Sin' $q .+ $g 'Sin' $q .+ [.2: $b:] 'Sin' $q 'Cos' $q.):]
-   .= `constant`.;^^ '
+   .= "constant".;^^ '
 
 @@by arranging, by@@ ^^[.2: 'Sin' .[$q.]:] .+ [.2: 'Cos' .[$q.]:] .= .1^^ @@,@@ @@by absorbing@@ ^^[.2: $b:]^^ @@into the constant, and by pulling out@@ ^^[.'.2: $q:]^^ @@,@@ @@we get:@@ '
 
 ^^$h =1 .1 .- $g 'Cos' $q.;^^ '
 ^^ [.'.2: $q:] [.2: $h:]
-   .= `constant`.;^^ '
+   .= "constant".;^^ '
 
 @@here, notice@@ ^^.1 .- $g 'Cos' $q >1 .0^^ @@.@@ _
 @@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[.': $q:] >1 .0^^ @@also $does, hence:@@ '
 
 ^^`Equal_areas`.:
    [.': $q:] $h
-   .= `constant`^^ '
+   .= "constant"^^ '
 ^^=1 .K.;^^ '
 ^^>1 .0.;^^ '
 ===

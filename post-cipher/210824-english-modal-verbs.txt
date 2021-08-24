@@ -5,20 +5,20 @@
 @@then@@ ##mote## @@,@@ @@the past tense of@@ ##must## @@,@@ @@became obsolete;@@
 ##shall## @@#grew to be rare;@@
 @@furthermore, the subjunctive@@ ##might## @@and@@ ##should## @@#dominate the past tense@@ ##might## @@and@@ ##should## @@.@@ _
-@@there is now considerable confusion about the usage of these 9 modal verbs,@@
+@@there is now considerable confusion about the usage of these 8 modal verbs,@@
 @@and Americans probably #find many of them exchangeable.@@ _
 @@let us try to sort the matter out.@@ '
 ===
 
 ===
-@@modal verb@@ ##will## @@is used to express intention and certainty.@@ '
+@@modal verb@@ ##will## @@is &used to express intention and certainty:@@ '
 
 ##I will finish the report tonight.## '
 ##the judge will reconsider the case.## '
 ##the first course will start next week.## '
 ##the house will be torn down soon.## '
 
-@@it can also express expectation and prediction.@@ '
+@@it also $refers to expectation and prediction:@@ '
 
 ##you will see a beautiful garden by the lake.## '
 ##more people will starve to death in the war.## '
@@ -27,28 +27,100 @@
 
 ##this piece of sodium will explode in the water.## '
 ##a cup of milk in the morning will be good for health.## '
-##kids will play all night without being tired.## '
+##these kids will play all day long without being tired.## '
 ===
 
 ===
-@@here I #summarize my suggestions in each case, in order to avoid some ambiguities.@@ _
-@@certainly, one doesn’t need to follow them at all times, not even myself.@@ _
+@@modal verb@@ ##can## @@is &used to express ability:@@ '
+
+##Alice can speak a little German.## '
+##dogs can actually swim.## '
+
+@@both@@ ##can## @@and@@ ##may## @@#refer to permission:@@ '
+
+##students can take a cheat sheet to the exam.## '
+##teenagers may not drink alcohol.## '
+
+@@both@@ ##can## @@and@@ ##may## @@#indicate a tendency or possibility:@@ '
+
+##it can seem out of place to eat alone in the pub.## '
+##violence can sometimes happen in the parade.## '
+##Bob may look upset when he works overtime.## '
+##it may be true that power only leads to corruption.## '
+===
+
+===
+@@both@@ ##would## @@and@@ ##could## @@are originally the past tense of@@ ##will## @@and@@ ##can## @@:@@ '
+
+##last Saturday, it was reported that it would rain.## '
+##Dinosaurs would have continued their reign without the asteroid.## '
+##Einstein could play the violin.## '
+##Boris Johnson could have died of coronavirus.## '
+
+@@besides,@@ ##would## @@may be used to request, and@@ ##could## @@to ask for permission:@@ '
+
+##would you open the bottle for me?## '
+##could I go with you to the ball?## '
+===
+
+===
+@@both@@ ##should## @@and@@ ##must## @@can mean obligation, necessity, and insistence.@@ _
+@@both of them may serve as past tense, but@@ ##must## @@less frequently so:@@ '
+
+##we should lower our voice in the library.## '
+##US Army should have stayed in Afghanistan.## '
+##one must bring the ticket to the airport gate.## '
+##the drug smugglers must be punished.## '
+
+@@in addition,@@ ##must## @@is &used for speculation with greater certainty:@@ '
+
+##something must be wrong with the Large Hadron Collider.## '
+##Amelia Earhart must have died in her last flight.## '
+
+@@for speculation with less certainty, use@@ ##may## @@or@@ ##might## @@.@@ _
+@@but@@ ##might## @@may only be used as past tense.@@ _
+@@it is &supposed that@@ ##might## @@should hint a smaller likelihood,@@
+@@but@@ ##may## @@and@@ ##might## @@have &come to be largely exchangeable:@@ '
+
+##the pandemic may get worse by this winter.## '
+##the baby might have drowned if nobody had been there.## '
+##beware that Eve might be eavesdropping now.##
+
+===
+
+===
+@@for permission, I #favor@@ ##may## @@,@@ @@because@@ ##can## @@is too much overloaded;@@
+@@similarly for speculation, I #prefer@@ ##may## @@to@@ ##can## @@.@@ _
+@@the past tense@@ ##might## @@is somewhat rare,@@
+@@so it is better to substitute@@ ##could## @@for that sense.@@ _
+@@it is also clearer to replace the past tense of@@ ##must## @@for necessity with@@ ##should## @@.@@ _
+@@generally in present tense, I #suggest <that whenever possible, we #stick to the present forms@@ ##will## @@,@@ ##can## @@,@@ ##may## @@rather than the subjunctive forms@@ ##would## @@,@@ ##could## @@,@@ ##might## @@to make tense more obvious.@@ _
+@@reserve@@ ##would have## @@for counterfactual statements,@@ ##should have## @@for counterfactual obligation, and@@ ##must have## @@,@@ ##could have## @@,@@ ##might have## @@for counterfactual speculation in decreasing certainty.@@ '
+
+@@here I #summarize my suggestions in each case, {which may help to avoid some ambiguity}.@@ _
+@@of course, one $doesn’t need to follow them at all times, not even myself.@@ '
 ===
 
 """
 @@usage@@ _ @@gloss@@ _ @@past@@ _ @@present@@ '
 @@certainty, expectation, nature, intention@@ _ %%to be to%% _
-   ##would## _ ##will## '
+   ##would, would have## _ ##will, would## '
 @@ability@@ _ %%to be able to%% _
    ##could## _ ##can## '
-@@obligation@@ _ %%to be obliged to%% _
-   ##should## _ ##should## '
-@@necessity@@ _ %%to have to%% _
-   ##should## _ ##must## '
 @@permission@@ _ %%to be allowed to%% _
    ##could## _ ##may## '
-@@high possibility@@ _ %%to be likely to%% _
-   ##could## _ ##can## '
-@@low possibility@@ _ %%to be possible to%% _
-   ##might## _ ##may## '
+@@possibility@@ _ %%to be possible to%% _
+   ##could, could have## _ ##can, could## '
+@@necessity@@ _ %%to have to%% _
+   ##should, should have## _ ##must, should## '
+@@strong speculation@@ _ %%to be surely to%% _
+   ##must have## _ ##must## '
+@@weak speculation@@ _ %%to be likely to%% _
+   ##might, might have## _ ##may, might## '
 """
+
+~~~
+
+===
+@@❧@@ %%August 24, 2021%%
+===

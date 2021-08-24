@@ -133,7 +133,7 @@
 @@if flag@@ ++-u++ @@or@@ ++--set-upstream++ @@is &added,@@ @@you #set up a tracking reference so <that you can type only@@ ++git push++ @@or@@ ++git pull++ @@and so on>.@@ '
 
 @@if you #have inconsistent commits, causing Git $refuses to push,@@
-@@you #add the flag@@ ++-f++ @@or@@ ++--force++ @@.@@ _
+@@you #add the flag@@ ++-f++ @@or@@ ++--force++ @@,@@ @@or #use a@@ ++ + ++ @@before the branch as in@@ ++ +master++ @@.@@ _
 @@this $forces every local commit to overwrite its remote counterpart,@@
 @@and it may cause the remote repo to lose data.@@ _
 @@think twice before using it!@@ '

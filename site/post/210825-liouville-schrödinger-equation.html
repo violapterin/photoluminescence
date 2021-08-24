@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width initial-scale=1"/>
+   <title>From Liouville theorem to Schrödinger equation</title>
+   <link rel="shortcut icon" href="/asset/favicon.ico"/>
+   <link rel="stylesheet" href="/asset/style.css"/>
+
+   <!-- Google fonts -->
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,500,500i,700,900"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:600"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700"/>
+
+   <!-- Mathjax configuration -->
+   <script src="/asset/mathjax.js" async></script>
+
+   <!-- random quotes -->
+   <script src="/asset/quote.js" async></script>
+</head>
+
+
+
+<body>
+
+<header id="header-banner">
+   <h1 id="name-site">
+      <a class="title-site" href="/">Photoluminescence</a>
+      <span class="tagline-site">Math, Machines, and Music</span>
+   </h1>
+   <nav id="menu">
+      <a class="button-menu" href="/stamp.html">by date</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/genre.html">by genre</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/series.html">by series</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/tag.html">by tag</a>
+   </nav>
+   <img id="banner" src="/asset/banner.png" alt="banner">
+</header>
+
+<div class="essay">
+
+<header id="header-post">
+   <h2 class="heading-post">
+      <span class="heading">From Liouville theorem to Schrödinger equation</span>
+   </h2>
+   <p class="data-post">
+      <a class="data-stamp" href="/page/august-2021.html">25 August 2021</a>
+      <a class="data-genre" href="/page/expositions.html">Exotic expositions</a>
+      
+      <a class="data-tag" href="/page/quantum-physics.html">Quantum physics</a>
+<a class="data-tag" href="/page/classical-physics.html">Classical physics</a>
+<a class="data-tag" href="/page/schrödinger-equation.html">Schrödinger equation</a>
+   </p>
+</header>
+
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">We illustrate the transition from Liouville theorem in classical mechanics to Ehrenfest theorem in quantum mechanics, and then demonstrate a heuristic argument for Schrödinger equation.</span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">We start from the fact that the evolution of a classical system in the phase space is incompressible, as thus:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">Liouville:</code> <span class="math"><span class="math-plain">\(0\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\mathrm{d} \rho}{\mathrm{d} t}\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial t}\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\( \displaystyle\sum\limits^{N}_{n \;=\; 1}\)</span><span class="math-bracket-round">\(\left(\vphantom{\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}} \dfrac{\mathrm{d} q \vphantom{ q}_{n}}{\mathrm{d} t} \,+\, \dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}} \dfrac{\mathrm{d} p \vphantom{ p}_{n}}{\mathrm{d} t}}\right.\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}}\)</span><span class="math-pair">\(\dfrac{\mathrm{d} q \vphantom{ q}_{n}}{\mathrm{d} t}\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}}\)</span><span class="math-pair">\(\dfrac{\mathrm{d} p \vphantom{ p}_{n}}{\mathrm{d} t}\)</span><span class="math-bracket-round">\(\left.\vphantom{\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}} \dfrac{\mathrm{d} q \vphantom{ q}_{n}}{\mathrm{d} t} \,+\, \dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}} \dfrac{\mathrm{d} p \vphantom{ p}_{n}}{\mathrm{d} t}}\right)\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">By Hamiltonian equations, we have Liouville theorem:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial t}\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\( \displaystyle\sum\limits^{N}_{n \;=\; 1}\)</span><span class="math-bracket-round">\(\left(\vphantom{\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}} \dfrac{\partial H}{\partial p \vphantom{ p}_{n}} \,-\, \dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}} \dfrac{\partial H}{\partial q \vphantom{ q}_{n}}}\right.\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}}\)</span><span class="math-pair">\(\dfrac{\partial H}{\partial p \vphantom{ p}_{n}}\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}}\)</span><span class="math-pair">\(\dfrac{\partial H}{\partial q \vphantom{ q}_{n}}\)</span><span class="math-bracket-round">\(\left.\vphantom{\dfrac{\partial \rho}{\partial q \vphantom{ q}_{n}} \dfrac{\partial H}{\partial p \vphantom{ p}_{n}} \,-\, \dfrac{\partial \rho}{\partial p \vphantom{ p}_{n}} \dfrac{\partial H}{\partial q \vphantom{ q}_{n}}}\right)\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">At this point, we have to imagine what this relation looks like in the matrix mechanics.</span></span> <span class="phrase"><span class="serif-roman">Let</span> <span class="math"><span class="math-letter">\(\mathbf{R}\)</span></span> <span class="serif-roman">be the density matrix, and</span> <span class="math"><span class="math-letter">\(\mathbf{H}\)</span></span> <span class="serif-roman">the Hamiltonian matrix, and</span> <span class="math"><span class="math-letter">\(\mathbf{Q}\)</span></span> <span class="serif-roman">and</span> <span class="math"><span class="math-letter">\(\mathbf{P}\)</span></span> <span class="serif-roman">the position and momentum matrices.</span></span> <span class="phrase"><span class="serif-roman">Here,</span> <span class="math"><span class="math-bracket-round">\(\left(\vphantom{\partial \rho \,/\, \partial q \vphantom{ q}_{n}}\right.\)</span><span class="math-letter">\(\partial\)</span><span class="math-letter">\(\rho\)</span><span class="math-plain">\(\,/\,\)</span><span class="math-letter">\(\partial\)</span><span class="math-triplet">\(q \vphantom{ q}_{n}\)</span><span class="math-bracket-round">\(\left.\vphantom{\partial \rho \,/\, \partial q \vphantom{ q}_{n}}\right)\)</span><span class="math-letter">\(\eth\)</span><span class="math-triplet">\(q \vphantom{ q}_{n}\)</span></span> <span class="serif-roman">can be considered as the component</span> <span class="math"><span class="math-plain">\(n\)</span></span> <span class="serif-roman">of the density matrix under the</span> <span class="math"><span class="math-triplet">\(q \vphantom{ q}_{n}\)</span></span> <span class="serif-roman">basis, and</span> <span class="math"><span class="math-bracket-round">\(\left(\vphantom{\partial H \,/\, \partial p \vphantom{ p}_{n}}\right.\)</span><span class="math-letter">\(\partial\)</span><span class="math-plain">\(H\)</span><span class="math-plain">\(\,/\,\)</span><span class="math-letter">\(\partial\)</span><span class="math-triplet">\(p \vphantom{ p}_{n}\)</span><span class="math-bracket-round">\(\left.\vphantom{\partial H \,/\, \partial p \vphantom{ p}_{n}}\right)\)</span><span class="math-letter">\(\eth\)</span><span class="math-triplet">\(p \vphantom{ p}_{n}\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">the component</span> <span class="math"><span class="math-plain">\(n\)</span></span> <span class="serif-roman">of the Hamiltonian matrix under the</span> <span class="math"><span class="math-triplet">\(p \vphantom{ p}_{n}\)</span></span> <span class="serif-roman">basis.</span></span> <span class="phrase"><span class="serif-roman">We know that</span> <span class="math"><span class="math-letter">\(\eth\)</span><span class="math-triplet">\(q \vphantom{ q}_{n}\)</span><span class="math-letter">\(\eth\)</span><span class="math-triplet">\(p \vphantom{ p}_{n}\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\mathring{\imath}\)</span><span class="math-letter">\(\hslash\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">the smallest unit of angular momentum, where the phase</span> <span class="math"><span class="math-letter">\(\mathring{\imath}\)</span></span> <span class="serif-roman">is just a gauge.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Unfortunately, we no longer have</span> <span class="math"><span class="math-triplet">\(q \vphantom{ q}_{n}\)</span><span class="math-plain">\(,\,\)</span><span class="math-triplet">\(p \vphantom{ p}_{n}\)</span></span> <span class="serif-roman">as a compatible set of coordinates;</span> <span class="serif-roman">rather, they are off by a change of basis.</span></span> <span class="phrase"><span class="serif-roman">However, we can imagine</span> <span class="math"><span class="math-letter">\(\mathbf{R}\)</span></span> <span class="serif-roman">to be written as a matrix from the position to the momentum.</span></span> <span class="phrase"><span class="serif-roman">Hence from</span> <code class="mono">Liouville</code><span class="serif-roman">,</span> <span class="serif-roman">according to the heuristic above, we have the relation:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(0\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\partial}{\partial t}\)</span><span class="math-letter">\(\mathbf{R}\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-pair">\(\dfrac{1}{\mathring{\imath} \hslash}\)</span><span class="math-bracket-round">\(\left(\vphantom{\mathbf{R} \mathbf{H} \,-\, \mathbf{H} \mathbf{R}}\right.\)</span><span class="math-letter">\(\mathbf{R}\)</span><span class="math-letter">\(\mathbf{H}\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-letter">\(\mathbf{H}\)</span><span class="math-letter">\(\mathbf{R}\)</span><span class="math-bracket-round">\(\left.\vphantom{\mathbf{R} \mathbf{H} \,-\, \mathbf{H} \mathbf{R}}\right)\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Switching to wave mechanics in Schrödinger picture, we let</span> <span class="math"><span class="math-letter">\(\rho\)</span></span> <span class="serif-roman">be the density operator, and</span> <span class="math"><span class="math-plain">\(H\)</span></span> <span class="serif-roman">the Hamiltonian.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(0\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\partial}{\partial t}\)</span><span class="math-letter">\(\rho\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-pair">\(\dfrac{1}{\mathring{\imath} \hslash}\)</span><span class="math-bracket-round">\(\left(\vphantom{\rho H \,-\, H \rho}\right.\)</span><span class="math-letter">\(\rho\)</span><span class="math-plain">\(H\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-plain">\(H\)</span><span class="math-letter">\(\rho\)</span><span class="math-bracket-round">\(\left.\vphantom{\rho H \,-\, H \rho}\right)\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Multiplying wave function</span> <span class="math"><span class="math-letter">\(\psi\)</span></span> <span class="serif-roman">on both sides, and recalling</span> <span class="math"><span class="math-letter">\(\rho\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\psi\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">we get:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(0\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-pair">\(\dfrac{\partial}{\partial t}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-letter">\(\rho\)</span><span class="math-pair">\(\dfrac{\partial}{\partial t}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-pair">\(\dfrac{1}{\mathring{\imath} \hslash}\)</span><span class="math-bracket-round">\(\left(\vphantom{\rho H \psi \,-\, H \psi}\right.\)</span><span class="math-letter">\(\rho\)</span><span class="math-plain">\(H\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-plain">\(H\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-round">\(\left.\vphantom{\rho H \psi \,-\, H \psi}\right)\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">Schrödinger:</code> <span class="math"><span class="math-letter">\(\mathring{\imath}\)</span><span class="math-letter">\(\hslash\)</span><span class="math-pair">\(\dfrac{\partial}{\partial t}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(H\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">And we have recovered the Schrödinger equation.</span></span>
+</p>
+</div>
+</main>
+
+</div>
+
+<footer id="footer-whole">
+   <div id="footer-quote"></div>
+
+   <div id="footer-signature">
+      <div id="footer-left">
+         <p class="footer-author">violapterin</p>
+         <p class="footer-motto">VOLO NON FUGIA</p>
+         <p class="footer-icon">
+            <a class="icon-gmail" href="mailto:violapterin@gmail.com"></a>
+            <a class="icon-github" href="http://github.com/violapterin/"></a>
+            <a class="icon-facebook" href="http://facebook.com/violapterin/"></a>
+            <a class="icon-twitter" href="http://twitter.com/violapterin/"></a>
+         </p>
+         <p class="footer-license">
+         <a class="icon-license" href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
+         </p>
+      </div>
+      <div id="footer-right">
+         <img class="footer-profile" src="/asset/profile.png" alt="profile">
+      </div>
+   </div>
+</footer>
+
+
+</body>
+
+</html>

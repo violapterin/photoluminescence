@@ -1,4 +1,7 @@
 [
+{"stamp": "210825", "genre": "expositions",
+   "tag": ["Quantum physics", "Classical physics", "Schrödinger equation"],
+   "title": "From Liouville theorem to Schrödinger equation"},
 {"stamp": "210824", "genre": "comments",
    "tag": ["Grammar", "English", "Verbs"],
    "title": "English modal verbs"},
@@ -102,7 +105,7 @@
    "title": "The young man’s game"},
 
 {"stamp": "181115", "genre": "expositions",
-   "tag": ["Gravity", "Conic sections", "Classical mechanics"],
+   "tag": ["Gravity", "Conic sections", "Classical physics"],
    "title": "The Kepler problem"},
 
 {"stamp": "170809", "genre": "notes",

@@ -5,6 +5,7 @@ import shutil
 import numpy as NUMPY
 from selenium import webdriver as DRIVER
 from PIL import Image as IMAGE
+from PIL import ImageEnhance as ENHANCE
 
 def main(whether_new):
    folder_this = os.path.dirname(__file__)
@@ -114,6 +115,7 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
          if not compare_folder_with_file(folder_article, path_graph):
             continue
       limit_bright = 255
+      limit_line = constant()["limit_line"]
       with IMAGE.open(path_graph) as graph:
          matrix = NUMPY.asarray(graph.convert('L'))
          height = matrix.shape[0]
@@ -135,6 +137,13 @@ def shred_photograph(whether_new, folder_strip, folder_shot):
             above = many_boundary[head]
             below = many_boundary[head + 1]
             strip = graph.crop((0, above, width - 1, below))
+            if (below - above < limit_line):
+               contrast = constant()["contrast"]
+               sharpness = constant()["sharpness"]
+               brightness = constant()["brightness"]
+               strip = ENHANCE.Contrast(strip).enhance(contrast)
+               strip = ENHANCE.Sharpness(strip).enhance(sharpness)
+               strip = ENHANCE.Brightness(strip).enhance(brightness)
             print("Slicing:", name_strip, "......")
             strip.save(path_strip, quality = 100)
 
@@ -311,12 +320,16 @@ def constant():
       "width_outer": 1200,
       "height_outer": 1700,
       "limit_switch": 960,
+      "limit_line": 144,
       "width_skip": 720,
       "height_skip": 96,
       "height_blank": 48,
       "height_stripe": 3,
       "least_bright": 1/192,
       "ratio_top": 3/4,
+      "contrast": 1.4,
+      "sharpness": 1.6,
+      "brightness": 1.2,
    }
    return table
 

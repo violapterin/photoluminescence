@@ -39,7 +39,7 @@
 
 ^^`Primitive`.:
    `has` $y .[[:.%: .0].] =1 [:.%: .0].;^^ '
-^^`say` $G `is` `valid` `about` [:.%: .0].,
+^^`say` $G "is" "valid" "about" [:.%: .0].,
    `if` `has` $y .[$G.] =1 [:.%: .0].;^^ '
 
 @@furthermore,@@ ^^[:.%: .0]^^ @@$realizes super machines@@ ^^[:.%: .1]^^ @@,@@
@@ -56,7 +56,7 @@
 @@with a valid composite of machines@@ ^^$G., $D^^ @@,@@ @@once@@ ^^$G^^ @@$doesn’t depend on additional objects than@@ ^^$D^^ @@$does, we can use only@@ ^^$D^^ @@,@@ @@namely:@@ '
 
 ^^`Scope`.:
-   `given` .<$G., $D.> `valid` `about` [:.%: .0].,
+   `given` .<$G., $D.> "valid" "about" [:.%: .0].,
    `has` $y .[$G.] =1 $D.;^^ '
 
 @@rule@@ ++Scope++ @@#corresponds to the deletion of superfluous variables in logic.@@ '
@@ -68,19 +68,19 @@
 
 ^^`Valid_problem`.:
    `given` $f .[$G.] =1 .X.: [:.%: .0].,
-   .<$G., .x.: .X.> `is` `valid`.;^^ '
+   .<$G., .x.: .X.> "is" "valid".;^^ '
 
 @@suppose <machine@@ ^^$G^^ @@can simulate@@ ^^.X^^ @@>.@@ _
 @@with@@ ^^$G^^ @@,@@ @@and with any problem@@ ^^.X^^ @@{which is &computed on @@ ^^$D^^ @@,@@ @@we #have a valid new machine, namely:@@ '
 
 ^^`Valid_machine`.:
    `given` $f .[$G.] =1 $D.,
-   .<$G., .X.: $D.> `is` `valid`.;^^ '
+   .<$G., .X.: $D.> "is" "valid".;^^ '
 
 @@or, including super machines:@@ '
 
 ^^`given` $f .[$G.: [:.%: .n .+ .1].] =1 [:.%: .n].,
-   .<$G., $D.: [:.%: .n .+ .1].> `is` `valid`.;^^ '
+   .<$G., $D.: [:.%: .n .+ .1].> "is" "valid".;^^ '
 
 @@rules@@ ++ValidProblem++ @@and@@ ++ValidMachine++ @@#correspond to universal instantiation in logic.@@ '
 ===
