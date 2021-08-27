@@ -14,6 +14,7 @@ class Serif_roman(Leaf):
    def write(self):
       content = AID.tune_text(self.source)
       content = AID.chop_word_text(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -31,6 +32,7 @@ class Serif_italic(Leaf):
    def write(self):
       content = AID.tune_text(self.source)
       content = AID.chop_word_text(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -48,6 +50,7 @@ class Serif_bold(Leaf):
    def write(self):
       content = AID.tune_text(self.source)
       content = AID.chop_word_text(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -65,6 +68,7 @@ class Sans_roman(Leaf):
    def write(self):
       content = AID.tune_text(self.source)
       content = AID.chop_word_text(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -82,6 +86,7 @@ class Sans_bold(Leaf):
    def write(self):
       content = AID.tune_text(self.source)
       content = AID.chop_word_text(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -99,6 +104,7 @@ class Mono(Leaf):
    def write(self):
       content = AID.tune_code(self.source)
       content = AID.chop_word_code(content, self.bound_wrap)
+      sink = ''
       if content:
          sink = self.write_text(content)
       return sink
@@ -113,7 +119,8 @@ class Link(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      return AID.tune_hypertext(self.source)
+      sink = AID.tune_hypertext(self.source)
+      return sink
 
 class Newline(Leaf):
 
@@ -123,7 +130,8 @@ class Newline(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      return ''
+      sink = ''
+      return sink
 
 class Space(Leaf):
 
@@ -133,7 +141,8 @@ class Space(Leaf):
       self.fill_basic(**data)
 
    def write(self):
-      return ''
+      sink = ''
+      return sink
 
 class Comment(Leaf):
 

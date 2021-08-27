@@ -35,29 +35,29 @@
 @@at least I so @concluded myself.@@ _
 @@then, after I @asked this on Facebook [in Aug 2017], I realized <that, quite to my surprise, some people still use the obelus in their life, and consider <that they are somehow different>.@@ _
 @@Facebook friend Xinbo @held <that@@ ^^.8./.6^^ @@was intended for@@ ^^.1^^ @@with remainder@@ ^^.2^^ @@,@@ @@and such division with remainder was to be &deprecated later curriculum.>@@ _
-@@piano instructor Chen @suggested <that there is some purpose in using a more verbose notation, as kids might confuse@@ ^^./^^ @@with@@ ^^.1^^ @@.>@@ _
+@@piano instructor Chen @suggested <that there is some purpose in using a more verbose notation, as kids may confuse@@ ^^./^^ @@with@@ ^^.1^^ @@.>@@ _
 @@this does suggest people perceive the obelus and the solidus differently.@@ '
 
 @@actually, some time after, there was an internet meme weirdly relevant to the present topic, asking the smart reader to vote <what among the precedence below were correct>, {which @went like}@@
 @@(I am %making up numbers now):@@ '
 
-^^`Obelus_eager`.:
-   .8 *8 .(.4 .+ .2.) *0 .3
+++Obelus_eager:++ '
+^^.8 *8 .(.4 .+ .2.) *0 .3
    .= .4.;^^ '
-^^`Obelus_lazy`.:
-   .8 *8 .(.4 .+ .2.) *0 .3
+++Obelus_lazy:++ '
+^^.8 *8 .(.4 .+ .2.) *0 .3
    .= (.4, .9).;^^ '
-^^`Solidus_eager`.:
-   .8 ./ .(.4 .+ .2.) .* .3
+++Solidus_eager:++ '
+^^.8 ./ .(.4 .+ .2.) .* .3
    .= .4.;^^ '
-^^`Solidus_lazy`.:
-   .8 ./ .(.4 .+ .2.) .* .3
+++Solidus_lazy:++ '
+^^.8 ./ .(.4 .+ .2.) .* .3
    .= (.4, .9).;^^ '
-^^`Fraction_eager`.:
-   (.8, .4 .+ .2) .* .3
+++Fraction_eager:++ '
+^^(.8, .4 .+ .2) .* .3
    .= .4.;^^ '
-^^`Fraction_lazy`.:
-   (.8, .4 .+ .2) .* .3
+++Fraction_lazy:++ '
+^^(.8, .4 .+ .2) .* .3
    .= (.4, .9).;^^ '
 
 @@clearly,@@ ++FracEager++ @@is right,@@
@@ -67,7 +67,9 @@
 @@however, for the rest, it isn’t so clear.@@ _
 @@while I absolutely #take it for granted <that@@ ++ObLazy++ @@and@@ ++SolLazy++ @@are correct>, the consensus @#seem to be@@ ++ObEager++ @@and@@ ++SolLazy++ @@.@@ _
 @@it $appears therefore <that people #equate the solidus with the fraction, but not with the obelus>;@@
-@@that is to say, people #regard@@ ^^.a./.b^^ @@the same thing as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ '
+@@that is to say, people #regard@@ ^^.a./.b^^ @@the same thing as@@ ^^(.a, .b)^^ @@,@@ @@but different with@@ ^^.a *8 .b^^ @@.@@ _
+@@I really #don’t understand why they #think that way;@@
+@@to me it will be more consistent if we always #consider obelus the same as solidus and adopt conventions@@ ++ObLazy++ @@and@@ ++SolLazy++ @@.@@ '
 
 @@why #spend so much time writing on such trivial matter?@@ _
 @@as I @said, it is curious <how the choice of notation $has some bearing on the perception of precedence>,@@

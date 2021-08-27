@@ -1,0 +1,116 @@
+===
+@@Schrödinger equation@@ ^^$j $H .($Z ./ $Z .t.) $y .[.x., .t.] .= .H $y .[.x., .t.]^^ @@$states a relation between wave function@@ ^^$y^^ @@and Hamiltonian@@ ^^.H^^ @@,@@
+@@but it is unclear without empirical evidence <what the expression of@@ ^^.H^^ @@should be>.@@ '
+
+@@define the commutator:@@ '
+ 
+^^'Comm' .[.A., .B.]
+   .= .A .B .- .B .A.;^^ '
+
+@@suppose observables@@ ^^.A., .B^^ @@have@@ ^^'Comm' .[.A., .B.] .= .0^^ @@,@@ @@then they can be simultaneously diagonalized.@@ _
+@@a physical argument $goes as thus.@@ _
+@@let@@ ^^.A^^ @@be already diagonal with a suitable basis, then@@ ^^[:.A: .[.m., .m.]] [:.B: .[.m., .n.]] .= [:.(.A .B.): .[.m., .n.]] .= [:.(.B .A.): .[.m., .n.]] .= [:.A: .[.n., .n.]] [:.B: .[.m., .n.]]^^ @@,@@ @@in which case@@ ^^.B^^ @@is diagonal unless@@ ^^.A .= .I^^ @@.@@ '
+===
+
+===
+@@quantum mechanics can be based on commutation relations, as Born @did.@@ _
+@@for the operators of position@@ ^^.X., .Y., .Z^^ @@and momentum@@ ^^[:.P: .x]., [:.P: .y]., [:.P: .z]^^ @@it #says that:@@ '
+
+++Commutation_position:++ '
+^^'Comm' .[.X., [:.P: .x].]
+   .= $j $H.;^^ '
+^^'Comm' .[.Y., [:.P: .y].]
+   .= $j $H.;^^ '
+^^'Comm' .[.Z., [:.P: .z].]
+   .= $j $H.;^^ '
+
+@@there are a variety of motivations for these relations.@@ _
+@@I #suggest <that we #simply assume@@ ++CommPos++ @@as an axiom>.@@ _
+@@(some authors #postulate <that the momentum and angular momentum operators are a generator of translation and rotation>,@@
+@@and the commutation relations between angular momenta #come from the fact <that infinitesimal rotations are not commutative>;@@
+@@but how do we #continue the analogy to explain the time evolution of wave functions?)@@ _
+@@this is <how I #see it>:@@ _
+@@in classical mechanics it $doesn’t matter <that you #see the position or the momentum first,>@@
+@@but in quantum mechanics, it not only $matters, it $modifies the target too,@@
+@@and such action is not commutative;@@
+@@this is to me the single most important message to remember.@@ _
+@@now if@@ ^^'Comm' .[.X., .P.] .= .C^^ @@is diagonal and nowhere $vanishes,@@
+@@we #scale@@ ^^.X., .P^^ @@such <that@@ ^^'Comm' .[.X., .P.] .= .c .I^^ @@by redefining physical units>.@@ _
+@@furthermore,@@ ^^.c^^ @@must be purely imaginary in order to be hermitian, {which we #take to be@@ ^^$j $H^^ @@}.@@ '
+===
+
+===
+@@in the positional representation,@@ ^^.X^^ @@is simply a multiplication of@@ ^^.x^^ @@,@@
+@@and the expressions of@@ ^^.X., .P^^ @@$turns out to be:@@ '
+
+++Representation_momentum:++ '
+^^#P .= .- $j $H $N.;^^ '
+
+@@this is easy to verify,@@
+@@but $does@@ ++CommPos++ @@determine@@ ++RepMom++ @@uniquely?@@ _
+@@yes, because if@@ ^^.X [:.P: .1] .- [:.P: .1] .X .= .X [:.P: .2] .- [:.P: .2] .X .= $j $H^^ @@,@@
+@@then@@ ^^.X .([:.P: .1] .- [:.P: .2].) .-  .([:.P: .1] .- [:.P: .2].) .X .= .0^^ @@,@@
+@@and@@ ^^[:.P: .1] .- [:.P: .2]^^ @@must be a constant function.@@ '
+===
+
+===
+@@in the three dimensional space, let@@ ^^#X., #P^^ @@be the vector- valued position and momentum operators.@@ _
+@@there are additional commutation relations for orbital angular momenta@@ ^^[:.L: .x]., [:.L: .y]., [:.L: .z]^^
+@@(another two permuted relations also $holds):@@ '
+
+++Commutation_angular_orbital:++ '
+^^'Comm' .[[:.L: .x]., [:.L: .y].]
+   .= $j $H [:.L: .z].;^^ '
+
+@@if we #guess@@ ^^[:.L: .z] .= .- $j $H .($Z ./ $Z $f.)^^ @@,@@ @@with@@ ^^$f^^ @@the azimuth angle, it can be recovered that:@@ '
+
+++Representation_angular_orbital:++ '
+^^#L .= #R *0 #P.;^^ '
+
+@@we can show@@ ++CommAngOrb++ @@by directly using@@ ++RepAngOrb++ @@and@@ ++RepMom++ @@.@@ _
+@@to see this, verify <that@@
+   ^^.(.y .($Z ./ $Z .z.) .- .z .($Z ./ $Z .y.).) .(.z .($Z ./ $Z .x.) .- .x .($Z ./ $Z .z.).)
+      .- .(.z .($Z ./ $Z .x.) .- .x .($Z ./ $Z .z.).) .(.y .($Z ./ $Z .z.) .- .z .($Z ./ $Z .y.).)
+   .= .x .($Z ./ $Z .y.) .- .y .($Z ./ $Z .x.)^^ @@.@@ '
+===
+
+===
+@@however, a relation analogous to@@ ++CommAngOrb++ @@is valid for spins too, though <there is nothing like@@ ++RepAngOrb++ @@>,@@ @@namely:@@ '
+
+++Commutation_angular_spin:++ '
+^^'Comm' .[[:.S: .x]., [:.S: .y].]
+   .= [:.S: .z].;^^ '
+
+@@as spin is not a classical concept, I #take that as an axiom too.@@ '
+===
+
+===
+@@furthermore, we will need this fact in solving the hydrogen atom}:@@ '
+
+^^'Comm' .[[.2: .L: .x] .+ [.2: .L: .y] .+ [.2: .L: .y]., [:.L: .z].]
+   .= .0.;^^ '
+
+@@to show it, repeatedly apply@@ ++CommAngOrb++ @@to get@@
+   ^^'Comm' .[[.2: .L: .x]., [:.L: .z].]
+      .+ 'Comm' .[[.2: .L: .y]., [:.L: .z].]
+      .+ 'Comm' .[[.2: .L: .z]., [:.L: .z].]
+   .= [.2: .L: .x] [: .L: .z]
+      .- .([: .L: .x] [: .L: .z] .+ $j $H [: .L: .y].) [: .L: .x]
+      .+ [.2: .L: .y] [: .L: .z]
+      .- .([: .L: .y] [: .L: .z] .- $j $H [: .L: .x].) [: .L: .y]
+   .= [: .L: .x] .([: .L: .x] [: .L: .z] .- [: .L: .z] [: .L: .x].)
+      .+ [: .L: .y] .([: .L: .y] [: .L: .z] .- [: .L: .z] [: .L: .y].)
+      .+ $j $H .([: .L: .x] [: .L: .y] .- [: .L: .y] [: .L: .x].)
+   .= .- $j $H [: .L: .x] [: .L: .y]
+      .+ $j $H [: .L: .y] [: .L: .x]
+      .+ $j $H .([: .L: .x] [: .L: .y] .- [: .L: .y] [: .L: .x].)
+   .= .0^^ @@.@@ '
+
+@@this $indicates <that@@ ^^[.2: .L:]^^ @@and@@ ^^[:.L: .z]^^ @@can be simultaneously diagonalized>.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%August 27, 2021%%
+===

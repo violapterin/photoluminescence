@@ -17,16 +17,16 @@
 @@they are functions of@@ ^^$q .= $q.[.t.]^^ @@,@@ @@the counterclockwise angle originating from the sun.@@ _
 @@with a prime denoting derivative of@@ ^^.t^^ @@,@@ @@they are &found as thus:@@ '
 
-^^`Position`.:
-   .r
+++Position:++ '
+^^.r
    .= .<'Cos' $q .- $g.,
       $b 'Sin' $q.>.;^^ '
-^^`Velocity`.:
-   .v
+++Velocity:++ '
+^^.v
    .= .<.- [.': $q:] 'Sin' $q.,
       $b [.': $q:] 'Cos' $q.>.;^^ '
-^^`Acceleration`.:
-   .a
+++Acceleration:++ '
+^^.a
    .= .<.-[.": $q:] 'Sin' $q .- [.2.' : $q:] 'Cos' $q.,
       $b [.": $q:] 'Cos' $q .- $b [.2.' : $q:] 'Sin' $q.>.;^^ '
 ===
@@ -55,8 +55,8 @@
 @@here, notice@@ ^^.1 .- $g 'Cos' $q >1 .0^^ @@.@@ _
 @@besides, if we #agree <that@@ ^^$q^^ @@revolves counterclockwise>,@@ ^^[.': $q:] >1 .0^^ @@also $does, hence:@@ '
 
-^^`Equal_areas`.:
-   [.': $q:] $h
+++Equal_areas:++ '
+^^[.': $q:] $h
    .= "constant"^^ '
 ^^=1 .K.;^^ '
 ^^>1 .0.;^^ '
@@ -65,8 +65,8 @@
 ===
 @@differentiation on both sides of@@ ++Equal_areas++ @@$gives:@@ '
 
-^^`Angle_derivative`.:
-   [.": $q:] $h .+ [.'.2: $q:] $g 'Sin' $q
+++Angle_derivative:++ '
+^^[.": $q:] $h .+ [.'.2: $q:] $g 'Sin' $q
    .= .0.;^^ '
 
 @@after further manipulation, we #have (except perhaps when both sides are singular):@@ '

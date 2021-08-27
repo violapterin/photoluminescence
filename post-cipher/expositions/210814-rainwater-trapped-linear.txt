@@ -30,13 +30,13 @@
 @@similar is the decreasing case.@@
 @@this is to say:@@ '
 
-^^`Left_high`.:
-   `if` .<#v., $a.> "increasing".,
+++Left_high:++ '
+^^`if` .<#v., $a.> "increasing".,
    `then` $y .[.<#v., $a., #u.>.]
       .= $y .[.<$a., #u.>.].;^^ '
 
-^^`Right_high`.:
-   `if` .<$a., #u.> "decreasing".,
+++Right_high:++ '
+^^`if` .<$a., #u.> "decreasing".,
    `then` $y .[.<#v., $a., #u.>.]
       .= $y .[.<#v., $a.>.].;^^ '
 
@@ -44,14 +44,14 @@
 @@similar is the decreasing case.@@
 @@this is to say:@@ '
 
-^^`Left_low`.:
-   `if` $a >1 #v.,
+++Left_low:++ '
+^^`if` $a >1 #v.,
    `then` $y .[.<$a., #v., $a., #u.>.]
       .= $y .[.<$a., #v., $a.>.] .+ $y .[.<$a., #u.>.]
       .= $f .[$a., .<$a., #v., $a.>.] .+ $y .[.<$a., #u.>.].;^^ '
 
-^^`Right_low`.:
-   `if` $a >1 #u.,
+++Right_low:++ '
+^^`if` $a >1 #u.,
    `then` $y .[.<#v., $a., #u., $a.>.]
       .= $y .[.<$a., #u., $a.>.] .+ $y .[.<#v., $a.>.]
       .= $f .[$a., .<$a., #u., $a.>.] .+ $y .[.<#v., $a.>.].;^^ '

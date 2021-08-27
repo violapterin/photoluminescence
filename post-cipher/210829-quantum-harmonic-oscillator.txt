@@ -1,0 +1,89 @@
+===
+@@to study the quantum counterpart of the classical harmonic oscillator, consider the one- dimensional Schrödinger equation@@ ^^$j $H .($Z ./ $Z .t.) $y .[.x., .t.] .= .H $y .[.x., .t.]^^ @@with a quadratic potential:@@ '
+
+^^.H
+   =1 (.- [.2: $H:], .2 .m) ([.2: $T:], $T [.2: .x:]) .+ (.1, .2) .m [.2: $w:] [.2: .x:].;^^ '
+
+@@if we #accept such formal manipulation with matrix exponents:@@ '
+
+^^$y .[.x., .t.]
+   .= [.- $j .H .t ./ $H: .e:] $y .[.x., .t \0 .0.] `for` .x., .t.;^^ '
+
+@@then time- dependent Schrödinger equation may be reduced to the time- independent equation:@@ '
+
+^^([.2: $T:], $T [.2: .x:]) $y .[.x.] .+ .(.E .- (.m [.2: $w:], [.2: $H:]) [.2: .x:].) $y .[.x.]
+   .= .0 `for` .x.;^^ '
+===
+
+===
+@@we #sketch the method of ladder operator here.@@ _
+@@introduce:@@ '
+
+^^$a
+   =1 $R.((.m $w, .2 $H).) .(.x .+ ($j, .m $w) .p.)^^ '
+
+@@it is straightforward to see:@@ '
+
+^^.x
+   .= $R.(($H, .2 .m $w).) .($a .+ [^7: $a:].).;^^ '
+^^.p
+   .= $R.((.m $w $H, .2).) .($a .- [^7: $a:].).;^^ '
+^^$n
+   =1 $a [^7: $a:].;^^ '
+^^.H
+   .= $H $w .($n .+ (.1, .2).).;^^ '
+
+@@then it may be verified that:@@ '
+
+^^`if` $n $f
+   .= .n $f.,^^ '
+^^`then` $n [^7: $a:] $f
+   .= .(.n .+ .1.) [^7: $a:] $f.,^^ '
+^^`and` $n $a $f
+   .= .(.n .- .1.) $a $f.;^^ '
+
+@@meanwhile, the ground state can be solved by the method of characteristic polynomials as:@@ '
+
+^^[:$y: .0] .[.x.]
+   =1 [.1 ./ .4: .((.m $w, $p $H).):] [.- .m $w [.2: .x:] ./ .2 $H: .e:].;^^ '
+
+@@and the solutions are &given as:@@ '
+
+^^[:$y: .n]
+   .= [^7 .n: $a:] [:$y: .0].,
+   .n .= .0., .1., .2., /6.;^^ '
+
+@@they #satisfy:@@ '
+
+^^[:.E: .n]
+   =1 .n .+ (.1, .2).,
+   .n .= .0., .1., .2., /6.;^^ '
+^^.H [:$y: .n]
+   .= [:.E: .n] [:$y: .n].;^^ '
+===
+
+~~~
+
+===
+@@❧@@ %%August 27, 2021%%
+===
+
+~~~
+
+===
+@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
+
+^^.H
+   =1 (.- [.2: $H:], .2 $m) [.2: $N:] .- ($z, .r).;^^ '
+
+@@the time- independent Schrödinger equation $reads@@ '
+
+^^[.- .2: $H:] [.2: #L:]
+   .= .(#R *0 #P.) .(#R *0 #P.) $y^^ '
+
+@@by noting<@@ ^^$N^^ @@either $acts on the second@@ ^^#r^^ @@or on@@ ^^$y^^ @@>:@@ '
+
+^^.= .- .(#r *0 $N.) .(#r *0 $N $y.)^^ '
+^^.= .- [.2: .\#r *0 $N.|:] $y .- .r .* $N $y^^ '
+^^.= .- [.2: .r:] [.2: $N:] $y .+ [.2: .(#r .* $N.):] $y .- .r .* $N $y^^ '
+===
