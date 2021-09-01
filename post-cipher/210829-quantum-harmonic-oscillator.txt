@@ -1,4 +1,6 @@
 ===
+@@the quantum harmonic oscillator is an important toy model for studying bound states,@@
+@@and it will again serve as an important instance in quantum field theory.@@ _
 @@to study the quantum counterpart of the classical harmonic oscillator, consider the one- dimensional Schrödinger equation@@ ^^$j $H .($Z ./ $Z .t.) $y .[.x., .t.] .= .H $y .[.x., .t.]^^ @@with a quadratic potential:@@ '
 
 ^^.H
@@ -11,7 +13,8 @@
 
 @@then time- dependent Schrödinger equation may be reduced to the time- independent equation:@@ '
 
-^^([.2: $T:], $T [.2: .x:]) $y .[.x.] .+ .(.E .- (.m [.2: $w:], [.2: $H:]) [.2: .x:].) $y .[.x.]
+^^([.2: $T:], $T [.2: .x:]) $y .[.x.]
+      .- .(([.2: .m:] [.2: $w:], [.2: $H:]) [.2: .x:] .- (.2 .m .E, [.2: $H:]).) $y .[.x.]
    .= .0 `for` .x.;^^ '
 ===
 
@@ -19,28 +22,33 @@
 @@we #sketch the method of ladder operator here.@@ _
 @@introduce:@@ '
 
-^^$a
-   =1 $R.((.m $w, .2 $H).) .(.x .+ ($j, .m $w) .p.)^^ '
+^^[:$a: +0]
+   =1 $R.((.m $w, .2 $H).) .(.x -0 ($H, .m $w) ($T, $T .x).).;^^ '
 
-@@it is straightforward to see:@@ '
+@@it is straightforward to check:@@ '
 
 ^^.x
-   .= $R.(($H, .2 .m $w).) .($a .+ [^7: $a:].).;^^ '
-^^.p
-   .= $R.((.m $w $H, .2).) .($a .- [^7: $a:].).;^^ '
-^^$n
-   =1 $a [^7: $a:].;^^ '
+   .= $R.(($H, .2 .m $w).) .([:$a: .-] .+ [:$a: .+].).;^^ '
+^^($T, $T .x)
+   .= $R.((.m $w, .2 $H).) .([:$a: .-] .- [:$a: .+].).;^^ '
+^^[:$a: .+] [:$a: .-] .- [:$a: .+] [:$a: .-]
+   .= .- .1.;^^ '
 ^^.H
-   .= $H $w .($n .+ (.1, .2).).;^^ '
+   .= $H $w .([:$a: .+] [:$a: .-] .+ (.1, .2).).;^^ '
 
-@@then it may be verified that:@@ '
+@@therefore we #have these interesting facts:@@ '
 
-^^`if` $n $f
+^^`if` [:$a: .-] [:$a: .+] $f
    .= .n $f.,^^ '
-^^`then` $n [^7: $a:] $f
-   .= .(.n .+ .1.) [^7: $a:] $f.,^^ '
-^^`and` $n $a $f
-   .= .(.n .- .1.) $a $f.;^^ '
+^^`then` [:$a: .-] [:$a: .+] [:$a: .+] $f
+   .= .([:$a: .+] [:$a: .-] .+ .1.) [:$a: .+] $f
+   .= .(.n .+ .1.) [:$a: .+] $f.;^^ '
+
+^^`if` [:$a: .+] [:$a: .-] $f
+   .= .n $f.,^^ '
+^^`then` [:$a: .+] [:$a: .-] [:$a: .-] $f
+   .= .([:$a: .-] [:$a: .+] .- .1.) [:$a: .-] $f
+   .= .(.n .- .1.) [:$a: .-] $f.;^^ '
 
 @@meanwhile, the ground state can be solved by the method of characteristic polynomials as:@@ '
 
@@ -49,41 +57,37 @@
 
 @@and the solutions are &given as:@@ '
 
-^^[:$y: .n]
-   .= [^7 .n: $a:] [:$y: .0].,
+++State_energy:++ '
+   ^^[:$y: .n]
+   =1 [.n: $a: .+] [:$y: .0].,
    .n .= .0., .1., .2., /6.;^^ '
 
 @@they #satisfy:@@ '
 
-^^[:.E: .n]
-   =1 .n .+ (.1, .2).,
+++Level_energy:++ '
+   ^^[:.E: .n]
+   =1 .(.n .+ (.1, .2).) $H $w.,
    .n .= .0., .1., .2., /6.;^^ '
 ^^.H [:$y: .n]
    .= [:.E: .n] [:$y: .n].;^^ '
 ===
 
+===
+@@when I @learnt about this in the past, I @wondered <how the expression of@@ ^^$a^^ @@was &motivated>.@@ _
+@@such method of ladder operator might not be universal to solve all Hamiltonians.@@ _
+@@indeed, for this to work, the energy levels must be spaced evenly.@@ _
+@@suppose@@
+   ^^[:.E: .n] .= .n $H $w .+ [:.E: .0]., .n .= .0., .1., .2., /6.^^ @@,@@
+   ^^.H $f .= [:.E: .n] $f^^ @@,@@
+   ^^.H [:$a??: .+] $f .= [:.E: .n .+ .1] [:$a??: .+] $f^^ @@,@@
+   @@then it $follows@@ ^^.H [:$a??: .+] .= [:$a??: .+] .H .+ $H $w [:$a??: .+]^^ @@.@@ _
+@@since@@ ^^[:$a??: .-] [:$a??: .+]^^ @@is diagonal and full ranked in the energy basis,@@ @@$this strongly $suggests@@ ^^.H .= [:.D: .1] [:$a??: .+] [:$a??: .-] .+ [:.D: .2] ^^ @@,@@ @@{where@@ ^^[:.D: .2]^^ @@and@@ ^^[:.D: .2]^^ @@are diagonal in the energy basis too.@@ _
+@@the best {I can say} is <that the rest $looks now easier to guess, by naïvely trying to factor@@
+   ^^[.2: .m:] [.2: $w:] [.2: .x:] ./ [.2: $H:] .- [.2: $T:] ./ $T [.2: .x:]^^ @@as something like@@ ^^[:$a: .+] [:$a: .-]^^ @@>.@@
+===
+
 ~~~
 
 ===
-@@❧@@ %%August 27, 2021%%
-===
-
-~~~
-
-===
-@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
-
-^^.H
-   =1 (.- [.2: $H:], .2 $m) [.2: $N:] .- ($z, .r).;^^ '
-
-@@the time- independent Schrödinger equation $reads@@ '
-
-^^[.- .2: $H:] [.2: #L:]
-   .= .(#R *0 #P.) .(#R *0 #P.) $y^^ '
-
-@@by noting<@@ ^^$N^^ @@either $acts on the second@@ ^^#r^^ @@or on@@ ^^$y^^ @@>:@@ '
-
-^^.= .- .(#r *0 $N.) .(#r *0 $N $y.)^^ '
-^^.= .- [.2: .\#r *0 $N.|:] $y .- .r .* $N $y^^ '
-^^.= .- [.2: .r:] [.2: $N:] $y .+ [.2: .(#r .* $N.):] $y .- .r .* $N $y^^ '
+@@❧@@ %%August 29, 2021%%
 ===

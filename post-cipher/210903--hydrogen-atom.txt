@@ -1,0 +1,77 @@
+===
+@@we #continue our perfunctory review of quantum mechanics, and sketch the process of solving the wave function of electron in a hydrogen atom;@@
+@@it $has not only historical significance,@@
+@@but the fine tructure  also $provides an instance of perturbation theory.@@ _
+@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
+
+++Hamiltonian:++ '
+^^.H
+   =1 (.- [.2: $H:], .2 $m) [.2: $N:]
+   .- ($z, .4 $p [:$e: .0]) (.1, .r)^^ '
+
+@@by the formula of Laplacian in spherical coodinates:@@ '
+
+^^.= .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) ($Z, $Z .r) [.2: .r:] ($Z, $Z .r)
+   .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q).)
+   .- ([.2: $H:], .2 $m) (.1, [.2: .r:] [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:])
+   .- ($z, .4 $p [:$e: .0]) (.1, .r).;^^ '
+
+@@by symmetry, the wave function must have the form@@ ^^$y .= $r .[.r.] $x .[$f., $q.]^^ @@,@@ @@where@@ ^^$f^^ @@is azimuth and@@ ^^$q^^ @@zenith.@@ _
+@@hence the time- independent Schrödinger equation $reads:@@ '
+
+^^.H $r .[.r.] $x .[$f., $q.]
+   .= .E $r .[.r.] $x .[$f., $q.].;^^ '
+===
+
+===
+@@we #want to relate the expression of@@ ^^.H^^ @@with the total angular momentum@@ ^^.L^^ @@.@@ _
+@@here@@ ^^.L^^ @@is &given as:@@ '
+
+^^[.2: .L:] $y
+   .= .(#R *0 #P.) .* .(#R *0 #P.) $y^^ '
+^^.= .- [.2: $H:] .(#r *0 $N.) .* .(#r *0 $N $y.)^^ '
+
+@@by noting<@@ ^^$N^^ @@either $acts on the second@@ ^^#r^^ @@or on@@ ^^$y^^ @@>:@@ '
+
+^^.= .- [.2: $H:] [.2: .\#r *0 $N.|:] $y
+   .+ [.2: $H:] #r .* $N $y^^ '
+^^.= .- [.2: $H:] [.2: .r:] [.2: $N:] $y
+   .+ [.2: $H:] [.2: .(#r .* $N.):] $y
+   .+ [.2: $H:] #r .* $N $y^^ '
+
+@@again by the formula of Laplacian in spherical coodinates:@@ '
+
+^^.= .- ($Z, $Z .r) [.2: .r:] ($Z, $Z .r) $y
+   .- (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q) $y.)
+   .- (.1, [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:]) $y
+   .+ [.2: .(.r ($Z, $Z .r).):] $y
+   .+ .r ($Z, $Z .r)^^ '
+^^.= .- (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q) $y.)
+   .- (.1, [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:]) $y.;^^ '
+
+@@now we #observe a key fact:@@ '
+
+^^'Comm' .[[.2: .L:]., .H.]
+   .= .0^^ '
+
+@@to see this, note that@@ ^^[.2: .L:]^^ @@are completely angular, {which both #commute with the two radial terms of@@ ^^.H^^ @@},@@
+@@and the two angular terms of@@ ^^.H^^ @@are just the same as@@ ^^[.2: .L:]^^ @@,@@ @@since both #come from the Laplacian.@@ _
+
+@@moreover, from the relation between azimuth angle and angular momentum,@@ '
+
+^^[:.L: .z] $y
+   .= .- $H $j ($Z, $Z $f) $y.;^^ '
+
+@@and it can be seen that:@@ '
+
+^^'Comm' .[[.2: .L:]., [:.L: .z].] .= .0.;^^ '
+
+^^'Comm' .[.H., [:.L: .z].] .= .0.;^^ '
+
+@@thus, we may assume <that@@ ^^.H., [.2: .L:]., [:.L: .z]^^ @@#share eigen states>.@@ _
+@@we have &concluded exactly the same from our discussion on commutator relations.@@ '
+
+@@in fact, solving the radial part of Hamiltonian equation $covers the one radial degree of freedom,@@
+@@and solving the angular momentum equation $covers the two angular degree of freedom.@@ _
+@@let us just do that.@@ '
+===

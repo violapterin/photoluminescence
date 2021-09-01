@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width initial-scale=1"/>
+   <title>[4] The hydrogen atom</title>
+   <link rel="shortcut icon" href="/asset/favicon.ico"/>
+   <link rel="stylesheet" href="/asset/style.css"/>
+
+   <!-- Google fonts -->
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya:400,400i,500,500i,700,900"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro:600"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+KR:400,700"/>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700"/>
+
+   <!-- Mathjax configuration -->
+   <script src="/asset/mathjax.js" async></script>
+
+   <!-- random quotes -->
+   <script src="/asset/quote.js" async></script>
+</head>
+
+
+
+<body>
+
+<header id="header-banner">
+   <h1 id="name-site">
+      <a class="title-site" href="/">Photoluminescence</a>
+      <span class="tagline-site">Math, Machines, and Music</span>
+   </h1>
+   <nav id="menu">
+      <a class="button-menu" href="/stamp.html">by date</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/genre.html">by genre</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/series.html">by series</a>
+      <span class="dingbat-menu">❦</span>
+      <a class="button-menu" href="/tag.html">by tag</a>
+   </nav>
+   <img id="banner" src="/asset/banner.png" alt="banner">
+</header>
+
+<div class="essay">
+
+<header id="header-post">
+   <h2 class="heading-post">
+      <span class="heading">[4] The hydrogen atom</span>
+   </h2>
+   <p class="data-post">
+      <a class="data-stamp" href="/page/august-2021.html">31 August 2021</a>
+      <a class="data-genre" href="/page/expositions.html">Exotic expositions</a>
+      <a class="data-series" href="/page/quantum-mechanics-revisited.html">Quantum mechanics revisited</a>
+      <a class="data-tag" href="/page/quantum-physics.html">Quantum physics</a>
+<a class="data-tag" href="/page/schrödinger-equation.html">Schrödinger equation</a>
+   </p>
+</header>
+
+<main class="document">
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">We continue our perfunctory review of quantum mechanics, and sketch the process of solving the wave function of electron in a hydrogen atom;</span> <span class="serif-roman">it has not only historical significance,</span> <span class="serif-roman">but the fine tructure  also provides an instance of perturbation theory.</span></span> <span class="phrase"><span class="serif-roman">In the presence of the Coulumb potential, with</span> <span class="math"><span class="math-letter">\(\zeta\)</span></span> <span class="serif-roman">the charge and</span> <span class="math"><span class="math-letter">\(\mu\)</span></span> <span class="serif-roman">the mass of proton (because</span> <span class="math"><span class="math-plain">\(m\)</span></span> <span class="serif-roman">is used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><code class="mono">Hamiltonian:</code></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(H\)</span><span class="math-sign">\(\;\equiv\;\)</span><span class="math-pair">\(\dfrac{-\, \hslash \vphantom{ \hslash}^{2}}{2 \mu}\)</span><span class="math-triplet">\(\nabla \vphantom{ \nabla}^{2}\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\zeta}{4 \pi \varepsilon \vphantom{ \varepsilon}_{0}}\)</span><span class="math-pair">\(\dfrac{1}{r}\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">By the formula of Laplacian in spherical coodinates:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\hslash \vphantom{ \hslash}^{2}}{2 \mu}\)</span><span class="math-pair">\(\dfrac{1}{r \vphantom{ r}^{2}}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial r}\)</span><span class="math-triplet">\(r \vphantom{ r}^{2}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial r}\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\hslash \vphantom{ \hslash}^{2}}{2 \mu}\)</span><span class="math-pair">\(\dfrac{1}{r \vphantom{ r}^{2}}\)</span><span class="math-pair">\(\dfrac{1}{\mathrm{Sin}\, \vartheta}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-bracket-round">\(\left(\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta}}\right.\)</span><span class="math-bracket-round">\(\left(\vphantom{\,\mathrm{Sin}\, \vartheta}\right.\)</span><span class="math-serif">\(\,\mathrm{Sin}\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-round">\(\left.\vphantom{\,\mathrm{Sin}\, \vartheta}\right)\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-bracket-round">\(\left.\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta}}\right)\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\hslash \vphantom{ \hslash}^{2}}{2 \mu}\)</span><span class="math-pair">\(\dfrac{1}{r \vphantom{ r}^{2} \mathrm{Sin} \left[\vartheta\right] \vphantom{\mathrm{Sin} \left[\vartheta\right]}^{2}}\)</span><span class="math-pair">\(\dfrac{\partial \vphantom{ \partial}^{2}}{\partial \varphi \vphantom{ \varphi}^{2}}\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\zeta}{4 \pi \varepsilon \vphantom{ \varepsilon}_{0}}\)</span><span class="math-pair">\(\dfrac{1}{r}\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">By symmetry, the wave function must have the form</span> <span class="math"><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-letter">\(\rho\)</span><span class="math-bracket-square">\(\left[\vphantom{r}\right.\)</span><span class="math-plain">\(r\)</span><span class="math-bracket-square">\(\left.\vphantom{r}\right]\)</span><span class="math-letter">\(\chi\)</span><span class="math-bracket-square">\(\left[\vphantom{\varphi ,\, \vartheta}\right.\)</span><span class="math-letter">\(\varphi\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-square">\(\left.\vphantom{\varphi ,\, \vartheta}\right]\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">where</span> <span class="math"><span class="math-letter">\(\varphi\)</span></span> <span class="serif-roman">is azimuth and</span> <span class="math"><span class="math-letter">\(\vartheta\)</span></span> <span class="serif-roman">zenith.</span></span> <span class="phrase"><span class="serif-roman">Hence the time-independent Schrödinger equation reads:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(H\)</span><span class="math-letter">\(\rho\)</span><span class="math-bracket-square">\(\left[\vphantom{r}\right.\)</span><span class="math-plain">\(r\)</span><span class="math-bracket-square">\(\left.\vphantom{r}\right]\)</span><span class="math-letter">\(\chi\)</span><span class="math-bracket-square">\(\left[\vphantom{\varphi ,\, \vartheta}\right.\)</span><span class="math-letter">\(\varphi\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-square">\(\left.\vphantom{\varphi ,\, \vartheta}\right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(E\)</span><span class="math-letter">\(\rho\)</span><span class="math-bracket-square">\(\left[\vphantom{r}\right.\)</span><span class="math-plain">\(r\)</span><span class="math-bracket-square">\(\left.\vphantom{r}\right]\)</span><span class="math-letter">\(\chi\)</span><span class="math-bracket-square">\(\left[\vphantom{\varphi ,\, \vartheta}\right.\)</span><span class="math-letter">\(\varphi\)</span><span class="math-plain">\(,\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-square">\(\left.\vphantom{\varphi ,\, \vartheta}\right]\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+</div>
+<div class="section">
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">We want to relate the expression of</span> <span class="math"><span class="math-plain">\(H\)</span></span> <span class="serif-roman">with the total angular momentum</span> <span class="math"><span class="math-plain">\(L\)</span></span><span class="serif-roman">.</span></span> <span class="phrase"><span class="serif-roman">Here</span> <span class="math"><span class="math-plain">\(L\)</span></span> <span class="serif-roman">is given as:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-bracket-round">\(\left(\vphantom{\mathbf{R} \,\times\, \mathbf{P}}\right.\)</span><span class="math-letter">\(\mathbf{R}\)</span><span class="math-sign">\(\,\times\,\)</span><span class="math-letter">\(\mathbf{P}\)</span><span class="math-bracket-round">\(\left.\vphantom{\mathbf{R} \,\times\, \mathbf{P}}\right)\)</span><span class="math-plain">\(\,\cdot\,\)</span><span class="math-bracket-round">\(\left(\vphantom{\mathbf{R} \,\times\, \mathbf{P}}\right.\)</span><span class="math-letter">\(\mathbf{R}\)</span><span class="math-sign">\(\,\times\,\)</span><span class="math-letter">\(\mathbf{P}\)</span><span class="math-bracket-round">\(\left.\vphantom{\mathbf{R} \,\times\, \mathbf{P}}\right)\)</span><span class="math-letter">\(\psi\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-bracket-round">\(\left(\vphantom{\mathbf{r} \,\times\, \nabla}\right.\)</span><span class="math-letter">\(\mathbf{r}\)</span><span class="math-sign">\(\,\times\,\)</span><span class="math-letter">\(\nabla\)</span><span class="math-bracket-round">\(\left.\vphantom{\mathbf{r} \,\times\, \nabla}\right)\)</span><span class="math-plain">\(\,\cdot\,\)</span><span class="math-bracket-round">\(\left(\vphantom{\mathbf{r} \,\times\, \nabla \psi}\right.\)</span><span class="math-letter">\(\mathbf{r}\)</span><span class="math-sign">\(\,\times\,\)</span><span class="math-letter">\(\nabla\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-round">\(\left.\vphantom{\mathbf{r} \,\times\, \nabla \psi}\right)\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">By noting</span> <span class="math"><span class="math-letter">\(\nabla\)</span></span> <span class="serif-roman">either acts on the second</span> <span class="math"><span class="math-letter">\(\mathbf{r}\)</span></span> <span class="serif-roman">or on</span> <span class="math"><span class="math-letter">\(\psi\)</span></span> <span class="serif-roman">:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-triplet">\(\left|\mathbf{r} \,\times\, \nabla\right| \vphantom{ \left|\mathbf{r} \,\times\, \nabla\right|}^{2}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-letter">\(\mathbf{r}\)</span><span class="math-plain">\(\,\cdot\,\)</span><span class="math-letter">\(\nabla\)</span><span class="math-letter">\(\psi\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-triplet">\(r \vphantom{ r}^{2}\)</span><span class="math-triplet">\(\nabla \vphantom{ \nabla}^{2}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-triplet">\(\left(\mathbf{r} \,\cdot\, \nabla\right) \vphantom{ \left(\mathbf{r} \,\cdot\, \nabla\right)}^{2}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\(\hslash \vphantom{ \hslash}^{2}\)</span><span class="math-letter">\(\mathbf{r}\)</span><span class="math-plain">\(\,\cdot\,\)</span><span class="math-letter">\(\nabla\)</span><span class="math-letter">\(\psi\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Again by the formula of Laplacian in spherical coodinates:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{\partial}{\partial r}\)</span><span class="math-triplet">\(r \vphantom{ r}^{2}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial r}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{1}{\mathrm{Sin}\, \vartheta}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-bracket-round">\(\left(\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta} \psi}\right.\)</span><span class="math-bracket-round">\(\left(\vphantom{\,\mathrm{Sin}\, \vartheta}\right.\)</span><span class="math-serif">\(\,\mathrm{Sin}\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-round">\(\left.\vphantom{\,\mathrm{Sin}\, \vartheta}\right)\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-round">\(\left.\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta} \psi}\right)\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{1}{\mathrm{Sin} \left[\vartheta\right] \vphantom{\mathrm{Sin} \left[\vartheta\right]}^{2}}\)</span><span class="math-pair">\(\dfrac{\partial \vphantom{ \partial}^{2}}{\partial \varphi \vphantom{ \varphi}^{2}}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-triplet">\(\left(r \dfrac{\partial}{\partial r}\right) \vphantom{ \left(r \dfrac{\partial}{\partial r}\right)}^{2}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\,+\,\)</span><span class="math-plain">\(r\)</span><span class="math-pair">\(\dfrac{\partial}{\partial r}\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{1}{\mathrm{Sin}\, \vartheta}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-bracket-round">\(\left(\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta} \psi}\right.\)</span><span class="math-bracket-round">\(\left(\vphantom{\,\mathrm{Sin}\, \vartheta}\right.\)</span><span class="math-serif">\(\,\mathrm{Sin}\,\)</span><span class="math-letter">\(\vartheta\)</span><span class="math-bracket-round">\(\left.\vphantom{\,\mathrm{Sin}\, \vartheta}\right)\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \vartheta}\)</span><span class="math-letter">\(\psi\)</span><span class="math-bracket-round">\(\left.\vphantom{\left(\,\mathrm{Sin}\, \vartheta\right) \dfrac{\partial}{\partial \vartheta} \psi}\right)\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-pair">\(\dfrac{1}{\mathrm{Sin} \left[\vartheta\right] \vphantom{\mathrm{Sin} \left[\vartheta\right]}^{2}}\)</span><span class="math-pair">\(\dfrac{\partial \vphantom{ \partial}^{2}}{\partial \varphi \vphantom{ \varphi}^{2}}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Now we observe a key fact:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-serif">\(\,\mathrm{Comm}\,\)</span><span class="math-bracket-square">\(\left[\vphantom{L \vphantom{ L}^{2} ,\, H}\right.\)</span><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span><span class="math-plain">\(,\,\)</span><span class="math-plain">\(H\)</span><span class="math-bracket-square">\(\left.\vphantom{L \vphantom{ L}^{2} ,\, H}\right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(0\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">To see this, note that</span> <span class="math"><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span></span> <span class="serif-roman">are completely angular, which both commute with the two radial terms of</span> <span class="math"><span class="math-plain">\(H\)</span></span> <span class="serif-roman">,</span> <span class="serif-roman">and the two angular terms of</span> <span class="math"><span class="math-plain">\(H\)</span></span> <span class="serif-roman">are just the same as</span> <span class="math"><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span></span><span class="serif-roman">,</span> <span class="serif-roman">since both come from the Laplacian.</span></span> <span class="phrase"><span class="serif-roman">Moreover, from the correspondence of angle and angular momentum,</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-triplet">\(L \vphantom{ L}_{z}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(\,-\,\)</span><span class="math-letter">\(\hslash\)</span><span class="math-letter">\(\mathring{\imath}\)</span><span class="math-pair">\(\dfrac{\partial}{\partial \varphi}\)</span><span class="math-letter">\(\psi\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">And it can be seen that:</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-serif">\(\,\mathrm{Comm}\,\)</span><span class="math-bracket-square">\(\left[\vphantom{L \vphantom{ L}^{2} ,\, L \vphantom{ L}_{z}}\right.\)</span><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span><span class="math-plain">\(,\,\)</span><span class="math-triplet">\(L \vphantom{ L}_{z}\)</span><span class="math-bracket-square">\(\left.\vphantom{L \vphantom{ L}^{2} ,\, L \vphantom{ L}_{z}}\right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="math"><span class="math-serif">\(\,\mathrm{Comm}\,\)</span><span class="math-bracket-square">\(\left[\vphantom{H ,\, L \vphantom{ L}_{z}}\right.\)</span><span class="math-plain">\(H\)</span><span class="math-plain">\(,\,\)</span><span class="math-triplet">\(L \vphantom{ L}_{z}\)</span><span class="math-bracket-square">\(\left.\vphantom{H ,\, L \vphantom{ L}_{z}}\right]\)</span><span class="math-plain">\(\;=\;\)</span><span class="math-plain">\(0\)</span><span class="math-plain">\(;\,\)</span></span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">Thus, we may assume that</span> <span class="math"><span class="math-plain">\(H\)</span><span class="math-plain">\(,\,\)</span><span class="math-triplet">\(L \vphantom{ L}^{2}\)</span><span class="math-plain">\(,\,\)</span><span class="math-triplet">\(L \vphantom{ L}_{z}\)</span></span> <span class="serif-roman">share eigen states.</span></span> <span class="phrase"><span class="serif-roman">We have concluded exactly the same from our discussion on commutator relations.</span></span>
+</p>
+<p class="paragraph">
+<span class="phrase"><span class="serif-roman">In fact, solving the radial part of Hamiltonian equation covers the one radial degree of freedom,</span> <span class="serif-roman">and solving the angular momentum equation covers the two angular degree of freedom.</span></span> <span class="phrase"><span class="serif-roman">Let us just do that.</span></span>
+</p>
+</div>
+</main>
+
+</div>
+
+<footer id="footer-whole">
+   <div id="footer-quote"></div>
+
+   <div id="footer-signature">
+      <div id="footer-left">
+         <p class="footer-author">violapterin</p>
+         <p class="footer-motto">VOLO NON FUGIA</p>
+         <p class="footer-icon">
+            <a class="icon-gmail" href="mailto:violapterin@gmail.com"></a>
+            <a class="icon-github" href="http://github.com/violapterin/"></a>
+            <a class="icon-facebook" href="http://facebook.com/violapterin/"></a>
+            <a class="icon-twitter" href="http://twitter.com/violapterin/"></a>
+         </p>
+         <p class="footer-license">
+         <a class="icon-license" href="https://creativecommons.org/licenses/by-sa/4.0/"></a>
+         </p>
+      </div>
+      <div id="footer-right">
+         <img class="footer-profile" src="/asset/profile.png" alt="profile">
+      </div>
+   </div>
+</footer>
+
+
+</body>
+
+</html>
