@@ -50,7 +50,7 @@
    .= .([:$a: .-] [:$a: .+] .- .1.) [:$a: .-] $f
    .= .(.n .- .1.) [:$a: .-] $f.;^^ '
 
-@@meanwhile, the ground state can be solved by the method of characteristic polynomials as:@@ '
+@@meanwhile, the ground state can be solved by either the the method of series, or by letting@@ ^^[:$a: .-] $y .= .0^^ @@,@@ @@to be:@@ '
 
 ^^[:$y: .0] .[.x.]
    =1 [.1 ./ .4: .((.m $w, $p $H).):] [.- .m $w [.2: .x:] ./ .2 $H: .e:].;^^ '

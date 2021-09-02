@@ -2,19 +2,19 @@
 @@we #continue our perfunctory review of quantum mechanics, and sketch the process of solving the wave function of electron in a hydrogen atom;@@
 @@it $has not only historical significance,@@
 @@but the fine tructure  also $provides an instance of perturbation theory.@@ _
-@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
+@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge number,@@ ^^.q^^ @@the elementary charge, and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
 
 ++Hamiltonian:++ '
 ^^.H
    =1 (.- [.2: $H:], .2 $m) [.2: $N:]
-   .- ($z, .4 $p [:$e: .0]) (.1, .r)^^ '
+   .- ($z [.2: .q:], .4 $p [:$e: .0]) (.1, .r)^^ '
 
 @@by the formula of Laplacian in spherical coodinates:@@ '
 
 ^^.= .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) ($Z, $Z .r) [.2: .r:] ($Z, $Z .r)
    .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q).)
    .- ([.2: $H:], .2 $m) (.1, [.2: .r:] [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:])
-   .- ($z, .4 $p [:$e: .0]) (.1, .r).;^^ '
+   .- ($z [.2: .q:], .4 $p [:$e: .0]) (.1, .r).;^^ '
 
 @@by symmetry, the wave function must have the form@@ ^^$y .= $r .[.r.] $x .[$f., $q.]^^ @@,@@ @@where@@ ^^$f^^ @@is azimuth and@@ ^^$q^^ @@zenith.@@ _
 @@hence the time- independent Schrödinger equation $reads:@@ '
@@ -27,9 +27,10 @@
 @@we #want to relate the expression of@@ ^^.H^^ @@with the total angular momentum@@ ^^.L^^ @@.@@ _
 @@here@@ ^^.L^^ @@is &given as:@@ '
 
+++Angular_momentum:++ '
 ^^[.2: .L:] $y
    .= .(#R *0 #P.) .* .(#R *0 #P.) $y^^ '
-^^.= .- [.2: $H:] .(#r *0 $N.) .* .(#r *0 $N $y.)^^ '
+^^.= .- [.2: $H:] .(.(#r *0 $N.) .* .(#r *0 $N.).) $y^^ '
 
 @@by noting<@@ ^^$N^^ @@either $acts on the second@@ ^^#r^^ @@or on@@ ^^$y^^ @@>:@@ '
 
@@ -60,18 +61,102 @@
 @@moreover, from the relation between azimuth angle and angular momentum,@@ '
 
 ^^[:.L: .z] $y
-   .= .- $H $j ($Z, $Z $f) $y.;^^ '
+   .= .- $j $H ($Z, $Z $f) $y.;^^ '
 
-@@and it can be seen that:@@ '
+@@and it can also be seen that:@@ '
 
 ^^'Comm' .[[.2: .L:]., [:.L: .z].] .= .0.;^^ '
 
 ^^'Comm' .[.H., [:.L: .z].] .= .0.;^^ '
 
-@@thus, we may assume <that@@ ^^.H., [.2: .L:]., [:.L: .z]^^ @@#share eigen states>.@@ _
+@@thus, we may assume <that@@ ^^.H., [.2: .L:]., [:.L: .z]^^ @@#share eigenstates>.@@ _
 @@we have &concluded exactly the same from our discussion on commutator relations.@@ '
 
 @@in fact, solving the radial part of Hamiltonian equation $covers the one radial degree of freedom,@@
 @@and solving the angular momentum equation $covers the two angular degree of freedom.@@ _
 @@let us just do that.@@ '
 ===
+
+===
+@@the@@ ^^$f^^ @@dependence is the easiest;@@
+@@it $follows <that, for eigenvalue@@ ^^.m^^ @@>:@@ '
+
+^^$x .[$q., $f.]
+   .= [$j .m $f ./ $H: .e:] $x .[$q., .0.].;^^ '
+
+^^[:$x: .l., .m] .[$q., $f.]
+   .= [$j .m $f ./ $H: .e:]  [:$x: .l., .0] .[$q.].;^^ '
+===
+
+===
+@@the@@ ^^$q^^ @@dependence is &characterized by eigenvalue equation@@ ^^[.2: .L:] $x .= $l $x^^ @@;@@
+@@this can be cast for eigenvalue@@ ^^$l^^ @@ as follows:@@ '
+
+^^.-.1
+   <0 .u
+   =1 'Cos' $q
+   <0 .1.;^^ '
+++Azimuthal:++ '
+^^.(.1 .- [.2: .u:].) ($Z, $Z .u) .(.1 .- [.2: .u:].) ($Z, $Z .u) [:$x: .l., .m]
+      .+ .(.- [.2: .m:] .+ $l .(.1 .- [.2: .u:].).) [:$x: .l., .m]
+   .= .0.;^^ '
+
+@@for our purpose, the most important matter is to determine@@ ^^$l^^ @@.@@ _
+@@if the leading degree of the series expansion of@@ ^^[:$x: .l., .0]^^ @@is infinity, then its derivative $blows up.@@ _
+@@if we #accept <that@@ ^^[:$x: .l., .0]^^ @@,@@ @@then by observing the leading coefficient, it is &seen <that@@ '
+
+++Eigenvalue_angular:++ '
+^^$l .= .l .(.l .+ .1.)., .l .= .0., .1., .2., /6.;^^ '
+
+@@particularly, when@@ ^^.m .= .0^^ @@it $reads:@@ '
+
+++Legendre:++ '
+^^.(.1 .- [.2: .u:].) ([.2: $Z:] [:$x: .l., .0], $Z [.2: .u:])
+      .- .2 .u ($Z [:$x: .l., .0], $Z .u)
+      .+ $l [:$x: .l., .0]
+   .= .0.;^^ '
+
+@@this is &known as Legendre's equation.@@ _
+@@the closed form of@@ ^^[:$x: .l., .0]^^ @@is &given by the Rodrigues formula:@@ '
+
+++Rodrigues_Legendre:++ '
+^^[:$x: .l., .0]
+   .= (.1, [.n: .2:] 'Frac' .n) ([.l: $Z:], $Z [.l: .u:]) [.n: .([.2: .u:] .- .1.):] .[.u \0 'Cos' $q.].;^^ '
+
+@@it can be shown to satisfy@@ ++Legendre++ @@.@@ _
+@@moreover, normalization may be checked,@@
+@@and we #have orthogonality of@@ ^^[:$x: .l., .0]^^ @@on@@ ^^.{.-.1 <0 .u <0 .1.}^^ @@by an integration by parts.@@ _
+@@on the other hand, either by the axiom on observable or by direct verification, the left side of@@ ++Legendre++ @@is hermitian,@@
+@@and thus its eigenstates are orthogonal.@@ _
+@@this is sufficient to establish@@ ++RodLeg++ @@.@@
+@@(details on this part $don’t aid physical understanding much, {which I only #sketch here}.)@@ '
+===
+
+===
+@@it $remains to find the radial dependence.@@ _
+@@in view of@@ ++Hamiltonian++ @@,@@ ++AngMom++ @@,@@ @@and@@ ++Eigenvalue_angular++ @@,@@ '
+
+++Radial:++ '
+^^.r ([.2: $Z:], $Z [.2: .r:]) $r .[.r.]
+   .+ .2 ($Z, $Z .r) $r .[.r.]
+      .+ .(
+            (.2 $m .E, [.2: $H:]) .r
+            .+ ($z [.2: .q:] $m, .2 $p [.2: $H:] [:$e: .0].)
+            .- (.l .(.l .+ .1.), .r).)
+         $r .[.r.]
+   .= .0^^ '
+
+@@we #omit this part, which isn’t crucial for phyical understanding.@@ _
+@@equation@@ ++Radial++ @@can be solved through a suitable transformation into a Laguerre equation, {which #have orthogonal solutions called Laguerre polynomials and are &given by another Rodrigues formula}.@@ '
+===
+
+===
+@@from consideration of continuity, we must have@@ ^^.m .= .0., .1., .2., /6^^ @@;@@
+@@and@@ ++Azimuthal++ @@$requires@@ ^^.\.m.| <0 .l^^ @@.@@ _
+@@we #summarize the conclusion on quantum numbers as thus:@@ '
+
+^^.n .= .0., .1., .2., /6.;^^ '
+^^.l .= .0., .1., .2., /6., .n .- .1.;^^ '
+^^.m .= .-.l., /6 .-.1., .0., .1., /6., .l.;^^ '
+===
+
