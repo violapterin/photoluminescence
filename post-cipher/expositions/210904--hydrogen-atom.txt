@@ -2,19 +2,19 @@
 @@we #continue our perfunctory review of quantum mechanics, and sketch the process of solving the wave function of electron in a hydrogen atom;@@
 @@it $has not only historical significance,@@
 @@but the fine tructure  also $provides an instance of perturbation theory.@@ _
-@@in the presence of the Coulumb potential, with@@ ^^$z^^ @@the charge number,@@ ^^.q^^ @@the elementary charge, and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
+@@in the presence of the Coulumb potential, with@@ ^^.q^^ @@the elementary charge, and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
 
 ++Hamiltonian:++ '
 ^^.H
    =1 (.- [.2: $H:], .2 $m) [.2: $N:]
-   .- ($z [.2: .q:], .4 $p [:$e: .0]) (.1, .r)^^ '
+   .- ([.2: .q:], .4 $p [:$e: .0]) (.1, .r)^^ '
 
 @@by the formula of Laplacian in spherical coodinates:@@ '
 
 ^^.= .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) ($Z, $Z .r) [.2: .r:] ($Z, $Z .r)
    .- ([.2: $H:], .2 $m) (.1, [.2: .r:]) (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q).)
    .- ([.2: $H:], .2 $m) (.1, [.2: .r:] [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:])
-   .- ($z [.2: .q:], .4 $p [:$e: .0]) (.1, .r).;^^ '
+   .- ([.2: .q:], .4 $p [:$e: .0]) (.1, .r).;^^ '
 
 @@by symmetry, the wave function must have the form@@ ^^$y .= $r .[.r.] $x .[$f., $q.]^^ @@,@@ @@where@@ ^^$f^^ @@is azimuth and@@ ^^$q^^ @@zenith.@@ _
 @@hence the time- independent Schrödinger equation $reads:@@ '
@@ -83,9 +83,6 @@
 
 ^^$x .[$q., $f.]
    .= [$j .m $f ./ $H: .e:] $x .[$q., .0.].;^^ '
-
-^^[:$x: .l., .m] .[$q., $f.]
-   .= [$j .m $f ./ $H: .e:]  [:$x: .l., .0] .[$q.].;^^ '
 ===
 
 ===
@@ -103,7 +100,7 @@
 
 @@for our purpose, the most important matter is to determine@@ ^^$l^^ @@.@@ _
 @@if the leading degree of the series expansion of@@ ^^[:$x: .l., .0]^^ @@is infinity, then its derivative $blows up.@@ _
-@@if we #accept <that@@ ^^[:$x: .l., .0]^^ @@,@@ @@then by observing the leading coefficient, it is &seen <that@@ '
+@@if we #accept <that@@ ^^[:$x: .l., .0]^^ @@is a polynomial with finitely many terms,@@ @@then by observing the leading coefficient, it is &seen <that@@ '
 
 ++Eigenvalue_angular:++ '
 ^^$l .= .l .(.l .+ .1.)., .l .= .0., .1., .2., /6.;^^ '
@@ -116,20 +113,26 @@
       .+ $l [:$x: .l., .0]
    .= .0.;^^ '
 
-@@this is &known as Legendre's equation.@@ _
+@@this is &known as Legendre equation.@@ _
 @@the closed form of@@ ^^[:$x: .l., .0]^^ @@is &given by the Rodrigues formula:@@ '
 
 ++Rodrigues_Legendre:++ '
-^^[:$x: .l., .0]
-   .= (.1, [.n: .2:] 'Frac' .n) ([.l: $Z:], $Z [.l: .u:]) [.n: .([.2: .u:] .- .1.):] .[.u \0 'Cos' $q.].;^^ '
+^^[:$x: .l., .0] .[$q.]
+   .= (.1, [.n: .2:] 'Frac' .n)
+      ([.l: $Z:], $Z [.l: .u:]) [.n: .([.2: .u:] .- .1.):]
+      .[.u \0 'Cos' $q.].;^^ '
 
-@@it can be shown to satisfy@@ ++Legendre++ @@.@@ _
-@@moreover, normalization may be checked,@@
-@@and we #have orthogonality of@@ ^^[:$x: .l., .0]^^ @@on@@ ^^.{.-.1 <0 .u <0 .1.}^^ @@by an integration by parts.@@ _
-@@on the other hand, either by the axiom on observable or by direct verification, the left side of@@ ++Legendre++ @@is hermitian,@@
-@@and thus its eigenstates are orthogonal.@@ _
-@@this is sufficient to establish@@ ++RodLeg++ @@.@@
+@@it can be shown to satisfy@@ ++Legendre++ @@,@@
+@@and normalization may be checked.@@ _
+@@either by the axiom on observable or by direct verification, we can see the left side of@@ ++Legendre++ @@is hermitian, by an integration by parts.@@ _
+@@and we #have orthogonality of@@ ^^[:$x: .l., .0]^^ @@on the inner product space@@ ^^.{.-.1 <0 .u <0 .1.}^^ @@.@@ _
+@@this is sufficient to establish@@ ++RodLeg++ @@.@@ '
 @@(details on this part $don’t aid physical understanding much, {which I only #sketch here}.)@@ '
+
+@@in summary, the angular equation is solved:@@ '
+
+^^[:$x: .l., .m] .[$q., $f.]
+   .= [$j .m $f ./ $H: .e:]  [:$x: .l., .0] .[$q.].;^^ '
 ===
 
 ===
@@ -141,22 +144,67 @@
    .+ .2 ($Z, $Z .r) $r .[.r.]
       .+ .(
             (.2 $m .E, [.2: $H:]) .r
-            .+ ($z [.2: .q:] $m, .2 $p [.2: $H:] [:$e: .0].)
+            .+ ([.2: .q:] $m, .2 $p [.2: $H:] [:$e: .0].)
             .- (.l .(.l .+ .1.), .r).)
          $r .[.r.]
-   .= .0^^ '
+   .= .0.;^^ '
 
-@@we #omit this part, which isn’t crucial for phyical understanding.@@ _
-@@equation@@ ++Radial++ @@can be solved through a suitable transformation into a Laguerre equation, {which #have orthogonal solutions called Laguerre polynomials and are &given by another Rodrigues formula}.@@ '
+@@let@@ ^^.v .= $R .(.2 $m .E.) .r ./ $H^^ @@.@@ _
+@@when@@ ^^.r |0 $B^^ @@it may be guessed@@ ^^$r ~4 [.-.v: .e:]^^ @@;@@
+@@when@@ ^^.r |0 .0^^ @@it may be guessed@@ ^^$r ~4 [.l: .v:]^^ @@.@@ _
+@@introduce:@@ '
+
+^^.w .[.v.]
+   =1 [.-.l: .v:] [.v: .e:] $r .[.v.].;^^ '
+
+@@after a bunch of manipulation:@@ '
+
+^^.n
+   =1 ([.2: .q:] .($R $m.), .($R .3.2.) $p $H [:$e: .0] .($R .E.)).;^^ '
+++Laguerre:++ '
+^^ .v ([.2: $Z:], $Z [.2: .v:]) .w .[.v.]
+   .+ .(.2 .l .- .r .+ .2.) ($Z, $Z .v) .w .[.v.]
+   .+ .(.2 .n .-.2 .l .- .2.) .w .[.v.]
+   .= .0.;^^ '
+
+@@this is &known as generalized Laguerre equation, {which #have orthogonal solutions called Laguerre polynomials and are &given by another Rodrigues formula}.@@ _
+@@for brevity we #don’t normalize the wave function.@@ _
+@@(again we #omit the details, {which isn’t crucial for phyical understanding}).@@ '
+
+++Rodrigues_Laguerre:++ '
+^^[:$r: .n., .l] .[.r.]
+   ~4 [.- .l .- .1: .v:]
+      [.2 .n .- .2 .l .- .2: .(($Z, $Z .v).):] .([.2 .n .- .1: .v:] [.- .v: .e:].)
+      .[.v \0 ($R .(.2 $m .E.), $H) .r.].;^^ '
 ===
 
 ===
 @@from consideration of continuity, we must have@@ ^^.m .= .0., .1., .2., /6^^ @@;@@
-@@and@@ ++Azimuthal++ @@$requires@@ ^^.\.m.| <0 .l^^ @@.@@ _
+@@while@@ ++Legendre++ @@$requires:@@ '
+
+^^.\.m.|
+   <0 .l.;^^ '
+
+@@furthermore,@@ ++Laguerre++ @@$requires:@@ '
+
+^^.n .- .l .- .1
+   >0 .0.;^^ '
+
+@@this restricts the energy levels to be:@@ '
+
+^^.E
+   .= ([.4: .q:] $m, .3.2 [.2: $p:] [.2: $H:] [.2: $e: .0]) (.1, [.2: .n:]).;^^ '
+
 @@we #summarize the conclusion on quantum numbers as thus:@@ '
 
-^^.n .= .0., .1., .2., /6.;^^ '
+^^.n .= .1., .2., /6.;^^ '
 ^^.l .= .0., .1., .2., /6., .n .- .1.;^^ '
 ^^.m .= .-.l., /6 .-.1., .0., .1., /6., .l.;^^ '
+===
+
+~~~
+
+===
+@@❧@@ %%September 4, 2021%%
 ===
 

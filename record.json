@@ -1,5 +1,8 @@
 [
-{"stamp": "210903", "genre": "expositions", "series": "Quantum mechanics revisited",
+{"stamp": "210905", "genre": "notes",
+   "tag": ["Adjectives", "German"],
+   "title": "Declension of German adjectives"},
+{"stamp": "210904", "genre": "expositions", "series": "Quantum mechanics revisited",
    "tag": ["Quantum physics", "Schrödinger equation"],
    "title": "[4] The hydrogen atom"},
 {"stamp": "210829", "genre": "expositions", "series": "Quantum mechanics revisited",

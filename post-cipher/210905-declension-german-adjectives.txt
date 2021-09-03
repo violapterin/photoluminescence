@@ -1,0 +1,30 @@
+===
+@@at first glance, the declension of German adjective $seems hard to remember.@@
+===
+
+"""
+@@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
+
+@@nominative@@ _ @@schwieriger Fall@@ _ @@rote Tinte@@ _ @@schönes Haus@@ _ @@alkoholfreie Getränke@@ '
+@@accusative@@ _ @@schwierigen Fall@@ _ @@rote Tinte@@ _ @@schönes Haus@@ _ @@alkoholfreie Getränke@@ '
+@@dative@@ _ @@schwierigem Fall@@ _ @@roter Tinte@@ _ @@schönem Hau@@ _ @@ alkoholfreien Getränken@@ '
+@@genitive@@ _ @@schwierigen Falles@@ _ @@roter Tinte@@ _ @@schönen Hauses@@ _ @@alkoholfreier Getränke @@ '
+"""
+
+"""
+@@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
+
+@@Nominative@@ _ @@mein schwieriger@@ _ @@Fall 	seine@@ _ @@rote Tinte@@ _ @@euer schönes Haus keine alkoholfreien Getränke@@ '
+@@Accusative@@ _ @@meinen schwierigen@@ _ @@Fall 	seine@@ _ @@rote Tinte@@ _ @@euer schönes Haus keine alkoholfreien Getränke@@ '
+@@Dative@@ _ @@meinem schwierigen@@ _ @@Fall seiner@@ _ @@roten Tinte@@ _ @@eurem schönen Haus keinen alkoholfreien Getränken@@ '
+@@Genitive@@ _ @@meines schwierigen@@ _ @@Falles seiner@@ _ @@roten Tinte@@ _ @@eures schönen Hauses keiner alkoholfreien Getränke @@ '
+"""
+
+"""
+@@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
+
+@@nominative@@ _ @@welcher schwierige@@ _ @@Fall solche@@ _ @@rote Tinte@@ _ @@dieses schöne Haus alle alkoholfreien Getränke@@ '
+@@accusative@@ _ @@welchen schwierigen@@ _ @@Fall solche@@ _ @@rote Tinte@@ _ @@dieses schöne Haus alle alkoholfreien Getränke@@ '
+@@dative@@ _ @@welchem schwierigen@@ _ @@Fall solcher@@ _ @@roten Tinte@@ _ @@diesem schönen Haus allen alkoholfreien Getränken@@ '
+@@genitive@@ _ @@welches schwierigen@@ _ @@Falles solcher@@ _ @@roten Tinte@@ _ @@dieses schönen Hauses aller alkoholfreien Getränke @@ '
+"""
