@@ -557,21 +557,25 @@ def give_punctuation_fullwidth():
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
-def normalize_percentage(many_weight):
-   many_percentage = [None] * len(many_weight)
-   many_gross = many_weight.copy()
-   hundred = 100
+def normalize_percentage(many_gross):
+   many_percentage = [None] * len(many_gross)
+   many_spot = sorted(
+      range(len(many_gross)),
+      key = lambda spot: many_gross[spot]
+   )
+   #print("spot:", many_spot)
+   partition = 100
    lowest = 5
-   while (True):
-      if not many_gross:
-         break
-      gross = min(many_gross)
-      percentage = round(hundred * gross / sum(many_gross))
-      spot = many_gross.index(gross)
-      many_gross.pop(spot)
+   total = sum(many_gross)
+   for spot in many_spot:
+      gross = many_gross[spot]
+      #print("gross:", gross)
+      percentage = round(partition * gross / total)
       percentage = max(lowest, percentage)
-      hundred -= percentage
+      partition -= percentage
+      total -= gross
       many_percentage[spot] = percentage
+      #print("percentage:", many_percentage)
    return many_percentage
 
 def extract_caption(address):

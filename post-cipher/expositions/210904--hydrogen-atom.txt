@@ -1,8 +1,8 @@
 ===
-@@we #continue our perfunctory review of quantum mechanics, and sketch the process of solving the wave function of electron in a hydrogen atom;@@
+@@we #continue this perfunctory review of quantum mechanics by solving the wave function of the electron in a hydrogen atom.@@ _
 @@it $has not only historical significance,@@
-@@but the fine tructure  also $provides an instance of perturbation theory.@@ _
-@@in the presence of the Coulumb potential, with@@ ^^.q^^ @@the elementary charge, and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom has this Hamiltonian:@@ '
+@@but the fine tructure of the hydrogen atom also $provides a great instance of perturbation theory.@@ _
+@@in the presence of the Coulumb potential, with@@ ^^.q^^ @@the elementary charge, and@@ ^^$m^^ @@the mass of proton (because@@ ^^.m^^ @@is &used up for magnetic quantum numbers), the hydrogen atom $has this Hamiltonian:@@ '
 
 ++Hamiltonian:++ '
 ^^.H
@@ -28,17 +28,16 @@
 @@here@@ ^^.L^^ @@is &given as:@@ '
 
 ++Angular_momentum:++ '
-^^[.2: .L:] $y
-   .= .(#R *0 #P.) .* .(#R *0 #P.) $y^^ '
-^^.= .- [.2: $H:] .(.(#r *0 $N.) .* .(#r *0 $N.).) $y^^ '
+^^[.-.2: $H:] [.2: .L:] $y
+   .= .- .(.(#r *0 $N.) .* .(#r *0 $N.).) $y^^ '
 
 @@by noting<@@ ^^$N^^ @@either $acts on the second@@ ^^#r^^ @@or on@@ ^^$y^^ @@>:@@ '
 
-^^.= .- [.2: $H:] [.2: .\#r *0 $N.|:] $y
-   .+ [.2: $H:] #r .* $N $y^^ '
-^^.= .- [.2: $H:] [.2: .r:] [.2: $N:] $y
-   .+ [.2: $H:] [.2: .(#r .* $N.):] $y
-   .+ [.2: $H:] #r .* $N $y^^ '
+^^.= .- [.2: .\#r *0 $N.|:] $y
+   .+ #r .* $N $y^^ '
+^^.= .- [.2: .r:] [.2: $N:] $y
+   .+ [.2: .(#r .* $N.):] $y
+   .+ #r .* $N $y^^ '
 
 @@again by the formula of Laplacian in spherical coodinates:@@ '
 
@@ -46,34 +45,34 @@
    .- (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q) $y.)
    .- (.1, [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:]) $y
    .+ [.2: .(.r ($Z, $Z .r).):] $y
-   .+ .r ($Z, $Z .r)^^ '
+   .+ .r ($Z, $Z .r) $y^^ '
 ^^.= .- (.1, 'Sin' $q) ($Z, $Z $q) .(.('Sin' $q.) ($Z, $Z $q) $y.)
    .- (.1, [.2: 'Sin' .[$q.]:]) ([.2: $Z:], $Z [.2: $f:]) $y.;^^ '
 
 @@now we #observe a key fact:@@ '
 
 ^^'Comm' .[[.2: .L:]., .H.]
-   .= .0^^ '
+   .= .0.;^^ '
 
-@@to see this, note that@@ ^^[.2: .L:]^^ @@are completely angular, {which both #commute with the two radial terms of@@ ^^.H^^ @@},@@
-@@and the two angular terms of@@ ^^.H^^ @@are just the same as@@ ^^[.2: .L:]^^ @@,@@ @@since both #come from the Laplacian.@@ _
+@@to see this, note <that@@ ^^[.2: .L:]^^ @@are completely angular>, {which both #commute with the two radial terms of@@ ^^.H^^ @@},@@
+@@and the two angular terms of@@ ^^.H^^ @@are precisely@@ ^^[.2: .L:]^^ @@,@@ @@since both @came from the Laplacian.@@ _
 
-@@moreover, from the relation between azimuth angle and angular momentum,@@ '
+@@moreover, from the relation between azimuth angle and angular momentum:@@ '
 
 ^^[:.L: .z] $y
    .= .- $j $H ($Z, $Z $f) $y.;^^ '
 
-@@and it can also be seen that:@@ '
+@@and it is also &seen that:@@ '
 
 ^^'Comm' .[[.2: .L:]., [:.L: .z].] .= .0.;^^ '
 
 ^^'Comm' .[.H., [:.L: .z].] .= .0.;^^ '
 
 @@thus, we may assume <that@@ ^^.H., [.2: .L:]., [:.L: .z]^^ @@#share eigenstates>.@@ _
-@@we have &concluded exactly the same from our discussion on commutator relations.@@ '
+@@indeed we have &concluded exactly the same from our discussion on commutator relations!@@ '
 
-@@in fact, solving the radial part of Hamiltonian equation $covers the one radial degree of freedom,@@
-@@and solving the angular momentum equation $covers the two angular degree of freedom.@@ _
+@@in fact, solving the radial part of Hamiltonian equation $deals with the one radial degree of freedom,@@
+@@and solving the angular momentum equation $deals with the two angular degree of freedom.@@ _
 @@let us just do that.@@ '
 ===
 
@@ -87,20 +86,20 @@
 
 ===
 @@the@@ ^^$q^^ @@dependence is &characterized by eigenvalue equation@@ ^^[.2: .L:] $x .= $l $x^^ @@;@@
-@@this can be cast for eigenvalue@@ ^^$l^^ @@ as follows:@@ '
+@@this can be cast for eigenvalue@@ ^^$l^^ @@ as $follows:@@ '
 
 ^^.-.1
-   <0 .u
+   <0 .u .[$q.]
    =1 'Cos' $q
    <0 .1.;^^ '
 ++Azimuthal:++ '
-^^.(.1 .- [.2: .u:].) ($Z, $Z .u) .(.1 .- [.2: .u:].) ($Z, $Z .u) [:$x: .l., .m]
+^^.(.1 .- [.2: .u:].) ($T, $T .u) .(.1 .- [.2: .u:].) ($T, $T .u) [:$x: .l., .m]
       .+ .(.- [.2: .m:] .+ $l .(.1 .- [.2: .u:].).) [:$x: .l., .m]
    .= .0.;^^ '
 
-@@for our purpose, the most important matter is to determine@@ ^^$l^^ @@.@@ _
+@@for our purpose, it is most important to determine@@ ^^$l^^ @@.@@ _
 @@if the leading degree of the series expansion of@@ ^^[:$x: .l., .0]^^ @@is infinity, then its derivative $blows up.@@ _
-@@if we #accept <that@@ ^^[:$x: .l., .0]^^ @@is a polynomial with finitely many terms,@@ @@then by observing the leading coefficient, it is &seen <that@@ '
+@@if we #accept <that@@ ^^[:$x: .l., .0]^^ @@is a polynomial with finitely many terms,@@ @@then by observing the leading coefficient, we #know:@@ '
 
 ++Eigenvalue_angular:++ '
 ^^$l .= .l .(.l .+ .1.)., .l .= .0., .1., .2., /6.;^^ '
@@ -108,8 +107,8 @@
 @@particularly, when@@ ^^.m .= .0^^ @@it $reads:@@ '
 
 ++Legendre:++ '
-^^.(.1 .- [.2: .u:].) ([.2: $Z:] [:$x: .l., .0], $Z [.2: .u:])
-      .- .2 .u ($Z [:$x: .l., .0], $Z .u)
+^^.(.1 .- [.2: .u:].) ([.2: $T:] [:$x: .l., .0], $T [.2: .u:])
+      .- .2 .u ($T [:$x: .l., .0], $T .u)
       .+ $l [:$x: .l., .0]
    .= .0.;^^ '
 
@@ -119,17 +118,16 @@
 ++Rodrigues_Legendre:++ '
 ^^[:$x: .l., .0] .[$q.]
    .= (.1, [.n: .2:] 'Frac' .n)
-      ([.l: $Z:], $Z [.l: .u:]) [.n: .([.2: .u:] .- .1.):]
+      [.l: .(($T, $T .u).):] [.n: .([.2: .u:] .- .1.):]
       .[.u \0 'Cos' $q.].;^^ '
 
 @@it can be shown to satisfy@@ ++Legendre++ @@,@@
-@@and normalization may be checked.@@ _
-@@either by the axiom on observable or by direct verification, we can see the left side of@@ ++Legendre++ @@is hermitian, by an integration by parts.@@ _
-@@and we #have orthogonality of@@ ^^[:$x: .l., .0]^^ @@on the inner product space@@ ^^.{.-.1 <0 .u <0 .1.}^^ @@.@@ _
-@@this is sufficient to establish@@ ++RodLeg++ @@.@@ '
+@@and its normalization may be checked.@@ _
+@@either by the axiom on quantum observables or by an integration by parts, we #see the left side of@@ ++Legendre++ @@is hermitian.@@ _
+@@so we #have orthogonality of@@ ^^[:$x: .l., .0]^^ @@on the inner product space@@ ^^.{.-.1 <0 .u <0 .1.}^^ @@.@@ _
 @@(details on this part $don’t aid physical understanding much, {which I only #sketch here}.)@@ '
 
-@@in summary, the angular equation is solved:@@ '
+@@in summary, the angular equation is &solved to be:@@ '
 
 ^^[:$x: .l., .m] .[$q., $f.]
    .= [$j .m $f ./ $H: .e:]  [:$x: .l., .0] .[$q.].;^^ '
@@ -137,45 +135,47 @@
 
 ===
 @@it $remains to find the radial dependence.@@ _
-@@in view of@@ ++Hamiltonian++ @@,@@ ++AngMom++ @@,@@ @@and@@ ++Eigenvalue_angular++ @@,@@ '
+@@in view of@@ ++Hamiltonian++ @@,@@ ++AngMom++ @@,@@ @@and@@ ++EigAng++ @@,@@ @@we #have@@ '
 
 ++Radial:++ '
-^^.r ([.2: $Z:], $Z [.2: .r:]) $r .[.r.]
-   .+ .2 ($Z, $Z .r) $r .[.r.]
+^^.r ([.2: $T:], $T [.2: .r:]) $r
+   .+ .2 ($T, $T .r) $r
       .+ .(
             (.2 $m .E, [.2: $H:]) .r
             .+ ([.2: .q:] $m, .2 $p [.2: $H:] [:$e: .0].)
             .- (.l .(.l .+ .1.), .r).)
-         $r .[.r.]
+         $r
    .= .0.;^^ '
 
-@@let@@ ^^.v .= $R .(.2 $m .E.) .r ./ $H^^ @@.@@ _
-@@when@@ ^^.r |0 $B^^ @@it may be guessed@@ ^^$r ~4 [.-.v: .e:]^^ @@;@@
-@@when@@ ^^.r |0 .0^^ @@it may be guessed@@ ^^$r ~4 [.l: .v:]^^ @@.@@ _
+@@let@@ ^^.v .= $R .(.8 $m .E.) .r ./ $H^^ @@.@@ _
+@@when@@ ^^.r |0 $B^^ @@it may be guessed to be@@ ^^$r ~4 [.-.v ./ .2: .e:]^^ @@;@@
+@@when@@ ^^.r |0 .0^^ @@it may be guessed to be@@ ^^$r ~4 [.l: .v:]^^ @@.@@ _
 @@introduce:@@ '
 
 ^^.w .[.v.]
-   =1 [.-.l: .v:] [.v: .e:] $r .[.v.].;^^ '
+   =1 [.-.l: .v:] [.v ./ .2: .e:] $r .[.v.].;^^ '
 
 @@after a bunch of manipulation:@@ '
 
 ^^.n
    =1 ([.2: .q:] .($R $m.), .($R .3.2.) $p $H [:$e: .0] .($R .E.)).;^^ '
 ++Laguerre:++ '
-^^ .v ([.2: $Z:], $Z [.2: .v:]) .w .[.v.]
-   .+ .(.2 .l .- .r .+ .2.) ($Z, $Z .v) .w .[.v.]
-   .+ .(.2 .n .-.2 .l .- .2.) .w .[.v.]
+^^ .v ([.2: $T:], $T [.2: .v:]) .w
+   .+ .(.2 .l .- .v .+ .2.) ($T, $T .v) .w
+   .+ .(.n .- .l .- .1.) .w
    .= .0.;^^ '
 
-@@this is &known as generalized Laguerre equation, {which #have orthogonal solutions called Laguerre polynomials and are &given by another Rodrigues formula}.@@ _
-@@for brevity we #don’t normalize the wave function.@@ _
-@@(again we #omit the details, {which isn’t crucial for phyical understanding}).@@ '
+@@this is &known as generalized Laguerre equation, {which $has orthogonal solutions called Laguerre polynomials and are &given by another Rodrigues formula}.@@ _
+@@after given back the asymptotic part, the answer is:@@ '
 
 ++Rodrigues_Laguerre:++ '
 ^^[:$r: .n., .l] .[.r.]
-   ~4 [.- .l .- .1: .v:]
-      [.2 .n .- .2 .l .- .2: .(($Z, $Z .v).):] .([.2 .n .- .1: .v:] [.- .v: .e:].)
-      .[.v \0 ($R .(.2 $m .E.), $H) .r.].;^^ '
+   ~4 [.- .l .- .1: .v:] [.v ./ .2: .e:]
+      [.n .- .l .- .1: .(($T, $T .v).):] .([.n .+ .l: .v:] [.- .v: .e:].)
+      .[.v \0 ($R .(.8 $m .E.), $H) .r.].;^^ '
+
+@@for brevity we #don’t normalize the wave function.@@ _
+@@(again we #omit the details, {which isn’t crucial for phyical understanding}).@@ '
 ===
 
 ===
@@ -190,7 +190,7 @@
 ^^.n .- .l .- .1
    >0 .0.;^^ '
 
-@@this restricts the energy levels to be:@@ '
+@@this $restricts the energy levels to be:@@ '
 
 ^^.E
    .= ([.4: .q:] $m, .3.2 [.2: $p:] [.2: $H:] [.2: $e: .0]) (.1, [.2: .n:]).;^^ '

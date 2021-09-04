@@ -1,30 +1,42 @@
 ===
-@@at first glance, the declension of German adjective $seems hard to remember.@@
+@@at first glance, the declension of German adjective $seems hard to remember.@@ _
+@@there are three cases:@@
+   @@strong declension (without any article),@@
+   @@mixed declension (with@@ ##ein## @@,@@ ##kein## @@,@@ ##mein## @@,@@ ##dein## @@,@@ ##ihr## @@and so on),@@
+   @@and weak declension (with@@ ##der## @@,@@ ##welcher## @@,@@ ##solcher## @@,@@ ##dieser## @@,@@ ##aller## @@and so on).@@ _
+@@however, not all of them $has to be memorized.@@ '
+
+@@in strong declension, adjectives agree with the suffix of the supposed article.@@
+
+
 ===
 
-"""
-@@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
-
-@@nominative@@ _ @@schwieriger Fall@@ _ @@rote Tinte@@ _ @@schönes Haus@@ _ @@alkoholfreie Getränke@@ '
-@@accusative@@ _ @@schwierigen Fall@@ _ @@rote Tinte@@ _ @@schönes Haus@@ _ @@alkoholfreie Getränke@@ '
-@@dative@@ _ @@schwierigem Fall@@ _ @@roter Tinte@@ _ @@schönem Hau@@ _ @@ alkoholfreien Getränken@@ '
-@@genitive@@ _ @@schwierigen Falles@@ _ @@roter Tinte@@ _ @@schönen Hauses@@ _ @@alkoholfreier Getränke @@ '
-"""
+=== ##strong declension## ===
 
 """
 @@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
-
-@@Nominative@@ _ @@mein schwieriger@@ _ @@Fall 	seine@@ _ @@rote Tinte@@ _ @@euer schönes Haus keine alkoholfreien Getränke@@ '
-@@Accusative@@ _ @@meinen schwierigen@@ _ @@Fall 	seine@@ _ @@rote Tinte@@ _ @@euer schönes Haus keine alkoholfreien Getränke@@ '
-@@Dative@@ _ @@meinem schwierigen@@ _ @@Fall seiner@@ _ @@roten Tinte@@ _ @@eurem schönen Haus keinen alkoholfreien Getränken@@ '
-@@Genitive@@ _ @@meines schwierigen@@ _ @@Falles seiner@@ _ @@roten Tinte@@ _ @@eures schönen Hauses keiner alkoholfreien Getränke @@ '
+@@nominative@@ _ ##kalter Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
+@@accusative@@ _ ##kalten Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
+@@dative@@ _ ##kaltem Rauch## _ ##kalter Milch## _ ##kaltem Wasser## _ ## kalten Sachen## '
+@@genitive@@ _ ##kalten Rauchs## _ ##kalter Milch## _ ##kalten Wassers## _ ##kalter Sachen ## '
 """
+
+=== ##mixed declension## ===
 
 """
 @@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
+@@nominative@@ _ ##mein kalter Rauch## _ ##seine kalte Milch## _ ##ein kaltes Wasser## _ ##keine kalten Sachen## '
+@@accusative@@ _ ##meinen kalten Rauch## _ ##seine kalte Milch## _ ##ein kaltes Wasser## _ ##keine kalten Sachen## '
+@@dative@@ _ ##meinem kalten Rauch## _ ##seiner kalten Milch## _ ##einem kalten Wasser## _ ##keinen kalten Sachen## '
+@@genitive@@ _ ##meines kalten Rauchs## _ ##seiner kalten Milch## _ ##eines kalten Wassers## _ ##keiner kalten Sachen ## '
+"""
 
-@@nominative@@ _ @@welcher schwierige@@ _ @@Fall solche@@ _ @@rote Tinte@@ _ @@dieses schöne Haus alle alkoholfreien Getränke@@ '
-@@accusative@@ _ @@welchen schwierigen@@ _ @@Fall solche@@ _ @@rote Tinte@@ _ @@dieses schöne Haus alle alkoholfreien Getränke@@ '
-@@dative@@ _ @@welchem schwierigen@@ _ @@Fall solcher@@ _ @@roten Tinte@@ _ @@diesem schönen Haus allen alkoholfreien Getränken@@ '
-@@genitive@@ _ @@welches schwierigen@@ _ @@Falles solcher@@ _ @@roten Tinte@@ _ @@dieses schönen Hauses aller alkoholfreien Getränke @@ '
+=== ##weak declension## ===
+
+"""
+@@case@@ _ @@masculine@@ _ @@feminine@@ _ @@neuter@@ _ @@plural@@ '
+@@nominative@@ _ ##welcher kalte Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
+@@accusative@@ _ ##welchen kalten Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
+@@dative@@ _ ##welchem kalten Rauch## _ ##solcher kalten Milch## _ ##diesem kalten Wasser## _ ##allen kalten Sachen## '
+@@genitive@@ _ ##welches kalten Rauchs## _ ##solcher kalten Milch## _ ##dieses kalten Wassers## _ ##aller kalten Sachen ## '
 """
