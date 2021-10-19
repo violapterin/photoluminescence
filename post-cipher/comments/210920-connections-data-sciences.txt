@@ -1,0 +1,41 @@
+
+===
+@@over the past several years, topics machine learning and optimization #have been hot.@@ _
+@@it $appears to me <that they #have number of connections with communication theory and statistical inference too>.@@ _
+@@actually, machine learning, statistical inference, and communication theory all #address a situation, {in which a source is &mixed with addition degrees of freedom in a process, and is &recovered in the destination}.@@ _
+@@they all can be fomulated as an optimization problem.@@ '
+===
+
+===
+@@consider the generic equation, possibly over vectors:@@ '
+
+^^.g .[.h .[.z., .x.].]
+   .= .<.w., .y.>^^ '
+
+@@in statistical inference,@@ ^^.x^^ @@is usually a boolean value, namely@@ ^^.0^^ @@or@@ ^^.1^^ @@standing for the null hypothesis and the alternative hypothesis, and@@ ^^.y^^ @@the estimated hypothesis.@@ _
+@@moreover,@@ ^^.z^^ @@is the event space, and@@ ^^.h^^ @@the sample,@@ ^^.g^^ @@the estimator.@@ _
+@@a large sample property $guarantees the success of estimation.@@ '
+
+@@in machine learning,@@ ^^.x^^ @@is the collection of parameters of the hypothesis function, and@@ ^^.y^^ @@the estimated collection of parameters.@@ _
+@@moreover,@@ ^^.z^^ @@is the event space, and@@ ^^.h^^ @@the data,@@ ^^.g^^ @@the learning method.@@ _
+@@a large sample property $guarantees the success of estimation.@@ _
+@@this is a more general than the case of statistical inference.@@ '
+
+@@meanwhile, in communication theory,@@ ^^.x^^ @@is the transmitter,@@ ^^.y^^ @@the receiver,@@ @@and@@ ^^.z^^ @@the noise.@@ _
+@@here the situation is more &complicated;@@
+@@in addition to@@ ^^.z^^ @@,@@ @@the large sample property of@@ ^^.x^^ @@and@@ ^^.y^^ @@are &explored too.@@ _
+@@in fact,@@ ^^.x^^ @@not only is &taken to be identically distributed per channel use, but is further &encoded before being fed to the channel;@@
+@@similarly,@@ ^^.y^^ @@is further &decoded after being output from the channel.@@ '
+
+@@these can be formulated as optimization problems.@@ _
+@@indeed, let@@ ^^.x^^ @@be the collection of parameters, and@@ ^^.z^^ @@the sample points.@@ _
+@@then@@ ^^.h^^ @@is the target function over@@ ^^.x^^ @@,@@ @@and@@ ^^.g^^ @@the optimization algorithm over@@ ^^.y^^ @@.@@ _
+@@a large sample property $guarantees the success of optimization, regardless of the chosen@@ ^^.z^^ @@.@@ '
+===
+
+~~~
+
+===
+@@❧@@ %%September 20, 2021%% '
+===
+

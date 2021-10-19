@@ -1,0 +1,57 @@
+===
+@@at first glance, the declension of German adjective $seems hard to remember.@@ _
+@@there are 3 kinds of declension:@@
+   @@strong declension (without any article),@@
+   @@mixed declension (with@@ ##ein## @@,@@ ##kein## @@,@@ ##mein## @@,@@ ##sein## @@and so on),@@
+   @@and weak declension (with@@ ##der## @@,@@ ##welcher## @@,@@ ##solcher## @@,@@ ##dieser## @@,@@ ##aller## @@and so on).@@ _
+@@they #change according to nominative [Nom], accusative [Acc], dative [Dat], and genitive [Gen] cases, and masculine [Mas], feminine [Fem], and neuter [Neut] genders,@@
+@@so there are 12 combinations.@@ _
+@@however, not all of them $has to be memorized.@@ '
+
+@@in strong declension, adjectives always #agree with the corresponding suffix, because they #have to provide the information {which definite articles usually #do}.@@ '
+
+@@in mixed declension, adjectives #agree with the corresponding suffix, only for these 6 items: Nom Mas, Fem, and Neut, and Acc Mas, Fem, and Neut, because some information is already &given by the indefinite articles;@@
+@@otherwise, they #end with@@ ##en## @@.@@ _
+@@the article $agrees with the corresponding suffix, except for Nom Mas, Nom Neut, and Acc Neut, {where no suffix is &added};@@ _
+@@this rule should be known to a beginning learner.@@ '
+
+@@in weak declension, adjectives #end with@@ ##e## @@,@@ @@for these 5 items: Nom Mas, Fem, and Neut, and Acc Fem and Neut, giving even less information;@@
+@@otherwise, they #end with@@ ##en## @@.@@ _
+@@we #summarize this in the table below.@@ '
+===
+
+=== ##strong declension## ===
+
+"""
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@Nom@@ _ ##kalter Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
+@@Acc@@ _ ##kalten Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
+@@Dat@@ _ ##kaltem Rauch## _ ##kalter Milch## _ ##kaltem Wasser## _ ## kalten Sachen## '
+@@Gen@@ _ ##kalten Rauchs## _ ##kalter Milch## _ ##kalten Wassers## _ ##kalter Sachen ## '
+"""
+
+=== ##mixed declension## ===
+
+"""
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@Nom@@ _ ##ein kalter Rauch## _ ##seine kalte Milch## _ ##mein kaltes Wasser## _ ##keine kalten Sachen## '
+@@Acc@@ _ ##einen kalten Rauch## _ ##seine kalte Milch## _ ##mein kaltes Wasser## _ ##keine kalten Sachen## '
+@@Dat@@ _ ##einem kalten Rauch## _ ##seiner kalten Milch## _ ##meinem kalten Wasser## _ ##keinen kalten Sachen## '
+@@Gen@@ _ ##eines kalten Rauchs## _ ##seiner kalten Milch## _ ##meines kalten Wassers## _ ##keiner kalten Sachen ## '
+"""
+
+=== ##weak declension## ===
+
+"""
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@Nom@@ _ ##welcher kalte Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
+@@Acc@@ _ ##welchen kalten Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
+@@Dat@@ _ ##welchem kalten Rauch## _ ##solcher kalten Milch## _ ##diesem kalten Wasser## _ ##allen kalten Sachen## '
+@@Gen@@ _ ##welches kalten Rauchs## _ ##solcher kalten Milch## _ ##dieses kalten Wassers## _ ##aller kalten Sachen ## '
+"""
+
+~~~
+
+===
+@@❧@@ %%September 5, 2021%% '
+===

@@ -43,6 +43,19 @@ body, header
    padding: 0px;
 }
 
+body
+{
+   background-color: lavender;
+}
+
+#header-banner, .essay, #footer-whole
+{
+   margin: 16px auto;
+   padding: 8px 24px;
+   width: 100%;
+   background-color: white;
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -311,12 +324,6 @@ code, .mono
 @media screen and (max-width: 900px) {
    #name-site .title-site, #name-site .tagline-site
    { display: block; }
-}
-
-#header-banner
-{
-   width: 100%;
-   border-bottom: 3px lightgray solid;
 }
 
 #header-banner #banner
@@ -638,14 +645,6 @@ code, .mono
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-#footer-whole
-{
-   margin: 18px auto;
-   padding: 18px;
-   width: 100%;
-   border-top: 3px lightgray solid;
-}
 
 #footer-quote, #footer-signature
 {

@@ -55,10 +55,15 @@
 ##last Saturday, it was reported that it would rain.## '
 ##Dinosaurs would have continued their reign without the asteroid.## '
 ##Einstein could play the violin.## '
-##Boris Johnson could have died of coronavirus.## '
+##Boris Johnson could have died of coronavirus last year.## '
 
-@@besides,@@ ##would## @@may be used to request, and@@ ##could## @@to ask for permission:@@ '
+@@in their subjunctive senses,@@
+##would## @@can indicate an imagined situation, and@@ ##could## @@a less likely possibility.@@ _
+@@especially,@@
+##would## @@may be used to request, and@@ ##could## @@to ask for permission:@@ '
 
+##I would love to work remotely!## '
+##you could get infected without a mask!## '
 ##would you open the bottle for me?## '
 ##could I go with you to the ball?## '
 ===
@@ -89,12 +94,11 @@
 ===
 
 ===
-@@for permission, I #favor@@ ##may## @@,@@ @@because@@ ##can## @@is too much overloaded;@@
-@@similarly for speculation, I #prefer@@ ##may## @@to@@ ##can## @@.@@ _
+@@for permission or speculation, I #prefer@@ ##may## @@,@@ @@because@@ ##can## @@is too much overloaded;@@
 @@the past tense@@ ##might## @@is somewhat rare,@@
 @@so it is better to substitute@@ ##could## @@for that sense.@@ _
 @@it is also clearer to replace the past tense of@@ ##must## @@for necessity with@@ ##should## @@.@@ _
-@@generally in present tense, I #suggest <that whenever possible, we #stick to the present forms@@ ##will## @@,@@ ##can## @@,@@ ##may## @@rather than the subjunctive forms@@ ##would## @@,@@ ##could## @@,@@ ##might## @@to make tense more obvious.@@ _
+@@generally in present tense, except in a direct quote, I #suggest <that whenever possible, we #stick to the present forms@@ ##will## @@,@@ ##can## @@,@@ ##may## @@rather than the subjunctive forms@@ ##would## @@,@@ ##could## @@,@@ ##might## @@to make tense more obvious.@@ _
 @@reserve@@ ##would have## @@for counterfactual statements,@@ ##should have## @@for counterfactual obligation, and@@ ##must have## @@,@@ ##could have## @@,@@ ##might have## @@for counterfactual speculation in decreasing certainty.@@ '
 
 @@here I #summarize my suggestions in each case, {which may help to avoid some ambiguity}.@@ _
@@ -122,5 +126,5 @@
 ~~~
 
 ===
-@@❧@@ %%August 24, 2021%%
+@@❧@@ %%August 24, 2021%% '
 ===

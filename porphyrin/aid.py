@@ -563,19 +563,16 @@ def normalize_percentage(many_gross):
       range(len(many_gross)),
       key = lambda spot: many_gross[spot]
    )
-   #print("spot:", many_spot)
    partition = 100
    lowest = 5
    total = sum(many_gross)
    for spot in many_spot:
       gross = many_gross[spot]
-      #print("gross:", gross)
       percentage = round(partition * gross / total)
       percentage = max(lowest, percentage)
       partition -= percentage
       total -= gross
       many_percentage[spot] = percentage
-      #print("percentage:", many_percentage)
    return many_percentage
 
 def extract_caption(address):

@@ -158,7 +158,7 @@
 @@after a bunch of manipulation:@@ '
 
 ^^.n
-   =1 ([.2: .q:] .($R $m.), .($R .3.2.) $p $H [:$e: .0] .($R .E.)).;^^ '
+   =1 ([.2: .q:] $R .($m.), $R .(.3.2.) $p $H [:$e: .0] $R .(.E.)).;^^ '
 ++Laguerre:++ '
 ^^ .v ([.2: $T:], $T [.2: .v:]) .w
    .+ .(.2 .l .- .v .+ .2.) ($T, $T .v) .w
@@ -175,7 +175,7 @@
       .[.v \0 ($R .(.8 $m .E.), $H) .r.].;^^ '
 
 @@for brevity we #don’t normalize the wave function.@@ _
-@@(again we #omit the details, {which isn’t crucial for phyical understanding}).@@ '
+@@(again we #omit the details, {which isn’t crucial for phyical understanding}.)@@ '
 ===
 
 ===
@@ -205,6 +205,6 @@
 ~~~
 
 ===
-@@❧@@ %%September 4, 2021%%
+@@❧@@ %%September 4, 2021%% '
 ===
 
