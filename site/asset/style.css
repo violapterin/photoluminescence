@@ -50,8 +50,8 @@ body
 
 #header-banner, .essay, #footer-whole
 {
-   margin: 16px auto;
-   padding: 8px 24px;
+   margin: 12px auto;
+   padding: 12px 24px;
    width: 100%;
    background-color: white;
 }
@@ -92,7 +92,7 @@ body
 {
    margin: 24px 24px;
    padding: 0px;
-   width: 100%;
+   width: 96%;
    border-spacing: 0px 3px;
 }
 @media screen and (max-width: 1500px) {

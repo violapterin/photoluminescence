@@ -4,7 +4,7 @@
    @@strong declension (without any article),@@
    @@mixed declension (with@@ ##ein## @@,@@ ##kein## @@,@@ ##mein## @@,@@ ##sein## @@and so on),@@
    @@and weak declension (with@@ ##der## @@,@@ ##welcher## @@,@@ ##solcher## @@,@@ ##dieser## @@,@@ ##aller## @@and so on).@@ _
-@@they #change according to nominative [Nom], accusative [Acc], dative [Dat], and genitive [Gen] cases, and masculine [Mas], feminine [Fem], and neuter [Neut] genders,@@
+@@they #change according to cases nominative [Nom], accusative [Acc], dative [Dat], and genitive [Gen], and genders masculine [Mas], feminine [Fem], neuter [Neut], and plural [Pl],@@
 @@so there are 12 combinations.@@ _
 @@however, not all of them $has to be memorized.@@ '
 
@@ -23,7 +23,7 @@
 === ##strong declension## ===
 
 """
-@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@Pl@@ '
 @@Nom@@ _ ##kalter Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
 @@Acc@@ _ ##kalten Rauch## _ ##kalte Milch## _ ##kaltes Wasser## _ ##kalte Sachen## '
 @@Dat@@ _ ##kaltem Rauch## _ ##kalter Milch## _ ##kaltem Wasser## _ ## kalten Sachen## '
@@ -33,7 +33,7 @@
 === ##mixed declension## ===
 
 """
-@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@Pl@@ '
 @@Nom@@ _ ##ein kalter Rauch## _ ##seine kalte Milch## _ ##mein kaltes Wasser## _ ##keine kalten Sachen## '
 @@Acc@@ _ ##einen kalten Rauch## _ ##seine kalte Milch## _ ##mein kaltes Wasser## _ ##keine kalten Sachen## '
 @@Dat@@ _ ##einem kalten Rauch## _ ##seiner kalten Milch## _ ##meinem kalten Wasser## _ ##keinen kalten Sachen## '
@@ -43,7 +43,7 @@
 === ##weak declension## ===
 
 """
-@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@plural@@ '
+@@case@@ _ @@Mas@@ _ @@Fem@@ _ @@Neut@@ _ @@Pl@@ '
 @@Nom@@ _ ##welcher kalte Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
 @@Acc@@ _ ##welchen kalten Rauch## _ ##solche kalte Milch## _ ##dieses kalte Wasser## _ ##alle kalten Sachen## '
 @@Dat@@ _ ##welchem kalten Rauch## _ ##solcher kalten Milch## _ ##diesem kalten Wasser## _ ##allen kalten Sachen## '
