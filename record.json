@@ -85,7 +85,7 @@
    "tag": ["Family", "Death", "Illness"],
    "title": "Uncle was ill"},
 {"stamp": "200919", "genre": "comments",
-   "tag": ["Education", "General mathematics"],
+   "tag": ["Mathematics education"],
    "title": "Elementary mathematics education in the computer age"},
 {"stamp": "200914", "genre": "memories",
    "tag": ["Economics", "Technology"],
@@ -99,6 +99,9 @@
 {"stamp": "200719", "genre": "inventions", "series": "GitHub Page progress report",
    "tag": ["GitHub", "Meta", "Web programming", "TeX family"],
    "title": "[1] Exploring"},
+{"stamp": "200303", "genre": "memories",
+   "tag": ["Mathematics education"],
+   "title": "Bookstore Nine Chapters"},
 
 {"stamp": "191004", "genre": "readings",
    "tag": ["Wagner", "Opera"],
@@ -130,7 +133,7 @@
    "title": "The Kepler problem"},
 
 {"stamp": "170809", "genre": "comments",
-   "tag": ["Notation", "Education", "General mathematics"],
+   "tag": ["Notation", "Mathematics education"],
    "title": "The obelus notation for division"},
 {"stamp": "170317", "genre": "notes",
    "tag": ["Technology", "Linux"],
