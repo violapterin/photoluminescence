@@ -1,49 +1,45 @@
-
-Bookstore Nine Chapters
-
 In March 2020, a Facebook friend shared a post saying that Nine Chapters, a mathematics bookstore, is about to close at the end of 2020, and they are selling the remaining books in the inventory with a discount. Several days later, afraid that they might be sold out soon, I went to Nine Chapters, some six years after the last time.
 
-I came by myself, recognizing the small plaque written in calligraphic style The small place with a desk in the middle, and the makeshift inventory.
-there are olympiad books on the shelf, and wooden puzzles: Rush Hour (try to get the red car of the traffic jam)
-Baguenaudier is isomorphic to Tower of Hanoi?
-Lonpos pyramid makes use of the fact that face center assemble?
+Few days later, I went by myself to Nine Chapters. Recognizing the plaque written in calligraphic style, I pushed the glass door, which made the wind chime ring, and entered the once- familiar room, where there were shorter shelves in the center of the room, and the surrounding, taller shelves along the wall, and piles of stock books in the far end. Lined up on top of these short shelves were various puzzles and models, including the Rush Hour, the Soma cube, Chinese rings, and wooden polyhedra, many of them I owned when I was a kid, as if my childhood memories were some organs, taken out from a donated body and being dissected on an operation table.
 
+When I was in elementary school, I was a quiet boy. My parents bought me lots of books— old fashioned printed books, as they thought video games were bad for my eyes, and they hardly used computers. My classmates talked about «Naruto» or «Slam Dunk», and I did not even know where to borrow comic books. The boys would play basketball at recess, and I would remain reading at my seat. I queued with them in front of the fireman pole in the playground, but secretly left, because I did not dare to slide down. One day the instructor asked us to take a favorite book, and I took an album of Maurits Escher’s paintings; I sat attentively to wait until anyone, instead of reading mangas, would share for a second the marvel of Escher’s engravings full hyperbolic tiles and stellar polyhedra, like an dutiful guide in a museum.
 
-When I was in elementary school, I did not know how to make friends.
-Father and mother thought video games were bad to my eyes, and I did not know where to borrow comic books.
-When I was in the second grade, Father bought me (Chinese translations of) «Mathematics: The Man-made Universe» by Sherman Stein, and «Trigonometric Delights» by Eli Maor, and «In Code» by Sarah Flannery, and «Statistics» by David Moore.
-«Radar, Hula Hoops and Playful Pigs»
-And I asked him to buy me more every time we visited a bookstore— at which time Taiwan saw a flurry of popular science publication— such as «Mathematical Sorcery» by Calvin Clawson, «How to Ace Calculus» by Colin Adams and others, and 
+When I was in the second grade, Father bought me translations of «Mathematics: The Man-made Universe» by Sherman Stein, and «Trigonometric Delights» by Eli Maor, and «In Code» by Sarah Flannery, and «Statistics» by David Moore. And I asked him to buy me more every time we visited a bookstore— at which time Taiwan saw a flurry of popular science publication— such as «Mathematical Sorcery» by Calvin Clawson, «How to Ace Calculus» by Colin Adams and others, and «Radar, Hula Hoops and Playful Pigs» by Joseph Schwarcz.
 
-After I saw a book on Euclid’s «Elements», I resolved to read «Elements» itself.
-The translation is not 
+Then, when I was in the eighth grade, after reading an introduction to Euclid’s «Elements», I resolved to read «Elements» itself. The translation is not easy to find, and Father accompanied me to Nine Chapters according to online information.
 
-I fashioned a Soma cube with clay, and constructed a slide rule from a plan printed in «Scientific American».
-
-I solved the Lonpos pyramid, the Rush Hour, and the magnetic ball-and-stick model of molecules,
-The shop owner must have known my parents and me, who visit so often.
-
-
-My classmates talked of Naruto or Slam Dunk, and I played puzzles on my own.
-When they played tag, basketball, or queued in front of the fireman pole in the playground, I would remain reading in my seat.
-One day the instructor asked us to take a favorite book, and I took an album of Maurits Escher’s paintings; I sat attentively to wait until anyone, instead of reading mangas, would share for a second the marvel of Escher’s engravings full hyperbolic tiles and stellar polyhedra, like an dutiful guide in a museum.
-
-and the exposition on Gödel incompleteness theorem and Fermat last theorem, when I was in the eighth grade. I forced myself to read several pages a day, but I probably could hardly understand Gödel numbers or elliptic functions.
+I started to read lots of popular mathematics published by Nine Chapters or whatever. I fashioned a Soma cube with clay according to a book of Martin Gardner’s, and constructed a slide rule copied from a plan in «Scientific American». I solved the Lonpos pyramid, the Rush Hour, and the magnetic ball-and-stick model of molecules (once I lost a ball, I nagged Father to request another one, which Mr Sun gave us for free). I pestered Father to buy me the software Super Sketchbook [超 級 畫 板], which made use of Gröbner basis in the polynomial ideal to decide geometry propositions, a fact I only realize years later when taking algebra; the product proved uncompetitive and was discontinued, I never used that when I became acquainted with Mathematica. The shop owner must have remembered us, who visit so often.
 
 I was especially obsessed with making paper cranes and polyhedra designed by Tomoko Fuse. Father, thinking it was too dangerous for me to use a paper knife, would cut square papers so I could make paper cranes; for connected cranes, we leave a little bit of paper uncut. Once Father took me to visit a relative, and I insisted on getting home to make paper cranes, so much that we had an argument, and I wept, troubled by the papers not being square nor smooth enough.
 
+
+cover with shabby Microsoft Paint
+and the exposition on Gödel incompleteness theorem and Fermat last theorem, when I was in the eighth grade. I forced myself to read several pages a day, but I doubt now how much I really understood about Gödel numbers or elliptic functions.
+
 Now I know analysis, statistics, and algebra reasonably well, too well to take seriously the Rush Hour or the paper crane.
 
-And the software Super Sketchbook [超 級 畫 板], which uses Gröbner basis to decide geometry propositions, a fact I know years later when taking algebra.
+
 so many typos in the books, even before the advent of TeX.
 longer lines of fractions are even drawn by hands.
 Equations are often riddled with typos, which I sometimes wonder for hours, and they didn’t have time to revise it right now.
-They typed books published from Mainland China in Simplified Chinese, again in Traditional Chinese.
+
+Mr Wenxian Sun, founded the place in 1978, where he found educational materials on mathematics to be lacking.
+By the time Taiwan and Mainland China had made temporary peace, but the Cold War had not ended, Mr Sun grasped the opportunity of importing books from the other side of the strait. They typed books in Simplified Chinese, again in Traditional Chinese. There used to be a time when many dissertations of top university students were typed by Nine Chapters.
 
 
-I didn’t check out Nine Chapters afterwards, and I imagine the scene where the building was torn down by a crane.
-strangely, recently I heard that it didn’t close.
-I said to myself that I ought to come again, but somehow, I am not willing to go either.
+In 1990, TeX was getting mature, and in 1994 so was LaTeX; afterwards, digital typesetting of mathematics gradually became the norm.
+
+Today, I was surprised that I had a hard time finding a book worth buying.
+Olympiad, geometry, puzzle, none of them became important.
+I bought «First- Order Logic» by Smullyan, «A Modern View of Geometry» by Leonard Blumenthal.
+“I can't remember the price. Sweetie, . Let's just call it 400 NTD.”
+“Oh, is that okay? Thank you very much!”
+“What is it?”
+“It’s nothing.”
+
+I didn’t come to Nine Chapters afterwards, and I imagine the scene where the building was torn down by a crane.
+Strangely, recently I heard that it didn’t close.
+I said to myself that I should check it out, but somehow, I am not willing to go either.
 Perhaps so that I can continue to picture it being obliterated.
 
 
