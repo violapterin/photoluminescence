@@ -1,60 +1,63 @@
 ===
 @@the protagonist was aware <that his uncle Xitai, his mother’s eldest brother, @had cancer>, only after it was %getting serious.@@ _
-@@the ominous but commonplace fact gradually @sank into his cognitive capacity, by the time {it was &mentioned two or three times}, starting from a worried call picked up by Mother in perhaps June, concluding with an announcement <that he was &admitted into palliative care>.@@ _
-@@Uncle and his family @lived in the US, and the protagonist had only &seen him twice,@@
-@@and hence he @didn’t feel much sadness, but merely emptiness {that @emerged every time {he @knew <people was &dying>}}.@@ '
-@@Mother @didn’t appear to be weeping, though, and he @didn’t bring up the matter.@@ _
-@@and he could only imagine <how &devastated Xitai’s wife Defen was>, from the broken English (even having &stayed in the US for decades) {she @wrote on Line to repeatedly ask the Lord for his blessing}.@@ _
+@@the fact gradually @sank into his head, by the time {it was &mentioned two or three times}, starting from a worried call picked up by his mother in about June, concluding with an announcement <that he was &admitted into palliative care>.@@ '
 
-@@he was a anesthesiologist, and was attentive of his health;@@
+@@Uncle and his family currently @lived in the US,@@
+@@and he had &seen him only twice,@@
+@@so he @didn’t feel much sadness, except the emptiness {that @emerged every time {he @knew <somebody was &dying>}}.@@ _
+@@his mother @didn’t appear to be weeping, though,@@
+@@and he @didn’t actively bring up the matter.@@ _
+@@he could only imagine <how &devastated Xitai’s wife was>, from the broken English (even having &stayed in the US for decades) {which she @wrote on Line to repeatedly ask the Lord for his blessing}.@@ '
+
+@@he was an anesthesiologist, and was attentive to his health;@@
 @@he was frugal with money and hard working.@@ _
-@@then still he @got ill, suddenly due to a recurring of throat cancer, about one month just before he retired, {which @stopped him from enjoying his remaining days}.@@ _
-@@lately he was drinking only cokes, and locked himself in his room.@@ _
-@@maybe because he could well research his own survival curve.@@ '
+@@still he @got ill, suddenly due to a recurring throat cancer, ironically just one month before he retired.@@ _
+@@lately he was %drinking only cokes, and @locked himself in his room.@@ _
+@@maybe because he was able to research his own survival curve.@@ '
 
-@@was it a coincidence <that the protagonist was %reading «Simply Nietzsche» by Peter Kail>, when he @had the train of thought below?@@ _
-@@in «The Birth of Tragedy», the book @explained, Nietzsche was %answering the pessimism of Schopenhauer’s,@@
-@@and according to Schopenhauer, our life was essentially no more than a never- ending but meaningless suffering.@@ _
-@@Nietzsche so @responded— it @continued— <that it was only through the intoxication in art {that we could unite as a whole, finding the power to overcome the bleak reality}>.@@ '
+@@how terrifying it would be to face death, the protagonist @imagined, such <that even the most intelligent ones, including Einstein and Grothendieck, could in their last days convert from atheists to believers?@@ _
+@@religions, he @knew, @helped people cope with their short and brutal life.@@ _
+@@nevertheless, how were they &persuaded <that <what they @wished for> was real, as long as they @wished>?@@ _
+@@(he once @read through a long Reddit discussion on the reasons {atheists @converted to believers},@@
+@@and that @didn’t clarify the matter any more.)@@ '
+===
 
-@@how terrifying it would be, he @imagined, to face death, such <that many who in their last functional phase converted from atheists to believers, even most intelligent ones including Einstein and Grothendieck.@@ _
-@@what precisely @changed them?@@ _
-@@he @knew it, <that religion @helped people cope with their short and brutal life>.@@ _
-@@but how was they &persuaded <that <what they @yearned for> @existed, as long as they genuinely @yearned for it>?@@ _
-@@(he once @spent some time reading a post on Reddit {which @asked believers who @converted, <what the reason was>};@@
-@@he @read the whole thing,@@
-@@and that @didn’t make him any more emphatic with them.)@@ '
+===
+@@the next day, perhaps to alleviate the ominous air, he @went for a walk in National Taiwan University, and @visited the Campus Bookstore for the first time after the remodelling.@@ _
+@@in the Christian bookstore, one of the displayed books was «The Reason for God» by Timothy Keller,@@
+@@and he @recalled <Isaac the chess player, in one of his apologetic posts, had &shared quotes by Keller>.@@ '
 
-@@the next day he @went to Gongguan as usual, and @walked into the Campus Bookstore the first time {it @finished remodeling};@@
-@@affiliated to the church, the building was just across the street from the National Taiwan University.@@ _
-@@one of the displayed books was «The Reason for God» by Timothy Keller,@@
-@@and he @recalled <Isaac the chess player, in one of his apologetic posts, had &shared quotes by Keller>.@@ _
 @@he @picked it up and @skimmed.@@ _
-@@since we @had a natural tendency to crave for something more than the material world— it @said— @didn’t it hint <that the immaterial realm could actually exist>?@@ '
-
+@@considering our natural craving beyond the material realm— it so @argued— @didn’t it hint <that the immaterial realm could actually exist>?@@ _
 @@he @put it down and @went upstairs.@@ _
-@@it was here {that once Celia @pressed him to join a church gathering for interpretation of the Bible, and he wouldn’t}, {which @led to constant arguments of theirs}.@@ _
-@@now there were much fewer books, with those Chinese translations of classic literature disappearing except certainly the Bibles, leaving a more hollow second floor.@@ '
+@@it was here {that once Celia @pressed him to join a church gathering for Bible interpretation, and he wouldn’t}, {which @led to their arguments and finally a breakup}.@@ _
+@@those translations of western canons @disappeared, leaving a more hollow second floor, except the Bibles of course.@@ '
+===
 
-@@that very night, 3 or 4 in the morning, the protagonist @heard in addition <that Xitai was &dying>.@@ _
-@@people @died, and he would die too, he so @thought in his vanishing consciousness when he @fell asleep.@@ _
-@@why @did we believe <that our life was valuable>, <that we @had to help each other>, and <that we would’t be merely dust when we were gone>?@@ _
-@@as long as such possibilities @made us feel better?@@ _
-@@this was just optimism in the extreme, he @realized.@@ _
-@@many @accepted it, {which was hard to blame}.@@ '
+===
+@@in the middle of the night, at 3 or 4, the protagonist’s mother @reported <that Xitai was &dying>.@@ _
+@@everybody @died, he @thought in his fading consciousness before falling asleep.@@ _
+@@still, why @did some believe <that they would be more than dust when they were gone>?@@ _
+@@as long as such possibilities @made they feel better?@@ _
+@@maybe that was a certain form of optimism, just as the belief that <that their life @had a value>?@@ _
+@@then it was hard to blame <that many @accepted it>.@@ _
+@@but he @didn’t.@@ _
+@@he would face the everlasting, meaningless suffering life would certainly offer in abundance.@@ _
+@@people @died together,@@
+@@but he @died alone.@@ '
 
-@@but not him.@@ _
-@@people @died together, but he must die alone.@@ _
-@@he must himself face the emptiness, loneliness, depression, sickness, and death— what life had yet really offered, but would certainly offer, in abundance.@@ _
-@@except perhaps with the companion of music, Schopenhauer and Nietzsche would have claimed when facing the dilemma, and the sense of connection {he @felt in creating them}, he would linger a little longer on the land of earth, however evanescent it was as it @died in the air, however dissolving already into nothingness.@@ '
+@@except perhaps with the companion of music, as Nietzsche would have agreed in «The Birth of Tragedy».@@ _
+@@that it was only through the intoxication in music <that we could unite and find the power to overcome the bleak reality>.@@ _
+@@he therefore @promised to linger a little longer on the earth, before the sound @died in the air into nothingness.@@ '
 
-@@some 6 hours later, as he @woke up, Father @read the messages on Line announcing <that Xitai had &passed away>.@@ _
-@@he was 74, not at all old to modern eyes.@@ '
+@@some 6 hours later in the morning, Father @read the messages on Line saying <that Xitai had &passed away>.@@ _
+@@he was 74.@@ '
 ===
 
 ~~~
 
 ===
 @@❧@@ %%October 9, 2020;%%
-%%rewritten July 9, 2021%% '
+%%rewritten July 9, 2021;%%
+%%revised October 24, 2021%% '
 ===

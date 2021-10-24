@@ -4,11 +4,11 @@
 @@starting from July 2016, I #use Vim to edit my past writings.@@ _
 @@when editing human- readable text, rather than computer code, text wrapping can be a problem in Vim, because Vim isn’t &intended to show long lines.@@ '
 
-@@there are two choices of wrapping, both having its problems.@@ _
+@@there are two choices of wrapping, both having their problems.@@ _
 @@for convenience, I #say <that a physical line is a line delimited by newline characters>,@@
 @@and <that an apparent line is a line displayed as in the current window>.@@ _
 @@and I say <that a text file is softly- wrapped if physical lines are &allowed to be longer than current window width,@@
-@@and <that a text file is hard- wrapped if every physical lines are &broken to agree apparent lines.@@ _
+@@and <that a text file is hard- wrapped if every physical line is &broken to agree with apparent lines.@@ _
 @@in other words, soft wrapping $keeps the paragraph intact,@@
 @@and hard wrapping $inserts newlines to format it on the screen>.@@ _
 @@which will you use when writing prose, soft or hard wrapping?@@ '
@@ -19,10 +19,10 @@
 ===
 @@supporters of soft wrapping #hold <that the source should be easy to read, {which is the original mindset of Markdown}>.@@ _
 @@if Markdown source visually $resembles the output, we no longer #need to see compiled pdf on the facing side when working on it, like when we #use TeXstudio to edit LaTeX sources.@@ _
-@@besides, hard wrapping isn’t something {that laypeople spontaneously do},@@
+@@besides, hard wrapping isn’t something {that laypersons spontaneously do},@@
 @@and thus it makes no semantic sense.@@ '
 
-@@now, the irritation is <that, the remaining space in the current window isn’t enough for the next physical line.@@ _
+@@now, the irritation is <that the remaining space in the current window isn’t enough for the next physical line.@@ _
 @@if so, the next line isn’t shown,@@
 @@and the remaining space is wasted.@@ _
 @@a partial workaround is to toggle between displaying part of the next line as much as possible:@@ '
@@ -47,7 +47,7 @@ _ ++endif++ '
 ++nnoremap <c-b> <c-b><c-y><c-y>M++ '
 
 @@moreover, the line numbering can be problematic too.@@ _
-@@line numbers are crucial in navigating in Vim, but it is really twice of the paragraph number,@@
+@@line numbers are crucial in navigating in Vim, but it is really twice the paragraph number,@@
 @@and such information isn’t helpful.@@ _
 @@ironically, in Microsoft Word, apparent line numbers may be shown.@@ _
 @@in Microsoft Word or TextEdit for example, this need not be the case,@@
@@ -62,7 +62,7 @@ _ ++endif++ '
 === ##hard wrapping## ===
 
 ===
-@@instead, many Vim users #incline to hard wrap.@@ _
+@@instead, many Vim users are &inclined to hard wrap.@@ _
 @@supporters might maintain <that it isn’t the source {that matters}, but the output>.@@ _
 @@and so we are free to manipulate the source to facilitate editing.@@ '
 
@@ -79,7 +79,7 @@ _ ++endif++ '
 @@but it only $applies to the current paragraph.@@ _
 @@while we may define a shortcut, reformatting when typing can be a distraction.@@ '
 
-@@more problematically, automatic reformat $doesn’t work for Chinese characters,@@
+@@more problematically, automatic reformatting $doesn’t work for Chinese characters,@@
 @@or I #don’t know <how to do that in Vimscript>.@@ _
 @@besides, <what if I #want to copy and paste the hard- wrapped prose into somewhere else, like WordPress or Facebook>?@@ '
 
@@ -102,8 +102,8 @@ _ ++endif++ '
 
 @@actually, Gruber’s@@
    @@original specification@@ \\https://daringfireball.net/projects/markdown/syntax\\
-   @@ @didn’t resolve parsing issue unambiguously;@@
-@@such disorder @motivated@@ @@CommonMark@@ \\https://commonmark.org\\ @@,@@ @@an attempt to standardize Markdown.@@ _
+   @@ @didn’t resolve the parsing issue unambiguously;@@
+@@such a mess @motivated@@ @@CommonMark@@ \\https://commonmark.org\\ @@,@@ @@an attempt to standardize Markdown.@@ _
 @@nevertheless,@@
    @@GitHub@@ \\https://github.github.com/gfm\\ @@,@@
    @@Pandoc@@ \\https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html\\ @@,@@

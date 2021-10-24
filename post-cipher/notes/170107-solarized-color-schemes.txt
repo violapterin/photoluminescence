@@ -6,11 +6,11 @@
 
 @@surprisingly, the installation was far more cumbersome {than I @assumed},@@
 @@and sometimes it @didn’t work.@@ _
-@@what @prevented Solarized to properly function?@@ '
+@@what @prevented Solarized from properly functioning?@@ '
 ===
 
 ===
-@@to highlight text, Vim $parses it with rules according to present file extension.@@ _
+@@to highlight text, Vim $parses it with rules according to the present file extension.@@ _
 @@the text is &separated as syntax items {which #match a certain pattern}.@@ _
 @@afterwards, syntax items are &classified into 16 syntax groups, each highlighted by one color.@@ _
 @@for example, in a cpp file the syntax item@@ ++new++ @@$belongs to the syntax group “Statement”.@@ _
@@ -28,8 +28,8 @@
 
 @@if@@ ++termguicolors++ @@is &set false (with@@ ++set notermguicolors++ @@),@@ @@palette colors, specified by@@ ++ctermfg++ @@and@@ ++ctermbg++ @@,@@ @@are &called.@@ _
 @@they are &encoded by a nonnegative integer.@@ _
-@@if@@ ++t_Co++ @@$equals 16, the integers #range from 0 to 15, and is &mapped to a ANSI palette of hex colors.@@ _
-@@if@@ ++t_Co++ @@$equals 256, the integers #range from 0 to 255, and is &mapped to a Xterm palette of hex color, as remarked above.@@ _
+@@if@@ ++t_Co++ @@$equals 16, the integers #range from 0 to 15, and are &mapped to a ANSI palette of hex colors.@@ _
+@@if@@ ++t_Co++ @@$equals 256, the integers #range from 0 to 255, and are &mapped to a Xterm palette of hex color, as remarked above.@@ _
 @@the 16- color ANSI palette is &specified by the present terminal preference,@@
 @@and the 256- color Xterm palette is &fixed by the standard.@@ '
 
@@ -41,7 +41,7 @@
 @@if a degradation function isn’t &provided, the terminal is &forced to guess the colors,@@
 @@and the result is horrible.@@ _
 @@thus a lot can go wrong for Solarized in a terminal Vim,@@
-@@and it isn’t easy to reliably specify all these information in the Vimrc for all devices and Vim variants.@@ '
+@@and it isn’t easy to reliably specify all these informations in the Vimrc for all devices and Vim variants.@@ '
 
 @@currently, Solarized isn’t frequently &maintained,@@
 @@some successors, in addition to Solarized, are:@@ _
@@ -51,7 +51,7 @@
    @@‘Molokai’@@ \\https://github.com/tomasr/molokai\\ @@.@@
 @@Flattened is faithfully &based on Solarized, and is still &maintained.@@ '
 
-@@in January 2017, I @spent quite some time researching about all this.@@ _
+@@in January 2017, I @spent quite some time researching all this.@@ _
 @@on GitHub, I @backed up color schemes copied into@@ ++~/.vim/colors/++ @@.@@ _
 @@that way, it wasn’t hard to modify the hex colors in the file.@@ _
 @@for example, I @think the ‘Normal’ group is in a dim gray hard to read.@@ _
@@ -65,7 +65,7 @@
 @@and in September 2019, I @began to use VS Code;@@
 @@it @worked like a charm.@@ _
 @@the VS Code market $has a variety of extensions, all to be installed with one click.@@ _
-@@there are a Vim emulator, colors schemes, spelling checkers, and whatnot.@@ _
+@@there are Vim emulators, color schemes, spelling checkers, and whatnot.@@ _
 @@moreover, the GUI is able to show all hex colors.@@ _
 @@I #use Gruvbox now,@@
 @@and previous research about Solarized $looks entirely irrelevant.@@ '

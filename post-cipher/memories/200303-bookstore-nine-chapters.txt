@@ -1,3 +1,6 @@
+||| \\/image/200303-shelf.jpg\\ |||
+=== %%Figure: Interior of Bookstore Nine Chapters.%% ' ===
+
 ===
 @@in February 2020, I @saw on Facebook a post saying <that Nine Chapters [九 章], a mathematics bookstore, was to be closed at the end of 2020>,@@
 @@and <that they were %having a clearance sale>.@@ _
@@ -5,7 +8,7 @@
 
 @@on March 3, fearing good books would soon get sold out, I @visited Nine Chapters, some 6 years after the last time.@@ _
 @@recognizing the plaque in calligraphic style, I @pushed the glass door, {which @struck the wind chime}, and @entered the once- familiar room with shorter shelves in the center and taller shelves in the surroundings.@@ _
-@@on top of the shorter shelves were various puzzles, games, and models, including the Rush Hour, the Soma cube, Chinese rings, and wooden polyhedra, {many of which I @owned when I was a kid}, as if my childhood memories were some donated organs, taken out and being dissected on an operation table.@@ '
+@@on top of the shorter shelves were various puzzles, games, and models, including the Rush Hour, the Soma cube, the Tower of Hanoi, and wooden polyhedra, {many of which I @owned when I was a kid}, as if my childhood memories were some donated organs, taken out and being dissected on an operation table.@@ '
 ===
 
 ===
@@ -25,26 +28,26 @@
 ===
 
 ===
-@@in the ninth grade, I @spent little time preparing for the Basic Competence Test [基 本 學 力 測 驗], {which wasn’t difficult for me at all}.@@ _
-@@I would rather read Nine Chapters’s expositions on advanced mathematics.@@ _
-@@I @forced myself to read several pages a day on Gödel incompleteness theorem and Fermat last theorem, though I #doubt <how much I really @understood by then about recursive functions or elliptic curves>.@@ '
-
-@@Nine Chapters’s puzzles @tempted me into thinking <that all <that mathematics was>, was a bunch of puzzles>.@@ _
+@@Nine Chapters’s puzzles soon @attracted me, so much {I almost @thought <that all {that mathematics was}, was a long series of puzzles>}.@@ _
 @@I @fashioned a Soma cube with clay according to an article of Martin Gardner’s, and @constructed a slide rule copied from a plan in «Scientific American».@@ _
 @@I @liked to study the Lonpos pyramid [龍 博 士 魔 術 金 字 塔] and the Rush Hour,@@
 @@and I @built molecule models from magnetic balls and sticks.@@ _
 @@(once I lost a ball,@@
 @@and Father @intended to purchase another set for me,@@
 @@but Mr Sun @gave him just one ball for free.)@@ _
-@@I was also &fascinated by the software Super Sketchbook [超 級 畫 板], {which @made use of Gröbner basis in a polynomial ideal to decide geometrical propositions}.@@ _
 @@eventually, Mr Sun must have remembered us, {who @visited so often},@@
 @@and he sometimes @gave us discounts.@@ '
 
-@@mathematics is some rare certainty {I can rely on}.@@ _
+@@in the ninth grade, I @spent little time preparing for the Basic Competence Test [基 本 學 力 測 驗], {which wasn’t difficult for me at all}.@@ _
+@@I would rather read Nine Chapters’s expositions on advanced mathematics.@@ _
+@@I @forced myself to read several pages a day on Gödel incompleteness theorem and Fermat last theorem, though I #doubt <how much I really @understood by then about recursive functions or elliptic curves>.@@ _
+@@I was also &fascinated by the software Super Sketchbook [超 級 畫 板], {which @made use of Gröbner basis in a polynomial ideal to decide geometrical propositions}, a fact {I @learnt many years later}.@@ '
+
+@@mathematics is some precious certainty {that $provides good company for me}.@@ _
 @@it is an amusement park built exclusively for me.@@ _
-@@I #know <when the recorded scream is going to be played in the haunted mansion>,@@
-@@and still I am %going to play again.@@ _
-@@one slot machine is out of order, {which $lets me enjoy my pathetic victory on and on}.@@ _
+@@I #know <when the recorded scream is to be played in the haunted mansion>,@@
+@@and I am %going to enter again.@@ _
+@@one slot machine is out of order, {which $lets me enjoy another pathetic victory}.@@ _
 @@I #ride the carousel in eerily vivid colors, and #laugh hysterically as many times as I #want.@@ _
 @@every day is sunny underneath the painted sky on the ceiling.@@ '
 ===
@@ -57,11 +60,13 @@
 @@in their prime, many dissertations of top university students in Taiwan used to be typeset by Nine Chapters.@@ '
 
 @@their book covers #look so shabby, I #suspect <they are &done by Microsoft Paint>.@@ _
-@@if you #inspect closely enough, you will find traces of phototypesetting;@@
+@@if you #inspect closely enough, you will find traces of manual typesetting:@@
 @@the letters aren’t perfectly &aligned,@@
-@@and some strokes are fainter.@@ _
-@@equations are &riddled with typos, {which can confuse me for hours};@@
-@@Mr Sun $says on the website <that they #don’t have time to fix all of that>.@@ '
+@@and some strokes are fainter;@@
+@@they must have &cut and &glued paper scraps on the master copy.@@ _
+@@what’s worse, equations are &riddled with typos, {which can confuse me for hours}.@@
+@@however, they #don’t have time to fix all of that,@@
+@@but they will scan and release their older publications for free>.@@ '
 
 @@TeX and LaTeX @matured in the 1990s,@@
 @@and digital typesetting of mathematics has gradually &become the norm.@@ _
@@ -72,16 +77,16 @@
 
 ===
 @@today, I @had a hard time finding any book worth buying.@@ _
-@@olympiad problems, classical geometry, and solitaire board games, none of them @seemed important anymore.@@ _
+@@olympiad problems, classical geometry, and solitaire board games, they no longer @seemed important anymore.@@ _
 @@I had @learnt analysis, statistics, and algebra, not too much but enough to take these toys lightly.@@ '
 
 @@yet there are grown- ups {who #consider none of these to be important, except of their cars, houses, and children}.@@ _
 @@and maybe they will end up being correct.@@ _
 @@or maybe we will get old enough to realize <that nothing $matters whatsoever>.@@ _
 @@everything is a puzzle {we #play to feel being here}.@@ _
-@@I #wonder {which is more absurd}, finding something {you once @cherished} to appear foolish, or knowing something {you now #cherish} will appear foolish.@@ '
+@@I #wonder {which is more %devastating}: finding something {you once @cherished} to appear foolish, or knowing something {you now #cherish} will appear foolish.@@ '
 
-@@I @picked «First- Order Logic» by Raymond Smullyan, «A Modern View of Geometry» by Leonard Blumenthal, and a collection of Olympiad inequalities.@@ _
+@@I @picked «First- Order Logic» by Raymond Smullyan, «A Modern View of Geometry» by Leonard Blumenthal, and a guide on Olympiad inequalities.@@ _
 @@I wasn’t sure <why I needed those>;@@
 @@I just @wanted to pay for something.@@ '
 
@@ -107,14 +112,16 @@
 
 ===
 @@I @didn’t come to Nine Chapters again,@@
-@@and I @visualized the place being remodeled to a shoe store or Boba tea stand, {which might make me sentimental on seeing it}.@@ '
+@@and I @visualized the place being remodeled to a shoe store or a Boba tea stand, {which might make me sentimental on seeing it}.@@ '
 
 @@however, another one and half year later, I @heard recently <that Nine Chapters was still open>, because several loyal customers @appealed Mr Sun not to close it.@@ _
 @@I @told myself <that I should check it out>,@@
 @@but somehow, I @didn’t feel any more urged to go either,@@
 @@perhaps so I could stick to the picture of it being torn down.@@ '
+===
 
-@@the building, I #imagine, is about to be obliterated, {where the shelves have &collapsed, the polyhedron models is &dislodged from the latch, and toy cars is &littered on the ground}.@@ _
+===
+@@the building, I #imagine, is about to be obliterated, {where the shelves have &collapsed, the polyhedron models are &dislodged from the latch, and toy blocks are &littered on the ground}.@@ _
 @@I #have to carefully step over broken glass to enter the unlit room.@@ _
 @@curling up in the corner, a little boy is %playing the Rush Hour again.@@ '
 

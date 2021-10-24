@@ -496,21 +496,21 @@ code, .mono
 {
    margin: 0px 12px;
    padding: 0px;
-   font-size: 30px;
+   font-size: 28px;
    font-weight: 500;
-   line-height: 132%;
+   line-height: 125%;
 }
 @media screen and (max-width: 900px) {
-   .title-catalog .display
-   { margin: 0px 10px; font-size: 26px; }
+   .title-catalog .display {
+      margin: 0px 8px;
+      font-size: 24px;
+   }
 }
 @media screen and (max-width: 600px) {
-   .title-catalog .display
-   { margin: 0px 8px; font-size: 22px; }
-}
-@media screen and (max-width: 450px) {
-   .title-catalog .display
-   { margin: 0px 6px; font-size: 18px; }
+   .title-catalog .display {
+      margin: 0px 4px;
+      font-size: 20px;
+   }
 }
 
 .entry .title-entry .heading
