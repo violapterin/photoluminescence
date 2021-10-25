@@ -17,8 +17,7 @@
 /* pseudo-round pseudo-square pseudo-curly */
 /* pseudo-serif pseudo-sans pseudo-mono */
 
-body
-{
+body {
    width: 960px; 
    font-size: 26px;
 }
@@ -35,77 +34,86 @@ body
    body { width: 360px; font-size: 12px; }
 }
 
-body, header
+body, header,
 #header-banner, #header-page, #header-post,
-#footer-whole
-{
+#footer-whole {
    margin: auto;
    padding: 0px;
 }
 
-body
-{
+body {
    background-color: lavender;
 }
 
-#header-banner, .essay, #footer-whole
-{
+#header-banner, .essay, #footer-whole {
    margin: 12px auto;
    padding: 12px 24px;
    width: 100%;
    background-color: white;
 }
+@media screen and (max-width: 900px) {
+   #header-banner, .essay, #footer-whole {
+      padding: 8px 16px;
+   }
+}
+@media screen and (max-width: 600px) {
+   #header-banner, .essay, #footer-whole {
+      padding: 4px 8px;
+   }
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.section
-{
+.section {
    margin: 24px 32px;
    padding: 0px;
 }
 @media screen and (max-width: 1500px) {
-   .section
-   { margin: 18px 24px; }
+   .section {
+      margin: 18px 24px;
+   }
 }
 @media screen and (max-width: 900px) {
-   .section
-   { margin: 12px 16px; }
+   .section {
+      margin: 12px 16px;
+   }
 }
 
-.stanza
-{
+.stanza {
    margin: 24px 48px;
    padding: 0px;
 }
 @media screen and (max-width: 1500px) {
-   .stanza
-   { margin: 18px 32px; }
+   .stanza {
+      margin: 18px 32px;
+   }
 }
 @media screen and (max-width: 900px) {
-   .stanza
-   { margin: 12px 24px; }
+   .stanza {
+      margin: 12px 24px;
+   }
 }
 
-.array
-{
+.array {
    margin: 24px 24px;
    padding: 0px;
    width: 96%;
    border-spacing: 0px 3px;
 }
 @media screen and (max-width: 1500px) {
-   .array
-   { margin: 18px 16px; }
+   .array {
+      margin: 18px 16px;
+   }
 }
 @media screen and (max-width: 900px) {
-   .array
-   { margin: 12px 12px; }
+   .array {
+      margin: 12px 12px;
+   }
 }
 
-.graph
-{
+.graph {
    margin: 6px auto;
    padding: 0px 6px;
    width: 80%;
@@ -113,8 +121,7 @@ body
    border-left: 12px lightcyan solid;
 }
 
-.break
-{
+.break {
    margin: 8px auto;
    padding: 0px;
    text-align: center;
@@ -122,8 +129,7 @@ body
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-div .paragraph
-{
+div .paragraph {
    margin: 0px;
    padding: 0px 16px;
    text-indent: 40px;
@@ -139,8 +145,7 @@ div .paragraph
    }
 }
 
-div .line
-{
+div .line {
    margin: 2px;
    padding: 0px 8px;
    border-left: 12px lemonchiffon solid;
@@ -156,20 +161,17 @@ div .line
    }
 }
 
-table .row, table .row
-{
+table .row, table .row {
    margin: 0px;
    padding: 0px;
 }
 
-p .phrase, p .verse
-{
+p .phrase, p .verse {
    margin: 0px 4px;
    padding: 0px;
 }
 
-tr .cell
-{
+tr .cell {
    margin: 0px;
    padding: 6px;
    border-left: 4px darkseagreen solid;
@@ -182,24 +184,21 @@ tr .cell
 
 header, main,
 p, div, table,
-span, em, b
-{
+span, em, b {
    font-family: "Alegreya", "Noto Serif CJK KR", serif;
    font-weight: 400;
    font-variant-ligatures: common-ligatures;
 }
 
 h1, h2, .title-site, .title-post,
-span, em, b, .serif-roman, .serif-italic, .serif-bold
-{
+span, em, b, .serif-roman, .serif-italic, .serif-bold {
    font-family: "Alegreya", "Noto Serif", "Noto Serif CJK KR",
      "Georgia", "Times New Roman", serif;
    font-weight: 400;
    color: black;
 }
 
-i, .sans-roman, .sans-bold
-{
+i, .sans-roman, .sans-bold {
    font-family: "Alegreya Sans", "Noto Sans", "Noto Sans CJK KR", 
      "Verdana", "Helvetica", "Arial", sans-serif;
    font-weight: 400;
@@ -207,8 +206,7 @@ i, .sans-roman, .sans-bold
    font-variant-ligatures: common-ligatures;
 }
 
-em, .serif-italic
-{
+em, .serif-italic {
    font-style: italic;
 }
 
@@ -217,8 +215,7 @@ b, .serif-bold, .sans-bold
    font-weight: 700;
 }
 
-code, .mono
-{
+code, .mono {
    font-family: "Source Code Pro", "Noto Sans", "Noto Sans CJK KR", 
      "Courier New", monospace;
    font-size: 0.8em;
@@ -229,32 +226,27 @@ code, .mono
 }
 
 .serif-italic, .serif-bold,
-.sans-roman, .sans-bold, .mono
-{
+.sans-roman, .sans-bold, .mono {
    margin: 0px;
    padding: 0px;
 }
 
-.math, .pseudo
-{
+.math, .pseudo {
    margin: 0px;
    padding: 0px;
 }
 
-.document a
-{
+.document a {
    color: royalblue;
    text-decoration: none;
 }
 
-.document a:hover
-{
+.document a:hover {
    color: cornflowerblue;
    text-decoration: underline;
 }
 
-.document a:visited
-{
+.document a:visited {
    color: slateblue;
    text-decoration: none;
 }
@@ -263,8 +255,7 @@ code, .mono
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#header-banner #name-site, #header-banner #menu
-{
+#header-banner #name-site, #header-banner #menu {
    margin: 6px 12px;
    padding: 0px 60px;
    text-align: center;
@@ -282,86 +273,84 @@ code, .mono
    }
 }
 
-#name-site .title-site
-{
+#name-site .title-site {
    font-size: 32px;
 }
 @media screen and (max-width: 900px) {
-   #name-site .title-site
-   { font-size: 28px; }
+   #name-site .title-site {
+      font-size: 28px;
+   }
 }
 @media screen and (max-width: 600px) {
-   #name-site .title-site
-   { font-size: 24px; }
+   #name-site .title-site {
+      font-size: 24px;
+   }
 }
 
-#name-site .tagline-site
-{
+#name-site .tagline-site {
    font-size: 20px;
 }
 @media screen and (max-width: 900px) {
-   #name-site .tagline-site
-   { font-size: 18px; }
+   #name-site .tagline-site {
+      font-size: 18px;
+   }
 }
 @media screen and (max-width: 600px) {
-   #name-site .tagline-site
-   { font-size: 16px; }
+   #name-site .tagline-site {
+      font-size: 16px;
+   }
 }
 
-#menu .button-menu, #menu .dingbat-menu
-{
+#menu .button-menu, #menu .dingbat-menu {
    font-size: 20px;
 }
 @media screen and (max-width: 900px) {
-   #menu .button-menu, #menu .dingbat-menu
-   { font-size: 17px; }
+   #menu .button-menu, #menu .dingbat-menu {
+      font-size: 17px;
+   }
 }
 @media screen and (max-width: 600px) {
-   #menu .button-menu, #menu .dingbat-menu
-   { font-size: 14px; }
+   #menu .button-menu, #menu .dingbat-menu {
+      font-size: 14px;
+   }
 }
 
 @media screen and (max-width: 900px) {
-   #name-site .title-site, #name-site .tagline-site
-   { display: block; }
+   #name-site .title-site, #name-site .tagline-site {
+      display: block;
+   }
 }
 
-#header-banner #banner
-{
+#header-banner #banner {
    width: 90%;
    margin: 0px auto;
    display: block;
 }
 
 #name-site .title-site, #name-site .tagline-site,
-#menu .button-menu, #menu .dingbat-menu
-{
+#menu .button-menu, #menu .dingbat-menu {
    margin: 0px 4px;
 }
 
-#name-site .title-site
-{
+#name-site .title-site {
    font-weight: 700;
    color: mediumpurple;
    text-decoration: none;
 }
 
-#name-site .tagline-site
-{
+#name-site .tagline-site {
    font-style: italic;
    font-weight: 500;
    color: steelblue;
 }
 
-#menu .button-menu, #menu .dingbat-menu
-{
+#menu .button-menu, #menu .dingbat-menu {
    font-weight: 500;
    color: darkmagenta;
    text-decoration: none;
 }
 
-#name-site .title-site:hover, #menu .button-menu:hover
-{
+#name-site .title-site:hover, #menu .button-menu:hover {
    text-decoration: underline;
 }
 
@@ -378,45 +367,48 @@ code, .mono
 /* post: */
 /*    #header-post .heading-post .heading */
 
-#header-post, #header-page
-{
+#header-post, #header-page {
    margin: 24px 72px;
    padding: 0px;
 }
 @media screen and (max-width: 1500px) {
-   #header-post, #header-page
-   { margin: 18px 54px; }
+   #header-post, #header-page {
+      margin: 18px 54px;
+   }
 }
 @media screen and (max-width: 900px) {
-   #header-post, #header-page
-   { margin: 12px 36px; }
+   #header-post, #header-page {
+      margin: 12px 36px;
+   }
 }
 @media screen and (max-width: 600px) {
-   #header-post, #header-page
-   { margin: 6px 18px; }
+   #header-post, #header-page {
+      margin: 6px 18px;
+   }
 }
 
-.entry
-{
+.entry {
    margin: 16px 0px;
    padding: 0px;
    font-weight: 500;
 }
 @media screen and (max-width: 1500px) {
-   .entry
-   { margin: 12px 0px; }
+   .entry {
+      margin: 12px 0px;
+   }
 }
 @media screen and (max-width: 900px) {
-   .entry
-   { margin: 8px 0px; }
+   .entry {
+      margin: 8px 0px;
+   }
 }
 @media screen and (max-width: 600px) {
-   .entry
-   { margin: 4px 0px; }
+   .entry {
+      margin: 4px 0px;
+   }
 }
 
-.entry .title-entry, .title-catalog
-{
+.entry .title-entry, .title-catalog {
    margin: 8px 12px;
    padding: 0px;
    text-indent: 12px;
@@ -441,8 +433,7 @@ code, .mono
    }
 }
 
-#header-post .heading-post, #header-page .heading-page
-{
+#header-post .heading-post, #header-page .heading-page {
    margin: 12px 16px;
    padding: 0px;
    text-indent: 36px;
@@ -468,8 +459,7 @@ code, .mono
 }
 
 #header-page .heading-page .display,
-#header-post .heading-post .heading
-{
+#header-post .heading-post .heading {
    margin: 0px;
    padding: 0px;
    font-size: 36px;
@@ -478,22 +468,24 @@ code, .mono
 }
 @media screen and (max-width: 900px) {
    #header-page .heading-page .display,
-   #header-post .heading-post .heading
-   { font-size: 32px; }
+   #header-post .heading-post .heading {
+      font-size: 32px;
+   }
 }
 @media screen and (max-width: 600px) {
    #header-page .heading-page .display,
-   #header-post .heading-post .heading
-   { font-size: 28px; }
+   #header-post .heading-post .heading {
+      font-size: 28px;
+   }
 }
 @media screen and (max-width: 450px) {
    #header-page .heading-page .display,
-   #header-post .heading-post .heading
-   { font-size: 24px; }
+   #header-post .heading-post .heading {
+      font-size: 24px;
+   }
 }
 
-.title-catalog .display
-{
+.title-catalog .display {
    margin: 0px 12px;
    padding: 0px;
    font-size: 28px;
@@ -513,8 +505,7 @@ code, .mono
    }
 }
 
-.entry .title-entry .heading
-{
+.entry .title-entry .heading {
    margin: 0px;
    padding: 0px;
    font-size: 32px;
@@ -522,56 +513,52 @@ code, .mono
    line-height: 108%;
 }
 @media screen and (max-width: 900px) {
-   .entry .title-entry .heading
-   { font-size: 28px; }
+   .entry .title-entry .heading {
+      font-size: 28px;
+   }
 }
 @media screen and (max-width: 600px) {
-   .entry .title-entry .heading
-   { font-size: 24px; }
+   .entry .title-entry .heading {
+      font-size: 24px;
+   }
 }
 @media screen and (max-width: 450px) {
-   .entry .title-entry .heading
-   { font-size: 20px; }
+   .entry .title-entry .heading {
+      font-size: 20px;
+   }
 }
 
-#header-page .heading-page .display
-{
+#header-page .heading-page .display {
    color: darkblue;
 }
 
-#header-post .heading-post .heading
-{
+#header-post .heading-post .heading {
    color: maroon;
 }
 
 .title-catalog .display,
-.title-catalog .display:visited
-{
+.title-catalog .display:visited {
    color: blueviolet;
 }
 
-.title-catalog .display:hover
-{
+.title-catalog .display:hover {
    color: mediumslateblue;
    text-decoration: underline;
 }
 
 .entry .title-entry .heading,
-.entry .title-entry .heading:visited
-{
+.entry .title-entry .heading:visited {
    color: mediumblue;
 }
 
-.entry .title-entry .heading:hover
-{
+.entry .title-entry .heading:hover {
    color: dodgerblue;
    text-decoration: underline;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.data-post, .data-entry
-{
+.data-post, .data-entry {
    margin: 6px 12px;
    padding: 0px;
    font-size: 19px;
@@ -604,8 +591,7 @@ code, .mono
 .data-post .data-stamp:visited, .data-entry .data-stamp:visited,
 .data-post .data-genre:visited, .data-entry .data-genre:visited,
 .data-post .data-series:visited, .data-entry .data-series:visited,
-.data-post .data-tag:visited, .data-entry .data-tag:visited
-{
+.data-post .data-tag:visited, .data-entry .data-tag:visited {
    margin: 4px 4px;
    padding: 0px 4px;
    color: darkslategray;
@@ -615,29 +601,24 @@ code, .mono
 .data-post .data-stamp:hover, .data-entry .data-stamp:hover,
 .data-post .data-genre:hover, .data-entry .data-genre:hover,
 .data-post .data-series:hover, .data-entry .data-series:hover,
-.data-post .data-tag:hover, .data-entry .data-tag:hover
-{
+.data-post .data-tag:hover, .data-entry .data-tag:hover {
    color: dimgray;
    text-decoration: underline;
 }
 
-.data-post .data-stamp, .data-entry .data-stamp
-{
+.data-post .data-stamp, .data-entry .data-stamp {
    background-color: lightsalmon;
 }
 
-.data-post .data-genre, .data-entry .data-genre
-{
+.data-post .data-genre, .data-entry .data-genre {
    background-color: gold;
 }
 
-.data-post .data-series, .data-entry .data-series
-{
+.data-post .data-series, .data-entry .data-series {
    background-color: yellowgreen;
 }
 
-.data-post .data-tag, .data-entry .data-tag
-{
+.data-post .data-tag, .data-entry .data-tag {
    background-color: powderblue;
 }
 
@@ -646,23 +627,23 @@ code, .mono
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-#footer-quote, #footer-signature
-{
+#footer-quote, #footer-signature {
    font-size: 16px;
    height: auto;
    width: 320px;
 }
 @media screen and (max-width: 600px) {
-   #footer-quote, #footer-signature
-   { font-size: 14px; }
+   #footer-quote, #footer-signature {
+      font-size: 14px;
+   }
 }
 @media screen and (max-width: 450px) {
-   #footer-quote, #footer-signature
-   { font-size: 12px; }
+   #footer-quote, #footer-signature {
+      font-size: 12px;
+   }
 }
 
-#footer-quote
-{
+#footer-quote {
    margin: 0px auto;
    padding: 0px 0px 0px 20px;
    color: dimgray;
@@ -670,15 +651,13 @@ code, .mono
    text-align: left;
 }
 
-#footer-signature
-{
+#footer-signature {
    margin: 0px auto;
    padding: 0px;
    text-align: left;
 }
 
-#footer-left, #footer-right
-{
+#footer-left, #footer-right {
    margin: 3px;
    padding: 0px;
    font-style: italic;
@@ -686,40 +665,34 @@ code, .mono
    vertical-align: middle;
 }
 
-#footer-left
-{
+#footer-left {
    width: 144px;
    height: auto;
 }
 
-#footer-right
-{
+#footer-right {
    width: 144px;
    height: auto;
 }
 
 .footer-author, .footer-motto, .footer-icon,
-.footer-profile
-{
+.footer-profile {
    margin: 6px 6px;
    padding: 0px;
 }
 
-.footer-icon, .footer-license
-{
+.footer-icon, .footer-license {
    margin: 0px auto;
    width: auto;
    height: 36px;
 }
 
-.footer-profile
-{
+.footer-profile {
    width: 144px;
    height: auto;
 }
 
-.icon-gmail, .icon-github, .icon-twitter, .icon-facebook
-{
+.icon-gmail, .icon-github, .icon-twitter, .icon-facebook {
    margin: 0px;
    padding: 4px;
    width: 24px;
@@ -728,8 +701,7 @@ code, .mono
    background-size: contain;
 }
 
-.icon-license
-{
+.icon-license {
    margin: 2px 2px;
    padding: 6px;
    width: 120px;
@@ -738,28 +710,23 @@ code, .mono
    background-size: 100%;
 }
 
-.icon-gmail
-{
+.icon-gmail {
    background: url("/asset/icon-gmail.png") no-repeat;
 }
 
-.icon-twitter
-{
+.icon-twitter {
    background: url("/asset/icon-twitter.png") no-repeat;
 }
 
-.icon-facebook
-{
+.icon-facebook {
    background: url("/asset/icon-facebook.png") no-repeat;
 }
 
-.icon-github
-{
+.icon-github {
    background: url("/asset/icon-github.png") no-repeat;
 }
 
-.icon-license
-{
+.icon-license {
    background: url("/asset/icon-license.png") no-repeat;
 }
 
@@ -771,8 +738,7 @@ code, .mono
 .math-bracket-round, .math-bracket-square, .math-bracket-curly,
 .math-bracket-angle, .math-bracket-line,
 .math-pair, .math-triplet, .math-tuple,
-.math-serif, .math-sans, .math-mono
-{
+.math-serif, .math-sans, .math-mono {
    color: midnightblue;
    /*color: #300053;*/
 }
@@ -782,65 +748,56 @@ code, .mono
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@font-face
-{
+@font-face {
    font-family: "Pseudo Hiragana";
    src: local("Noto Serif KR");
    font-weight: 700;
    unicode-range: U+3040-309F;
 }
 
-@font-face
-{
+@font-face {
    font-family: "Pseudo Katakana";
    src: local("Noto Sans KR");
    font-weight: 700;
    unicode-range: U+30a0-30FF;
 }
 
-@font-face
-{
+@font-face {
    font-family: "Pseudo Kanji Serif";
    src: local("Noto Serif KR");
    font-weight: 700;
    unicode-range: U+4E00-9FFF;
 }
 
-@font-face
-{
+@font-face {
    font-family: "Pseudo Kanji Sans";
    src: local("Noto Sans KR");
    font-weight: 700;
    unicode-range: U+4E00-9FFF;
 }
 
-.pseudo-letter-italic
-{
+.pseudo-letter-italic {
    font-family: "Alegreya", "Noto Serif", serif;
    font-style: italic;
    font-weight: 500;
 }
 
-.pseudo-letter-bold
-{
+.pseudo-letter-bold {
    font-family: "Alegreya", "Noto Serif", serif;
    font-weight: 700;
 }
 
-.pseudo-letter-serif-black
-{
+.pseudo-letter-serif-black {
    font-family: "Pseudo Kanji Serif", "Alegreya", "Noto Serif", serif;
    font-weight: 700;
 }
 
-.pseudo-letter-sans-black
-{
+.pseudo-letter-sans-black {
    font-family: "Pseudo Kanji Sans", "Alegreya Sans", "Noto Sans", sans-serif;
    font-weight: 700;
 }
 
-.pseudo-sign
-{
+.pseudo-sign {
    font-family: "Pseudo Hiragana", "Pseudo Katakana", "Noto Serif KR", serif;
    font-weight: 700;
 }

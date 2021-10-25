@@ -2,7 +2,7 @@
 @@random variables seemingly #arise in two contexts.@@ _
 @@in a microscopic system, the collapse of wave function $produces truly random outcomes,@@
 @@since Bell inequality $disallows any possibility of hidden variables.@@ _
-@@let us call quantum systems, for brevity to be first kind random>.@@ '
+@@for brevity, let us call quantum systems to be first kind random>.@@ '
 
 @@but what is the nature of macroscopic randomness?@@ _
 @@in fact, classical mechanics $describes the evolution of a classical system in the phase space,@@
@@ -70,7 +70,7 @@
 @@from the thought experiments above, I #maintain <that there is actually nothing random about these allegedly random objects>,@@
 @@and the perceived randomness $comes from the environment.@@ _
 @@for a classical system, the measured target is deterministic,@@
-@@and it is the external force exerted, {that $looks to be random}.@@ _
+@@and it is the external force exerted, {which $looks to be random}.@@ _
 @@for a quantum system, the measured target’s wave function similarly $evolves in a deterministic manner in the Schrödinger picture,@@
 @@and the measurement $filters out alternative components, leaving them correlated with the apparatus, in a way determined by the current state of the environment.@@ _
 @@the only difference between them is <that each lottery ball $has a clear position, and each electron $doesn’t have a position without being seen>.@@ _

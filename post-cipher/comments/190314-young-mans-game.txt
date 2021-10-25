@@ -9,7 +9,7 @@
 
 @@I @searched about him,@@
 @@and it was &said on Math Overflow <that he had &published some crackpot papers, like a shortened proof of Feit- Thompson theorem and nonexistence of complex 6- sphere>.@@ _
-@@(although, to be honest, the first time {I heard of Atiyah} was the reference to Atiyah- Singer index theorem in «Not Even Wrong» by Peter Woit.)@@ '
+@@(although, to be honest, the first time {I heard of Atiyah} was the reference to the Atiyah- Singer index theorem in «Not Even Wrong» by Peter Woit.)@@ '
 
 @@I @saw the whole video,@@
 @@and I wasn’t &prepared for this.@@ _
@@ -20,7 +20,7 @@
 @@and most of it @didn’t make sense.@@ _
 @@the audience was silent when Atiyah @finished talking and @asked them <whether they @had questions>.@@ '
 
-@@Atiyah @died in January 2019, 4 months later the speech,@@
+@@Atiyah @died in January 2019, 4 months after the speech,@@
 @@and he probably @died thinking <he had &resolved a problem even greater than the index theorem>.@@ '
 ===
 
@@ -34,7 +34,7 @@
 @@it $appears <there are few decisive quantitative researches>,@@
 @@and the question $does look too broad to settle.@@ _
 @@I am not able to write a survey,@@
-@@but I can share my guess in possible underlying reasons.@@ '
+@@but I can share my guess on possible underlying reasons.@@ '
 ===
 
 ===
@@ -44,8 +44,8 @@
 @@that is to say, people #put it the way <that once you are past 40 you are &doomed, and you are never %going to do any decent research ever.@@ _
 @@this is absurd:@@
 @@the journey of life isn’t a step function.@@ _
-@@if some calculation takes a 20- year- old 5 minute, it might take a 60- year- old 15 minute,@@
-@@but the 60- year- old can still do it, once his or her mental faculty is intact.@@ _
+@@if some calculation takes a 20- year- old 5 minutes, it might take a 60- year- old 15 minutes,@@
+@@but the 60- year- old can still do it, once his or her mental faculties are intact.@@ _
 @@the same, I believe, can be said of other creative professions.@@ '
 
 @@or it may just be <that middle aged people #have more obligations than young people #have>,@@
@@ -54,13 +54,13 @@
 @@without saying, female mathematicians like Sofya Kovalevskaya and Emmy Noether obviously @underwent lots of pressure.@@ _
 @@(the reader may want to read ‹Too Much Happiness› by Alice Munro for Kovalevskaya’s story.)@@ _
 @@moreover, men were &thought to be responsible for family income.@@ _
-@@male mathematicians {who @didn’t made progress in their research for some time}, may be forced to turn to something more profitable.@@ _
+@@male mathematicians {who @didn’t make progress in their research for some time}, may be forced to turn to something more profitable.@@ _
 @@therefore, both women and men in their middle age had &been under immense social pressure {that @discouraged them from undertaking creative work without much compensation, like mathematics}.@@ _
-@@this further $agrees the impression (as Hardy would have said) <that young people are more willing to take risks by considering difficult fields of research>.@@ _
+@@this further $agrees with the impression (as Hardy would have said) <that young people are more willing to take risks by considering difficult fields of research>.@@ _
 @@furthermore, full time professors are sometimes &occupied with administrative tasks and teaching, making it more daunting to attack tough problems.@@ '
 
 @@so this is my take on the “juvenile thesis”.@@ _
-@@the old age may somehow reduce creativity, but only quantitatively rather than qualitatively.@@ _
+@@old age may somehow reduce creativity, but only quantitatively rather than qualitatively.@@ _
 @@social and family obligations too may be a distraction, if not a restriction.@@ _
 @@we should keep in mind, though, <that youthful vigor won’t forever be with us, and every day should be spent wisely>.@@ '
 ===

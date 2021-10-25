@@ -3,21 +3,21 @@
    @@install Arch Linux@@
    \\https://www.violapterin.com/post/170317-installing-arch-linux.html\\
    @@on my Lenovo Thinkpad.@@ _
-@@this way, I was %having two working computer, one Arch Linux on Thinkpad, one Windows on Suface,@@
+@@this way, I was %having two working computers, one Arch Linux on Thinkpad, one Windows on Surface,@@
 @@and Dropbox @enabled file- sharing between them.@@ _
 @@so why @did I choose Arch in the first place?@@ _
 @@by then I hadn’t &had any Linux experience,@@
 @@and on seeing some internet posts {which @compared Linux distributions}, my impression was <that Arch @allowed more customization}, {which @sounded like my inclination}>.@@ _
 @@in addition, I @thought <that if I @partitioned the disk in person, it would be easier to modify the partition later>.@@
 @@I @didn’t know <installation was so &convoluted>,@@
-@@but it wasn’t real difficulty for me.@@ _
+@@but it wasn’t a real difficulty for me.@@ _
 
 @@in May 2020, I @started to use, on my Surface, the Windows subsystem for Linux– a new application {Microsoft @proposed to please Linux devotees}.@@ _
-@@it @had most functionality {Linux @had},@@
+@@it @had most of the functionality {Linux @had},@@
 @@and particularly conveniently, I could open files with the Windows file explorer, and edit with VS Code, without transferring files from Dropbox.@@ _
 @@from then on, I @used Arch on Thinkpad less and less.@@ '
 
-@@in October 18, 2020, when I @tried to update Arch the first time after a while, Pacman told me there were conflicting files.@@ _
+@@on October 18, 2020, when I @tried to update Arch for the first time after a while, Pacman told me there were conflicting files.@@ _
 @@I @uninstalled several conflicting packages on the warning list, intending to reinstall everything;@@
 @@after having &restarted the laptop, the desktop was emptier,@@
 @@and Pacman wasn’t even &recognized by the terminal.@@ _
@@ -32,7 +32,7 @@
 
 @@it has &been almost a year,@@
 @@and Ubuntu is %doing fine.@@ _
-@@there have never &been conflict in updating, even when I haven’t &updated for a month.@@ _
+@@there have never &been conflicts in updating, even when I haven’t &updated for a month.@@ _
 @@now I @don’t understand the appeal of Arch at all.@@ _
 @@I can’t think of a thing {which Arch can do, but Ubuntu can’t}.@@ _
 @@unless you are %undertaking highly technical work {which really $requires Arch’s flexibility and privilege and you are well- versed in Linux}, I simply #suggest Ubuntu.@@ '

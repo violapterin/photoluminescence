@@ -6,7 +6,7 @@
 @@and <that they were %having a clearance sale>.@@ _
 @@the post was &written by the shop owner, Mr Wenxian Sun [孫 文 先] himself.@@ '
 
-@@on March 3, fearing good books would soon get sold out, I @visited Nine Chapters, some 6 years after the last time.@@ _
+@@on March 3, fearing good books would soon get sold out, I @visited Nine Chapters, years later since the last time.@@ _
 @@recognizing the plaque in calligraphic style, I @pushed the glass door, {which @struck the wind chime}, and @entered the once- familiar room with shorter shelves in the center and taller shelves in the surroundings.@@ _
 @@on top of the shorter shelves were various puzzles, games, and models, including the Rush Hour, the Soma cube, the Tower of Hanoi, and wooden polyhedra, {many of which I @owned when I was a kid}, as if my childhood memories were some donated organs, taken out and being dissected on an operation table.@@ '
 ===
@@ -56,17 +56,17 @@
 @@mr Sun and his wife @established in 1978 Bookstore Nine Chapters, named after a nine- chapter mathematical treatise in the Han dynasty, since he @found educational materials on mathematics to be lacking.@@ _
 @@by then, Taiwan and Mainland China had &made temporary peace,@@
 @@but the Cold War hadn’t &ended;@@
-@@Mr Sun @grasped the opportunity of introducing books from the other side of the strait (including translations of monographs in Soviet Union), and @published those in Simplified Chinese again in Traditional Chinese.@@ _
-@@in their prime, many dissertations of top university students in Taiwan used to be typeset by Nine Chapters.@@ '
+@@Mr Sun @grasped the opportunity of introducing books from the other side of the strait (especially Simplified Chinese translations of Russian books in the Soviet Union), and @typeset those in Simplified Chinese again in Traditional Chinese.@@ _
+@@in their prime, many dissertations of top university students @used to be formatted by Nine Chapters.@@ '
 
 @@their book covers #look so shabby, I #suspect <they are &done by Microsoft Paint>.@@ _
 @@if you #inspect closely enough, you will find traces of manual typesetting:@@
 @@the letters aren’t perfectly &aligned,@@
 @@and some strokes are fainter;@@
 @@they must have &cut and &glued paper scraps on the master copy.@@ _
-@@what’s worse, equations are &riddled with typos, {which can confuse me for hours}.@@
+@@what’s worse, equations are &riddled with typos, {which can confuse me for hours}.@@ _
 @@however, they #don’t have time to fix all of that,@@
-@@but they will scan and release their older publications for free>.@@ '
+@@but they will scan their older publications and release the electronic files for free>.@@ '
 
 @@TeX and LaTeX @matured in the 1990s,@@
 @@and digital typesetting of mathematics has gradually &become the norm.@@ _
@@ -78,9 +78,9 @@
 ===
 @@today, I @had a hard time finding any book worth buying.@@ _
 @@olympiad problems, classical geometry, and solitaire board games, they no longer @seemed important anymore.@@ _
-@@I had @learnt analysis, statistics, and algebra, not too much but enough to take these toys lightly.@@ '
+@@I had @learnt analysis, statistics, and algebra, not too much but enough to take them lightly.@@ '
 
-@@yet there are grown- ups {who #consider none of these to be important, except of their cars, houses, and children}.@@ _
+@@yet there are grown- ups {who #don’t even consider analysis, statistics, and algebra to be important, except of their cars, houses, and children}.@@ _
 @@and maybe they will end up being correct.@@ _
 @@or maybe we will get old enough to realize <that nothing $matters whatsoever>.@@ _
 @@everything is a puzzle {we #play to feel being here}.@@ _
@@ -95,7 +95,7 @@
 @@“um, no, thanks.”@@ '
 
 @@“well, if you #say so.@@ _
-@@but I can’t remember the price.@@ _
+@@strangely, I can’t find the record of the price.@@ _
 @@how much is the Olympiad Inequalities?” He called his wife.@@ _
 @@“whatever.@@ _
 @@young man, let’s just call it 400 NTD.”@@ '
@@ -106,7 +106,7 @@
 @@“what’s up?”@@ _
 @@he @asked, not recognizing me.@@ '
 
-@@“nothing.@@ _
+@@“it’s nothing.@@ _
 @@thank you very much.”@@ '
 ===
 
@@ -121,7 +121,7 @@
 ===
 
 ===
-@@the building, I #imagine, is about to be obliterated, {where the shelves have &collapsed, the polyhedron models are &dislodged from the latch, and toy blocks are &littered on the ground}.@@ _
+@@the building, I #imagine, is about to be obliterated, {where the shelves have &collapsed, the polyhedron models are &dislodged from the latches, and toy blocks are &littered all over the ground}.@@ _
 @@I #have to carefully step over broken glass to enter the unlit room.@@ _
 @@curling up in the corner, a little boy is %playing the Rush Hour again.@@ '
 
