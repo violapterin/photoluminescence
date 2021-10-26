@@ -17,10 +17,10 @@ const texts= [
    feindselig, störrisch oder misanthropisch<br>
    haltet oder erkläret, wie unrecht tut ihr mir!`,
    // // // // // // // //
-   `&emsp;&emsp;&emsp;&emsp;Fame is a bee.<br>
-   &emsp;&emsp;&emsp;&emsp;It has a song—<br>
-   &emsp;&emsp;&emsp;&emsp;It has a sting—<br>
-   &emsp;&emsp;&emsp;&emsp;Ah, too, it has a wing.`,
+   `&emsp;&emsp;But just to hear the Grace depart—<br>
+   &emsp;&emsp;I never thought to see—<br>
+   &emsp;&emsp;Afflicts me with a Double loss—<br>
+   &emsp;&emsp;’Tis lost— and lost to me —`,
    // // // // // // // //
    `&emsp;&emsp;Now—for a breath I tarry<br>
    &emsp;&emsp;Nor yet disperse apart—<br>

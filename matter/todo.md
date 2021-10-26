@@ -4,17 +4,13 @@
 
 1. Speech of Linshan Li
 
-1. A naked dance
-
 ## Comments
 
-1. English modal verbs
+1. Pricing Banksy works
 
-1. Technological unemployment
+1. the Metaverse
 
 1. Cyrillic alphabets in math
-
-1. Macroscopic and microscopic randomness
 
 1. Classifying Kindle books
 
@@ -34,21 +30,19 @@
 
 ## Data
 
-1. German irregular verbs
-
 ## Inventions
 
 ## Fictions
 
 ## Meta
 
+1. Catch error from broken connection
+
 1. Capture: Split PDF files with respect to genre
 
 1. Capture: Compare time stamp of tuned images and PDF
 
 1. Capture: Page numbers?
-
-1. Porphyrin: Do not separate last item in main of triplet, with the rest
 
 1. Filter duplicate posts with the same stamp (resulted by renaming)
 

@@ -40,7 +40,7 @@ tune() {
       # brightness-contrast: percentage x percentage
       # adaptive-sharpen: radius x level
       many_option=" \
-         -brightness-contrast 6x12 \
+         -brightness-contrast 4x12 \
          -adaptive-sharpen 1x3 \
          "
       set -x

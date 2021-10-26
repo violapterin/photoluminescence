@@ -198,7 +198,7 @@ def write_catalog(whether_short, matter, folder_post, heading, many_catalog):
    many_whole.append(header_page)
    many_whole.append("<main class=\"document\">")
    entity = "<p class=\"title-catalog\">"
-   bound_symbol = 60
+   bound_symbol = 48
    count_symbol = 0
    padding = 4
    for name, catalog in many_catalog.items():

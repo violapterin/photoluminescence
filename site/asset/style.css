@@ -18,25 +18,37 @@
 /* pseudo-serif pseudo-sans pseudo-mono */
 
 body {
-   width: 960px; 
-   font-size: 26px;
+   margin: auto;
+   padding: 0px;
+   width: 1050px; 
+   font-size: 27px;
 }
 @media screen and (max-width: 1500px) {
-   body { width: 750px; font-size: 22px; }
+   body {
+      width: 800px;
+      font-size: 22px;
+   }
 }
 @media screen and (max-width: 900px) {
-   body { width: 600px; font-size: 18px; }
+   body {
+      width: 600px;
+      font-size: 18px;
+   }
 }
 @media screen and (max-width: 600px) {
-   body { width: 450px; font-size: 15px; }
+   body {
+      width: 450px;
+      font-size: 15px;
+   }
 }
-@media screen and (max-width: 450px) {
-   body { width: 360px; font-size: 12px; }
+@media screen and (max-width: 600px) {
+   body {
+      width: 350px;
+      font-size: 13px;
+   }
 }
 
-body, header,
-#header-banner, #header-page, #header-post,
-#footer-whole {
+#header-page, #header-post {
    margin: auto;
    padding: 0px;
 }
@@ -47,19 +59,24 @@ body {
 
 #header-banner, .essay, #footer-whole {
    margin: 12px auto;
-   padding: 12px 24px;
+   padding: 6px 0px;
    width: 100%;
    background-color: white;
 }
 @media screen and (max-width: 900px) {
    #header-banner, .essay, #footer-whole {
-      padding: 8px 16px;
+      margin: 8px auto;
    }
 }
 @media screen and (max-width: 600px) {
    #header-banner, .essay, #footer-whole {
-      padding: 4px 8px;
+      margin: 4px auto;
    }
+}
+
+.document {
+   margin: 0px 12px;
+   padding: 0px;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -72,12 +89,12 @@ body {
 }
 @media screen and (max-width: 1500px) {
    .section {
-      margin: 18px 24px;
+      margin: 18px 16px;
    }
 }
 @media screen and (max-width: 900px) {
    .section {
-      margin: 12px 16px;
+      margin: 12px 8px;
    }
 }
 
@@ -87,12 +104,12 @@ body {
 }
 @media screen and (max-width: 1500px) {
    .stanza {
-      margin: 18px 32px;
+      margin: 18px 24px;
    }
 }
 @media screen and (max-width: 900px) {
    .stanza {
-      margin: 12px 24px;
+      margin: 12px 12px;
    }
 }
 
@@ -104,12 +121,12 @@ body {
 }
 @media screen and (max-width: 1500px) {
    .array {
-      margin: 18px 16px;
+      margin: 18px 12px;
    }
 }
 @media screen and (max-width: 900px) {
    .array {
-      margin: 12px 12px;
+      margin: 12px 6px;
    }
 }
 
@@ -182,9 +199,7 @@ tr .cell {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-header, main,
-p, div, table,
-span, em, b {
+header, main, p, div, table, span, em, b {
    font-family: "Alegreya", "Noto Serif CJK KR", serif;
    font-weight: 400;
    font-variant-ligatures: common-ligatures;
@@ -225,8 +240,7 @@ code, .mono {
    word-break: keep-all;
 }
 
-.serif-italic, .serif-bold,
-.sans-roman, .sans-bold, .mono {
+.serif-italic, .serif-bold, .sans-roman, .sans-bold, .mono {
    margin: 0px;
    padding: 0px;
 }
@@ -292,12 +306,12 @@ code, .mono {
 }
 @media screen and (max-width: 900px) {
    #name-site .tagline-site {
-      font-size: 18px;
+      font-size: 16px;
    }
 }
 @media screen and (max-width: 600px) {
    #name-site .tagline-site {
-      font-size: 16px;
+      font-size: 12px;
    }
 }
 
@@ -495,13 +509,13 @@ code, .mono {
 @media screen and (max-width: 900px) {
    .title-catalog .display {
       margin: 0px 8px;
-      font-size: 24px;
+      font-size: 22px;
    }
 }
 @media screen and (max-width: 600px) {
    .title-catalog .display {
       margin: 0px 4px;
-      font-size: 20px;
+      font-size: 16px;
    }
 }
 
@@ -622,7 +636,6 @@ code, .mono {
    background-color: powderblue;
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -645,7 +658,7 @@ code, .mono {
 
 #footer-quote {
    margin: 0px auto;
-   padding: 0px 0px 0px 20px;
+   padding: 12px 12px 0px 60px;
    color: dimgray;
    font-style: italic;
    text-align: left;
@@ -675,8 +688,7 @@ code, .mono {
    height: auto;
 }
 
-.footer-author, .footer-motto, .footer-icon,
-.footer-profile {
+.footer-author, .footer-motto, .footer-icon, .footer-profile {
    margin: 6px 6px;
    padding: 0px;
 }
@@ -740,7 +752,6 @@ code, .mono {
 .math-pair, .math-triplet, .math-tuple,
 .math-serif, .math-sans, .math-mono {
    color: midnightblue;
-   /*color: #300053;*/
 }
 
 
