@@ -50,7 +50,7 @@ class Math_letter(Leaf):
             "\\bot", "\\top", "\\S",
             "\\Lambda", "\\mho", "\\nabla",
             "\\%", "\\Pi", "\\Theta",
-            "\\surd", "\\Sigma", "\\mathrm{d}",
+            "\\surd\\!", "\\Sigma", "\\mathrm{d}",
             "\\Upsilon", "\\$", "\\Omega",
             "\\#", "\\Psi", "\\partial",
          )

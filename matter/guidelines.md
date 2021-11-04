@@ -30,9 +30,11 @@
 
 ## Transliteration
 
-| | Romance orthography | other orthography | phonology | sense |
-| --- | --- | --- | --- | --- |
-| in linguistic discussions | normal, bold | official orthography | in brackets | italic |
-| in fictions | normal, no diacritics | distinguish vowel length, no diacritics | all capital | in single quotes |
-| elsewhere | normal | official orthography, no diacritics | all capital  | in single quotes  |
+| | modern | ancient |
+| --- | --- | --- |
+| deep proper names | capitalized, orthography | all capital, phonology |
+| shallow proper names | capitalized, orthography | capitalized, single quotes, glossary |
+| deep improper nouns | all lower, double quotes orthography | all capital, phonology |
+| shallow improper nouns | all lower, double quotes, orthography | all lower, single quotes, glossary |
+
 

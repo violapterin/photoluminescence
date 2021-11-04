@@ -270,9 +270,10 @@ code, .mono {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #header-banner #name-site, #header-banner #menu {
-   margin: 6px 12px;
+   margin: 3px 12px;
    padding: 0px 60px;
    text-align: center;
+   line-height: 100%;
 }
 @media screen and (max-width: 900px) {
    #header-banner #name-site, #header-banner #menu {
@@ -336,7 +337,7 @@ code, .mono {
 }
 
 #header-banner #banner {
-   width: 90%;
+   width: 85%;
    margin: 0px auto;
    display: block;
 }
