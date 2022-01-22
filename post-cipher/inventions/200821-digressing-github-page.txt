@@ -82,6 +82,6 @@
    @@«Homotopy Type Theory»@@
    \\https://homotopytypetheory.org/book\\ '
 @@❉@@ @@Coq,@@
-   @@‹Typing rules›@@
+   @@‹Typing Rules›@@
    \\https://coq.inria.fr/refman/language/cic.html\\ '
 ===

@@ -36,6 +36,12 @@ const texts= [
    is right now. This one spectacular moment we<br>
    are sharing together. Right, Sarah Lynn?`,
    // // // // // // // //
+   `&emsp;“I know that having a good vocabulary
+   doesn’t guarantee that I’m a good person,”
+   the boy said. “But it does mean I’ve read a
+   great deal. And in my experience, well-read
+   people are less likely to be evil.”`,
+   // // // // // // // //
 ];
 var choice = Math.floor(Math.random() * texts.length);
 document.getElementById("footer-quote").innerHTML = texts[choice];

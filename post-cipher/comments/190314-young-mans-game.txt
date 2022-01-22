@@ -75,13 +75,13 @@
 === ##references## ===
 
 ===
-@@❉@@ @@S Cole, ‹Age and scientific performance›.@@ _
+@@❉@@ @@S Cole, ‹Age and Scientific Performance›.@@ _
    @@In «American Journal of Sociology», 1979@@ '
 @@❉@@ @@R Crowell,@@ @@‹On Michael Atiyah and the Riemann Hypothesis›@@
    \\https://blogs.ams.org/blogonmathblogs/2018/10/01/on-michael-atiyah-and-the-riemann-hypothesis/\\ @@.@@ _
    @@In AMS blogs, 2008@@ '
-@@❉@@ @@R Hersh, ‹Mathematical menopause, or, a young man’s game?›.@@ _
+@@❉@@ @@R Hersh, ‹Mathematical Menopause, or, a Young Man’s Game?›.@@ _
    @@In «The Mathematical Intelligencer», 2001@@ '
-@@❉@@ @@N Stern, ‹Age and achievement in mathematics: A case- study in the sociology of science›.@@ _
+@@❉@@ @@N Stern, ‹Age and Achievement in Mathematics: A Case- Study in the Sociology of Science›.@@ _
    @@In «Social Studies of Science», 1978@@ '
 ===

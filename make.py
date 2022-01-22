@@ -473,7 +473,7 @@ def give_genres():
       "readings": "reflective",
       "satires": "sincere",
       "aphorisms": "anomalous",
-      "memories": "misleading",
+      "mnemonics": "misleading",
       "fictions": "fantastic",
    }
    genres = {}

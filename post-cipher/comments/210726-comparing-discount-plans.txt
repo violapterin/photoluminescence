@@ -16,10 +16,10 @@
 @@and when there is a tie, she $minimizes the total price.@@ _
 @@certainly, this isn’t perfect either, because it may be absurd to see it a better bargain to buy many option items to get more discount.@@ _
 @@(but people #do that all the time.)@@ _
-@@in other words, we #have the equations:@@ '
+@@in other words, we #have the assumptions:@@ '
 
 ^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]
-   "each" "is" "mutually" "exclusive" "and" "collectively" "exhaustive" "of" &p.;^^ '
+   "are" "mutually" "exclusive" "and" "collectively" "exhaustive" "of" &p.;^^ '
 ^^.q
    <6 &q.;^^ '
 ^^[: .P: .n]
@@ -31,9 +31,10 @@
    <0 [:.P: .n].,
    `for` [:.d: .n] <6 &d.;^^ '
 ^^[:&p: .0]., [:&p: .1]., /6., [:&p: .N]., .q
-   .= 'argmin' [:.P: .0] .[[:&p!!: .0]., /6., [:&p!!: .N].].;^^ '
+   .= [:'argmin': [:&p!!: .0]., /6., [:&p!!: .N]., .q!!]
+      [:.P: .0] .[[:&p!!: .0]., /6., [:&p!!: .N].].;^^ '
 ^^.q
-   .= 'argmin' .T .[.q!!.].;^^ '
+   .= [:'argmin': .q!!] .T .[.q!!.].;^^ '
 
 @@taking this view, we #implement a brute force approach below.@@ '
 ===
