@@ -17,23 +17,19 @@ compile() {
 tune() {
    SUFFIX_IN="png"
    SUFFIX_OUT="png"
-   for path_in in $1/*
-   do
-      if [ ! -f "${path_in}" ]
-      then
+   for path_in in $1/*; do
+      if [ ! -f "${path_in}" ]; then
          continue
       fi
       name="$(basename ${path_in})"
       bare="${name%.*}"
       suffix="${name##*.}"
-      if [ "${suffix}" != "${SUFFIX_IN}" ]
-      then
+      if [ "${suffix}" != "${SUFFIX_IN}" ]; then
          continue
       fi
       path_out="$2/${bare}.${SUFFIX_OUT}"
       # # Compare time stamps:
-      if [ "${path_out}" -nt "${path_in}" ]
-      then
+      if [ "${path_out}" -nt "${path_in}" ]; then
          continue
       fi
       echo "tuning image ${path_in} ..."
@@ -42,6 +38,8 @@ tune() {
       many_option=" \
          -brightness-contrast 4x12 \
          -adaptive-sharpen 1x3 \
+         -density 300 \
+         -page b5 \
          "
       set -x
       convert ${path_in} ${many_option} ${path_out}
@@ -51,14 +49,12 @@ tune() {
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-if [ ! command -v convert &> /dev/null ]
-then
+if [ ! command -v convert &> /dev/null ]; then
     echo "Please install ImageMagick."
     exit
 fi
 
-if [ ! command -v gs &> /dev/null ]
-then
+if [ ! command -v gs &> /dev/null ]; then
     echo "Please install Ghostscript."
     exit
 fi
@@ -69,16 +65,13 @@ book="${THIS}/book"
 leaf="${book}/leaf"
 tuned="${book}/tuned"
 full="${book}/photoluminescence-full.${SUFFIX_OUT}"
-if [ ! -d "${book}" ]
-then
+if [ ! -d "${book}" ]; then
   mkdir "${book}"
 fi
-if [ ! -d "${leaf}" ]
-then
+if [ ! -d "${leaf}" ]; then
   mkdir "${leaf}"
 fi
-if [ ! -d "${tuned}" ]
-then
+if [ ! -d "${tuned}" ]; then
   mkdir "${tuned}"
 fi
 
