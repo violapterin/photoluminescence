@@ -1,28 +1,26 @@
 
 presently, I have about 800 electronic books in my laptop.
 they range from quantum field theory to algebraic geometry,
-ancient China classics to popular fictions,
-from abstruse monologues I have never read to textbooks I am so familiar from cover to cover that I have a trauma with.
+   from ancient China classics to popular fictions,
+   and from abstruse monologues I have never read to textbooks I am so familiar from cover to cover that I have a trauma with.
 
-I save all of them in PDF, due to the uniquity of the format.
-one thing I have been curious is why some PDFs are so compact, which may take some 100 MB to save some 500 pages, and some so bloated, which may take only some 5 MB for the same.
+I save all of them in PDF for consistency, due to the uniquity of the format.
+one thing I have been curious is why some PDFs are so bloated, which may take some 100 MB to save some 500 pages, and some so compact, which may take only some 5 MB for the same.
 in the beginning of 2020, I found, after a simple search, the site ILovePDF, which can compress PDFs in an unlimited number of times.
-indeed, some of the result is very well compressed, while some are less ideal, either remaining bloated or not compressed too much, but there is no parameter to supply manually.
+indeed, while some of the resulting files are very well compressed, others are less ideal, either hardly compressed at all or too harshly compressed to be legible, but there is no parameter to adjust manually.
 there are other competitors too, but they other problems.
-for example, Adobe have an online compression is limited to times;
-they intend to lure us it would be ridiculous to pay for Adobe DC just for that.
-CutePDF also prints, but the result is often even bigger, and the location of text can be off.
+for example, Adobe have an online compression which can only be used for free for limited times.
+the print to PDF functionality of CutePDF is free, but it could misplace the texts.
 
-are there some open source tools to do the same?
-for one thing, I am not sure whether ILovePDF pollute the file;
+I wonder if there are some open source tools to do the same.
+for one thing, I am not sure whether ILovePDF pollute the metadata;
 for another thing, I would like if there is a method to batch compress with Bash, rather then upload manually to the internet.
-I really have in mind to preserve the merticulously chosen PDFs, carefully copied in a USB, to keep with me in person, and even if a meteor is to hit the earth, aliens would after a geological epoch find the stick, and weep for the remains of humanity.
+it would be really nice to have these carefully chosen ebooks copied in a single USB and keep it with me all the time in my backpack, and even if a meteor happens to hit the earth, after a geological epoch the aliens would find the stick, bemoaning for the loss of humanity and delighting in the very remains.
 
-either by my faint memory or another search, I learnt that Ghostscript is just a versatile tool for PDFs.
-if I am not mistaken, for color and gray images, it uses discrete cosine transform to compress lossily, which is the core algorithm for JPEG;
-for monochrome images, it uses a variable- length Huffman coding to compress losslessly, which is the core alrogithm for CCITT Group 4.
+one versatile tool for manipulating PDFs is Ghostscript.
+from what I understood in the spec, for color and gray images, it used discrete cosine transform to compress lossily, which was the core algorithm for JPEG;
+for monochrome images, it used a variable- length Huffman coding to compress losslessly, which was the core alrogithm for CCITT Group 4.
 the following options ensures downsampling with Ghostscript.
-feel free to chagne these self explanatory parameters.
 
 ++gs \++ '
 _ ++-sDEVICE=pdfwrite \++ '
@@ -42,24 +40,24 @@ _ ++-dMonoImageResolution=300 \++ '
 _ ++-sOutputFile=output_file.pdf \++ '
 _ ++input_file.pdf++ '
 
-however, it continues to bewilder me that not all ratio is permitted.
-it finally resolves my confusion when I read that, when downsampling, Ghostscript does not recognize the bicubic method, but only the subsample method, which is meaningful only for interger ratios.
-
+however, several caveats continued to bewilder me.
+as an instance, not all ratio of monochrome is permitted;
+actually when downsampling, only the subsample method, which is meaningful only for interger ratios.
 furthermore, it is not as effective, especially for monochrome images, in which most of my piano scores are saved in.
-the reason turns out to be JBig2.
-unfortunately, JBig2 is patent protected,
-and Ghostscript can’t call it.
+some investigations reveal that CCITT Group 4 (which Ghostscript uses) is often inferior than JBig2 (which is patent protected and Ghostscript can’t use).
 
-another way is to rasterize everything with ImageMagick.
+another tool is ImageMagick, which rasterizes everything.
+it is able to adjust brightness and contrast, convert pixel more than a threshold, and convert to monochrome.
 
 convert -brightnessxcontrast 20x30 file_one.pdf file_two.pdf
 convert -threshold 60% file_one.pdf file_two.pdf
 convert -monochrome file_one.pdf file_two.pdf
 
-other useful commands include -blur, -sharp, -statistics
+other useful commands include -blur, -sharp, -statistics, for which we may consult the official documents.
 
-yet another tip, though not always effective, is to print to PDF with Xreader (formerly Evince).
+yet another tool, though not always effective, is to print to PDF with Xreader (formerly Evince) in Linux.
 
+unfortunately, 
 the matter sank in my mind for quite a while.
 I looked up Arch Linux Wiki to find what calls jbig2enc.
 luckily, on Jan 21, 2022, I found Pdfsizeopt, ending my quest perfectly.
@@ -67,6 +65,10 @@ often, ILovePDF compresses by 10 to 30 percent.
 
 what is less ideal is the fact that it does not allow to pass compression level.
 I am not able to read the code, but it does appear lossless.
+
+here is my suggestion.
+for monochrome scanned documents, use ImageMagick to flatten possible layers, and compress with GhostScript.
+for text documents, use Xreader then Ghostscript.
 
 ~~~
 
@@ -76,19 +78,14 @@ I am not able to read the code, but it does appear lossless.
 
 === ##references## ===
 
+===
 @@❉@@ @@Adobe,@@
    @@‹Adobe Distiller Parameters›@@
-   \\https://files.lfpp.csa.canon.com/media/Assets/PDFs/TSS/external/DPS400/Distillerpdfguide_v1_m56577569830529783.pdf\\
-
+   \\https://files.lfpp.csa.canon.com/media/Assets/PDFs/TSS/external/DPS400/Distillerpdfguide_v1_m56577569830529783.pdf\\ '
 @@❉@@ @@Ghostscript,@@
    @@‹High Level Output Devices›@@
-   \\https://www.ghostscript.com/doc/current/VectorDevices.htm\\
-
+   \\https://www.ghostscript.com/doc/current/VectorDevices.htm\\ '
 @@❉@@ @@P Szabó,@@
    @@‹PDF File Size Optimizer›@@
-   \\https://github.com/pts/pdfsizeopt\\
-
-
+   \\https://github.com/pts/pdfsizeopt\\ '
 ===
-@@❉@@ @@T Coquand and G Huet, ‹The Calculus of Constructions›.@@ _
-   @@«Information and Computation», 1988@@ '

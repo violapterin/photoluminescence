@@ -25,8 +25,12 @@ and they are certainly legal to use.
 many Loeb library, for example, are digitalized this way.
 
 in fact, some books evidently not in public domain are scanned and released by Internet Archive too.
-as an instance, some 5 years ago I found «Counterpoint» by Knud Jeppesen was scanned and released on Internet Archive,
-but he died on 1974, and his copyright should at least be valid 2024.
+The Berne Convention for the Protection of Literary and Artistic Works indicates that works should remain protected within 50 years from the death of the author.
+however, to take some random instances:
+   «Quantum Mechanics» (first published in 1958) by Lev Landau (who died in 1968),
+   «Real And Complex Analysis» (first published in 1966) Walter Rudin (who died in 2010),
+   English translation of «Counterpoint» (first published in 1931, translation in 1960) by Knud Jeppesen (who died in 1974)—
+   they are all on the Internet Archive.
 
 some search reveals that there is indeed some controversy
 a legal battle between copyright holders and Google on their alleged copyright violations continued for some years,
